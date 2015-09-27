@@ -6,3 +6,4 @@ Exec=mednafen -force_module psx %f
 Icon=icon
 Terminal=false
 Categories=emulators;
+X-OD-NeedsDownscaling=true
