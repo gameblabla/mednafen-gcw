@@ -1,0 +1,19 @@
+============================
+Mednafen mapping for GCW0
+============================
+
+Up : keyboard 273
+Down : keyboard 274
+Left : keyboard 276
+Right : keyboard 275
+
+A : keyboard 306
+B : keyboard 308
+X : keyboard 304
+Y : keyboard 32
+
+L : keyboard 9
+R : keyboard 8
+
+Start : keyboard 13
+Select : keyboard 27

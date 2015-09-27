@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MednafenPSX
+Comment=Mednafen (PSX Core)
+Exec=mednafen -force_module psx %f
+Icon=icon
+Terminal=false
+Categories=emulators;

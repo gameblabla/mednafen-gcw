@@ -205,16 +205,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O2 -fomit-frame-pointer
+CCASFLAGS = -O3 -fomit-frame-pointer
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O2 -fomit-frame-pointer
+CFLAGS = -O3 -fomit-frame-pointer
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O2 -fomit-frame-pointer -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  -I/home/hatsune/Ndless/ndless-sdk//include/SDL
