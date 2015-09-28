@@ -54,9 +54,9 @@ host_triplet = mipsel-unknown-linux-gnu
 target_triplet = mipsel-unknown-linux-gnu
 am__append_1 = ym2413/emu2413.cpp
 am__append_2 = ym2612/Ym2612_Emu.cpp
-am__append_3 = gb_apu/Gb_Apu.cpp gb_apu/Gb_Apu_State.cpp gb_apu/Gb_Oscs.cpp
+#am__append_3 = gb_apu/Gb_Apu.cpp gb_apu/Gb_Apu_State.cpp gb_apu/Gb_Oscs.cpp
 am__append_4 = sms_apu/Sms_Apu.cpp
-am__append_5 = pce_psg/pce_psg.cpp
+#am__append_5 = pce_psg/pce_psg.cpp
 subdir = src/hw_sound
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -104,11 +104,11 @@ am__libmdfnhwsound_a_SOURCES_DIST = ym2413/emu2413.cpp \
 am__dirstamp = $(am__leading_dot)dirstamp
 am__objects_1 = ym2413/emu2413.$(OBJEXT)
 am__objects_2 = ym2612/Ym2612_Emu.$(OBJEXT)
-am__objects_3 = gb_apu/Gb_Apu.$(OBJEXT) \
-	gb_apu/Gb_Apu_State.$(OBJEXT) \
-	gb_apu/Gb_Oscs.$(OBJEXT)
+#am__objects_3 = gb_apu/Gb_Apu.$(OBJEXT) \
+#	gb_apu/Gb_Apu_State.$(OBJEXT) \
+#	gb_apu/Gb_Oscs.$(OBJEXT)
 am__objects_4 = sms_apu/Sms_Apu.$(OBJEXT)
-am__objects_5 = pce_psg/pce_psg.$(OBJEXT)
+#am__objects_5 = pce_psg/pce_psg.$(OBJEXT)
 am_libmdfnhwsound_a_OBJECTS = $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3) $(am__objects_4) $(am__objects_5)
 libmdfnhwsound_a_OBJECTS = $(am_libmdfnhwsound_a_OBJECTS)
@@ -165,16 +165,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O3 -fomit-frame-pointer
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -fomit-frame-pointer
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O3 -fomit-frame-pointer -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H 
@@ -217,7 +217,7 @@ INTL_MACOSX_LIBS =
 JACK_CFLAGS = 
 JACK_LIBS = 
 LD = /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -Wl,--as-needed -flto
+LDFLAGS = -Wl,--as-needed -Wl,--gc-sections -flto
 LIBICONV = -liconv
 LIBINTL = -lintl
 LIBMULTITHREAD = -lpthread

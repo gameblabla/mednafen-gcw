@@ -56,7 +56,7 @@ host_triplet = mipsel-unknown-linux-gnu
 target_triplet = mipsel-unknown-linux-gnu
 am__append_1 = c68k/c68kexec.cpp c68k/c68k.cpp
 am__append_2 = z80-fuse/z80.cpp z80-fuse/z80_ops.cpp
-am__append_3 = v810/v810_cpu.cpp v810/v810_cpuD.cpp v810/v810_fp_ops.cpp
+#am__append_3 = v810/v810_cpu.cpp v810/v810_cpuD.cpp v810/v810_fp_ops.cpp
 #am__append_4 = huc6280/huc6280.cpp
 ##am__append_5 = huc6280/dis6280.cpp
 subdir = src/hw_cpu
@@ -108,9 +108,9 @@ am__objects_1 = c68k/c68kexec.$(OBJEXT) \
 	c68k/c68k.$(OBJEXT)
 am__objects_2 = z80-fuse/z80.$(OBJEXT) \
 	z80-fuse/z80_ops.$(OBJEXT)
-am__objects_3 = v810/v810_cpu.$(OBJEXT) \
-	v810/v810_cpuD.$(OBJEXT) \
-	v810/v810_fp_ops.$(OBJEXT)
+#am__objects_3 = v810/v810_cpu.$(OBJEXT) \
+#	v810/v810_cpuD.$(OBJEXT) \
+#	v810/v810_fp_ops.$(OBJEXT)
 #am__objects_4 = huc6280/huc6280.$(OBJEXT)
 ##am__objects_5 = huc6280/dis6280.$(OBJEXT)
 am_libmdfnhwcpu_a_OBJECTS = $(am__objects_1) $(am__objects_2) \
@@ -207,16 +207,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O3 -fomit-frame-pointer
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -fomit-frame-pointer
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O3 -fomit-frame-pointer -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  
@@ -259,7 +259,7 @@ INTL_MACOSX_LIBS =
 JACK_CFLAGS = 
 JACK_LIBS = 
 LD = /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -Wl,--as-needed -flto
+LDFLAGS = -Wl,--as-needed -Wl,--gc-sections -flto
 LIBICONV = -liconv
 LIBINTL = -lintl
 LIBMULTITHREAD = -lpthread

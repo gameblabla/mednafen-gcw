@@ -52,7 +52,7 @@ POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
 host_triplet = mipsel-unknown-linux-gnu
 target_triplet = mipsel-unknown-linux-gnu
-am__append_1 = arcade_card/arcade_card.cpp
+#am__append_1 = arcade_card/arcade_card.cpp
 subdir = src/hw_misc
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -95,8 +95,8 @@ libmdfnhwmisc_a_AR = $(AR) $(ARFLAGS)
 libmdfnhwmisc_a_LIBADD =
 am__libmdfnhwmisc_a_SOURCES_DIST = arcade_card/arcade_card.cpp
 am__dirstamp = $(am__leading_dot)dirstamp
-am__objects_1 =  \
-	arcade_card/arcade_card.$(OBJEXT)
+#am__objects_1 =  \
+#	arcade_card/arcade_card.$(OBJEXT)
 am_libmdfnhwmisc_a_OBJECTS = $(am__objects_1)
 libmdfnhwmisc_a_OBJECTS = $(am_libmdfnhwmisc_a_OBJECTS)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -152,16 +152,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O3 -fomit-frame-pointer
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -fomit-frame-pointer
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O3 -fomit-frame-pointer -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H 
@@ -204,7 +204,7 @@ INTL_MACOSX_LIBS =
 JACK_CFLAGS = 
 JACK_LIBS = 
 LD = /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -Wl,--as-needed -flto
+LDFLAGS = -Wl,--as-needed -Wl,--gc-sections -flto
 LIBICONV = -liconv
 LIBINTL = -lintl
 LIBMULTITHREAD = -lpthread

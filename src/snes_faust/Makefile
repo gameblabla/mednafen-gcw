@@ -148,16 +148,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O3 -fomit-frame-pointer
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -fomit-frame-pointer
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O3 -fomit-frame-pointer -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fdata-sections -ffunction-sections -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H     -funroll-loops
@@ -200,7 +200,7 @@ INTL_MACOSX_LIBS =
 JACK_CFLAGS = 
 JACK_LIBS = 
 LD = /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -Wl,--as-needed -flto
+LDFLAGS = -Wl,--as-needed -Wl,--gc-sections -flto
 LIBICONV = -liconv
 LIBINTL = -lintl
 LIBMULTITHREAD = -lpthread

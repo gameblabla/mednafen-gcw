@@ -637,10 +637,10 @@
 /* #undef WANT_FANCY_SCALERS */
 
 /* Define if we are compiling with GBA emulation. */
-#define WANT_GBA_EMU 1
+/* #undef WANT_GBA_EMU */
 
 /* Define if we are compiling with GB emulation. */
-#define WANT_GB_EMU 1
+/* #undef WANT_GB_EMU */
 
 /* Define if we are compiling with internal CJK fonts. */
 #define WANT_INTERNAL_CJK 1
@@ -652,19 +652,19 @@
 #define WANT_MD_EMU 1
 
 /* Define if we are compiling with NES emulation. */
-#define WANT_NES_EMU 1
+/* #undef WANT_NES_EMU */
 
 /* Define if we are compiling with NGP emulation. */
-#define WANT_NGP_EMU 1
+/* #undef WANT_NGP_EMU */
 
 /* Define if we are compiling with PCE emulation. */
 /* #undef WANT_PCE_EMU */
 
 /* Define if we are compiling with separate fast PCE emulation. */
-#define WANT_PCE_FAST_EMU 1
+/* #undef WANT_PCE_FAST_EMU */
 
 /* Define if we are compiling with PC-FX emulation. */
-#define WANT_PCFX_EMU 1
+/* #undef WANT_PCFX_EMU */
 
 /* Define if we are compiling with PlayStation emulation. */
 #define WANT_PSX_EMU 1
@@ -673,16 +673,16 @@
 #define WANT_SMS_EMU 1
 
 /* Define if we are compiling with SNES emulation. */
-#define WANT_SNES_EMU 1
+/* #undef WANT_SNES_EMU */
 
 /* Define if we are compiling with shrieking zombies. */
 /* #undef WANT_SNES_FAUST_EMU */
 
 /* Define if we are compiling with Virtual Boy emulation. */
-#define WANT_VB_EMU 1
+/* #undef WANT_VB_EMU */
 
 /* Define if we are compiling with WonderSwan emulation. */
-#define WANT_WSWAN_EMU 1
+/* #undef WANT_WSWAN_EMU */
 
 /* Define if we are compiling for Win32. */
 /* #undef WIN32 */
