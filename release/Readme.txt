@@ -30,17 +30,15 @@ CONTROLS
 
 Each core had their input optimised for the GCW0.
 (With the exception of the stick not being used, stay used for new updates)
-If you have any input issues with a game,  you can configure them by pressing Start+Select.
-To Exit, press Select+L.
 
-Exit : Select + L
-Configure Controls : Start+Select
+Exit : Select + X
+Configure Controls : Start + X
 
 ================
 INSTALLATION
 ================
 First of all,
-put the file mednafen-09x.cfg in /usr/local/home/.mednafen.
+put the file mednafen-09x.cfg in /media/home/.mednafen.
 If the folder ".mednafen" does not exist, create it and place the file there.
 
 Then, put both opk files in /media/data/apps.
