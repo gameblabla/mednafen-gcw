@@ -7,3 +7,4 @@ Icon=icon
 Terminal=false
 Categories=emulators;
 X-OD-NeedsDownscaling=true
+MimeType=application/x-cue;text/file;
