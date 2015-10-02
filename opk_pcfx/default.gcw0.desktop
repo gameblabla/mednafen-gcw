@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Mednafen PCFX
+Comment=Mednafen (PCFX Core)
+Exec=mednafen -force_module pcfx %f
+Icon=icon
+Terminal=false
+Categories=emulators;
+X-OD-NeedsDownscaling=true

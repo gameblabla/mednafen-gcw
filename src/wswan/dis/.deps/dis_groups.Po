@@ -1,125 +1,112 @@
-dis/dis_groups.o: dis/dis_groups.cpp dis/disasm.h \
- ../../include/mednafen/types.h ../../include/config.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/cdefs.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/inttypes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/type_traits \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++config.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/os_defines.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/cpu_defines.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/initializer_list \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/memory \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algobase.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/functexcept.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/exception_defines.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/cpp_type_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/type_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/numeric_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_pair.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/move.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/concept_check.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator_base_types.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator_base_funcs.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/debug/debug.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/ptr_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/predefined_ops.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/allocator.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++allocator.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/new_allocator.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/new \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/exception \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/atomic_lockfree_defines.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/exception_ptr.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/nested_exception.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/memoryfwd.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_construct.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/alloc_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/alloc_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_uninitialized.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_tempbuf.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_raw_storage_iter.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/typeinfo \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/hash_bytes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/iosfwd \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stringfwd.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/postypes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cwchar \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/wchar.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdio.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdarg.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/atomicity.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/gthr.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/gthr-default.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/pthread.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/endian.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/endian.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/byteswap.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap-common.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sched.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/types.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/typesizes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/pthreadtypes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sgidefs.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/time.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sched.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/time.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_clk_tck.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/signal.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigset.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/setjmp.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/atomic_word.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/concurrence.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_function.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/binders.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/uses_allocator.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/functional \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/tuple \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/utility \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_relops.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/array \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/stdexcept \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/string \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/char_traits.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdint \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/localefwd.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++locale.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/clocale \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/locale.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_locale.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cctype \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/ctype.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_touplow.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/ostream_insert.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/cxxabi_forced.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/range_access.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/basic_string.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/functional_hash.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/basic_string.tcc \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/unique_ptr.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
- ../../include/mednafen/error.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h
+dis/dis_groups.o: dis/dis_groups.cpp /usr/include/stdc-predef.h \
+ dis/disasm.h ../../include/mednafen/types.h ../../include/config.h \
+ /usr/include/assert.h /usr/include/features.h \
+ /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/inttypes.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h /usr/include/stdint.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/c++/4.8/type_traits \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
+ /usr/include/c++/4.8/initializer_list /usr/include/c++/4.8/memory \
+ /usr/include/c++/4.8/bits/stl_algobase.h \
+ /usr/include/c++/4.8/bits/functexcept.h \
+ /usr/include/c++/4.8/bits/exception_defines.h \
+ /usr/include/c++/4.8/bits/cpp_type_traits.h \
+ /usr/include/c++/4.8/ext/type_traits.h \
+ /usr/include/c++/4.8/ext/numeric_traits.h \
+ /usr/include/c++/4.8/bits/stl_pair.h /usr/include/c++/4.8/bits/move.h \
+ /usr/include/c++/4.8/bits/concept_check.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_types.h \
+ /usr/include/c++/4.8/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/4.8/debug/debug.h \
+ /usr/include/c++/4.8/bits/stl_iterator.h \
+ /usr/include/c++/4.8/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h \
+ /usr/include/c++/4.8/ext/new_allocator.h /usr/include/c++/4.8/new \
+ /usr/include/c++/4.8/exception \
+ /usr/include/c++/4.8/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/4.8/bits/exception_ptr.h \
+ /usr/include/c++/4.8/bits/nested_exception.h \
+ /usr/include/c++/4.8/bits/memoryfwd.h \
+ /usr/include/c++/4.8/bits/stl_construct.h \
+ /usr/include/c++/4.8/ext/alloc_traits.h \
+ /usr/include/c++/4.8/bits/alloc_traits.h \
+ /usr/include/c++/4.8/bits/ptr_traits.h \
+ /usr/include/c++/4.8/bits/stl_uninitialized.h \
+ /usr/include/c++/4.8/bits/stl_tempbuf.h \
+ /usr/include/c++/4.8/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/4.8/typeinfo /usr/include/c++/4.8/bits/hash_bytes.h \
+ /usr/include/c++/4.8/iosfwd /usr/include/c++/4.8/bits/stringfwd.h \
+ /usr/include/c++/4.8/bits/postypes.h /usr/include/c++/4.8/cwchar \
+ /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/include/xlocale.h /usr/include/x86_64-linux-gnu/bits/wchar2.h \
+ /usr/include/c++/4.8/ext/atomicity.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h /usr/include/sched.h \
+ /usr/include/time.h /usr/include/x86_64-linux-gnu/bits/sched.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/timex.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+ /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h \
+ /usr/include/c++/4.8/ext/concurrence.h \
+ /usr/include/c++/4.8/bits/stl_function.h \
+ /usr/include/c++/4.8/backward/binders.h \
+ /usr/include/c++/4.8/bits/uses_allocator.h \
+ /usr/include/c++/4.8/functional /usr/include/c++/4.8/tuple \
+ /usr/include/c++/4.8/utility /usr/include/c++/4.8/bits/stl_relops.h \
+ /usr/include/c++/4.8/array /usr/include/c++/4.8/stdexcept \
+ /usr/include/c++/4.8/string /usr/include/c++/4.8/bits/char_traits.h \
+ /usr/include/c++/4.8/cstdint /usr/include/c++/4.8/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h \
+ /usr/include/c++/4.8/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/4.8/cctype \
+ /usr/include/ctype.h /usr/include/c++/4.8/bits/ostream_insert.h \
+ /usr/include/c++/4.8/bits/cxxabi_forced.h \
+ /usr/include/c++/4.8/bits/range_access.h \
+ /usr/include/c++/4.8/bits/basic_string.h \
+ /usr/include/c++/4.8/ext/string_conversions.h \
+ /usr/include/c++/4.8/cstdlib /usr/include/stdlib.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/c++/4.8/cstdio \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/4.8/cerrno \
+ /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
+ /usr/include/c++/4.8/bits/functional_hash.h \
+ /usr/include/c++/4.8/bits/basic_string.tcc \
+ /usr/include/c++/4.8/bits/unique_ptr.h \
+ /usr/include/c++/4.8/bits/shared_ptr.h \
+ /usr/include/c++/4.8/bits/shared_ptr_base.h \
+ /usr/include/c++/4.8/backward/auto_ptr.h ../../include/mednafen/error.h \
+ /usr/include/string.h /usr/include/x86_64-linux-gnu/bits/string3.h
+
+/usr/include/stdc-predef.h:
 
 dis/disasm.h:
 
@@ -127,242 +114,276 @@ dis/disasm.h:
 
 ../../include/config.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
+/usr/include/assert.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h:
+/usr/include/features.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/cdefs.h:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/inttypes.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h:
+/usr/include/inttypes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdint.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h:
+/usr/include/stdint.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/type_traits:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++config.h:
+/usr/include/c++/4.8/type_traits:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/os_defines.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/cpu_defines.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/initializer_list:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/memory:
+/usr/include/c++/4.8/initializer_list:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algobase.h:
+/usr/include/c++/4.8/memory:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/functexcept.h:
+/usr/include/c++/4.8/bits/stl_algobase.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/exception_defines.h:
+/usr/include/c++/4.8/bits/functexcept.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/cpp_type_traits.h:
+/usr/include/c++/4.8/bits/exception_defines.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/type_traits.h:
+/usr/include/c++/4.8/bits/cpp_type_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/numeric_traits.h:
+/usr/include/c++/4.8/ext/type_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_pair.h:
+/usr/include/c++/4.8/ext/numeric_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/move.h:
+/usr/include/c++/4.8/bits/stl_pair.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/concept_check.h:
+/usr/include/c++/4.8/bits/move.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator_base_types.h:
+/usr/include/c++/4.8/bits/concept_check.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator_base_funcs.h:
+/usr/include/c++/4.8/bits/stl_iterator_base_types.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/debug/debug.h:
+/usr/include/c++/4.8/bits/stl_iterator_base_funcs.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_iterator.h:
+/usr/include/c++/4.8/debug/debug.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/ptr_traits.h:
+/usr/include/c++/4.8/bits/stl_iterator.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/predefined_ops.h:
+/usr/include/c++/4.8/bits/allocator.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/allocator.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++allocator.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++allocator.h:
+/usr/include/c++/4.8/ext/new_allocator.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/new_allocator.h:
+/usr/include/c++/4.8/new:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/new:
+/usr/include/c++/4.8/exception:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/exception:
+/usr/include/c++/4.8/bits/atomic_lockfree_defines.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/atomic_lockfree_defines.h:
+/usr/include/c++/4.8/bits/exception_ptr.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/exception_ptr.h:
+/usr/include/c++/4.8/bits/nested_exception.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/nested_exception.h:
+/usr/include/c++/4.8/bits/memoryfwd.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/memoryfwd.h:
+/usr/include/c++/4.8/bits/stl_construct.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_construct.h:
+/usr/include/c++/4.8/ext/alloc_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/alloc_traits.h:
+/usr/include/c++/4.8/bits/alloc_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/alloc_traits.h:
+/usr/include/c++/4.8/bits/ptr_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_uninitialized.h:
+/usr/include/c++/4.8/bits/stl_uninitialized.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_tempbuf.h:
+/usr/include/c++/4.8/bits/stl_tempbuf.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_raw_storage_iter.h:
+/usr/include/c++/4.8/bits/stl_raw_storage_iter.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/typeinfo:
+/usr/include/c++/4.8/typeinfo:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/hash_bytes.h:
+/usr/include/c++/4.8/bits/hash_bytes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/iosfwd:
+/usr/include/c++/4.8/iosfwd:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stringfwd.h:
+/usr/include/c++/4.8/bits/stringfwd.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/postypes.h:
+/usr/include/c++/4.8/bits/postypes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cwchar:
+/usr/include/c++/4.8/cwchar:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/wchar.h:
+/usr/include/wchar.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdio.h:
+/usr/include/stdio.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stdarg.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/atomicity.h:
+/usr/include/xlocale.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/gthr.h:
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/gthr-default.h:
+/usr/include/c++/4.8/ext/atomicity.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/pthread.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/endian.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/gthr-default.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/endian.h:
+/usr/include/pthread.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/byteswap.h:
+/usr/include/endian.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap.h:
+/usr/include/x86_64-linux-gnu/bits/endian.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap-common.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sched.h:
+/usr/include/x86_64-linux-gnu/bits/types.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/types.h:
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/typesizes.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/pthreadtypes.h:
+/usr/include/sched.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sgidefs.h:
+/usr/include/time.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/time.h:
+/usr/include/x86_64-linux-gnu/bits/sched.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sched.h:
+/usr/include/x86_64-linux-gnu/bits/time.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/time.h:
+/usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_clk_tck.h:
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/signal.h:
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigset.h:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/atomic_word.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/setjmp.h:
+/usr/include/c++/4.8/ext/concurrence.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/atomic_word.h:
+/usr/include/c++/4.8/bits/stl_function.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/concurrence.h:
+/usr/include/c++/4.8/backward/binders.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_function.h:
+/usr/include/c++/4.8/bits/uses_allocator.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/binders.h:
+/usr/include/c++/4.8/functional:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/uses_allocator.h:
+/usr/include/c++/4.8/tuple:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/functional:
+/usr/include/c++/4.8/utility:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/tuple:
+/usr/include/c++/4.8/bits/stl_relops.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/utility:
+/usr/include/c++/4.8/array:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_relops.h:
+/usr/include/c++/4.8/stdexcept:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/array:
+/usr/include/c++/4.8/string:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/stdexcept:
+/usr/include/c++/4.8/bits/char_traits.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/string:
+/usr/include/c++/4.8/cstdint:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/char_traits.h:
+/usr/include/c++/4.8/bits/localefwd.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdint:
+/usr/include/x86_64-linux-gnu/c++/4.8/bits/c++locale.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/localefwd.h:
+/usr/include/c++/4.8/clocale:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/c++locale.h:
+/usr/include/locale.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/clocale:
+/usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/locale.h:
+/usr/include/c++/4.8/cctype:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_locale.h:
+/usr/include/ctype.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cctype:
+/usr/include/c++/4.8/bits/ostream_insert.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/ctype.h:
+/usr/include/c++/4.8/bits/cxxabi_forced.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_touplow.h:
+/usr/include/c++/4.8/bits/range_access.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/ostream_insert.h:
+/usr/include/c++/4.8/bits/basic_string.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/cxxabi_forced.h:
+/usr/include/c++/4.8/ext/string_conversions.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/range_access.h:
+/usr/include/c++/4.8/cstdlib:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/basic_string.h:
+/usr/include/stdlib.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/functional_hash.h:
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/basic_string.tcc:
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/unique_ptr.h:
+/usr/include/x86_64-linux-gnu/sys/types.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr.h:
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h:
+/usr/include/x86_64-linux-gnu/bits/select.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h:
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
+
+/usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
+/usr/include/c++/4.8/cstdio:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/c++/4.8/cerrno:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/4.8/bits/functional_hash.h:
+
+/usr/include/c++/4.8/bits/basic_string.tcc:
+
+/usr/include/c++/4.8/bits/unique_ptr.h:
+
+/usr/include/c++/4.8/bits/shared_ptr.h:
+
+/usr/include/c++/4.8/bits/shared_ptr_base.h:
+
+/usr/include/c++/4.8/backward/auto_ptr.h:
 
 ../../include/mednafen/error.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
+/usr/include/string.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
-
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
+/usr/include/x86_64-linux-gnu/bits/string3.h:

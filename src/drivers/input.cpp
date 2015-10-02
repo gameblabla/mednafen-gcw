@@ -922,7 +922,7 @@ static uint8 BarcodeWorldData[1 + 13];
 
 static void DoKeyStateZeroing(void)
 {
-  if(IConfig == none && !(cidisabled & 0x1))
+  /*if(IConfig == none && !(cidisabled & 0x1))
   {
    if(Netplay_IsTextInput() || CheatIF_Active())
    {
@@ -950,7 +950,7 @@ static void DoKeyStateZeroing(void)
     keys[SDLK_F14] = keys_untouched[SDLK_F14];
     keys[SDLK_F15] = keys_untouched[SDLK_F15];
    }
- }
+ }*/
 }
 
 static void CheckCommandKeys(void)
@@ -1383,7 +1383,7 @@ void MDFND_UpdateInput(bool VirtualDevicesOnly, bool UpdateRapidFire)
 
  UpdatePhysicalDeviceState();
 
- DoKeyStateZeroing();	// Call before CheckCommandKeys()
+ /*DoKeyStateZeroing();*/	// Call before CheckCommandKeys()
 
  //
  // CheckCommandKeys(), specifically MDFNI_LoadState(), should be called *before* we update the emulated device input data, as that data is 

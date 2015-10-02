@@ -58,7 +58,7 @@ class SDL_to_MDFN_Surface_Wrapper : public MDFN_Surface
   if(SDL_MUSTLOCK(ss))
    SDL_LockSurface(ss);
 
-  format.bpp = ss->format->BitsPerPixel;
+  format.bpp = 32;
   format.colorspace = MDFN_COLORSPACE_RGB;
   format.Rshift = ss->format->Rshift;
   format.Gshift = ss->format->Gshift;
@@ -652,34 +652,6 @@ static void GenerateDestRect(void)
  //printf("%d %d\n", screen_dest_rect.x & 1, screen_dest_rect.y & 1);
 }
 
-// Argh, lots of thread safety and crashy problems with this, need to re-engineer code elsewhere.
-#if 0
-int VideoResize(int nw, int nh)
-{
- double xs, ys;
- char buf[256];
-
- if(VideoGI && !_fullscreen)
- {
-  std::string sn = std::string(VideoGI->shortname);
-
-  xs = (double)nw / VideoGI->nominal_width;
-  ys = (double)nh / VideoGI->nominal_height;
-
-  trio_snprintf(buf, 256, "%.30f", xs);
-//  MDFNI_SetSetting(sn + "." + std::string("xscale"), buf);
-
-  trio_snprintf(buf, 256, "%.30f", ys);
-//  MDFNI_SetSetting(sn + "." + std::string("yscale"), buf);
-
-  printf("%s, %d %d, %f %f\n", std::string(sn + "." + std::string("xscale")).c_str(), nw, nh, xs, ys);
-  return(1);
- }
-
- return(0);
-}
-#endif
-
 static int GetSpecialScalerID(const std::string &special_string)
 {
  int ret = -1;
@@ -827,10 +799,15 @@ void Video_Init(MDFNGI *gi)
    best_yres = 480;
   }
  }
+ 
 
-
+#ifdef SDL_TRIPLEBUF
+ if(vinf->hw_available)
+  flags |= SDL_HWSURFACE | SDL_TRIPLEBUF;
+#else
  if(vinf->hw_available)
   flags |= SDL_HWSURFACE | SDL_DOUBLEBUF;
+#endif
 
  if(_fullscreen)
   flags |= SDL_FULLSCREEN;
@@ -864,14 +841,6 @@ void Video_Init(MDFNGI *gi)
   #if SDL_VERSION_ATLEAST(1, 2, 10)
   SDL_GL_SetAttribute(SDL_GL_SWAP_CONTROL, MDFN_GetSettingB("video.glvsync"));
   #endif
- }
- else if(vdriver == VDRIVER_SOFTSDL)
- {
-
- }
- else if(vdriver == VDRIVER_OVERLAY)
- {
-
  }
 
  exs = _fullscreen ? _video.xscalefs : _video.xscale;
@@ -1185,11 +1154,11 @@ static void SubBlit(MDFN_Surface *source_surface, const MDFN_Rect &src_rect, con
  assert(dest_rect.w > 0);
  assert(dest_rect.h > 0);
 
- if(OverlayOK && CurrentScaler && !CurGame->rotated)
+ /*if(OverlayOK && CurrentScaler && !CurGame->rotated)
  {
   if(CurrentScaler->id == NTVB_NN2X || CurrentScaler->id == NTVB_NN3X || CurrentScaler->id == NTVB_NN4X)
    overlay_softscale = CurrentScaler->id - NTVB_NN2X + 2;
- }
+ }*/
 
    if(CurrentScaler && !overlay_softscale)
    {
@@ -1317,7 +1286,7 @@ static void SubBlit(MDFN_Surface *source_surface, const MDFN_Rect &src_rect, con
      ogl_blitter->Blit(&bah_surface, &boohoo_rect, &dest_rect, &eff_src_rect, InterlaceField, evideoip, CurGame->rotated);
     else
     {
-     if(OverlayOK)
+     /*if(OverlayOK)
      {
       SDL_Rect tr;
 
@@ -1329,11 +1298,11 @@ static void SubBlit(MDFN_Surface *source_surface, const MDFN_Rect &src_rect, con
       OV_Blit(&bah_surface, &boohoo_rect, &eff_src_rect, &tr, screen, 0, _video.scanlines, CurGame->rotated);
      }
      else
-     {
+     {*/
       SDL_to_MDFN_Surface_Wrapper m_surface(screen);
 
       MDFN_StretchBlitSurface(&bah_surface, &boohoo_rect, &m_surface, &dest_rect, false, _video.scanlines, &eff_src_rect, CurGame->rotated, InterlaceField);
-     }
+     /*}*/
     }
    }
    else // No special scaler:
@@ -1342,7 +1311,7 @@ static void SubBlit(MDFN_Surface *source_surface, const MDFN_Rect &src_rect, con
      ogl_blitter->Blit(eff_source_surface, &eff_src_rect, &dest_rect, &eff_src_rect, InterlaceField, evideoip, CurGame->rotated);
     else
     {
-     if(OverlayOK)
+     /*if(OverlayOK)
      {
       SDL_Rect tr;
 
@@ -1354,11 +1323,11 @@ static void SubBlit(MDFN_Surface *source_surface, const MDFN_Rect &src_rect, con
       OV_Blit(eff_source_surface, &eff_src_rect, &eff_src_rect, &tr, screen, overlay_softscale, _video.scanlines, CurGame->rotated);
      }
      else
-     {
+     {*/
       SDL_to_MDFN_Surface_Wrapper m_surface(screen);
 
       MDFN_StretchBlitSurface(eff_source_surface, &eff_src_rect, &m_surface, &dest_rect, false, _video.scanlines, &eff_src_rect, CurGame->rotated, InterlaceField);
-     }
+    /* }*/
     }
    }
 }
@@ -1374,8 +1343,8 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
  // Reduce CPU usage when minimized, and prevent OpenGL memory quasi-leaks on Windows(though I have the feeling there's a
  // cleaner less-racey way to prevent that memory leak problem).
  //
- if(!(SDL_GetAppState() & SDL_APPACTIVE))
-  return;
+ /*if(!(SDL_GetAppState() & SDL_APPACTIVE))
+  return;*/
 
  if(NeedClear)
  {
@@ -1391,7 +1360,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
  }
 
  OverlayOK = false;
- if(vdriver == VDRIVER_OVERLAY)
+ /*if(vdriver == VDRIVER_OVERLAY)
  {
   bool osd_active = Help_IsActive() || SaveStatesActive() || CheatIF_Active() || Netplay_GetTextView() ||
 		   IsInternalMessageActive() || Debugger_IsActive();
@@ -1416,7 +1385,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
   if(OverlayOK)
    pf_needed = &pf_overlay;
- } // end if(vdriver == VDRIVER_OVERLAY)
+ } // end if(vdriver == VDRIVER_OVERLAY)*/
 
  msurface->SetFormat(*pf_needed, TRUE);
 
@@ -1427,7 +1396,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
  // This drawing to the game's video surface can cause visual glitches, but better than killing performance which kind of
  // defeats the purpose of the FPS display.
- if(OverlayOK)
+ /*if(OverlayOK)
  {
   int fps_w, fps_h;
 
@@ -1454,7 +1423,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
   }
  }
-
+*/
  if(LineWidths[0] == ~0) // Skip multi line widths code?
  {
   SubBlit(msurface, src_rect, screen_dest_rect, InterlaceField);
@@ -1477,7 +1446,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
     sub_src_rect.y = last_y;
     sub_src_rect.h = y - last_y;
 
-    if(CurGame->rotated == MDFN_ROTATE90)
+    /*if(CurGame->rotated == MDFN_ROTATE90)
     {
      sub_dest_rect.x = screen_dest_rect.x + (last_y - src_rect.y) * screen_dest_rect.w / src_rect.h;
      sub_dest_rect.y = screen_dest_rect.y;
@@ -1495,12 +1464,12 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
      sub_dest_rect.h = screen_dest_rect.h;
     }
     else
-    {
+    {*/
      sub_dest_rect.x = screen_dest_rect.x;
      sub_dest_rect.w = screen_dest_rect.w;
      sub_dest_rect.y = screen_dest_rect.y + (last_y - src_rect.y) * screen_dest_rect.h / src_rect.h;
      sub_dest_rect.h = sub_src_rect.h * screen_dest_rect.h / src_rect.h;
-    }
+   /* }*/
 
     if(!sub_dest_rect.h) // May occur with small yscale values in certain cases, so prevent triggering an assert()
      sub_dest_rect.h = 1;
@@ -1570,29 +1539,6 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
 
  Debugger_MT_DrawToScreen(MDFN_PixelFormat(MDFN_COLORSPACE_RGB, real_rs, real_gs, real_bs, real_as), screen->w, screen->h);
-
-#if 0
- if(CKGUI_IsActive())
- {
-  if(!CKGUISurface)
-  {
-   CKGUIRect.w = screen->w;
-   CKGUIRect.h = screen->h;
-
-   CKGUISurface = SDL_CreateRGBSurface(SDL_SWSURFACE | SDL_SRCALPHA, CKGUIRect.w, CKGUIRect.h, 32, 0xFF << real_rs, 0xFF << real_gs, 0xFF << real_bs, 0xFF << real_as);
-   SDL_SetColorKey(CKGUISurface, SDL_SRCCOLORKEY, 0);
-   SDL_SetAlpha(CKGUISurface, SDL_SRCALPHA, 0);
-  }
-  MDFN_Rect zederect = CKGUIRect;
-  CKGUI_Draw(CKGUISurface, &CKGUIRect);
-  BlitRaw(CKGUISurface, &CKGUIRect, &zederect);
- }
- else if(CKGUISurface)
- {
-  SDL_FreeSurface(CKGUISurface);
-  CKGUISurface = NULL;
- }
-#endif
 
  if(Help_IsActive())
  {
@@ -1694,8 +1640,8 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
  BlitInternalMessage();
 
- if(!OverlayOK)
- {
+ /*if(!OverlayOK)
+ {*/
   unsigned fps_offsx = 0, fps_offsy = 0;
 
   // When using soft-SDL, position the FPS display so we won't incur a potentially large(on older/slower hardware) penalty due
@@ -1709,11 +1655,11 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
    fps_offsy = std::max<int32>(screen_dest_rect.y, 0);
   }
   FPS_DrawToScreen(screen, real_rs, real_gs, real_bs, real_as, fps_offsx, fps_offsy);
- }
+ /*}*/
 
  if(!(cur_flags & SDL_OPENGL))
  {
-  if(!OverlayOK)
+  /*if(!OverlayOK)*/
    SDL_Flip(screen);
  }
  else

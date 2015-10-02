@@ -1,102 +1,114 @@
-src/lib/libco/libco.o: src/lib/libco/libco.c src/lib/libco/sjlj.c \
- src/lib/libco/libco.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/cdefs.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/types.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/typesizes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/pthreadtypes.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/endian.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/endian.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/byteswap.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap-common.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sgidefs.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/time.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigset.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/time.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/signal.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/signum.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/siginfo.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigaction.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigcontext.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigstack.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigthread.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/setjmp.h \
- /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/setjmp.h
+src/lib/libco/libco.o: src/lib/libco/libco.c /usr/include/stdc-predef.h \
+ src/lib/libco/amd64.c src/lib/libco/libco.h /usr/include/assert.h \
+ /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+ /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+ /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/stdlib.h \
+ /usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h \
+ /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/byteswap-16.h \
+ /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/x86_64-linux-gnu/sys/select.h \
+ /usr/include/x86_64-linux-gnu/bits/select.h \
+ /usr/include/x86_64-linux-gnu/bits/sigset.h \
+ /usr/include/x86_64-linux-gnu/bits/time.h \
+ /usr/include/x86_64-linux-gnu/bits/select2.h \
+ /usr/include/x86_64-linux-gnu/sys/sysmacros.h \
+ /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib.h /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd.h \
+ /usr/include/x86_64-linux-gnu/sys/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman.h \
+ /usr/include/x86_64-linux-gnu/bits/mman-linux.h
 
-src/lib/libco/sjlj.c:
+/usr/include/stdc-predef.h:
+
+src/lib/libco/amd64.c:
 
 src/lib/libco/libco.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
+/usr/include/assert.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h:
+/usr/include/features.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/cdefs.h:
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h:
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/types.h:
+/usr/include/stdlib.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h:
+/usr/lib/gcc/x86_64-linux-gnu/4.8/include/stddef.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/typesizes.h:
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/pthreadtypes.h:
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/endian.h:
+/usr/include/endian.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/endian.h:
+/usr/include/x86_64-linux-gnu/bits/endian.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/byteswap.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap.h:
+/usr/include/x86_64-linux-gnu/bits/types.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/byteswap-common.h:
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sgidefs.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap-16.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/time.h:
+/usr/include/x86_64-linux-gnu/sys/types.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h:
+/usr/include/time.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h:
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigset.h:
+/usr/include/x86_64-linux-gnu/bits/select.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/time.h:
+/usr/include/x86_64-linux-gnu/bits/sigset.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
+/usr/include/x86_64-linux-gnu/bits/time.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
+/usr/include/x86_64-linux-gnu/bits/select2.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/signal.h:
+/usr/include/x86_64-linux-gnu/sys/sysmacros.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/signum.h:
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/siginfo.h:
+/usr/include/alloca.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigaction.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigcontext.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigstack.h:
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/sigthread.h:
+/usr/include/unistd.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/setjmp.h:
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
-/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/setjmp.h:
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd.h:
+
+/usr/include/x86_64-linux-gnu/sys/mman.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman.h:
+
+/usr/include/x86_64-linux-gnu/bits/mman-linux.h:

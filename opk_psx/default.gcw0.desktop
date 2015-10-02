@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=MednafenPSX
+Name=Mednafen PSX
 Comment=Mednafen (PSX Core)
 Exec=mednafen -force_module psx %f
 Icon=icon

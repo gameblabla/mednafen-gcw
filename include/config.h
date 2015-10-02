@@ -637,10 +637,10 @@
 /* #undef WANT_FANCY_SCALERS */
 
 /* Define if we are compiling with GBA emulation. */
-/* #undef WANT_GBA_EMU */
+#define WANT_GBA_EMU 1
 
 /* Define if we are compiling with GB emulation. */
-/* #undef WANT_GB_EMU */
+#define WANT_GB_EMU 1
 
 /* Define if we are compiling with internal CJK fonts. */
 #define WANT_INTERNAL_CJK 1
@@ -652,7 +652,7 @@
 #define WANT_MD_EMU 1
 
 /* Define if we are compiling with NES emulation. */
-/* #undef WANT_NES_EMU */
+#define WANT_NES_EMU 1
 
 /* Define if we are compiling with NGP emulation. */
 /* #undef WANT_NGP_EMU */
@@ -667,7 +667,7 @@
 /* #undef WANT_PCFX_EMU */
 
 /* Define if we are compiling with PlayStation emulation. */
-#define WANT_PSX_EMU 1
+/* #undef WANT_PSX_EMU */
 
 /* Define if we are compiling with SMS+GG emulation. */
 #define WANT_SMS_EMU 1

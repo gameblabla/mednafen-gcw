@@ -177,13 +177,13 @@ int32 MDFN_FASTCALL pcfx_event_handler(const v810_timestamp_t timestamp)
 
      if(timestamp >= next_adpcm_ts)
       next_adpcm_ts = SoundBox_ADPCMUpdate(timestamp);
-
+/*
 #if 1
      assert(next_king_ts > timestamp);
      assert(next_pad_ts > timestamp);
      assert(next_timer_ts > timestamp);
      assert(next_adpcm_ts > timestamp);
-#endif
+#endif*/
      return(CalcNextTS());
 }
 
@@ -240,7 +240,7 @@ static void Emulate(EmulateSpecStruct *espec)
 
  FXINPUT_Frame();
 
- MDFNMP_ApplyPeriodicCheats();
+ /*MDFNMP_ApplyPeriodicCheats();*/
 
  if(espec->VideoFormatChanged)
   KING_SetPixelFormat(espec->surface->format); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
@@ -571,11 +571,8 @@ static void LoadCommon(std::vector<CDIF *> *CDInterfaces)
  PCFXDBG_Init();
  #endif
 
- cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("pcfx.cpu_emulation");
- if(cpu_mode == _V810_EMU_MODE_COUNT)
- {
-  cpu_mode = (EmuFlags & CDGE_FLAG_ACCURATE_V810) ? V810_EMU_MODE_ACCURATE : V810_EMU_MODE_FAST;
- }
+
+  cpu_mode = V810_EMU_MODE_FAST;
 
  if(EmuFlags & CDGE_FLAG_FXGA)
  {
@@ -678,7 +675,8 @@ static void LoadCommon(std::vector<CDIF *> *CDInterfaces)
  // Emulation raw framebuffer image should always be of 256 width when the pcfx.high_dotclock_width setting is set to "256",
  // but it could be either 256 or 341 when the setting is set to "341", so stay with 1024 in that case so we won't have
  // a messed up aspect ratio in our recorded QuickTime movies.
- MDFNGameInfo->lcm_width = (MDFN_GetSettingUI("pcfx.high_dotclock_width") == 256) ? 256 : 1024;
+/* MDFNGameInfo->lcm_width = (MDFN_GetSettingUI("pcfx.high_dotclock_width") == 256) ? 256 : 1024;*/
+ MDFNGameInfo->lcm_width = 256;
  MDFNGameInfo->lcm_height = MDFNGameInfo->nominal_height;
 
  MDFNMP_Init(1024 * 1024, ((uint64)1 << 32) / (1024 * 1024));
@@ -1083,7 +1081,7 @@ static MDFNSetting PCFXSettings[] =
   { "pcfx.cdspeed", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("Emulated CD-ROM speed."), gettext_noop("Setting the value higher than 2, the default, will decrease loading times in most games by some degree."), MDFNST_UINT, "2", "2", "10" },
 
   { "pcfx.nospritelimit", MDFNSF_NOFLAGS, gettext_noop("Remove 16-sprites-per-scanline hardware limit."), NULL, MDFNST_BOOL, "0" },
-  { "pcfx.high_dotclock_width", MDFNSF_NOFLAGS, gettext_noop("Emulated width for 7.16MHz dot-clock mode."), gettext_noop("Lower values are faster, but will cause some degree of pixel distortion."), MDFNST_ENUM, "1024", NULL, NULL, NULL, NULL, HDCWidthList },
+  { "pcfx.high_dotclock_width", MDFNSF_NOFLAGS, gettext_noop("Emulated width for 7.16MHz dot-clock mode."), gettext_noop("Lower values are faster, but will cause some degree of pixel distortion."), MDFNST_ENUM, "256", NULL, NULL, NULL, NULL, HDCWidthList },
 
   { "pcfx.slstart", MDFNSF_NOFLAGS, gettext_noop("First rendered scanline."), NULL, MDFNST_UINT, "4", "0", "239" },
   { "pcfx.slend", MDFNSF_NOFLAGS, gettext_noop("Last rendered scanline."), NULL, MDFNST_UINT, "235", "0", "239" },
@@ -1156,7 +1154,7 @@ MDFNGI EmulatedPCFX =
  0,   // lcm_height
  NULL,  // Dummy
 
- 288,	// Nominal width
+ 256,	// Nominal width
  240,	// Nominal height
 
  1024,	// Framebuffer width

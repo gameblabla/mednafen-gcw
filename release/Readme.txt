@@ -1,38 +1,20 @@
 ===========================
 Mednafen GCW0
 ===========================
-Version 1.1 r2 (Fixed version)
+Version 1.2
 Port by gameblabla
 
 Here is a port of Mednafen for GCW0.
-It has most of the cores Mednafen has available.
-
-With Mednafen, you can play games on the following platforms :
-
-- Neo Pocket Color/Mono,
-- NES/Famicom Disk,
-- PSX (slow)
-- Megadrive
-- Snes (based on bsnes so it's slow)
-- PC-FX (slow)
-- Master System/Game Gear
-- Game Boy
-- Game Boy Advance
-- PC-Engine, Supergrafx (Pretty fast)
-- Wonderswan (Accurate but slower than Gameblabla's Oswan)
-
-The PSX core is released as a separate OPK due to technical reasons.
-In Gmenu, it is shown as Mednafen PSX.
+Only cores for PC Engine (CD), NEC PC-FX, and GB/GBA/NES/LYNX are included as separates OPKs.
+For other cores, you should use the other emulators available on the platform instead. 
+(Mednafen's cores are accurate and way too slow)
 
 ================
 CONTROLS
 ================
 
-Each core had their input optimised for the GCW0.
-(With the exception of the stick not being used, stay used for new updates)
-
-Exit : Select + X
-Configure Controls : Start + X
+Exit 				: Select + X
+Configure Controls 	: Start  + X
 
 ================
 INSTALLATION
@@ -41,7 +23,8 @@ First of all,
 put the file mednafen-09x.cfg in /media/home/.mednafen.
 If the folder ".mednafen" does not exist, create it and place the file there.
 
-Then, put both opk files in /media/data/apps.
-
+Then, put all opk files in /media/data/apps.
 You should then find them in the "Emulators" section.
-For your PSX isos, use Mednafen PSX and for the other cores, use Mednafen.
+
+PCFX requires a BIOS called pcfx.rom to be placed in /media/home/.mednafen
+PC Engine CD games requires a syscard called syscard3.pce. (same directory)

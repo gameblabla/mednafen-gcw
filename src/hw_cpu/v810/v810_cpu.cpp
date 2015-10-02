@@ -335,8 +335,6 @@ bool V810::Init(V810_Emu_Mode mode, bool vb_mode)
  in_bstr = FALSE;
  in_bstr_to = 0;
 
- if(mode == V810_EMU_MODE_FAST)
- {
   memset(DummyRegion, 0, V810_FAST_MAP_PSIZE);
 
   for(unsigned int i = V810_FAST_MAP_PSIZE; i < V810_FAST_MAP_PSIZE + V810_FAST_MAP_TRAMPOLINE_SIZE; i += 2)
@@ -347,7 +345,6 @@ bool V810::Init(V810_Emu_Mode mode, bool vb_mode)
 
   for(uint64 A = 0; A < (1ULL << 32); A += V810_FAST_MAP_PSIZE)
    FastMap[A / V810_FAST_MAP_PSIZE] = DummyRegion - A;
- }
 
  return(TRUE);
 }
@@ -362,8 +359,7 @@ void V810::Kill(void)
 
 void V810::SetInt(int level)
 {
- assert(level >= -1 && level <= 15);
-
+ /*assert(level >= -1 && level <= 15);*/
  ilevel = level;
  RecalcIPendingCache();
 }
@@ -565,10 +561,10 @@ INLINE uint32 V810::GetSREG(unsigned int which)
 {
 	uint32 ret;
 
-	if(which != 24 && which != 25 && which >= 8)
+	/*if(which != 24 && which != 25 && which >= 8)
 	{
 	 printf("STSR from reserved system register: 0x%02x", which);
-        }
+        }*/
 
 	ret = S_REG[which];
 
@@ -702,25 +698,9 @@ void V810::Run_Fast_Debug(int32 MDFN_FASTCALL (*event_handler)(const v810_timest
 
 v810_timestamp_t V810::Run(int32 MDFN_FASTCALL (*event_handler)(const v810_timestamp_t timestamp))
 {
- Running = true;
-
- #ifdef WANT_DEBUGGER
- if(CPUHook || ADDBT)
- {
-  if(EmuMode == V810_EMU_MODE_FAST)
-   Run_Fast_Debug(event_handler);
-  else
-   Run_Accurate_Debug(event_handler);
- }
- else
- #endif
- {
-  if(EmuMode == V810_EMU_MODE_FAST)
-   Run_Fast(event_handler);
-  else
-   Run_Accurate(event_handler);
- }
- return(v810_timestamp);
+	Running = true;
+	Run_Fast(event_handler);
+	return(v810_timestamp);
 }
 
 void V810::Exit(void)
@@ -775,39 +755,21 @@ void V810::SetRegister(unsigned int which, uint32 value)
   if(which)
    P_REG[which - GSREG_PR] = value;
  }
- else if(which >= GSREG_SR && which <= GSREG_SR + 31)
- {
-  // SetSREG(timestamp, which - GSREG_SR, value);
- }
  else if(which == GSREG_PC)
  {
   SetPC(value & ~1);
- }
- else if(which == GSREG_TIMESTAMP)
- {
-  //v810_timestamp = value;
  }
 }
 
 uint32 V810::GetPC(void)
 {
- if(EmuMode == V810_EMU_MODE_ACCURATE)
-  return(PC);
- else
- {
   return(PC_ptr - PC_base);
- }
 }
 
 void V810::SetPC(uint32 new_pc)
 {
- if(EmuMode == V810_EMU_MODE_ACCURATE)
-  PC = new_pc;
- else
- {
   PC_ptr = &FastMap[new_pc >> V810_FAST_MAP_SHIFT][new_pc];
   PC_base = PC_ptr - new_pc;
- }
 }
 
 #define BSTR_OP_MOV dst_cache &= ~(1 << dstoff); dst_cache |= ((src_cache >> srcoff) & 1) << dstoff;
@@ -905,15 +867,6 @@ INLINE bool V810::Do_BSTR_Search(v810_timestamp_t &timestamp, const int inc_mul,
         uint32 src = (P_REG[30] & 0xFFFFFFFC);
 	bool found = false;
 
-	#if 0
-	// TODO: Better timing.
-	if(!in_bstr)	// If we're just starting the execution of this instruction(kind of spaghetti-code), so FIXME if we change
-			// bstr handling in v810_oploop.inc
-	{
-	 timestamp += 13 - 1;
-	}
-	#endif
-
 	while(len)
 	{
 		if(!have_src_cache)
@@ -968,7 +921,7 @@ INLINE bool V810::Do_BSTR_Search(v810_timestamp_t &timestamp, const int inc_mul,
 
 bool V810::bstr_subop(v810_timestamp_t &timestamp, int sub_op, int arg1)
 {
- if((sub_op >= 0x10) || (!(sub_op & 0x8) && sub_op >= 0x4))
+ /*if((sub_op >= 0x10) || (!(sub_op & 0x8) && sub_op >= 0x4))
  {
   printf("%08x\tBSR Error: %04x\n", PC,sub_op);
 
@@ -976,7 +929,7 @@ bool V810::bstr_subop(v810_timestamp_t &timestamp, int sub_op, int arg1)
   Exception(INVALID_OP_HANDLER_ADDR, ECODE_INVALID_OP);
 
   return(false);
- }
+ }*/
 
 // printf("BSTR: %02x, %02x %02x; src: %08x, dst: %08x, len: %08x\n", sub_op, P_REG[27], P_REG[26], P_REG[30], P_REG[29], P_REG[28]);
 
@@ -987,104 +940,6 @@ bool V810::bstr_subop(v810_timestamp_t &timestamp, int sub_op, int arg1)
 	uint32 len =     P_REG[28];
 	uint32 dst =    (P_REG[29] & 0xFFFFFFFC);
 	uint32 src =    (P_REG[30] & 0xFFFFFFFC);
-
-#if 0
-	// Be careful not to cause 32-bit integer overflow, and careful about not shifting by 32.
-	// TODO:
-
-	// Read src[0], src[4] into shifter.
-	// Read dest[0].
-	DO_BSTR_PROLOGUE();	// if(len) { blah blah blah masking blah }
-                src_cache = BSTR_RWORD(timestamp, src);
-
-		if((uint64)(srcoff + len) > 0x20)
-                 src_cache |= (uint64)BSTR_RWORD(timestamp, src + 4) << 32;
-
-                dst_cache = BSTR_RWORD(timestamp, dst);
-
-		if(len)
-		{
-		 uint32 dst_preserve_mask;
-		 uint32 dst_change_mask;
-
-		 dst_preserve_mask = (1U << dstoff) - 1;
-
-		 if((uint64)(dstoff + len) < 0x20)
- 		  dst_preserve_mask |= ((1U << ((0x20 - (dstoff + len)) & 0x1F)) - 1) << (dstoff + len);
-
-		 dst_change_mask = ~dst_preserve_mask;
-
-		 src_cache = BSTR_RWORD(timestamp, src);
-		 src_cache |= (uint64)BSTR_RWORD(timestamp, src + 4) << 32;
-		 dst_cache = BSTR_RWORD(timestamp, dst);
-
-		 dst_cache = (dst_cache & dst_preserve_mask) | ((dst_cache OP_THINGY_HERE (src_cache >> srcoff)) & dst_change_mask);
-		 BSTR_WWORD(timestamp, dst, dst_cache);
-
-		 if((uint64)(dstoff + len) < 0x20)
-		 {
-	          srcoff += len;
-		  dstoff += len;
-		  len = 0;
-		 }
-		 else
-		 {
-		  srcoff += (0x20 - dstoff);
-		  dstoff = 0;
-		  len -= (0x20 - dstoff);
-		  dst += 4;
-		 }
-
-		 if(srcoff >= 0x20)
-		 {
-		  srcoff &= 0x1F;
-		  src += 4;
-
-		  if(len)
-		  {
-		   src_cache >>= 32;
-		   src_cache |= (uint64)BSTR_RWORD(timestamp, src + 4) << 32;
-		  }
-		 }
-		}
-
-	DO_BSTR_PRIMARY();	// while(len >= 32) (do allow interruption; interrupt and emulator-return -
-				// they must be handled differently!)
-		while(len >= 32)
-  		{
-                 dst_cache = BSTR_RWORD(timestamp, dst);
-                 dst_cache = OP_THINGY_HERE(dst_cache, src_cache >> srcoff);
-		 BSTR_WWORD(timestamp, dst, dst_cache);
-		 len -= 32;
-		 dst += 4;
-		 src += 4;
-                 src_cache >>= 32;
-                 src_cache |= (uint64)BSTR_RWORD(timestamp, src + 4) << 32;
-		}
-
-	DO_BSTR_EPILOGUE();	// if(len) { blah blah blah masking blah }
-		if(len)
-		{
-		 uint32 dst_preserve_mask;
-		 uint32 dst_change_mask;
-
-		 dst_preserve_mask = (1U << ((0x20 - len) & 0x1F) << len;
-		 dst_change_mask = ~dst_preserve_mask;
-
-                 dst_cache = BSTR_RWORD(timestamp, dst);
-		 dst_cache = OP_THINGY_HERE(dst_cache, src_cache >> srcoff);
-		 BSTR_WWORD(timestamp, dst, dst_cache);
-		 dstoff += len;
-		 srcoff += len;
-
-                 if(srcoff >= 0x20)
-                 {
-                  srcoff &= 0x1F;
-                  src += 4;
-                 }
-		 len = 0;
-		}
-#endif
 
 	switch(sub_op)
 	{
@@ -1145,7 +1000,7 @@ INLINE void V810::SetFPUOPNonFPUFlags(uint32 result)
 
 bool V810::FPU_DoesExceptionKillResult(void)
 {
- const uint32 float_exception_flags = fpo.get_flags();
+ /*const uint32 float_exception_flags = fpo.get_flags();
 
  if(float_exception_flags & V810_FP_Ops::flag_reserved)
   return(true);
@@ -1164,64 +1019,12 @@ bool V810::FPU_DoesExceptionKillResult(void)
  // though.  And it's the kind of thing you'd see in an engineering or physics program, not in a perverted video game :b).
  if(float_exception_flags & V810_FP_Ops::flag_overflow)
   return(false);
-
+*/
  return(false);
 }
 
 void V810::FPU_DoException(void)
 {
- const uint32 float_exception_flags = fpo.get_flags();
-
- if(float_exception_flags & V810_FP_Ops::flag_reserved)
- {
-  S_REG[PSW] |= PSW_FRO;
-
-  SetPC(GetPC() - 4);
-  Exception(FPU_HANDLER_ADDR, ECODE_FRO);
-
-  return;
- }
-
- if(float_exception_flags & V810_FP_Ops::flag_invalid)
- {
-  S_REG[PSW] |= PSW_FIV;
-
-  SetPC(GetPC() - 4);
-  Exception(FPU_HANDLER_ADDR, ECODE_FIV);
-
-  return;
- }
-
- if(float_exception_flags & V810_FP_Ops::flag_divbyzero)
- {
-  S_REG[PSW] |= PSW_FZD;
-
-  SetPC(GetPC() - 4);
-  Exception(FPU_HANDLER_ADDR, ECODE_FZD);
-
-  return;
- }
-
- if(float_exception_flags & V810_FP_Ops::flag_underflow)
- {
-  S_REG[PSW] |= PSW_FUD;
- }
-
- if(float_exception_flags & V810_FP_Ops::flag_inexact)
- {
-  S_REG[PSW] |= PSW_FPR;
- }
-
- //
- // FPR can be set along with overflow, so put the overflow exception handling at the end here(for Exception() messes with PSW).
- //
- if(float_exception_flags & V810_FP_Ops::flag_overflow)
- {
-  S_REG[PSW] |= PSW_FOV;
-
-  SetPC(GetPC() - 4);
-  Exception(FPU_HANDLER_ADDR, ECODE_FOV);
- }
 }
 
 bool V810::IsSubnormal(uint32 fpval)
@@ -1239,12 +1042,8 @@ INLINE void V810::FPU_Math_Template(uint32 (V810_FP_Ops::*func)(uint32, uint32),
  fpo.clear_flags();
  result = (fpo.*func)(P_REG[arg1], P_REG[arg2]);
 
- if(!FPU_DoesExceptionKillResult())
- {
   SetFPUOPNonFPUFlags(result);
   SetPREG(arg1, result);
- }
- FPU_DoException();
 }
 
 void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2)
@@ -1308,12 +1107,12 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
                  fpo.clear_flags();
 		 result = fpo.itof(P_REG[arg2]);
 
-		 if(!FPU_DoesExceptionKillResult())
-		 {
+		 /*if(!FPU_DoesExceptionKillResult())
+		 {*/
 		  SetPREG(arg1, result);
 		  SetFPUOPNonFPUFlags(result);
-		 }
-		 FPU_DoException();
+		 /*}
+		 FPU_DoException();*/
 		}
 		break;	// End CVT.WS
 
@@ -1325,13 +1124,9 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
                  fpo.clear_flags();
 		 result = fpo.ftoi(P_REG[arg2], false);
 
-		 if(!FPU_DoesExceptionKillResult())
-		 {
 		  SetPREG(arg1, result);
                   SetFlag(PSW_OV, 0);
                   SetSZ(result);
-		 }
-		 FPU_DoException();
 		}
 		break;	// End CVT.SW
 
@@ -1352,11 +1147,7 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
 
 		      result = fpo.cmp(P_REG[arg1], P_REG[arg2]);
 
-	              if(!FPU_DoesExceptionKillResult())
-		      {
 		       SetFPUOPNonFPUFlags(result);
-		      }
-		      FPU_DoException();
 		     }
                      break;
 
@@ -1376,13 +1167,10 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
 		 fpo.clear_flags();
                  result = fpo.ftoi(P_REG[arg2], true);
 
-                 if(!FPU_DoesExceptionKillResult())
-                 {
                   SetPREG(arg1, result);
 		  SetFlag(PSW_OV, 0);
 		  SetSZ(result);
-                 }
-		 FPU_DoException();
+
                 }
                 break;	// end TRNC.SW
 	}
@@ -1391,61 +1179,6 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
 // Generate exception
 void V810::Exception(uint32 handler, uint16 eCode) 
 {
- // Exception overhead is unknown.
-
-#ifdef WANT_DEBUGGER
- if(ADDBT)
- {
-  uint32 old_PC = GetPC();
-
-  if((eCode & 0xFFE0) == 0xFFA0) // Trap instruction(PC is pointing to next instruction at this point)
-   old_PC -= 2;
-
-  ADDBT(old_PC, handler, eCode);
- }
-#endif
-
-    printf("Exception: %08x %04x\n", handler, eCode);
-
-    // Invalidate our bitstring state(forces the instruction to be re-read, and the r/w buffers reloaded).
-    in_bstr = FALSE;
-    have_src_cache = FALSE;
-    have_dst_cache = FALSE;
-
-    if(S_REG[PSW] & PSW_NP) // Fatal exception
-    {
-     printf("Fatal exception; Code: %08x, ECR: %08x, PSW: %08x, PC: %08x\n", eCode, S_REG[ECR], S_REG[PSW], PC);
-     Halted = HALT_FATAL_EXCEPTION;
-     IPendingCache = 0;
-     return;
-    }
-    else if(S_REG[PSW] & PSW_EP)  //Double Exception
-    {
-     S_REG[FEPC] = GetPC();
-     S_REG[FEPSW] = S_REG[PSW];
-
-     S_REG[ECR] = (S_REG[ECR] & 0xFFFF) | (eCode << 16);
-     S_REG[PSW] |= PSW_NP;
-     S_REG[PSW] |= PSW_ID;
-     S_REG[PSW] &= ~PSW_AE;
-
-     SetPC(0xFFFFFFD0);
-     IPendingCache = 0;
-     return;
-    }
-    else 	// Regular exception
-    {
-     S_REG[EIPC] = GetPC();
-     S_REG[EIPSW] = S_REG[PSW];
-     S_REG[ECR] = (S_REG[ECR] & 0xFFFF0000) | eCode;
-     S_REG[PSW] |= PSW_EP;
-     S_REG[PSW] |= PSW_ID;
-     S_REG[PSW] &= ~PSW_AE;
-
-     SetPC(handler);
-     IPendingCache = 0;
-     return;
-    }
 }
 
 void V810::StateAction(StateMem *sm, const unsigned load, const bool data_only)
@@ -1455,36 +1188,6 @@ void V810::StateAction(StateMem *sm, const unsigned load, const bool data_only)
  PODFastVector<bool> cache_data_valid_temp;
 
  uint32 PC_tmp = GetPC();
-
- if(EmuMode == V810_EMU_MODE_ACCURATE)
- {
-  cache_tag_temp.resize(128);
-  cache_data_temp.resize(128 * 2);
-  cache_data_valid_temp.resize(128 * 2);
-
-  if(!load)
-  {
-   for(int i = 0; i < 128; i++)
-   {
-    cache_tag_temp[i] = Cache[i].tag;
-
-    cache_data_temp[i * 2 + 0] = Cache[i].data[0];
-    cache_data_temp[i * 2 + 1] = Cache[i].data[1];
-
-    cache_data_valid_temp[i * 2 + 0] = Cache[i].data_valid[0];
-    cache_data_valid_temp[i * 2 + 1] = Cache[i].data_valid[1];
-   }
-  }
-  else // If we're loading, go ahead and clear the cache temporaries,
-       // in case the save state was saved while in fast mode
-       // and the cache data isn't present and thus won't be loaded.
-  {
-   cache_tag_temp.fill(0);
-   cache_data_temp.fill(0);
-   cache_data_valid_temp.fill(false);
-  }
- }
-
  int32 next_event_ts_delta = next_event_ts - v810_timestamp;
 
  SFORMAT StateRegs[] =
@@ -1527,20 +1230,5 @@ void V810::StateAction(StateMem *sm, const unsigned load, const bool data_only)
   RecalcIPendingCache();
 
   SetPC(PC_tmp);
-  if(EmuMode == V810_EMU_MODE_ACCURATE)
-  {
-   for(int i = 0; i < 128; i++)
-   {
-    Cache[i].tag = cache_tag_temp[i];
-
-    Cache[i].data[0] = cache_data_temp[i * 2 + 0];
-    Cache[i].data[1] = cache_data_temp[i * 2 + 1];
-
-    Cache[i].data_valid[0] = cache_data_valid_temp[i * 2 + 0];
-    Cache[i].data_valid[1] = cache_data_valid_temp[i * 2 + 1];
-
-    //printf("%d %08x %08x %08x %d %d\n", i, Cache[i].tag << 10, Cache[i].data[0], Cache[i].data[1], Cache[i].data_valid[0], Cache[i].data_valid[1]);
-   }
-  }
  }
 }

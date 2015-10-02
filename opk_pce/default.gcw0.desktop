@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Mednafen PCE
+Comment=Mednafen (PCE core)
+Exec=mednafen -force_module pce_fast %f
+Icon=icon
+Terminal=false
+Categories=emulators;
+X-OD-NeedsDownscaling=true

@@ -536,8 +536,8 @@ static void Load(MDFNFILE *fp)
   md5_context md5;
 
   VB_InDebugPeek = 0;
-
-  cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("vb.cpu_emulation");
+	cpu_mode = V810_EMU_MODE_FAST;
+  /*cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("vb.cpu_emulation");*/
 
   if(rom_size != round_up_pow2(rom_size))
   {
@@ -700,9 +700,9 @@ static void Load(MDFNFILE *fp)
    default: break;
 
    case VB3DMODE_VLI:
-         MDFNGameInfo->nominal_width = 768 * prescale;
+         MDFNGameInfo->nominal_width = 384 * prescale;
          MDFNGameInfo->nominal_height = 224;
-         MDFNGameInfo->fb_width = 768 * prescale;
+         MDFNGameInfo->fb_width = 384 * prescale;
          MDFNGameInfo->fb_height = 224;
          break;
 

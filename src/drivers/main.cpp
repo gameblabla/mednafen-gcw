@@ -960,8 +960,8 @@ int GameLoop(void *arg)
 	 if(Sound_NeedReInit())
 	  GT_ReinitSound();
 
-	 if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
-	  ers.SetETtoRT();
+	 /*if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
+	  ers.SetETtoRT();*/
 
 	 fskip = ers.NeedFrameSkip();
 	
@@ -1249,11 +1249,11 @@ void PumpWrap(void)
  SDL_Event gtevents_temp[gtevents_size];
  int numevents = 0;
 
- bool NITI;
+ /*bool NITI;*/
 
- NITI = Netplay_IsTextInput();
+ /*NITI = Netplay_IsTextInput();*/
 
- if(Debugger_IsActive() || NITI || CheatIF_Active() || Help_IsActive())
+ if(/*Debugger_IsActive() || NITI || CheatIF_Active() ||*/ Help_IsActive())
  {
   if(!krepeat)
    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
@@ -1273,10 +1273,10 @@ void PumpWrap(void)
 
  while(SDL_PollEvent(&event))
  {
-  if(CheatIF_Active())
+  /*if(CheatIF_Active())
    CheatIF_MT_EventHook(&event);
 
-  NetplayEventHook(&event);
+  NetplayEventHook(&event);*/
 
   /* Handle the event, and THEN hand it over to the GUI. Order is important due to global variable mayhem(CEVT_TOGGLEFS. */
   switch(event.type)
@@ -1365,26 +1365,6 @@ void PrintCompilerVersion(void)
   MDFN_printf(_("Running with %s\n"), __mingw_get_crt_info());
  #endif
 }
-
-#if 0
-#include <vector>	// To make sure we pick up c++config.h if it's there
-void PrintGLIBCXXInfo(void)
-{
- #if defined(__GLIBCXX__)
-  MDFN_printf(_("Compiled with GNU libstdc++ %lu\n"), (unsigned long)__GLIBCXX__);
-  {
-   MDFN_AutoIndent aind(1);
-   const char* sjljresp;
-   #if defined(_GLIBCXX_SJLJ_EXCEPTIONS)
-    sjljresp = _("Yes");
-   #else
-    sjljresp = _("No");
-   #endif
-   MDFN_printf(_("Using SJLJ Exceptions: %s\n"), sjljresp);
-  }
- #endif
-}
-#endif
 
 void PrintSDLVersion(void)
 {
@@ -1615,48 +1595,6 @@ static bool HandleVideoChange(void)
 int main(int argc, char *argv[])
 {
 	//ThreadTest();
-
-#if 0
-	// Special helper mode. (TODO)
-	if(argc == 3 && !strcmp(argv[1], "-joy_config_helper"))
-	{
-	 int fd = atoi(argv[2]);
-	 int64 ltime = MDFND_GetTime();
-
-	 if(SDL_Init(0))
-	 {
-	  fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
-	  return(-1);
-	 }
-	 SDL_JoystickEventState(SDL_IGNORE);
-
- 	 joy_manager = new JoystickManager();
-	 joy_manager->SetAnalogThreshold(0.75);
-
-	 for(;;)
-	 {
-	  char command[256];
-	  if(0)
-	  {
-	   if(!strcasecmp(command, "reset"))
-	    joy_manager->Reset_BC_ChangeCheck();
-	   else if(!strcasecmp(command, "detect_analog_buttons"))
-	    joy_manager->DetectAnalogButtonsForChangeCheck();
-	   else if(!strcasecmp(command, "exit"))
-	    break;
-	  }
-
-
-	  while((MDFND_GetTime() - ltime) < 15)
-	   MDFND_Sleep(1);
-	  ltime += 15;
-	 }
-
-	 delete joy_manager;
-	 joy_manager = NULL;	 
-	 return(0);
-	}
-#endif
 	std::vector<MDFNGI *> ExternalSystems;
 	char *needie = NULL;
 
@@ -1957,7 +1895,7 @@ static void UpdateSoundSync(int16 *Buffer, int Count)
   //
   // Cheap code to fix sound buffer underruns due to accumulation of time error during netplay.
   //
-  if(MDFNDnetplay)
+  /*if(MDFNDnetplay)
   {
    int cw = Sound_CanWrite();
 
@@ -1975,13 +1913,13 @@ static void UpdateSoundSync(int16 *Buffer, int Count)
     }
     ers.SetETtoRT();
    }
-  }
+  }*/
  }
  else
  {
   bool nothrottle = MDFN_GetSettingB("nothrottle");
 
-  if(!NoWaiting && !nothrottle && GameThreadRun && !MDFNDnetplay)
+  if(!NoWaiting && !nothrottle && GameThreadRun/* && !MDFNDnetplay*/)
    ers.Sync();
  }
 }

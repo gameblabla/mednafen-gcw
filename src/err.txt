@@ -1,0 +1,1683 @@
+[FileStream.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 18 configurations. Use --force to check all configurations.
+[FileStream.cpp:81]: (performance) Variable 'path_save' is assigned in constructor body. Consider performing initialization in initialization list.
+[MemoryStream.cpp:32]: (error) Common realloc mistake: 'data_buffer' nulled but not freed upon failure
+[MemoryStream.cpp:52]: (error) Common realloc mistake: 'data_buffer' nulled but not freed upon failure
+[PSFLoader.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[PSFLoader.cpp:292]: (style, inconclusive) Boolean variable 'force_ignore_pcsp' is used in bitwise operation. Did you mean '||'?
+[memory.h:65]: (style) 'MDFN_TransientXOR::operator=' should return 'MDFN_TransientXOR &'.
+[file.h:23]: (style, inconclusive) Technically the member function 'MDFNFILE::size' can be const.
+[cdplay/cdplay.cpp:423]: (style) Variable 'pixels' is assigned a value that is never used.
+[cdrom/CDAccess.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[cdrom/CDAccess_CCD.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[cdrom/CDAccess_Image.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[cdrom/CDAccess_Image.cpp:174] -> [cdrom/CDAccess_Image.h:99]: (performance, inconclusive) Technically the member function 'CDAccess_Image::GetSectorCount' can be static.
+[cdrom/CDUtility.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[cdrom/cdromif.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[cdrom/cdromif.cpp:263]: (style) C-style pointer casting
+[cdrom/cdromif.cpp:317]: (style) The scope of the variable 'initial_ra' can be reduced.
+[cdrom/cdromif.cpp:318]: (style) The scope of the variable 'speedmult_ra' can be reduced.
+[cdrom/cdromif.cpp:161]: (warning) Member variable 'CDIF_Message::parg' is not initialized in the constructor.
+[cdrom/cdromif.cpp:168]: (warning) Member variable 'CDIF_Message::parg' is not initialized in the constructor.
+[cdrom/cdromif.cpp:177]: (warning) Member variable 'CDIF_Message::parg' is not initialized in the constructor.
+[cdrom/cdromif.cpp:393]: (warning) Member variable 'CDIF_MT::SectorBuffers' is not initialized in the constructor.
+[cdrom/cdromif.cpp:180]: (performance) Variable 'str_message' is assigned in constructor body. Consider performing initialization in initialization list.
+[cdrom/cdromif.h:38]: (style, inconclusive) Technically the member function 'CDIF::ReadTOC' can be const.
+[cdrom/cdromif.cpp:482] -> [cdrom/cdromif.h:48]: (performance, inconclusive) Technically the member function 'CDIF::ValidateRawSector' can be static.
+[cdrom/cdromif.cpp:213]: (performance) Possible inefficient checking for 'ze_queue' emptiness.
+[cdrom/cdromif.cpp:219]: (performance) Possible inefficient checking for 'ze_queue' emptiness.
+[cdrom/scsicd.cpp:2840] -> [cdrom/scsicd.cpp:2833]: (style) Found duplicate branches for 'if' and 'else'.
+[cdrom/SimpleFIFO.h:63]: (style, inconclusive) Technically the member function 'SimpleFIFO::CanRead' can be const.
+[cdrom/SimpleFIFO.h:68]: (style, inconclusive) Technically the member function 'SimpleFIFO::CanWrite' can be const.
+[compress/GZFileStream.cpp:200]: (style) Variable 'c' is assigned a value that is never used.
+[compress/minilzo.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 254 configurations. Use --force to check all configurations.
+[compress/unzip.c:728]: (style) Variable 'lSeek' is assigned a value that is never used.
+[cputest/ppc_cpu.c:86]: (style, inconclusive) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[cputest/x86_cpu.c:45]: (style) The scope of the variable 'eax' can be reduced.
+[cputest/x86_cpu.c:46]: (style) The scope of the variable 'std_caps' can be reduced.
+[cputest/x86_cpu.c:46]: (style) The scope of the variable 'ext_caps' can be reduced.
+[cputest/x86_cpu.c:48]: (style) struct or union member 'Anonymous0::i' is never used.
+[debug.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[desa68/desa68.c:669]: (warning, inconclusive) Suspicious use of ; at the end of 'if' statement.
+[desa68/desa68.c:714]: (style) The scope of the variable 'j' can be reduced.
+[desa68/desa68.c:1482]: (style) The scope of the variable 'i' can be reduced.
+[desa68/desa68.c:1498]: (error) Resource leak: f
+[desa68/desa68.c:1508]: (error) Memory leak: b
+[dis6502.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[dis6502.cpp:185]: (style) The scope of the variable 'borked' can be reduced.
+[drivers/Joystick.cpp:130]: (warning) Member variable 'JoystickManager::AnalogThreshold' is not initialized in the constructor.
+[drivers/Joystick.cpp:130]: (warning) Member variable 'JoystickManager::BCPending_Prio' is not initialized in the constructor.
+[drivers/Joystick.h:15]: (style, inconclusive) Technically the member function 'Joystick::ID' can be const.
+[drivers/Joystick.h:16]: (style, inconclusive) Technically the member function 'Joystick::Name' can be const.
+[drivers/Joystick.h:17]: (style, inconclusive) Technically the member function 'Joystick::NumAxes' can be const.
+[drivers/Joystick.h:18]: (style, inconclusive) Technically the member function 'Joystick::NumRelAxes' can be const.
+[drivers/Joystick.h:19]: (style, inconclusive) Technically the member function 'Joystick::NumButtons' can be const.
+[drivers/Joystick.h:21]: (style, inconclusive) Technically the member function 'Joystick::GetAxis' can be const.
+[drivers/Joystick.h:25]: (style, inconclusive) Technically the member function 'Joystick::GetRelAxis' can be const.
+[drivers/Joystick.h:26]: (style, inconclusive) Technically the member function 'Joystick::GetButton' can be const.
+[drivers/Joystick.cpp:411] -> [drivers/Joystick.h:98]: (style, inconclusive) Technically the member function 'JoystickManager::SetRumble' can be const.
+[drivers/Joystick.cpp:449] -> [drivers/Joystick.h:99]: (style, inconclusive) Technically the member function 'JoystickManager::TestButton' can be const.
+[drivers/Joystick.cpp:582] -> [drivers/Joystick.h:102]: (style, inconclusive) Technically the member function 'JoystickManager::GetIndexByUniqueID' can be const.
+[drivers/Joystick.cpp:596] -> [drivers/Joystick.h:103]: (style, inconclusive) Technically the member function 'JoystickManager::GetUniqueIDByIndex' can be const.
+[drivers/Joystick.cpp:426] -> [drivers/Joystick.h:105]: (style, inconclusive) Technically the member function 'JoystickManager::TestRumble' can be const.
+[drivers/Joystick_DX5.cpp:60]: (warning) Comparison of a boolean with an integer.
+[drivers/Joystick_DX5.cpp:335]: (style) C-style pointer casting
+[drivers/Joystick_Linux.cpp:324]: (style) Variable 'read_count' is assigned a value that is never used.
+[drivers/Joystick_Linux.cpp:48]: (style, inconclusive) Technically the member function 'Joystick_Linux::RumbleUsed' can be const.
+[drivers/Joystick_Linux.cpp:370]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[drivers/Joystick_Linux.cpp:458]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[drivers/Joystick_XInput.cpp:1]: (information) Skipping configuration 'XINPUT_DEVSUBTYPE_ARCADE_PAD' since the value of 'XINPUT_DEVSUBTYPE_ARCADE_PAD' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/Joystick_XInput.cpp:1]: (information) Skipping configuration 'XINPUT_DEVSUBTYPE_FLIGHT_STICK' since the value of 'XINPUT_DEVSUBTYPE_FLIGHT_STICK' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/Joystick_XInput.cpp:1]: (information) Skipping configuration 'XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE' since the value of 'XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/Joystick_XInput.cpp:1]: (information) Skipping configuration 'XINPUT_DEVSUBTYPE_GUITAR_BASS' since the value of 'XINPUT_DEVSUBTYPE_GUITAR_BASS' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/NetClient_POSIX.cpp:1]: (information) Skipping configuration 'AI_ADDRCONFIG' since the value of 'AI_ADDRCONFIG' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/NetClient_POSIX.cpp:1]: (information) Skipping configuration 'MSG_NOSIGNAL' since the value of 'MSG_NOSIGNAL' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/NetClient_POSIX.cpp:1]: (information) Skipping configuration 'SO_NOSIGPIPE' since the value of 'SO_NOSIGPIPE' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[drivers/cheat.cpp:300]: (performance) Variable 'text' is assigned in constructor body. Consider performing initialization in initialization list.
+[drivers/debugger.cpp:305] -> [drivers/debugger.cpp:314]: (performance, inconclusive) Variable 'RegsTotalWidth' is reassigned a value before the old one has been used if variable is no semaphore variable.
+[drivers/debugger.cpp:231]: (style) The scope of the variable 'sa1' can be reduced.
+[drivers/debugger.cpp:231]: (style) The scope of the variable 'sa2' can be reduced.
+[drivers/debugger.cpp:377]: (style) The scope of the variable 'nubuf' can be reduced.
+[drivers/debugger.cpp:622]: (style) Obsolete function 'asctime' called. It is recommended to use the function 'strftime' instead.
+[drivers/debugger.cpp:868]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[drivers/help.cpp:76]: (style) The scope of the variable 'x' can be reduced.
+[drivers/input.cpp] -> [drivers/input.cpp:1558]: (error) Internal error. Token::Match called with varid 0. Please report this to Cppcheck developers
+[drivers/logdebugger.cpp:129]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[drivers/logdebugger.cpp:193]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[drivers/main.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations.
+[drivers/main.cpp:898]: (style) Variable 'cgt_fail_warning' is assigned a value that is never used.
+[drivers/main.cpp:589]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[drivers/memdebugger.cpp:831]: (style) The scope of the variable 'to_write_len' can be reduced.
+[drivers/netplay.cpp:121]: (style, inconclusive) Statements following return, break, continue, goto or throw will never be executed.
+[drivers/nongl.cpp:335]: (style) Unused variable: src_col_ptr
+[drivers/opengl.cpp:176]: (style) Variable 'dco' is assigned a value that is never used.
+[drivers/opengl.h:144]: (style) 'class OpenGL_Blitter' does not have a copy constructor which is recommended since the class contains a pointer to allocated memory.
+[drivers/prompt.cpp:25]: (performance) Variable 'PromptText' is assigned in constructor body. Consider performing initialization in initialization list.
+[drivers/prompt.cpp:32]: (performance) Variable 'PromptText' is assigned in constructor body. Consider performing initialization in initialization list.
+[drivers/remote.cpp:221]: (error) Common realloc mistake: 'InputBuffer' nulled but not freed upon failure
+[drivers/scalebit.c:290]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[drivers/shader.cpp:264]: (style) The scope of the variable 'sharpness' can be reduced.
+[drivers/shader.cpp:231] -> [drivers/shader.h:28]: (style, inconclusive) Technically the member function 'OpenGL_Blitter_Shader::ShaderNeedsBTIP' can be const.
+[drivers/thread_win32.cpp:120]: (style) C-style pointer casting
+[drivers/thread_win32.cpp:134]: (style) C-style pointer casting
+[drivers/thread_win32.cpp:178]: (style) C-style pointer casting
+[drivers/thread_win32.cpp:220]: (style) C-style pointer casting
+[drivers/thread_win32.cpp:352]: (style) C-style pointer casting
+[drivers/video.cpp:779] -> [drivers/video.cpp:770]: (style) Found duplicate branches for 'if' and 'else'.
+[drivers/video.cpp:283]: (style) Variable 'nominal_height' is assigned a value that is never used.
+[drivers/video.cpp:1205]: (style) Variable 'screen_pixies' is assigned a value that is never used.
+[drivers_dos/Joystick_DOS_Standard.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations.
+[drivers_dos/Joystick_DOS_Standard.cpp:49]: (warning) Member variable 'Joystick_DOS_Standard::jsdev_fd' is not initialized in the constructor.
+[drivers_dos/Joystick_DOS_Standard.cpp:49]: (warning) Member variable 'Joystick_DOS_Standard::evdev_fd' is not initialized in the constructor.
+[drivers_dos/Joystick.h:15]: (style, inconclusive) Technically the member function 'Joystick::ID' can be const.
+[drivers_dos/Joystick.h:16]: (style, inconclusive) Technically the member function 'Joystick::Name' can be const.
+[drivers_dos/Joystick.h:17]: (style, inconclusive) Technically the member function 'Joystick::NumAxes' can be const.
+[drivers_dos/Joystick.h:18]: (style, inconclusive) Technically the member function 'Joystick::NumRelAxes' can be const.
+[drivers_dos/Joystick.h:19]: (style, inconclusive) Technically the member function 'Joystick::NumButtons' can be const.
+[drivers_dos/Joystick.h:21]: (style, inconclusive) Technically the member function 'Joystick::GetAxis' can be const.
+[drivers_dos/Joystick.h:25]: (style, inconclusive) Technically the member function 'Joystick::GetRelAxis' can be const.
+[drivers_dos/Joystick.h:26]: (style, inconclusive) Technically the member function 'Joystick::GetButton' can be const.
+[drivers_dos/Video_VGA.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[drivers_dos/input-config.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[drivers_dos/input.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations.
+[drivers_dos/input.cpp:1716]: (style) C-style pointer casting
+[drivers_dos/input.cpp:329]: (style) The scope of the variable 'buttconfig_offset' can be reduced.
+[drivers_dos/input.cpp:635]: (style) struct or union member '__COKE::system' is never used.
+[drivers_dos/main.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 25 configurations. Use --force to check all configurations.
+[drivers_dos/main.cpp:120]: (style) The scope of the variable 'tdir' can be reduced.
+[drivers_dos/main.cpp:309]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[drivers_dos/video.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[drivers_dos/video.cpp:81]: (style) C-style pointer casting
+[drivers_dos/video.cpp:13]: (style) Variable 'min_vsync_bp_time' is assigned a value that is never used.
+[drivers_dos/video.cpp:14]: (style) Variable 'hsync_time_fract' is assigned a value that is never used.
+[drivers_dos/video.cpp:15]: (style) Variable 'vsync_length' is assigned a value that is never used.
+[drivers_dos/video.cpp:17]: (style) Variable 'min_hporch' is assigned a value that is never used.
+[drivers_dos/video.cpp:18]: (style) Variable 'min_vporch' is assigned a value that is never used.
+[drivers_dos/video.cpp:52]: (style) Variable 'par' is assigned a value that is never used.
+[drivers_dos/video.cpp:22]: (style) Unused variable: pixclock
+[drivers_dos/video.cpp:23]: (style) Unused variable: h_total
+[drivers_dos/video.cpp:24]: (style) Unused variable: v_sync
+[drivers_dos/video.cpp:25]: (style) Unused variable: v_bp
+[drivers_dos/video.cpp:26]: (style) Unused variable: v_total
+[drivers_dos/video.cpp:60]: (style) Variable 'pixclock' is assigned a value that is never used.
+[endian.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations.
+[error.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations.
+[error.cpp:24]: (warning) Member variable 'MDFN_Error::errno_code' is not initialized in the constructor.
+[error.cpp:24]: (warning) Member variable 'MDFN_Error::error_message' is not initialized in the constructor.
+[error.cpp:67]: (warning) 'operator=' should check for assignment to self to avoid problems with dynamic memory.
+[file.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 24 configurations. Use --force to check all configurations.
+[gb/gb.cpp:1230]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[gb/gfx.cpp:146] -> [gb/gfx.cpp:119]: (warning, inconclusive) Possible null pointer dereference: bank1 - otherwise it is redundant to check it against null.
+[gb/gfx.cpp:147] -> [gb/gfx.cpp:119]: (warning, inconclusive) Possible null pointer dereference: bank1 - otherwise it is redundant to check it against null.
+[gb/gfx.cpp:274] -> [gb/gfx.cpp:254]: (warning, inconclusive) Possible null pointer dereference: bank1 - otherwise it is redundant to check it against null.
+[gb/gfx.cpp:275] -> [gb/gfx.cpp:254]: (warning, inconclusive) Possible null pointer dereference: bank1 - otherwise it is redundant to check it against null.
+[gb/gfx.cpp:355] -> [gb/gfx.cpp:352]: (style) Found duplicate branches for 'if' and 'else'.
+[gb/gfx.cpp:95]: (style) The scope of the variable 'x' can be reduced.
+[gb/gfx.cpp:455]: (style) The scope of the variable 'x' can be reduced.
+[gb/gfx.cpp:456]: (style) The scope of the variable 'y' can be reduced.
+[gb/gfx.cpp:457]: (style) The scope of the variable 'count' can be reduced.
+[gb/memory.cpp:635]: (style) The scope of the variable 'tmpAddress' can be reduced.
+[gb/memory.cpp:753]: (style) The scope of the variable 'p' can be reduced.
+[gb/gbCodes.h:969] -> [gb/gbCodes.h:969]: (style) Same expression on both sides of '|'.
+[gb/gbCodes.h:887] -> [gb/gbCodes.h:887]: (style) Same expression on both sides of '&'.
+[gba/Gfx.cpp:699]: (style) The scope of the variable 'm' can be reduced.
+[gba/Gfx.cpp:416]: (style) Variable 'startX' is assigned a value that is never used.
+[gba/Gfx.cpp:419]: (style) Variable 'startY' is assigned a value that is never used.
+[gba/RTC.cpp:54] -> [gba/RTC.h:35]: (style, inconclusive) Technically the member function 'MDFN_IEN_GBA::RTC::Read' can be const.
+[gba/thumb.cpp:1423]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1443]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1472]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1533]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1552]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1571]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1590]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1609]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1628]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1647]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1666]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1695]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1717]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1739]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1761]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1783]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1805]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1827]: (style) Variable 'offset' is assigned a value that is never used.
+[gba/thumb.cpp:1849]: (style) Variable 'offset' is assigned a value that is never used.
+[general.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[hw_cpu/c68k/c68k.cpp:247]: (style) Variable 'length' is assigned a value that is never used.
+[hw_cpu/c68k/c68k_op1.inc:633]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:713]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:786]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:860]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:942]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:1025]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:1052]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:1079]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:1106]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op1.inc:1132]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_op9.inc:153]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_opB.inc:152]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/c68k_opD.inc:153]: (style) Statements following return, break, continue, goto or throw will never be executed.
+[hw_cpu/c68k/gen68k.inc:657]: (style) Variable 'numb' is assigned a value that is never used.
+[hw_cpu/huc6280/dis6280.cpp:319]: (style) The scope of the variable 'borked' can be reduced.
+[hw_cpu/huc6280/huc6280.h:426] -> [hw_cpu/huc6280/huc6280.h:429]: (performance, inconclusive) Variable 'isopread' is reassigned a value before the old one has been used if variable is no semaphore variable.
+[hw_cpu/huc6280/huc6280.h:22]: (style) The class 'HuC6280' does not have a constructor.
+[hw_cpu/huc6280/huc6280.h:66]: (style, inconclusive) Technically the member function 'HuC6280::GetIODataBuffer' can be const.
+[hw_cpu/huc6280/huc6280.h:102]: (style, inconclusive) Technically the member function 'HuC6280::InBlockMove' can be const.
+[hw_cpu/huc6280/huc6280.h:122]: (style, inconclusive) Technically the member function 'HuC6280::Timestamp' can be const.
+[hw_cpu/huc6280/huc6280.h:385]: (style, inconclusive) Technically the member function 'HuC6280::GetLastLogicalReadAddr' can be const.
+[hw_cpu/huc6280/huc6280.h:390]: (style, inconclusive) Technically the member function 'HuC6280::GetLastLogicalWriteAddr' can be const.
+[hw_cpu/v810/v810_fp_ops.h:20]: (style) The class 'V810_FP_Ops' does not have a constructor.
+[hw_cpu/v810/v810_cpu.h:140]: (style) The class 'V810' does not have a constructor.
+[hw_cpu/v810/v810_fp_ops.h:43]: (style, inconclusive) Technically the member function 'V810_FP_Ops::get_flags' can be const.
+[hw_cpu/v810/v810_cpu.h:178]: (style, inconclusive) Technically the member function 'V810::GetEventNT' can be const.
+[hw_cpu/v810/v810_cpu.h:209]: (style, inconclusive) Technically the member function 'V810::GetPR' can be const.
+[hw_cpu/v810/v810_cpuD.cpp:230]: (style) The scope of the variable 'lowB' can be reduced.
+[hw_cpu/v810/v810_cpuD.cpp:230]: (style) The scope of the variable 'highB' can be reduced.
+[hw_cpu/v810/v810_cpuD.cpp:230]: (style) The scope of the variable 'lowB2' can be reduced.
+[hw_cpu/v810/v810_cpuD.cpp:230]: (style) The scope of the variable 'highB2' can be reduced.
+[hw_cpu/v810/v810_cpuD.cpp:231]: (style) The scope of the variable 'opcode' can be reduced.
+[hw_cpu/v810/v810_fp_ops.cpp:20] -> [hw_cpu/v810/v810_fp_ops.h:64]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fp_is_zero' can be static.
+[hw_cpu/v810/v810_fp_ops.cpp:37] -> [hw_cpu/v810/v810_fp_ops.h:65]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fp_is_inf_nan_sub' can be static.
+[hw_cpu/v810/v810_fp_ops.cpp:51] -> [hw_cpu/v810/v810_fp_ops.h:67]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::clz64' can be static.
+[hw_cpu/v810/v810_fp_ops.cpp:97] -> [hw_cpu/v810/v810_fp_ops.h:68]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fpim_decode' can be static.
+[hw_cpu/v810_/v810_fp_ops.h:20]: (style) The class 'V810_FP_Ops' does not have a constructor.
+[hw_cpu/v810_/v810_cpu.h:140]: (style) The class 'V810' does not have a constructor.
+[hw_cpu/v810_/v810_fp_ops.h:43]: (style, inconclusive) Technically the member function 'V810_FP_Ops::get_flags' can be const.
+[hw_cpu/v810_/v810_cpu.h:178]: (style, inconclusive) Technically the member function 'V810::GetEventNT' can be const.
+[hw_cpu/v810_/v810_cpu.h:209]: (style, inconclusive) Technically the member function 'V810::GetPR' can be const.
+[hw_cpu/v810_/v810_cpuD.cpp:230]: (style) The scope of the variable 'lowB' can be reduced.
+[hw_cpu/v810_/v810_cpuD.cpp:230]: (style) The scope of the variable 'highB' can be reduced.
+[hw_cpu/v810_/v810_cpuD.cpp:230]: (style) The scope of the variable 'lowB2' can be reduced.
+[hw_cpu/v810_/v810_cpuD.cpp:230]: (style) The scope of the variable 'highB2' can be reduced.
+[hw_cpu/v810_/v810_cpuD.cpp:231]: (style) The scope of the variable 'opcode' can be reduced.
+[hw_cpu/v810_/v810_fp_ops.cpp:20] -> [hw_cpu/v810_/v810_fp_ops.h:64]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fp_is_zero' can be static.
+[hw_cpu/v810_/v810_fp_ops.cpp:37] -> [hw_cpu/v810_/v810_fp_ops.h:65]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fp_is_inf_nan_sub' can be static.
+[hw_cpu/v810_/v810_fp_ops.cpp:51] -> [hw_cpu/v810_/v810_fp_ops.h:67]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::clz64' can be static.
+[hw_cpu/v810_/v810_fp_ops.cpp:97] -> [hw_cpu/v810_/v810_fp_ops.h:68]: (performance, inconclusive) Technically the member function 'V810_FP_Ops::fpim_decode' can be static.
+[hw_cpu/z80-fuse/z80.cpp:70]: (style) The scope of the variable 'j' can be reduced.
+[hw_misc/arcade_card/arcade_card.cpp:49] -> [hw_misc/arcade_card/arcade_card.h:30]: (style, inconclusive) Technically the member function 'ArcadeCard::Read' can be const.
+[hw_misc/arcade_card/arcade_card.cpp:334] -> [hw_misc/arcade_card/arcade_card.h:44]: (style, inconclusive) Technically the member function 'ArcadeCard::PeekRAM' can be const.
+[hw_sound/gb_apu/blargg_common.h:59]: (style) C-style pointer casting
+[hw_sound/gb_apu/Gb_Oscs.h:137]: (style) The class 'Gb_Wave' does not have a constructor.
+[hw_sound/gb_apu/Gb_Oscs.h:183] -> [hw_sound/gb_apu/Gb_Oscs.h:146]: (style, inconclusive) Technically the member function 'Gb_Wave::write' can be const.
+[hw_sound/gb_apu/Gb_Apu.cpp:1]: (information) Skipping configuration 'blargg_err_t' since the value of 'blargg_err_t' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[hw_sound/gb_apu/Gb_Apu_State.cpp:56]: (warning, inconclusive) Size of pointer 'io' used instead of size of its data.
+[hw_sound/gb_apu/Gb_Apu_State.cpp:51]: (style) Variable 'version' is assigned a value that is never used.
+[hw_sound/gb_apu/Gb_Apu_State.cpp:76] -> [hw_sound/gb_apu/Gb_Apu.h:135]: (style, inconclusive) Technically the member function 'Gb_Apu::save_load2' can be const.
+[hw_sound/gb_apu/Gb_Apu_State.cpp:1]: (information) Skipping configuration 'blargg_err_t' since the value of 'blargg_err_t' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[hw_sound/gb_apu/Gb_Oscs.cpp:1]: (information) Skipping configuration 'blargg_err_t' since the value of 'blargg_err_t' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[hw_sound/pce_psg/pce_psg.cpp:238] -> [hw_sound/pce_psg/pce_psg.h:143]: (style, inconclusive) Technically the member function 'PCE_PSG::GetRegister' can be const.
+[hw_sound/pce_psg/pce_psg.cpp:210] -> [hw_sound/pce_psg/pce_psg.h:146]: (style, inconclusive) Technically the member function 'PCE_PSG::PeekWave' can be const.
+[hw_sound/pce_psg/pce_psg.cpp:155] -> [hw_sound/pce_psg/pce_psg.h:154]: (style, inconclusive) Technically the member function 'PCE_PSG::RecalcUOFunc' can be const.
+[hw_sound/pce_psg/pce_psg.cpp:447] -> [hw_sound/pce_psg/pce_psg.h:163]: (style, inconclusive) Technically the member function 'PCE_PSG::GetVL' can be const.
+[hw_sound/pce_psg/pce_psg.cpp:174] -> [hw_sound/pce_psg/pce_psg.h:165]: (style, inconclusive) Technically the member function 'PCE_PSG::RecalcFreqCache' can be const.
+[hw_sound/pce_psg/pce_psg.cpp:195] -> [hw_sound/pce_psg/pce_psg.h:166]: (style, inconclusive) Technically the member function 'PCE_PSG::RecalcNoiseFreqCache' can be const.
+[hw_sound/sms_apu/Sms_Apu.cpp:19]: (warning) Member variable 'Sms_Osc::output_select' is not initialized in the constructor.
+[hw_sound/sms_apu/Sms_Apu.cpp:19]: (warning) Member variable 'Sms_Osc::delay' is not initialized in the constructor.
+[hw_sound/sms_apu/Sms_Apu.cpp:19]: (warning) Member variable 'Sms_Osc::last_amp' is not initialized in the constructor.
+[hw_sound/sms_apu/Sms_Apu.cpp:19]: (warning) Member variable 'Sms_Osc::volume' is not initialized in the constructor.
+[hw_sound/sms_apu/Sms_Apu.cpp:185] -> [hw_sound/sms_apu/Sms_Apu.h:43]: (style, inconclusive) Technically the member function 'Sms_Apu::osc_output' can be const.
+[hw_sound/sms_apu/Sms_Apu.cpp:331] -> [hw_sound/sms_apu/Sms_Apu.h:58]: (style, inconclusive) Technically the member function 'Sms_Apu::save_state' can be const.
+[hw_sound/ym2612/Ym2612_Emu.h:10]: (style) The class 'Ym2612_Emu' does not have a constructor.
+[hw_sound/ym2612/Ym2612_Emu.cpp:968] -> [hw_sound/ym2612/Ym2612_Emu.h:36]: (style, inconclusive) Technically the member function 'Ym2612_Emu::serialize' can be const.
+[hw_sound/ym2612/ym2612_opeg.inc:80] -> [hw_sound/ym2612/ym2612_opeg.inc:8]: (style, inconclusive) Technically the member function 'OpEG::serialize' can be const.
+[hw_sound/ym2612/Ym2612_Emu.cpp:232] -> [hw_sound/ym2612/Ym2612_Emu.cpp:219]: (style, inconclusive) Technically the member function 'Ym2612_Impl::SLOT_SET' can be const.
+[hw_sound/ym2612/Ym2612_Emu.cpp:615] -> [hw_sound/ym2612/Ym2612_Emu.cpp:227]: (style, inconclusive) Technically the member function 'Ym2612_Impl::read' can be const.
+[hw_sound/ym2612/Ym2612_Emu.cpp:809]: (error) Uninitialized variable: CH_OUTd
+[hw_video/huc6270/vdc.cpp:1655] -> [hw_video/huc6270/vdc.cpp:1674]: (performance, inconclusive) Variable 'pixel_copy_count' is reassigned a value before the old one has been used if variable is no semaphore variable.
+[hw_video/huc6270/vdc.h:185]: (style, inconclusive) Boolean variable 'A' is used in bitwise operation. Did you mean '&&'?
+[hw_video/huc6270/vdc.cpp:44] -> [hw_video/huc6270/vdc.h:265]: (style, inconclusive) Technically the member function 'VDC::FixTileCache' can be const.
+[hw_video/huc6270/vdc.cpp:1704] -> [hw_video/huc6270/vdc.h:275]: (style, inconclusive) Technically the member function 'VDC::StateExtra' can be const.
+[hw_video/huc6270/vdc.h:279]: (style, inconclusive) Technically the member function 'VDC::PeekVRAM' can be const.
+[hw_video/huc6270/vdc.h:287]: (style, inconclusive) Technically the member function 'VDC::PeekSAT' can be const.
+[hw_video/huc6270/vdc.h:344]: (style, inconclusive) Technically the member function 'VDC::PeekIRQ' can be const.
+[hw_video/huc6270/vdc.cpp:465] -> [hw_video/huc6270/vdc.h:361]: (style, inconclusive) Technically the member function 'VDC::TimeFromHDSStartToBYRLatch' can be const.
+[hw_video/huc6270/vdc.cpp:478] -> [hw_video/huc6270/vdc.h:362]: (style, inconclusive) Technically the member function 'VDC::TimeFromBYRLatchToBXRLatch' can be const.
+[hw_video/huc6270/vdc.cpp:832] -> [hw_video/huc6270/vdc.h:425]: (style, inconclusive) Technically the member function 'VDC::CalcWidthStartEnd' can be const.
+[hw_video/huc6270/vdc.cpp:1834] -> [hw_video/huc6270/vdc.h:340]: (style, inconclusive) Technically the member function 'VDC::DoGfxDecode' can be const.
+[lynx/c65c02.cpp:312] -> [lynx/c65c02.cpp:312]: (style) Mismatching bitmasks. Result is always 0 (X = Y & 0x7f; Z = X & 0x80; => Z=0).
+[lynx/memmap.h:67]: (style) The class 'CMemMap' does not have a constructor.
+[lynx/cart.h:68]: (style) The class 'CCart' does not have a constructor.
+[lynx/susie.h:312]: (style) The class 'CSusie' does not have a constructor.
+[lynx/mikie.h:179]: (style) The class 'CMikie' does not have a constructor.
+[lynx/ram.h:70]: (performance, inconclusive) Technically the member function 'CRam::ReadCycle' can be static.
+[lynx/ram.h:71]: (performance, inconclusive) Technically the member function 'CRam::WriteCycle' can be static.
+[lynx/rom.h:69]: (performance, inconclusive) Technically the member function 'CRom::ReadCycle' can be static.
+[lynx/rom.h:70]: (performance, inconclusive) Technically the member function 'CRom::WriteCycle' can be static.
+[lynx/memmap.h:79]: (performance, inconclusive) Technically the member function 'CMemMap::ReadCycle' can be static.
+[lynx/memmap.h:80]: (performance, inconclusive) Technically the member function 'CMemMap::WriteCycle' can be static.
+[lynx/cart.h:88]: (performance, inconclusive) Technically the member function 'CCart::ReadCycle' can be static.
+[lynx/cart.h:89]: (performance, inconclusive) Technically the member function 'CCart::WriteCycle' can be static.
+[lynx/cart.h:93]: (style, inconclusive) Technically the member function 'CCart::CartGetName' can be const.
+[lynx/cart.h:94]: (style, inconclusive) Technically the member function 'CCart::CartGetManufacturer' can be const.
+[lynx/cart.h:95]: (style, inconclusive) Technically the member function 'CCart::CartGetRotate' can be const.
+[lynx/susie.h:322]: (performance, inconclusive) Technically the member function 'CSusie::ReadCycle' can be static.
+[lynx/susie.h:323]: (performance, inconclusive) Technically the member function 'CSusie::WriteCycle' can be static.
+[lynx/mikie.h:193]: (performance, inconclusive) Technically the member function 'CMikie::ReadCycle' can be static.
+[lynx/mikie.h:194]: (performance, inconclusive) Technically the member function 'CMikie::WriteCycle' can be static.
+[lynx/mikie.h:213]: (performance, inconclusive) Technically the member function 'CMikie::SetCPUSleep' can be static.
+[lynx/mikie.h:214]: (performance, inconclusive) Technically the member function 'CMikie::ClearCPUSleep' can be static.
+[lynx/c65c02.h:222]: (style, inconclusive) Technically the member function 'C65C02::GetRegs' can be const.
+[lynx/c65c02.h:237]: (style, inconclusive) Technically the member function 'C65C02::GetPC' can be const.
+[lynx/cart.cpp:177]: (style) Variable 'banktype0' is assigned a value that is never used.
+[lynx/cart.cpp:272]: (style) Variable 'banktype1' is assigned a value that is never used.
+[lynx/cart.cpp:81]: (warning) Assignment of function parameter has no effect outside the function.
+[lynx/mikie.h:398]: (style) Unused private function: 'CMikie::CopyLineSurface'
+[lynx/mikie.cpp:274] -> [lynx/mikie.h:197]: (performance, inconclusive) Technically the member function 'CMikie::GetLfsrNext' can be static.
+[lynx/susie.cpp:277]: (style) The scope of the variable 'data' can be reduced.
+[lynx/susie.cpp:278]: (style) The scope of the variable 'everonscreen' can be reduced.
+[lynx/susie.cpp:495]: (style) The scope of the variable 'hsign' can be reduced.
+[lynx/susie.cpp:495]: (style) The scope of the variable 'vsign' can be reduced.
+[lynx/susie.cpp:614]: (style) The scope of the variable 'pixel_height' can be reduced.
+[lynx/susie.cpp:615]: (style) The scope of the variable 'pixel_width' can be reduced.
+[lynx/susie.cpp:616]: (style) The scope of the variable 'pixel' can be reduced.
+[lynx/susie.cpp:617]: (style) The scope of the variable 'hoff' can be reduced.
+[lynx/susie.cpp:617]: (style) The scope of the variable 'voff' can be reduced.
+[lynx/susie.cpp:618]: (style) The scope of the variable 'hloop' can be reduced.
+[lynx/susie.cpp:618]: (style) The scope of the variable 'vloop' can be reduced.
+[lynx/susie.cpp:619]: (style) The scope of the variable 'onscreen' can be reduced.
+[lynx/susie.cpp:430]: (style) Variable 'enable_sizing' is assigned a value that is never used.
+[lynx/susie.cpp:862] -> [lynx/susie.h:342]: (style, inconclusive) Technically the member function 'CSusie::ReadPixel' can be const.
+[lynx/susie.cpp:907] -> [lynx/susie.h:344]: (style, inconclusive) Technically the member function 'CSusie::ReadCollision' can be const.
+[md/vdp.h:45]: (style) The class 'MDVDP' does not have a constructor.
+[md/cart/map_ff.cpp:160]: (style, inconclusive) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[md/cart/map_realtec.cpp:169]: (style, inconclusive) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[md/cart/map_realtec.cpp:52]: (warning) Member variable 'MD_Cart_Type_REALTEC::boot_mode' is not initialized in the constructor.
+[md/cart/map_sram.cpp:57]: (warning) Member variable 'MD_Cart_Type_SRAM::sram_enabled' is not initialized in the constructor.
+[md/cart/map_ssf2.cpp:151]: (style, inconclusive) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[md/cart/ssp16.c:1124] -> [md/cart/ssp16.c:1124]: (performance, inconclusive) Variable 'PC' is reassigned a value before the old one has been used if variable is no semaphore variable.
+[md/cart/ssp16.c:929]: (style) The scope of the variable 'i' can be reduced.
+[md/debug.cpp:261]: (style) Unused variable: bpit
+[md/debug.cpp:198]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[md/debug.cpp:353]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[md/debug.cpp:372]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[md/debug.cpp:392]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[md/debug.cpp:412]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[md/input/4way.cpp:63]: (warning) Member variable 'MD_4Way::SubPort' is not initialized in the constructor.
+[md/input/gamepad.cpp:216]: (warning) Member variable 'Gamepad6::compat_mode' is not initialized in the constructor.
+[md/input/multitap.cpp:131]: (style) Unsigned variable 'phase' can't be negative so it is unnecessary to test it.
+[md/system.cpp:171]: (warning) Comparison of a boolean with an integer.
+[md/system.cpp:261]: (style) struct or union member 'Anonymous0::compat_6button' is never used.
+[md/vdp.cpp:1039] -> [md/vdp.cpp:1039]: (performance) Variable 'src' is reassigned a value before the old one has been used.
+[md/vdp.cpp:1117] -> [md/vdp.cpp:1117]: (performance) Variable 'src' is reassigned a value before the old one has been used.
+[md/vdp.cpp:1125] -> [md/vdp.cpp:1125]: (performance) Variable 'src' is reassigned a value before the old one has been used.
+[md/vdp.cpp:1236] -> [md/vdp.cpp:1236]: (performance) Variable 'src' is reassigned a value before the old one has been used.
+[md/vdp.cpp:1249] -> [md/vdp.cpp:1249]: (performance) Variable 'src' is reassigned a value before the old one has been used.
+[md/vdp.cpp:588]: (style) The scope of the variable 'vbus_cc' can be reduced.
+[md/vdp.cpp:865]: (style) The scope of the variable 'col' can be reduced.
+[md/vdp.cpp:865]: (style) The scope of the variable 'row' can be reduced.
+[md/vdp.cpp:866]: (style) The scope of the variable 'vcol' can be reduced.
+[md/vdp.cpp:866]: (style) The scope of the variable 'vrow' can be reduced.
+[md/vdp.cpp:867]: (style) The scope of the variable 'width' can be reduced.
+[md/vdp.cpp:867]: (style) The scope of the variable 'height' can be reduced.
+[md/vdp.cpp:868]: (style) The scope of the variable 'flipx' can be reduced.
+[md/vdp.cpp:868]: (style) The scope of the variable 'flipy' can be reduced.
+[md/vdp.cpp:869]: (style) The scope of the variable 'name' can be reduced.
+[md/vdp.cpp:1028]: (style) The scope of the variable 'src' can be reduced.
+[md/vdp.cpp:1046]: (style) The scope of the variable 'src' can be reduced.
+[md/vdp.cpp:1711]: (style) The scope of the variable 'height' can be reduced.
+[md/vdp.cpp:1779]: (style) The scope of the variable 'width' can be reduced.
+[md/vdp.cpp:1850]: (style) The scope of the variable 'width' can be reduced.
+[md/vdp.cpp:564] -> [md/vdp.h:61]: (style, inconclusive) Technically the member function 'MDFN_IEN_MD::MDVDP::vdp_hvc_r' can be const.
+[md/vdp.cpp:679] -> [md/vdp.h:64]: (performance, inconclusive) Technically the member function 'MDFN_IEN_MD::MDVDP::vdp_test_w' can be static.
+[md/vdp.cpp:98] -> [md/vdp.h:184]: (performance, inconclusive) Technically the member function 'MDFN_IEN_MD::MDVDP::RedoViewport' can be static.
+[md/vdp.cpp:1665] -> [md/vdp.h:234]: (performance, inconclusive) Technically the member function 'MDFN_IEN_MD::MDVDP::merge' can be static.
+[md/vdp.cpp:381] -> [md/vdp.h:239]: (style, inconclusive) Technically the member function 'MDFN_IEN_MD::MDVDP::Recalc68KSuspend' can be const.
+[mednafen.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 157 configurations. Use --force to check all configurations.
+[memory.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[mempatcher.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[mempatcher.cpp:223]: (style) The scope of the variable 'tc' can be reduced.
+[mempatcher.cpp:441]: (style) The scope of the variable 'insection' can be reduced.
+[mempatcher.cpp:101]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[mempatcher.cpp:189]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[mempatcher.cpp:393]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[mempatcher.cpp:739]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[mempatcher.cpp:800]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[movie.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[mpcdec/crc32.c:17]: (style) The scope of the variable 'c' can be reduced.
+[mpcdec/huffman.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations.
+[mpcdec/mpc_bits_reader.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations.
+[mpcdec/mpc_decoder.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[mpcdec/mpc_decoder.c:111] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/mpc_decoder.c:196]: (style) The scope of the variable 'YL' can be reduced.
+[mpcdec/mpc_decoder.c:197]: (style) The scope of the variable 'YR' can be reduced.
+[mpcdec/mpc_decoder.c:198]: (style) The scope of the variable 'L' can be reduced.
+[mpcdec/mpc_decoder.c:199]: (style) The scope of the variable 'R' can be reduced.
+[mpcdec/mpc_decoder.c:561]: (style) The scope of the variable 'tmp' can be reduced.
+[mpcdec/mpc_decoder.c:614]: (style) The scope of the variable 'k' can be reduced.
+[mpcdec/mpc_decoder.c:614]: (style) The scope of the variable 'idx' can be reduced.
+[mpcdec/mpc_demux.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations.
+[mpcdec/mpc_demux.c:578] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/mpc_demux.c:611] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/mpc_demux.c:681] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/mpc_demux.c:697] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/mpc_demux.c:87]: (style) The scope of the variable 'offset' can be reduced.
+[mpcdec/mpc_demux.c:344]: (style) The scope of the variable 'i' can be reduced.
+[mpcdec/mpc_reader.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations.
+[mpcdec/requant.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[mpcdec/streaminfo.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 13 configurations. Use --force to check all configurations.
+[mpcdec/streaminfo.c:158] -> [mpcdec/mpcdec.h:50]: (style) Variable 'MPC_FRAME_LENGTH' hides enumerator with same name
+[mpcdec/streaminfo.c:95]: (warning) %u in format string (no. 2) requires an unsigned integer given in the argument list.
+[mpcdec/streaminfo.c:95]: (warning) %u in format string (no. 3) requires an unsigned integer given in the argument list.
+[mpcdec/streaminfo.c:95]: (warning) %u in format string (no. 4) requires an unsigned integer given in the argument list.
+[mpcdec/synth_filter.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[nes/boards/16.cpp:74]: (style, inconclusive) Boolean variable 'prev_sda_in' is used in bitwise operation. Did you mean '&&'?
+[nes/boards/16.cpp:93]: (style, inconclusive) Boolean variable 'scl_in' is used in bitwise operation. Did you mean '&&'?
+[nes/boards/16.cpp:72]: (style, inconclusive) Technically the member function 'X24C0xP::SDA' can be const.
+[nes/boards/189.cpp:45]: (style) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[nes/boards/25.cpp:105]: (style) Consecutive return, break, continue, goto or throw statements are unnecessary.
+[nes/boards/emu2413.cpp:829]: (style) The scope of the variable 'fm' can be reduced.
+[nes/boards/emu2413.cpp:882]: (style) The scope of the variable 'ret' can be reduced.
+[nes/boards/emu2413.cpp:897]: (style) The scope of the variable 'ret' can be reduced.
+[nes/boards/mmc1.cpp:171]: (style) The scope of the variable 'PMNames' can be reduced.
+[nes/boards/sachen.cpp:107]: (style) The scope of the variable 'x' can be reduced.
+[nes/debug.cpp:244]: (style) Unused variable: ret
+[nes/debug.cpp:346]: (style) Unused variable: bpit
+[nes/debug.cpp:267]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/debug.cpp:289]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/debug.cpp:307]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/filter.h:6]: (style) The class 'NES_Resampler' does not have a constructor.
+[nes/filter.h:33]: (style, inconclusive) Technically the member function 'NES_Resampler::GetRatio' can be const.
+[nes/input/bworld.cpp:79]: (warning, inconclusive) The buffer 'bdata' may not be null-terminated after the call to strncpy().
+[nes/nes.cpp:149]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/nes.cpp:531]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/ntsc/nes_ntsc.h:157] -> [nes/ntsc/nes_ntsc.h:80]: (style) Variable 'nes_ntsc_out_chunk' hides enumerator with same name
+[nes/ntsc/nes_ntsc.h:160] -> [nes/ntsc/nes_ntsc.h:80]: (style) Variable 'nes_ntsc_out_chunk' hides enumerator with same name
+[nes/ntsc/nes_ntsc.h:165] -> [nes/ntsc/nes_ntsc.h:80]: (style) Variable 'nes_ntsc_out_chunk' hides enumerator with same name
+[nes/ntsc/benchmark.c:15] -> [nes/ntsc/nes_ntsc.h:80]: (style) Variable 'nes_ntsc_out_chunk' hides enumerator with same name
+[nes/ntsc/nes_ntsc.h:128] -> [nes/ntsc/nes_ntsc.h:125]: (style) Variable 'nes_ntsc_entry_size' hides enumerator with same name
+[nes/ntsc/nes_ntsc.h:131] -> [nes/ntsc/nes_ntsc.h:125]: (style) Variable 'nes_ntsc_entry_size' hides enumerator with same name
+[nes/ntsc/demo.c:24] -> [nes/ntsc/nes_ntsc.h:80]: (style) Variable 'nes_ntsc_out_chunk' hides enumerator with same name
+[nes/ntsc/demo.c:51] -> [nes/ntsc/demo.c:20]: (style) Variable 'nes_width' hides enumerator with same name
+[nes/ntsc/demo.c:110]: (error) Resource leak: out
+[nes/ppu/ppu.cpp:1527]: (style) C-style pointer casting
+[nes/ppu/ppu-fastrl.h:109] -> [nes/ppu/ppu-fastrl.h:100]: (style) Found duplicate branches for 'if' and 'else'.
+[nes/ppu/ppu.cpp:676]: (style) The scope of the variable 'x' can be reduced.
+[nes/ppu/ppu.cpp:1123]: (style) The scope of the variable 'C' can be reduced.
+[nes/ppu/ppu.cpp:701]: (style) Variable 'MMC5Mode' is assigned a value that is never used.
+[nes/ppu/ppu.cpp:707]: (style) Variable 'MMC5Mode' is assigned a value that is never used.
+[nes/ppu/ppu.cpp:712]: (style) Variable 'MMC5Mode' is assigned a value that is never used.
+[nes/ppu/ppu.cpp:718]: (style) Variable 'MMC5Mode' is assigned a value that is never used.
+[nes/sound.cpp:727]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/sound.cpp:749]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/sound.cpp:834]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[nes/unif.cpp:168]: (style) The scope of the variable 'stuffo' can be reduced.
+[netplay.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[netplay.cpp:737]: (style) The scope of the variable 'textbuf' can be reduced.
+[netplay.cpp:1261]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[netplay.cpp:1289]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[netplay.cpp:1329]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[netplay.cpp:1369]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::output' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::output_select' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::delay' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::last_amp_left' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::last_amp_right' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::volume_left' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:19]: (warning) Member variable 'T6W28_Osc::volume_right' is not initialized in the constructor.
+[ngp/T6W28_Apu.cpp:238] -> [ngp/T6W28_Apu.h:44]: (style, inconclusive) Technically the member function 'T6W28_Apu::osc_output' can be const.
+[ngp/T6W28_Apu.cpp:368] -> [ngp/T6W28_Apu.h:59]: (style, inconclusive) Technically the member function 'T6W28_Apu::save_state' can be const.
+[ngp/gfx.cpp:21]: (warning) Member variable 'NGPGFX_CLASS::C_OVR' is not initialized in the constructor.
+[ngp/gfx.cpp:21]: (warning) Member variable 'NGPGFX_CLASS::BLNK' is not initialized in the constructor.
+[ngp/gfx.cpp:303] -> [ngp/gfx.h:35]: (style, inconclusive) Technically the member function 'NGPGFX_CLASS::read8' can be const.
+[ngp/gfx_scanline_mono.cpp:125]: (style) The scope of the variable 'spr' can be reduced.
+[pce/debug.cpp:308]: (style) Unused variable: ret
+[pce/debug.cpp:505]: (style) Unused variable: bpit
+[pce/debug.cpp:210]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pce/debug.cpp:389]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pce/debug.cpp:424]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pce/vce.h:142]: (style) The scope of the variable 'chip' can be reduced.
+[pce/huc.cpp:477] -> [pce/huc.cpp:478]: (performance) Buffer 'SaveRAM' is being written before its old content has been used.
+[pce/mcgenjin.h:57]: (performance, inconclusive) Technically the member function 'MCGenjin::GetNVPDC' can be static.
+[pce/mcgenjin.h:62]: (style, inconclusive) Technically the member function 'MCGenjin::combobble' can be const.
+[pce/mcgenjin.h:165]: (performance, inconclusive) Technically the member function 'MCGenjin::Write' can be static.
+[pce/pce.cpp:1140]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pce/vce.cpp:531]: (style) The scope of the variable 'chip' can be reduced.
+[pce/vce.cpp:573]: (style) The scope of the variable 'chip' can be reduced.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::FrameDone' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::scanline_out_ptr' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::hblank' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::vblank' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::NeedSLReset' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::lc263' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::bw' is not initialized in the constructor.
+[pce/vce.cpp:112]: (warning) Member variable 'VCE::SubTValid' is not initialized in the constructor.
+[pce_fast/huc.cpp:227] -> [pce_fast/huc.cpp:228]: (performance) Buffer 'SaveRAM' is being written before its old content has been used.
+[pce_fast/huc.cpp:327] -> [pce_fast/huc.cpp:328]: (performance) Buffer 'SaveRAM' is being written before its old content has been used.
+[pce_fast/vdc.h:124]: (style) The scope of the variable 'chip' can be reduced.
+[pce_fast/psg.h:38]: (style) The class 'PCEFast_PSG' does not have a constructor.
+[pce_fast/psg.cpp:94] -> [pce_fast/psg.h:61]: (style, inconclusive) Technically the member function 'PCE_Fast::PCEFast_PSG::RecalcUOFunc' can be const.
+[pce_fast/psg.cpp:191] -> [pce_fast/psg.h:67]: (style, inconclusive) Technically the member function 'PCE_Fast::PCEFast_PSG::GetVL' can be const.
+[pce_fast/psg.cpp:113] -> [pce_fast/psg.h:69]: (style, inconclusive) Technically the member function 'PCE_Fast::PCEFast_PSG::RecalcFreqCache' can be const.
+[pce_fast/psg.cpp:134] -> [pce_fast/psg.h:70]: (style, inconclusive) Technically the member function 'PCE_Fast::PCEFast_PSG::RecalcNoiseFreqCache' can be const.
+[pce_fast/vdc.cpp:520]: (style) The scope of the variable 'chip' can be reduced.
+[pcfx/debug.cpp:43]: (style) struct or union member '__PCFX_BPOINT::logical' is never used.
+[pcfx/debug.cpp:475]: (style) Unused variable: bpit
+[pcfx/debug.cpp:251]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pcfx/debug.cpp:414]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[pcfx/king-bgfast.inc:11]: (style) The scope of the variable 'cg_per_mode' can be reduced.
+[pcfx/king.cpp:3905]: (style) The scope of the variable 'tile_width' can be reduced.
+[pcfx/king.cpp:3906]: (style) The scope of the variable 'tile_height' can be reduced.
+[pcfx/king.cpp:3920]: (style) Variable 'tile_width' is assigned a value that is never used.
+[pcfx/king.cpp:3921]: (style) Variable 'tile_height' is assigned a value that is never used.
+[player.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[player.cpp:131]: (style) The scope of the variable 'lastX' can be reduced.
+[player.cpp:131]: (style) The scope of the variable 'lastY' can be reduced.
+[psx/cpu.h:48]: (style) The class 'PS_CPU' does not have a constructor.
+[psx/gpu.h:38]: (style) The class 'PS_GPU' does not have a constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::DiscChanged' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::SubQChecksumOK' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::HeaderBufValid' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::StatusAfterSeek' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::Forward' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::Backward' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::Muted' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::AsyncIRQPending' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::CommandLoc_Dirty' is not initialized in the constructor.
+[psx/cdc.cpp:60]: (warning) Member variable 'PS_CDC::xa_cur_set' is not initialized in the constructor.
+[psx/spu.h:97]: (style) The class 'PS_SPU' does not have a constructor.
+[psx/gpu.h:86]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_GPU::GetScanlineNum' can be const.
+[psx/gpu.h:91]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_GPU::PeekRAM' can be const.
+[psx/cdc.cpp:121] -> [psx/cdc.h:31]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CDC::CalcNextEvent' can be const.
+[psx/cdc.cpp:499] -> [psx/cdc.h:57]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CDC::ApplyVolume' can be const.
+[psx/cdc.cpp:365] -> [psx/cdc.h:98]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CDC::RecalcIRQ' can be const.
+[psx/cdc.cpp:852] -> [psx/cdc.h:205]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CDC::EnbufferizeCDDASector' can be const.
+[psx/cdc.cpp:2375] -> [psx/cdc.h:267]: (performance, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CDC::Command_Init' can be static.
+[psx/FastFIFO.h:30]: (style, inconclusive) Technically the member function 'FastFIFO<uint32,32>::CanRead' can be const.
+[psx/FastFIFO.h:35]: (style, inconclusive) Technically the member function 'FastFIFO<uint32,32>::CanWrite' can be const.
+[psx/FastFIFO.h:40]: (style, inconclusive) Technically the member function 'FastFIFO<uint32,32>::Peek' can be const.
+[psx/masmem.h:70]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<1024,false>::WriteU8' can be static.
+[psx/masmem.h:75]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<1024,false>::WriteU16' can be static.
+[psx/masmem.h:80]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<1024,false>::WriteU32' can be static.
+[psx/cpu.h:218]: (style) Unused private function: 'PS_CPU::ReadMemory'
+[psx/cpu.h:219]: (style) Unused private function: 'PS_CPU::WriteMemory'
+[psx/cpu.cpp:232] -> [psx/cpu.h:78]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CPU::GetBIU' can be const.
+[psx/cpu.cpp:2465] -> [psx/cpu.h:227]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CPU::CheckBreakpoints' can be const.
+[psx/cpu.cpp:2332] -> [psx/cpu.h:242]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CPU::GetRegister' can be const.
+[psx/cpu.cpp:2414] -> [psx/cpu.h:244]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_CPU::PeekCheckICache' can be const.
+[psx/debug.cpp:136]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[psx/debug.cpp:144]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[psx/dis.cpp:274]: (style, inconclusive) Checking if unsigned variable 'immediate' is less than zero. This might be a false warning.
+[psx/frontio.cpp:358] -> [psx/frontio.cpp:360]: (performance) Variable 'trigger_condition' is reassigned a value before the old one has been used.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::ReceivePending' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::TransmitPending' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::ReceiveInProgress' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::TransmitInProgress' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::ReceiveBufferAvail' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::istatus' is not initialized in the constructor.
+[psx/frontio.cpp:262]: (warning) Member variable 'FrontIO::amct_enabled' is not initialized in the constructor.
+[psx/frontio.cpp:330] -> [psx/frontio.h:75]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::FrontIO::CalcNextEventTS' can be const.
+[psx/gpu.cpp:491]: (warning) Comparison of a boolean expression with an integer.
+[psx/gpu.cpp:1510]: (error) Buffer is accessed out of bounds: OutputLUT
+[psx/gpu.cpp:570] -> [psx/gpu.h:126]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_GPU::InvalidateTexCache' can be const.
+[psx/gpu_common.inc:209] -> [psx/gpu.h:175]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_GPU::LineSkipTest' can be const.
+[psx/gpu.cpp:1093] -> [psx/gpu.h:327]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_GPU::ReorderRGB_Var' can be const.
+[psx/gte.cpp:1008]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1082]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1096]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1129]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1138]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1167]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1177]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1231]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1241]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1251]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1263]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1295]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1305]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1317]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1336]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1349]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1359]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1370]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1384]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1397]: (style) Variable 'v' is assigned a value that is never used.
+[psx/gte.cpp:1412]: (style) Variable 'v' is assigned a value that is never used.
+[psx/input/dualshock.cpp:123]: (warning) Member variable 'InputDevice_DualShock::cur_ana_button_state' is not initialized in the constructor.
+[psx/input/multitap.cpp:95]: (warning) Member variable 'InputDevice_Multitap::dtr' is not initialized in the constructor.
+[psx/psx.cpp:170]: (style) struct or union member 'Anonymous4::hwrev' is never used.
+[psx/psx.cpp:1921]: (style) Variable 'po' is assigned a value that is never used.
+[psx/masmem.h:70]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<2097152,false>::WriteU8' can be static.
+[psx/masmem.h:75]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<2097152,false>::WriteU16' can be static.
+[psx/masmem.h:80]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<2097152,false>::WriteU32' can be static.
+[psx/spu.cpp:257]: (style, inconclusive) Boolean variable 'dec_mode' is used in bitwise operation. Did you mean '&&'?
+[psx/spu.cpp:258]: (style, inconclusive) Boolean variable 'inv_mode' is used in bitwise operation. Did you mean '&&'?
+[psx/spu.cpp:258]: (style, inconclusive) Boolean variable 'dec_mode' is used in bitwise operation. Did you mean '&&'?
+[psx/spu.cpp:266]: (style, inconclusive) Boolean variable 'dec_mode' is used in bitwise operation. Did you mean '&&'?
+[psx/spu.cpp:266]: (style, inconclusive) Boolean variable 'inv_mode' is used in bitwise operation. Did you mean '&&'?
+[psx/spu.cpp:239] -> [psx/spu.h:49]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::SPU_Sweep::ReadVolume' can be const.
+[psx/spu.cpp:446] -> [psx/spu.h:127]: (performance, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::CacheEnvelope' can be static.
+[psx/spu.cpp:473] -> [psx/spu.h:128]: (performance, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::ResetEnvelope' can be static.
+[psx/spu.cpp:482] -> [psx/spu.h:129]: (performance, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::ReleaseEnvelope' can be static.
+[psx/spu.cpp:491] -> [psx/spu.h:130]: (performance, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::RunEnvelope' can be static.
+[psx/spu_reverb.inc:14] -> [psx/spu.h:236]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::Get_Reverb_Offset' can be const.
+[psx/spu.cpp:1381] -> [psx/spu.h:338]: (style, inconclusive) Technically the member function 'MDFN_IEN_PSX::PS_SPU::PeekSPURAM' can be const.
+[qtrecord.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 139 configurations. Use --force to check all configurations.
+[quicklz/quicklz.c:160]: (warning) Redundant assignment of 'invalid' to itself.
+[quicklz/quicklz.c:180]: (warning) Redundant assignment of 'hash_counter' to itself.
+[quicklz/quicklz.c:181]: (warning) Redundant assignment of 'first_valid' to itself.
+[quicklz/quicklz.c:521]: (warning) Redundant assignment of 'first_valid' to itself.
+[quicklz/quicklz.c:522]: (warning) Redundant assignment of 'last_hashed' to itself.
+[quicklz/quicklz.c:523]: (warning) Redundant assignment of 'hashtable' to itself.
+[quicklz/quicklz.c:261]: (style) The scope of the variable 'matchlen' can be reduced.
+[quicklz/quicklz.c:559]: (style) The scope of the variable 'hash' can be reduced.
+[quicklz/quicklz.c:560]: (style) The scope of the variable 'offset2' can be reduced.
+[quicklz/quicklz.c:320]: (style) Variable 'offset' is assigned a value that is never used.
+[quicklz/quicklz.c:384]: (style) Variable 'offset' is assigned a value that is never used.
+[quicklz/quicklz.c:160]: (warning) Assignment of function parameter has no effect outside the function.
+[resampler/resample.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 17 configurations. Use --force to check all configurations.
+[resampler/resample.c:366]: (style) The scope of the variable 'sum' can be reduced.
+[resampler/resample.c:417]: (style) The scope of the variable 'sum' can be reduced.
+[resampler/resample.c:466]: (style) The scope of the variable 'sum' can be reduced.
+[resampler/resample.c:528]: (style) The scope of the variable 'sum' can be reduced.
+[resampler/resample.c:871]: (style) The scope of the variable 'j' can be reduced.
+[resampler/resample.c:1037]: (style) The scope of the variable 'i' can be reduced.
+[resampler/resample.c:367]: (style) Unused variable: j
+[resampler/resample.c:418]: (style) Unused variable: j
+[resampler/resample.c:465]: (style) Unused variable: j
+[resampler/resample.c:527]: (style) Unused variable: j
+[settings.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[settings.cpp:216]: (warning) Assert statement calls a function which may have desired side effects: 'MR_StringToDouble'.
+[settings.cpp:227]: (warning) Assert statement calls a function which may have desired side effects: 'MR_StringToDouble'.
+[settings.cpp:424]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[settings.cpp:429]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[settings.cpp:576]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[settings.cpp:814]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[settings.cpp:819]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[sexyal/drivers/es1370.cpp:108]: (warning) %d in format string (no. 1) requires a signed integer given in the argument list.
+[sexyal/drivers/es1371.cpp:140]: (warning) %d in format string (no. 1) requires a signed integer given in the argument list.
+[sexyal/drivers/es1371.cpp:331]: (style) Variable 'cur_pciid' is assigned a value that is never used.
+[sexyal/drivers/jack.cpp:249]: (warning, inconclusive) Multiplying sizeof() with sizeof() indicates a logic error.
+[sexyal/drivers/oss.cpp:68]: (warning) %d in format string (no. 1) requires a signed integer given in the argument list.
+[sexyal/drivers/sb.cpp:309]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:340]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:368]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:379]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:395]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:435]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:516]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:683]: (style) C-style pointer casting
+[sexyal/drivers/sb.cpp:734]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[sexyal/drivers/sb.cpp:744]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[sexyal/drivers/sb.cpp:754]: (portability) scanf without field width limits can crash with huge input data on some versions of libc.
+[sexyal/drivers/sdl.cpp:1]: (information) Skipping configuration 'SDL_INIT_EVENTTHREAD' since the value of 'SDL_INIT_EVENTTHREAD' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[sexyal/drivers/wasapi.cpp:90]: (style) C-style pointer casting
+[sexyal/drivers/wasapi.cpp:227]: (style) C-style pointer casting
+[sexyal/drivers/wasapi.cpp:517]: (style) C-style pointer casting
+[sexyal/drivers/wasapi.cpp:529]: (style) C-style pointer casting
+[sexyal/drivers/wasapi.cpp:587]: (style) C-style pointer casting
+[sexyal/drivers/wasapi.cpp:238]: (error) Memory leak: dev
+[sexyal/drivers/wasapish.cpp:77]: (style) C-style pointer casting
+[sexyal/drivers/wasapish.cpp:123]: (style) C-style pointer casting
+[sexyal/drivers/wasapish.cpp:206]: (style) C-style pointer casting
+[sexyal/drivers/wasapish.cpp:453]: (style) C-style pointer casting
+[sexyal/drivers/wasapish.cpp:489]: (style) C-style pointer casting
+[sexyal/drivers/wasapish.cpp:498]: (style) C-style pointer casting
+[sexyal/sexyal.cpp:390]: (style) Variable 'cgt_fail_warning' is assigned a value that is never used.
+[sexyal/sexyal.cpp:279] -> [sexyal/sexyal.h:208]: (performance, inconclusive) Technically the member function 'SexyAL::GetDriverList' can be static.
+[sexyal/sexyal.cpp:297] -> [sexyal/sexyal.h:213]: (performance, inconclusive) Technically the member function 'SexyAL::FindDriver' can be static.
+[sms/render.cpp:298]: (style) The scope of the variable 'c' can be reduced.
+[sms/tms.cpp:258] -> [sms/tms.cpp:252]: (style) Found duplicate branches for 'if' and 'else'.
+[sms/tms.cpp:112]: (style) The scope of the variable 'lb' can be reduced.
+[sms/tms.cpp:113]: (style) The scope of the variable 'p' can be reduced.
+[sms/tms.cpp:375]: (style) The scope of the variable 'name' can be reduced.
+[sms/tms.cpp:377]: (style) The scope of the variable 'clut' can be reduced.
+[sms/tms.cpp:378]: (style) The scope of the variable 'bpex' can be reduced.
+[sms/tms.cpp:400]: (style) The scope of the variable 'bpex' can be reduced.
+[sms/tms.cpp:431]: (style) The scope of the variable 'bpex' can be reduced.
+[sms/tms.cpp:452]: (style) The scope of the variable 'bpex' can be reduced.
+[sms/tms.cpp:469]: (style) The scope of the variable 'mcex' can be reduced.
+[sms/tms.cpp:486]: (style) The scope of the variable 'mcex' can be reduced.
+[sms/tms.cpp:503]: (style) The scope of the variable 'name' can be reduced.
+[sms/tms.cpp:505]: (style) The scope of the variable 'clut' can be reduced.
+[sms/tms.cpp:506]: (style) The scope of the variable 'bpex' can be reduced.
+[sms/vdp.cpp:89]: (style) The scope of the variable 'i' can be reduced.
+[sms/vdp.cpp:536]: (style) The scope of the variable 'iline' can be reduced.
+[snes/interface.cpp:310]: (warning) Comparison of a boolean with an integer.
+[snes/interface.cpp:334]: (warning) Comparison of a boolean with an integer.
+[snes/interface.cpp:289]: (warning) %d in format string (no. 2) requires a signed integer given in the argument list.
+[snes/interface.cpp:289]: (warning) %d in format string (no. 3) requires a signed integer given in the argument list.
+[snes/interface.cpp:289]: (warning) %d in format string (no. 4) requires a signed integer given in the argument list.
+[snes/src/ppu/ppu.hpp:17]: (style) The class 'PPUcounter' does not have a constructor.
+[snes/src/smp/smp.hpp:8]: (warning) Member variable 'SMP::t0' is not initialized in the constructor.
+[snes/src/smp/smp.hpp:8]: (warning) Member variable 'SMP::t1' is not initialized in the constructor.
+[snes/src/smp/smp.hpp:8]: (warning) Member variable 'SMP::t2' is not initialized in the constructor.
+[snes/src/smp/smp.hpp:8]: (warning) Member variable 'SMP::status' is not initialized in the constructor.
+[snes/src/system/video/video.hpp:1]: (style) The class 'Video' does not have a constructor.
+[snes/src/system/audio/audio.hpp:1]: (style) The class 'Audio' does not have a constructor.
+[snes/src/chip/superfx/superfx.hpp:3]: (style) The class 'SuperFX' does not have a constructor.
+[snes/src/chip/bsx/bsx.hpp:46]: (style) The class 'BSXFlash' does not have a constructor.
+[snes/src/chip/superfx/core/registers.hpp:32]: (style) 'reg16_t::operator=' should return 'reg16_t &'.
+[snes/src/memory/memory-inline.hpp:54] -> [snes/src/memory/memory.hpp:77]: (style, inconclusive) Technically the member function 'bSNES_v059::Bus::read' can be const.
+[snes/src/memory/memory-inline.hpp:63] -> [snes/src/memory/memory.hpp:78]: (style, inconclusive) Technically the member function 'bSNES_v059::Bus::write' can be const.
+[snes/interface.cpp:118] -> [snes/src/system/interface/interface.hpp:3]: (performance, inconclusive) Technically the member function 'bSNES_v059::Interface::video_scanline' can be static.
+[snes/interface.cpp:182] -> [snes/src/system/interface/interface.hpp:4]: (performance, inconclusive) Technically the member function 'bSNES_v059::Interface::audio_sample' can be static.
+[snes/interface.cpp:226] -> [snes/src/system/interface/interface.hpp:5]: (performance, inconclusive) Technically the member function 'bSNES_v059::Interface::input_poll' can be static.
+[snes/interface.cpp:286] -> [snes/src/system/interface/interface.hpp:6]: (performance, inconclusive) Technically the member function 'bSNES_v059::Interface::input_poll' can be static.
+[snes/src/system/input/input.hpp:49]: (style, inconclusive) Technically the member function 'bSNES_v059::Input::tick' can be const.
+[snes/src/chip/cx4/functions.cpp:69]: (style) Variable 'c4z' is assigned a value that is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:253]: (style) Variable 'Size' is assigned a value that is never used.
+[snes/src/chip/dsp2/opcodes.cpp:8]: (style) The scope of the variable 'c0' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:8]: (style) The scope of the variable 'c1' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:8]: (style) The scope of the variable 'c2' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:8]: (style) The scope of the variable 'c3' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:91]: (style) The scope of the variable 'c1' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:91]: (style) The scope of the variable 'c2' can be reduced.
+[snes/src/chip/dsp2/opcodes.cpp:151]: (style) The scope of the variable 'j' can be reduced.
+[snes/src/chip/dsp3/dsp3emu.c:1000]: (warning) Redundant assignment of 'DSP3_DR' to itself.
+[snes/src/chip/dsp4/dsp4emu.c:2065]: (style) Variable 'in1a' is assigned a value that is never used.
+[snes/src/chip/dsp4/dsp4emu.c:2067]: (style) Variable 'in3a' is assigned a value that is never used.
+[snes/src/chip/spc7110/spc7110.cpp:360]: (style) Variable 'length' is assigned a value that is never used.
+[snes/src/chip/st010/st010_op.cpp:56]: (style) The scope of the variable 'sorted' can be reduced.
+[snes/src/chip/superfx/disasm/disasm.cpp:91] -> [snes/src/chip/superfx/disasm/disasm.cpp:92]: (warning) Buffer 't' is being written before its old content has been used. 'break;' missing?
+[snes/src/cpu/core/table.cpp:20]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:22]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:41]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:44]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:46]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:72]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:73]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:76]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:78]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:105]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:108]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:111]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:136]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:137]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:140]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:143]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:156]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:158]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:168]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:169]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:170]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:172]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:173]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:175]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:177]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:178]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:188]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:190]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:200]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:201]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:202]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:204]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:207]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:220]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:222]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:233]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:236]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:252]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:265]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/core/table.cpp:268]: (warning) Redundant code: Found a statement that begins with numeric constant.
+[snes/src/cpu/scpu/debugger/debugger.cpp:4]: (style) Variable 'break_event' is assigned a value that is never used.
+[snes/src/cpu/scpu/timing/irq.cpp:51]: (style) Variable 'virq_enabled' is assigned a value that is never used.
+[snes/src/cpu/scpu/timing/irq.cpp:52]: (style) Variable 'hirq_enabled' is assigned a value that is never used.
+[snes/src/ppu/render/mode7.cpp:33]: (style) Variable '_bg_enabled' is assigned a value that is never used.
+[snes/src/ppu/render/mode7.cpp:34]: (style) Variable '_bgsub_enabled' is assigned a value that is never used.
+[snes/src/ppu/render/windows.cpp:57]: (style, inconclusive) Boolean variable 'w1_mask' is used in bitwise operation. Did you mean '||'?
+[snes/src/ppu/render/windows.cpp:58]: (style, inconclusive) Boolean variable 'w1_mask' is used in bitwise operation. Did you mean '&&'?
+[snes/src/smp/ssmp/debugger/debugger.cpp:4]: (style) Variable 'break_event' is assigned a value that is never used.
+[snes_faust/spc700.inc:1172] -> [snes_faust/spc700.inc:1174]: (performance, inconclusive) Variable 'PC' is reassigned a value before the old one has been used if variable is no semaphore variable.
+[snes_faust/cpu.h:115]: (style, inconclusive) Boolean variable 'active' is used in bitwise operation. Did you mean '&&'?
+[snes_faust/spc700.inc:846]: (style, inconclusive) Boolean variable 'bv' is used in bitwise operation. Did you mean '||'?
+[snes_faust/spc700.inc:45]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::SPC700::GetRegister' can be const.
+[snes_faust/spc700.inc:776] -> [snes_faust/spc700.inc:181]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::SPC700::Op_CLR1' can be static.
+[snes_faust/spc700.inc:782] -> [snes_faust/spc700.inc:182]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::SPC700::Op_SET1' can be static.
+[snes_faust/cart.cpp:148]: (style) Variable 'header' is assigned a value that is never used.
+[snes_faust/cpu.cpp:308] -> [snes_faust/cpu.cpp:143]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::MemWrite' can be static.
+[snes_faust/cpu.cpp:320] -> [snes_faust/cpu.cpp:146]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::MemRead' can be static.
+[snes_faust/cpu.cpp:345] -> [snes_faust/cpu.cpp:148]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::IO' can be static.
+[snes_faust/cpu.cpp:714] -> [snes_faust/cpu.cpp:184]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_DEC' can be static.
+[snes_faust/cpu.cpp:722] -> [snes_faust/cpu.cpp:185]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_INC' can be static.
+[snes_faust/cpu.cpp:192]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_STA' can be const.
+[snes_faust/cpu.cpp:193]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_STX' can be const.
+[snes_faust/cpu.cpp:194]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_STY' can be const.
+[snes_faust/cpu.cpp:195]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Op_STZ' can be static.
+[snes_faust/cpu.cpp:1058] -> [snes_faust/cpu.cpp:223]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Instr_ST' can be const.
+[snes_faust/cpu.cpp:448] -> [snes_faust/cpu.cpp:228]: (performance, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::Core65816::Instr_STP' can be static.
+[snes_faust/snes.cpp:610] -> [snes_faust/cpu.h:82]: (style, inconclusive) Technically the member function 'MDFN_IEN_SNES_FAUST::CPU_Misc::EventHandler' can be const.
+[sound/Blip_Buffer.h:242]: (warning) Member variable 'Blip_Synth::impulses' is not initialized in the constructor.
+[sound/Blip_Buffer.h:329]: (style) The class 'Blip_Reader' does not have a constructor.
+[sound/Blip_Buffer.h:484] -> [sound/Blip_Buffer.h:68]: (performance, inconclusive) Technically the member function 'Blip_Buffer::output_latency' can be static.
+[sound/Blip_Buffer.cpp:436] -> [sound/Blip_Buffer.h:91]: (style, inconclusive) Technically the member function 'Blip_Buffer::mix_samples' can be const.
+[sound/Blip_Buffer.h:169]: (performance, inconclusive) Technically the member function 'Blip_Synth_Fast_::treble_eq' can be static.
+[sound/Blip_Buffer.h:335]: (style, inconclusive) Technically the member function 'Blip_Reader::end' can be const.
+[sound/Blip_Buffer.cpp:29]: (warning) Member variable 'Blip_Buffer::modified_' is not initialized in the constructor.
+[sound/fir_blargg_common.h:44]: (style) C-style pointer casting
+[sound/Fir_Resampler.h:84]: (warning) Member variable 'Fir_Resampler::impulses' is not initialized in the constructor.
+[sound/Fir_Resampler.cpp:1]: (information) Skipping configuration 'blargg_err_t' since the value of 'blargg_err_t' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[sound/OwlResampler.cpp:121]: (warning) Possible null pointer dereference if the default parameter value is used: f_in
+[sound/OwlResampler.cpp:126]: (warning) Possible null pointer dereference if the default parameter value is used: f_in
+[sound/OwlResampler.cpp:155]: (warning) Possible null pointer dereference if the default parameter value is used: exmix0
+[sound/OwlResampler.cpp:161]: (warning) Possible null pointer dereference if the default parameter value is used: exmix1
+[sound/OwlResampler.cpp:174]: (warning) Possible null pointer dereference if the default parameter value is used: f_in
+[sound/OwlResampler.cpp:177]: (warning) Possible null pointer dereference if the default parameter value is used: f_in
+[sound/OwlResampler.cpp:992]: (style) Variable 'sum_d' is assigned a value that is never used.
+[sound/OwlResampler.h:90]: (style) The class 'OwlResampler' does not have a constructor.
+[sound/OwlResampler.cpp:721] -> [sound/OwlResampler.h:110]: (performance, inconclusive) Technically the member function 'OwlResampler::ResetBufResampState' can be static.
+[sound/OwlResampler.h:113]: (style, inconclusive) Technically the member function 'OwlResampler::GetRatio' can be const.
+[sound/WAVRecord.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[sound/okiadpcm.h:121]: (warning) Member variable 'OKIADPCM_Encoder::ChipType' is not initialized in the constructor.
+[sound/okiadpcm.h:52]: (style, inconclusive) Technically the member function 'OKIADPCM_Decoder::GetSample' can be const.
+[sound/okiadpcm.h:63]: (style, inconclusive) Technically the member function 'OKIADPCM_Decoder::GetSSI' can be const.
+[state.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 21 configurations. Use --force to check all configurations.
+[state.cpp:353]: (warning, inconclusive) The buffer 'sname_tmp' may not be null-terminated after the call to strncpy().
+[state.cpp:208]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[state_rewind.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[string/escape.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[string/trim.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[tests.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 23 configurations. Use --force to check all configurations.
+[endian.h:196]: (warning) Comparison of a boolean with an integer.
+[endian.h:89]: (warning) Comparison of a boolean with an integer.
+[tests.cpp:601]: (warning) Assert statement calls a function which may have desired side effects: 'TestBWNotMask31GTZ_Sub'.
+[tests.cpp:1319]: (warning) Assert statement calls a function which may have desired side effects: 'uilog2'.
+[tests.cpp:1320]: (warning) Assert statement calls a function which may have desired side effects: 'uilog2'.
+[tests.cpp:1321]: (warning) Assert statement calls a function which may have desired side effects: 'uilog2'.
+[tests.cpp:1322]: (warning) Assert statement calls a function which may have desired side effects: 'uilog2'.
+[tests.cpp:1323]: (warning) Assert statement calls a function which may have desired side effects: 'uilog2'.
+[psx/masmem.h:70]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,false>::WriteU8' can be static.
+[psx/masmem.h:75]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,false>::WriteU16' can be static.
+[psx/masmem.h:80]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,false>::WriteU32' can be static.
+[psx/masmem.h:70]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,true>::WriteU8' can be static.
+[psx/masmem.h:75]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,true>::WriteU16' can be static.
+[psx/masmem.h:80]: (performance, inconclusive) Technically the member function 'MultiAccessSizeMem<4,true>::WriteU32' can be static.
+[tremor/block.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/block.c:236]: (style) The scope of the variable 'i' can be reduced.
+[tremor/block.c:275]: (style) The scope of the variable 'i' can be reduced.
+[tremor/block.c:275]: (style) The scope of the variable 'j' can be reduced.
+[tremor/codebook.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[tremor/codebook.c:339]: (style) Unused variable: j
+[tremor/codebook.c:249]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/codebook.c:250]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/floor0.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/floor0.c:148]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/floor1.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/floor1.c:421]: (style) The scope of the variable 'j' can be reduced.
+[tremor/framing.c:377]: (style) The scope of the variable 'acc' can be reduced.
+[tremor/info.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/info.c:94]: (style) The scope of the variable 'i' can be reduced.
+[tremor/info.c:121]: (style) The scope of the variable 'i' can be reduced.
+[tremor/info.c:308]: (style) The scope of the variable 'buffer' can be reduced.
+[tremor/info.c:60]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/info.c:80]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/iseeking_example.c:35]: (style) The scope of the variable 'j' can be reduced.
+[tremor/iseeking_example.c:85]: (style) The scope of the variable 'i' can be reduced.
+[tremor/iseeking_example.c:85]: (style) The scope of the variable 'ret' can be reduced.
+[tremor/iseeking_example.c:88]: (style) The scope of the variable 'bigassbuffer' can be reduced.
+[tremor/iseeking_example.c:252]: (error) Memory leak: bigassbuffer
+[tremor/mapping0.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/mapping0.c:65]: (style) The scope of the variable 'i' can be reduced.
+[tremor/mapping0.c:197]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/mapping0.c:198]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/mapping0.c:200]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/mapping0.c:201]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/mdct.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[tremor/mdct.c:346]: (style) The scope of the variable 'V' can be reduced.
+[tremor/registry.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/res012.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 16 configurations. Use --force to check all configurations.
+[tremor/res012.c:54]: (style) The scope of the variable 'j' can be reduced.
+[tremor/res012.c:229]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/sharedbook.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[tremor/sharedbook.c:196]: (style) The scope of the variable 'j' can be reduced.
+[tremor/sharedbook.c:196]: (style) The scope of the variable 'k' can be reduced.
+[tremor/sharedbook.c:196]: (style) The scope of the variable 'count' can be reduced.
+[tremor/sharedbook.c:358]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/sharedbook.c:369]: (style) Obsolete function 'alloca' called. In C99 and later it is recommended to use a variable length array instead.
+[tremor/synthesis.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/synthesis.c:29] -> [tremor/synthesis.c:35]: (warning) Possible null pointer dereference: vd - otherwise it is redundant to check it against null.
+[tremor/synthesis.c:33]: (style) The scope of the variable 'type' can be reduced.
+[tremor/synthesis.c:33]: (style) The scope of the variable 'i' can be reduced.
+[tremor/vorbisfile.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 15 configurations. Use --force to check all configurations.
+[tremor/vorbisfile.c:819]: (style) The scope of the variable 'link' can be reduced.
+[tremor/vorbisfile.c:1835]: (style) The scope of the variable 'i' can be reduced.
+[tremor/vorbisfile.c:1835]: (style) The scope of the variable 'j' can be reduced.
+[tremor/vorbisfile.c:769]: (style) Variable 'ret' is assigned a value that is never used.
+[tremor/window.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 14 configurations. Use --force to check all configurations.
+[trio/trio.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 170 configurations. Use --force to check all configurations.
+[trio/trio.c:1397]: (style) The scope of the variable 'ch' can be reduced.
+[trio/trio.c:1970]: (style) The scope of the variable 'i' can be reduced.
+[trio/trio.c:2496]: (style) The scope of the variable 'digitOffset' can be reduced.
+[trio/trio.c:2743]: (style) The scope of the variable 'ch' can be reduced.
+[trio/trio.c:3601]: (style) The scope of the variable 'flags' can be reduced.
+[trio/trio.c:3602]: (style) The scope of the variable 'width' can be reduced.
+[trio/trio.c:5629]: (style) The scope of the variable 'flags' can be reduced.
+[trio/trio.c:5630]: (style) The scope of the variable 'number' can be reduced.
+[trio/trio.c:867]: (style) struct or union member 'Anonymous3::cached' is never used.
+[trio/trio.c:1981]: (style) Variable 'save_errno' is assigned a value that is never used.
+[trio/trio.c:2822]: (style) The scope of the variable 'ch' can be reduced.
+[trio/trio.c:2862]: (style) The scope of the variable 'size' can be reduced.
+[trio/trionan.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 32 configurations. Use --force to check all configurations.
+[trio/trionan.c:1]: (information) Skipping configuration 'FP_PLUS_NORM;TRIO_COMPILER_HP;TRIO_FUNC_FPCLASSIFY_AND_SIGNBIT' since the value of 'FP_PLUS_NORM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[trio/trionan.c:1]: (information) Skipping configuration 'FP_PLUS_NORM;TRIO_COMPILER_XLC;TRIO_FUNC_FPCLASSIFY_AND_SIGNBIT' since the value of 'FP_PLUS_NORM' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[trio/trionan.c:1]: (information) Skipping configuration 'INFINITY;TRIO_FUNC_PINF;__STDC_IEC_559__' since the value of 'INFINITY' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[trio/trionan.c:1]: (information) Skipping configuration 'NAN;TRIO_FUNC_NAN;__STDC_IEC_559__' since the value of 'NAN' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[trio/trionan.c:1]: (information) Skipping configuration 'PREDEF_STANDARD_C99;TRIO_FUNC_FPCLASSIFY_AND_SIGNBIT;fpclassify' since the value of 'fpclassify' is unknown. Use -D if you want to check it. You can use -U to skip it explicitly.
+[trio/trionan.c:1177]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1178]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1179]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1180]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1181]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1182]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1183]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1184]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1188]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1189]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1190]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1191]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1192]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1193]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1194]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1195]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1199]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1200]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1201]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1202]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1203]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1204]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1205]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1206]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1223]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1224]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1225]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1226]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1227]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1228]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1229]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1230]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1234]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1235]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1236]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1237]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1238]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1239]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1240]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1241]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1245]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1246]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1247]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1248]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1249]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1250]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1251]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/trionan.c:1252]: (portability, inconclusive) Casting from double* to char* is not portable due to different binary data representations on different platforms.
+[trio/triostr.c]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 90 configurations. Use --force to check all configurations.
+[trio/triostr.c:153]: (style) struct or union member '_trio_string_t::content' is never used.
+[trio/triostr.c:154]: (style) struct or union member '_trio_string_t::length' is never used.
+[trio/triostr.c:155]: (style) struct or union member '_trio_string_t::allocated' is never used.
+[vb/debug.cpp:429] -> [vb/debug.cpp:425]: (style) Found duplicate branches for 'if' and 'else'.
+[vb/debug.cpp:47]: (style) struct or union member '__VB_BPOINT::logical' is never used.
+[vb/debug.cpp:274]: (style) Unused variable: bpit
+[vb/debug.cpp:200]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[vb/debug.cpp:245]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[vb/vsu.cpp:512] -> [vb/vsu.h:23]: (style, inconclusive) Technically the member function 'VSU::PeekWave' can be const.
+[vb/vsu.cpp:530] -> [vb/vsu.h:26]: (style, inconclusive) Technically the member function 'VSU::PeekModWave' can be const.
+[vb/vsu.cpp:202] -> [vb/vsu.h:31]: (style, inconclusive) Technically the member function 'VSU::CalcCurrentOutput' can be const.
+[video/Deinterlacer.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/Deinterlacer.h:50]: (style) Unused private function: 'Deinterlacer::InternalProcess'
+[video/Deinterlacer.h:38]: (style, inconclusive) Technically the member function 'Deinterlacer::GetType' can be const.
+[video/font-data.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/png.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/png.cpp:222] -> [video/png.cpp:220]: (style) Found duplicate branches for 'if' and 'else'.
+[video/png.cpp:79]: (style) The scope of the variable 'r' can be reduced.
+[video/png.cpp:79]: (style) The scope of the variable 'g' can be reduced.
+[video/png.cpp:79]: (style) The scope of the variable 'b' can be reduced.
+[video/primitives.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/primitives.cpp:190]: (style) Variable 's_w' is assigned a value that is never used.
+[video/primitives.cpp:191]: (style) Variable 's_h' is assigned a value that is never used.
+[video/resize.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/surface.cpp:153]: (style) C-style pointer casting
+[video/surface.cpp:212]: (style) C-style pointer casting
+[video/surface.cpp:196] -> [video/surface.cpp:192]: (style) Found duplicate branches for 'if' and 'else'.
+[video/tblur.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/text.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/video.cpp]: (information) Too many #ifdef configurations - cppcheck only checks 12 of 20 configurations. Use --force to check all configurations.
+[video/video.cpp:60]: (error) Instance of 'PNGWrite' object is destroyed immediately.
+[wswan/debug.cpp:346] -> [wswan/debug.cpp:347]: (performance) Variable 'mis' is reassigned a value before the old one has been used.
+[wswan/dis/disasm.h:155]: (style, inconclusive) Technically the member function 'disassembler::peek_byte' can be const.
+[wswan/debug.cpp:77]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[wswan/debug.cpp:99]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[wswan/debug.cpp:116]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[wswan/debug.cpp:138]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[wswan/debug.cpp:155]: (performance) Prefer prefix ++/-- operators for non-primitive types.
+[wswan/dis/dis_decode.cpp:161]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:165]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:169]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:173]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:177]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:202]: (style) C-style pointer casting
+[wswan/dis/dis_decode.cpp:214]: (style) C-style pointer casting
+[wswan/dis/dis_groups.cpp:200] -> [wswan/dis/disasm.h:346]: (style, inconclusive) Technically the member function 'disassembler::OP_M' can be const.
+[wswan/dis/resolve.cpp:68] -> [wswan/dis/disasm.h:186]: (style, inconclusive) Technically the member function 'disassembler::print_datasize' can be const.
+[wswan/dis/disasm.h:108]: (warning) Member variable 'disassembler::instruction' is not initialized in the constructor.
+[wswan/dis/disasm.h:108]: (warning) Member variable 'disassembler::disbufptr' is not initialized in the constructor.
+[wswan/gfx.cpp:619]: (style) The scope of the variable 'ys2' can be reduced.
+[wswan/gfx.cpp:760]: (style) The scope of the variable 'xs' can be reduced.
+[wswan/gfx.cpp:760]: (style) The scope of the variable 'ts' can be reduced.
+[wswan/gfx.cpp:760]: (style) The scope of the variable 'as' can be reduced.
+[wswan/gfx.cpp:760]: (style) The scope of the variable 'ysx' can be reduced.
+[wswan/gfx.cpp:1073] -> [wswan/gfx.cpp:1068]: (style) Found duplicate branches for 'if' and 'else'.
+[wswan/rtc.cpp:71] -> [wswan/rtc.cpp:49]: (performance, inconclusive) Technically the member function 'MDFN_IEN_WSWAN::GenericRTC::BCDInc' can be static.
+[wswan/v30mz.cpp:505] -> [wswan/v30mz.cpp:505]: (performance) Variable 'dst' is reassigned a value before the old one has been used.
+[psx/gpu_polygon.cpp:107]: (style) The function 'AddIDeltas_DX' is never used.
+[psx/gpu_polygon.cpp:124]: (style) The function 'AddIDeltas_DY' is never used.
+[psx/gpu_line.cpp:100]: (style) The function 'AddLineStep' is never used.
+[IPSPatcher.cpp:23]: (style) The function 'Apply' is never used.
+[hw_cpu/huc6280/huc6280.cpp:113]: (style) The function 'BBRi' is never used.
+[hw_cpu/huc6280/huc6280.cpp:119]: (style) The function 'BBSi' is never used.
+[gba/bios.cpp:511]: (style) The function 'BIOS_DivARM' is never used.
+[pce_fast/vdc.cpp:1207]: (style) The function 'BigDrawThingy' is never used.
+[lynx/mikie.cpp:58]: (style) The function 'BlowOut' is never used.
+[hw_cpu/c68k/c68k.cpp:202]: (style) The function 'C68k_Get_MSP' is never used.
+[hw_cpu/c68k/c68k.cpp:196]: (style) The function 'C68k_Get_USP' is never used.
+[hw_cpu/c68k/c68k.cpp:213]: (style) The function 'C68k_Set_AReg' is never used.
+[hw_cpu/c68k/c68k.cpp:208]: (style) The function 'C68k_Set_DReg' is never used.
+[hw_cpu/c68k/c68k.cpp:235]: (style) The function 'C68k_Set_MSP' is never used.
+[hw_cpu/c68k/c68k.cpp:223]: (style) The function 'C68k_Set_SR' is never used.
+[hw_cpu/c68k/c68k.cpp:229]: (style) The function 'C68k_Set_USP' is never used.
+[snes_faust/ppu.cpp:1502]: (style) The function 'CMath' is never used.
+[psx/gpu_polygon.cpp:74]: (style) The function 'CalcIDeltas' is never used.
+[nes/cart.cpp:187]: (style) The function 'CartBROB' is never used.
+[snes_faust/cart.cpp:44]: (style) The function 'CartRead_HiROM' is never used.
+[snes_faust/cart.cpp:33]: (style) The function 'CartRead_LoROM' is never used.
+[snes_faust/cart.cpp:78]: (style) The function 'CartRead_SRAM_HiROM' is never used.
+[snes_faust/cart.cpp:55]: (style) The function 'CartRead_SRAM_LoROM' is never used.
+[snes_faust/cart.cpp:92]: (style) The function 'CartWrite_SRAM_HiROM' is never used.
+[snes_faust/cart.cpp:66]: (style) The function 'CartWrite_SRAM_LoROM' is never used.
+[drivers/cheat.cpp:851]: (style) The function 'CheatIF_GT_Show' is never used.
+[video/Deinterlacer.cpp:200]: (style) The function 'ClearState' is never used.
+[psx/gpu_line.cpp:199]: (style) The function 'Command_DrawLine' is never used.
+[psx/gpu_polygon.cpp:502]: (style) The function 'Command_DrawPolygon' is never used.
+[psx/gpu_sprite.cpp:145]: (style) The function 'Command_DrawSprite' is never used.
+[psx/cdc.cpp:2335]: (style) The function 'Command_ID_Part2' is never used.
+[psx/cdc.cpp:1949]: (style) The function 'Command_Pause_Part2' is never used.
+[psx/cdc.cpp:2408]: (style) The function 'Command_ReadTOC_Part2' is never used.
+[psx/cdc.cpp:2084]: (style) The function 'Command_ReadT_Part2' is never used.
+[psx/cdc.cpp:2181]: (style) The function 'Command_Seek_PartN' is never used.
+[psx/cdc.cpp:1911]: (style) The function 'Command_Standby_Part2' is never used.
+[psx/cdc.cpp:1875]: (style) The function 'Command_Stop_Part2' is never used.
+[gb/gb.cpp:2315]: (style) The function 'CopyLineSurface' is never used.
+[wswan/dis/dis_groups.cpp:68]: (style) The function 'Cq' is never used.
+[psx/debug.cpp:58]: (style) The function 'DBG_Break' is never used.
+[psx/cdc.cpp:1539]: (style) The function 'DMACanRead' is never used.
+[snes/src/chip/dsp3/dsp3emu.c:151]: (style) The function 'DSP3_MemorySize' is never used.
+[snes/src/chip/dsp3/dsp3emu.c:1005]: (style) The function 'DSP3_OP0C_A' is never used.
+[drivers/input-config.cpp:29]: (style) The function 'DTestMouseAxis' is never used.
+[ngp/TLCS-900h/TLCS900h_interpret.cpp:69]: (style) The function 'DUMMY_instruction_error' is never used.
+[drivers/debugger.cpp:1403]: (style) The function 'Debugger_GT_ForceStepIfStepping' is never used.
+[drivers/debugger.cpp:1410]: (style) The function 'Debugger_GT_SyncDisToPC' is never used.
+[drivers_dos/Joystick_DOS_Standard.cpp:68]: (style) The function 'Detect' is never used.
+[snes_faust/ppu.cpp:1472]: (style) The function 'DoBGLayer' is never used.
+[wswan/dis/dis_groups.cpp:79]: (style) The function 'Dq' is never used.
+[psx/gpu_line.cpp:114]: (style) The function 'DrawLine' is never used.
+[snes_faust/ppu.cpp:1170]: (style) The function 'DrawMODE7' is never used.
+[psx/gpu_polygon.cpp:141]: (style) The function 'DrawSpan' is never used.
+[psx/gpu_sprite.cpp:26]: (style) The function 'DrawSprite' is never used.
+[gb/gfx.cpp:346]: (style) The function 'DrawSpriteTile' is never used.
+[psx/gpu_polygon.cpp:232]: (style) The function 'DrawTriangle' is never used.
+[hw_sound/ym2413/emu2413.cpp:1763]: (style) The function 'EMU2413_calc_stereo' is never used.
+[hw_sound/ym2413/emu2413.cpp:1051]: (style) The function 'EMU2413_forceRefresh' is never used.
+[hw_sound/ym2413/emu2413.cpp:576]: (style) The function 'EMU2413_patch2dump' is never used.
+[hw_sound/ym2413/emu2413.cpp:1416]: (style) The function 'EMU2413_setMask' is never used.
+[hw_sound/ym2413/emu2413.cpp:562]: (style) The function 'EMU2413_setPatch' is never used.
+[hw_sound/ym2413/emu2413.cpp:1697]: (style) The function 'EMU2413_set_pan' is never used.
+[hw_sound/ym2413/emu2413.cpp:1430]: (style) The function 'EMU2413_toggleMask' is never used.
+[PSFLoader.cpp:185]: (style) The function 'EraseTag' is never used.
+[pcfx/fxscsi.cpp:21]: (style) The function 'FXSCSI_Init' is never used.
+[gb/gb.cpp:2360]: (style) The function 'FillLineSurface' is never used.
+[drivers/main.cpp:1194]: (style) The function 'GT_ToggleFS' is never used.
+[psx/gpu_line.cpp:259]: (style) The function 'G_Command_DrawLine' is never used.
+[psx/gpu_polygon.cpp:595]: (style) The function 'G_Command_DrawPolygon' is never used.
+[psx/gpu_sprite.cpp:235]: (style) The function 'G_Command_DrawSprite' is never used.
+[psx/frontio.cpp:148]: (style) The function 'GetDSR' is never used.
+[snes_faust/cpu.cpp:811]: (style) The function 'GetEA_ABI' is never used.
+[snes_faust/cpu.cpp:826]: (style) The function 'GetEA_ABX' is never used.
+[snes_faust/cpu.cpp:832]: (style) The function 'GetEA_ABY' is never used.
+[snes_faust/cpu.cpp:949]: (style) The function 'GetEA_IY' is never used.
+[general.cpp:530]: (style) The function 'GetFileBase' is never used.
+[snes_faust/ppu.cpp:901]: (style) The function 'GetOPTStrip' is never used.
+[drivers/2xSaI.cpp:185]: (style) The function 'GetResult1_32' is never used.
+[drivers/2xSaI.cpp:207]: (style) The function 'GetResult2_32' is never used.
+[PSFLoader.cpp:147]: (style) The function 'GetTagI' is never used.
+[drivers/Joystick.cpp:596]: (style) The function 'GetUniqueIDByIndex' is never used.
+[drivers/help.cpp:119]: (style) The function 'Help_Close' is never used.
+[drivers/help.cpp:114]: (style) The function 'Help_Init' is never used.
+[pcfx/huc6273.cpp:235]: (style) The function 'HuC6273_Write8' is never used.
+[psx/mdec.cpp:237]: (style) The function 'IDCT_1D_Multi' is never used.
+[psx/irq.cpp:100]: (style) The function 'IRQ_Reset' is never used.
+[snes/src/chip/dsp3/dsp3emu.c:1141]: (style) The function 'InitDSP3' is never used.
+[snes_faust/cpu.cpp:1434]: (style) The function 'Instr_CLx' is never used.
+[snes_faust/cpu.cpp:1282]: (style) The function 'Instr_DEX' is never used.
+[snes_faust/cpu.cpp:1290]: (style) The function 'Instr_DEY' is never used.
+[snes_faust/cpu.cpp:1266]: (style) The function 'Instr_INX' is never used.
+[snes_faust/cpu.cpp:1274]: (style) The function 'Instr_INY' is never used.
+[snes_faust/cpu.cpp:1452]: (style) The function 'Instr_MVx' is never used.
+[snes_faust/cpu.cpp:1514]: (style) The function 'Instr_PHA' is never used.
+[snes_faust/cpu.cpp:1545]: (style) The function 'Instr_PHX' is never used.
+[snes_faust/cpu.cpp:1552]: (style) The function 'Instr_PHY' is never used.
+[snes_faust/cpu.cpp:1559]: (style) The function 'Instr_PLA' is never used.
+[snes_faust/cpu.cpp:1603]: (style) The function 'Instr_PLX' is never used.
+[snes_faust/cpu.cpp:1613]: (style) The function 'Instr_PLY' is never used.
+[snes_faust/cpu.cpp:1441]: (style) The function 'Instr_SEx' is never used.
+[snes_faust/cpu.cpp:1302]: (style) The function 'Instr_TAX' is never used.
+[snes_faust/cpu.cpp:1312]: (style) The function 'Instr_TAY' is never used.
+[snes_faust/cpu.cpp:1353]: (style) The function 'Instr_TSX' is never used.
+[snes_faust/cpu.cpp:1362]: (style) The function 'Instr_TXA' is never used.
+[snes_faust/cpu.cpp:1377]: (style) The function 'Instr_TXY' is never used.
+[snes_faust/cpu.cpp:1386]: (style) The function 'Instr_TYA' is never used.
+[snes_faust/cpu.cpp:1395]: (style) The function 'Instr_TYX' is never used.
+[video/Deinterlacer.cpp:56]: (style) The function 'InternalProcess' is never used.
+[drivers/NetClient_POSIX.cpp:162]: (style) The function 'IsConnected' is never used.
+[drivers/main.cpp:867]: (style) The function 'IsInFrameAdvance' is never used.
+[hw_cpu/v810/v810_cpu.cpp:1227]: (style) The function 'IsSubnormal' is never used.
+[drivers_dos/Joystick_DOS_Standard.cpp:139]: (style) The function 'JoystickDriver_DOS_Standard_New' is never used.
+[pcfx/king.cpp:528]: (style) The function 'KING_MemPeek' is never used.
+[psx/gpu_line.cpp:41]: (style) The function 'LinePointToFXPCoord' is never used.
+[psx/gpu_line.cpp:72]: (style) The function 'LinePointsToFXPStep' is never used.
+[md/cd/cdc_cdd.cpp:44]: (style) The function 'MDCD_CDC_SubRead16' is never used.
+[md/cd/cdc_cdd.cpp:39]: (style) The function 'MDCD_CDC_SubRead8' is never used.
+[md/cd/cdc_cdd.cpp:69]: (style) The function 'MDCD_CDD_Read16' is never used.
+[md/cd/cdc_cdd.cpp:63]: (style) The function 'MDCD_CDD_Read8' is never used.
+[md/cd/cd.cpp:887]: (style) The function 'MDCD_Close' is never used.
+[md/cd/interrupt.cpp:100]: (style) The function 'MDCD_InterruptInit' is never used.
+[md/cd/cd.cpp:824]: (style) The function 'MDCD_Run' is never used.
+[md/cd/timer.cpp:26]: (style) The function 'MDCD_Timer_Reset' is never used.
+[drivers/rmdui.cpp:115]: (style) The function 'MDFND_MediaSetNotification' is never used.
+[drivers/main.cpp:242]: (style) The function 'MDFND_Message' is never used.
+[drivers/main.cpp:1989]: (style) The function 'MDFND_MidSync' is never used.
+[drivers/thread_sdl.cpp:70]: (style) The function 'MDFND_WaitCondTimeout' is never used.
+[drivers/thread_sdl.cpp:95]: (style) The function 'MDFND_WaitSem' is never used.
+[gba/GBA.cpp:2791]: (style) The function 'MDFNGBA_GetTimerPeriod' is never used.
+[nes/boards/16.cpp:588]: (style) The function 'MDFNI_DatachSet' is never used.
+[nes/x6502.cpp:392]: (style) The function 'MDFNI_IRQ' is never used.
+[nes/x6502.cpp:387]: (style) The function 'MDFNI_NMI' is never used.
+[nes/vsuni.cpp:68]: (style) The function 'MDFNI_VSUniGetDIPs' is never used.
+[nes/vsuni.cpp:62]: (style) The function 'MDFNI_VSUniSetDIP' is never used.
+[movie.cpp:264]: (style) The function 'MDFNMOV_AddCommand' is never used.
+[movie.cpp:319]: (style) The function 'MDFNMOV_CheckMovies' is never used.
+[movie.cpp:210]: (style) The function 'MDFNMOV_ProcessInput' is never used.
+[movie.cpp:296]: (style) The function 'MDFNMOV_StateAction' is never used.
+[mempatcher.cpp:142]: (style) The function 'MDFNMP_Kill' is never used.
+[state_rewind.cpp:227]: (style) The function 'MDFNSRW_Frame' is never used.
+[state_rewind.cpp:87]: (style) The function 'MDFNSRW_IsRunning' is never used.
+[state.cpp:561]: (style) The function 'MDFNSS_CheckStates' is never used.
+[settings.cpp:512]: (style) The function 'MDFN_ClearAllOverrideSettings' is never used.
+[video/primitives.cpp:182]: (style) The function 'MDFN_DrawLine' is never used.
+[video/primitives.cpp:46]: (style) The function 'MDFN_DrawRect' is never used.
+[video/text.cpp:55]: (style) The function 'MDFN_InitFontData' is never used.
+[nes/input/suborkb.cpp:106]: (style) The function 'MDFN_InitSuborKB' is never used.
+[nes/input/toprider.cpp:74]: (style) The function 'MDFN_InitTopRider' is never used.
+[settings.cpp:533]: (style) The function 'MDFN_KillSettings' is never used.
+[settings.cpp:366]: (style) The function 'MDFN_LoadSettings' is never used.
+[settings.cpp:494]: (style) The function 'MDFN_MergeSettings' is never used.
+[tests.cpp:1068]: (style) The function 'MDFN_RunMathTests' is never used.
+[settings.cpp:449]: (style) The function 'MDFN_SaveSettings' is never used.
+[general.cpp:43]: (style) The function 'MDFN_SetBaseDirectory' is never used.
+[nes/vsuni.cpp:52]: (style) The function 'MDFN_VSUniToggleDIPView' is never used.
+[memory.cpp:71]: (style) The function 'MDFN_realloc_real' is never used.
+[resampler/resample.c:809]: (style) The function 'MDFN_resampler_destroy' is never used.
+[resampler/resample.c:1115]: (style) The function 'MDFN_resampler_get_input_latency' is never used.
+[resampler/resample.c:1100]: (style) The function 'MDFN_resampler_get_input_stride' is never used.
+[resampler/resample.c:1120]: (style) The function 'MDFN_resampler_get_output_latency' is never used.
+[resampler/resample.c:1110]: (style) The function 'MDFN_resampler_get_output_stride' is never used.
+[resampler/resample.c:1090]: (style) The function 'MDFN_resampler_get_quality' is never used.
+[resampler/resample.c:1027]: (style) The function 'MDFN_resampler_get_rate' is never used.
+[resampler/resample.c:1072]: (style) The function 'MDFN_resampler_get_ratio' is never used.
+[resampler/resample.c:745]: (style) The function 'MDFN_resampler_init' is never used.
+[resampler/resample.c:980]: (style) The function 'MDFN_resampler_process_interleaved_float' is never used.
+[resampler/resample.c:1001]: (style) The function 'MDFN_resampler_process_interleaved_int' is never used.
+[resampler/resample.c:1133]: (style) The function 'MDFN_resampler_reset_mem' is never used.
+[resampler/resample.c:1095]: (style) The function 'MDFN_resampler_set_input_stride' is never used.
+[resampler/resample.c:1105]: (style) The function 'MDFN_resampler_set_output_stride' is never used.
+[resampler/resample.c:1022]: (style) The function 'MDFN_resampler_set_rate' is never used.
+[resampler/resample.c:1125]: (style) The function 'MDFN_resampler_skip_zeros' is never used.
+[nes/boards/maxicart.cpp:96]: (style) The function 'Mapper125_Init' is never used.
+[nes/boards/mmc3.cpp:1098]: (style) The function 'Mapper148_Init' is never used.
+[nes/boards/tengen.cpp:235]: (style) The function 'Mapper159_init' is never used.
+[nes/boards/mmc3.cpp:727]: (style) The function 'Mapper165_Init' is never used.
+[wswan/dis/dis_groups.cpp:213]: (style) The function 'Mb' is never used.
+[wswan/dis/dis_groups.cpp:215]: (style) The function 'Md' is never used.
+[wswan/dis/dis_groups.cpp:219]: (style) The function 'Mdq' is never used.
+[psx/psx.cpp:458]: (style) The function 'MemRW' is never used.
+[snes_faust/cpu.cpp:308]: (style) The function 'MemWrite' is never used.
+[snes_faust/ppu.cpp:1701]: (style) The function 'MixLayersSub' is never used.
+[snes_faust/ppu.cpp:1620]: (style) The function 'MixMainSub' is never used.
+[snes_faust/ppu.cpp:1545]: (style) The function 'MixMainSubSubSubMarine' is never used.
+[wswan/dis/dis_groups.cpp:221]: (style) The function 'Mpd' is never used.
+[wswan/dis/dis_groups.cpp:220]: (style) The function 'Mps' is never used.
+[wswan/dis/dis_groups.cpp:216]: (style) The function 'Mq' is never used.
+[wswan/dis/dis_groups.cpp:217]: (style) The function 'Mt' is never used.
+[nes/debug.cpp:137]: (style) The function 'NESDBG_MemPoke' is never used.
+[netplay.cpp:328]: (style) The function 'NetplaySendCommand' is never used.
+[netplay.cpp:205]: (style) The function 'NetplayStart' is never used.
+[netplay.cpp:1076]: (style) The function 'Netplay_PostProcess' is never used.
+[drivers/netplay.cpp:226]: (style) The function 'Netplay_ToggleTextView' is never used.
+[netplay.cpp:1013]: (style) The function 'Netplay_Update' is never used.
+[snes_faust/snes.cpp:102]: (style) The function 'OBRead' is never used.
+[snes_faust/snes.cpp:114]: (style) The function 'OBWrite' is never used.
+[nes/boards/emu2413.cpp:880]: (style) The function 'OPLL_setMask' is never used.
+[nes/boards/emu2413.cpp:662]: (style) The function 'OPLL_set_rate' is never used.
+[nes/boards/emu2413.cpp:895]: (style) The function 'OPLL_toggleMask' is never used.
+[nes/boards/emu2413.cpp:1132]: (style) The function 'OPLL_writeIO' is never used.
+[wswan/dis/dis_groups.cpp:196]: (style) The function 'Od' is never used.
+[snes_faust/cpu.cpp:540]: (style) The function 'Op_BIT' is never used.
+[snes_faust/cpu.cpp:574]: (style) The function 'Op_CPX' is never used.
+[snes_faust/cpu.cpp:580]: (style) The function 'Op_CPY' is never used.
+[snes_faust/cpu.cpp:557]: (style) The function 'Op_Compare' is never used.
+[snes_faust/cpu.cpp:596]: (style) The function 'Op_LDA' is never used.
+[snes_faust/cpu.cpp:606]: (style) The function 'Op_LDX' is never used.
+[snes_faust/cpu.cpp:614]: (style) The function 'Op_LDY' is never used.
+[snes_faust/cpu.cpp:622]: (style) The function 'Op_ORA' is never used.
+[snes_faust/cpu.cpp:192]: (style) The function 'Op_STA' is never used.
+[snes_faust/cpu.cpp:193]: (style) The function 'Op_STX' is never used.
+[snes_faust/cpu.cpp:194]: (style) The function 'Op_STY' is never used.
+[snes_faust/cpu.cpp:195]: (style) The function 'Op_STZ' is never used.
+[snes_faust/cpu.cpp:769]: (style) The function 'Op_TRB' is never used.
+[snes_faust/cpu.cpp:781]: (style) The function 'Op_TSB' is never used.
+[wswan/dis/dis_groups.cpp:197]: (style) The function 'Oq' is never used.
+[psx/cpu.cpp:2431]: (style) The function 'PeekMem16' is never used.
+[psx/cpu.cpp:241]: (style) The function 'PeekMemory' is never used.
+[vb/vsu.cpp:530]: (style) The function 'PeekModWave' is never used.
+[psx/cpu.cpp:2446]: (style) The function 'PokeMem16' is never used.
+[psx/cpu.cpp:2451]: (style) The function 'PokeMem32' is never used.
+[psx/cpu.cpp:262]: (style) The function 'PokeMemory' is never used.
+[vb/vsu.cpp:536]: (style) The function 'PokeModWave' is never used.
+[snes_faust/ppu.cpp:1680]: (style) The function 'PrioHelper' is never used.
+[sound/OwlResampler.cpp:240]: (style) The function 'Process' is never used.
+[snes_faust/cpu.cpp:378]: (style) The function 'Pull' is never used.
+[pcfx/rainbow.cpp:649]: (style) The function 'RAINBOW_ForceTransferReset' is never used.
+[drivers/rmdui.cpp:178]: (style) The function 'RMDUI_Select' is never used.
+[drivers/rmdui.cpp:165]: (style) The function 'RMDUI_Toggle_InsertEject' is never used.
+[psx/cpu.cpp:278]: (style) The function 'ReadMemory' is never used.
+[wswan/memory.cpp:266]: (style) The function 'ReadPort' is never used.
+[pcfx/input.cpp:56]: (style) The function 'ReadTransferTime' is never used.
+[snes_faust/ppu.cpp:618]: (style) The function 'Read_M7Multiplier' is never used.
+[psx/gpu.cpp:1130]: (style) The function 'ReorderRGB' is never used.
+[snes_faust/cpu.cpp:1652]: (style) The function 'RunInstruction' is never used.
+[hw_cpu/huc6280/huc6280.cpp:553]: (style) The function 'RunSub' is never used.
+[wswan/dis/dis_groups.cpp:173]: (style) The function 'Rw' is never used.
+[sexyal/convert.cpp:53]: (style) The function 'SAMP_CONVERT<dsf_t,dsf>' is never used.
+[cdrom/scsicd.cpp:3082]: (style) The function 'SCSICD_SetTransferRate' is never used.
+[nes/boards/mmc1.cpp:613]: (style) The function 'SFROM_Init' is never used.
+[nes/boards/mmc1.cpp:618]: (style) The function 'SHROM_Init' is never used.
+[nes/boards/mmc1.cpp:608]: (style) The function 'SL2ROM_Init' is never used.
+[snes_faust/apu.cpp:91]: (style) The function 'SPC_Read' is never used.
+[snes_faust/apu.cpp:140]: (style) The function 'SPC_Write' is never used.
+[drivers/2xSaI.cpp:1138]: (style) The function 'Scale_2xSaI' is never used.
+[snes_faust/snes.cpp:44]: (style) The function 'SetHandlers' is never used.
+[drivers_dos/Video_VGA.cpp:73]: (style) The function 'SetMode' is never used.
+[video/Deinterlacer.cpp:39]: (style) The function 'SetType' is never used.
+[hw_cpu/huc6280/huc6280.cpp:51]: (style) The function 'StealMasterCycles' is never used.
+[pce/subhw.cpp:174]: (style) The function 'SubHW_Kill' is never used.
+[drivers/2xSaI.cpp:229]: (style) The function 'Super2xSaI' is never used.
+[drivers/2xSaI.cpp:497]: (style) The function 'SuperEagle' is never used.
+[video/tblur.cpp:30]: (style) The function 'TBlur_Init' is never used.
+[video/tblur.cpp:168]: (style) The function 'TBlur_IsOn' is never used.
+[video/tblur.cpp:154]: (style) The function 'TBlur_Kill' is never used.
+[video/tblur.cpp:50]: (style) The function 'TBlur_Run' is never used.
+[ngp/TLCS-900h/TLCS900h_disassemble.cpp:594]: (style) The function 'TLCS900h_disassemble' is never used.
+[trio/trio.c:974]: (style) The function 'TRIO_ARGS1' is never used.
+[trio/trio.c:1002]: (style) The function 'TRIO_ARGS2' is never used.
+[trio/trio.c:2679]: (style) The function 'TRIO_ARGS3' is never used.
+[trio/trio.c:1391]: (style) The function 'TRIO_ARGS4' is never used.
+[trio/trio.c:1941]: (style) The function 'TRIO_ARGS5' is never used.
+[trio/trio.c:2474]: (style) The function 'TRIO_ARGS6' is never used.
+[trio/trio.c:4461]: (style) The function 'TRIO_VARGS3' is never used.
+[trio/trio.c:4545]: (style) The function 'TRIO_VARGS4' is never used.
+[wswan/dis/dis_groups.cpp:51]: (style) The function 'Td' is never used.
+[drivers/Joystick.cpp:426]: (style) The function 'TestRumble' is never used.
+[vb/debug.cpp:402]: (style) The function 'VBDBG_DoLog' is never used.
+[drivers/video.cpp:1734]: (style) The function 'Video_PtoV' is never used.
+[drivers/nongl.cpp:110]: (style) The function 'WPSAE' is never used.
+[snes_faust/snes.cpp:139]: (style) The function 'WRAMRead' is never used.
+[snes_faust/snes.cpp:150]: (style) The function 'WRAMWrite' is never used.
+[wswan/debug.cpp:324]: (style) The function 'WSwanDBG_CheckBP' is never used.
+[wswan/debug.cpp:330]: (style) The function 'WSwanDBG_GetAddressSpaceBytes' is never used.
+[wswan/debug.cpp:336]: (style) The function 'WSwanDBG_PutAddressSpaceBytes' is never used.
+[psx/cpu.cpp:331]: (style) The function 'WriteMemory' is never used.
+[wswan/memory.cpp:330]: (style) The function 'WritePort' is never used.
+[pcfx/input.cpp:61]: (style) The function 'WriteTransferTime' is never used.
+[pce/vce.cpp:603]: (style) The function 'WriteVDC_ST' is never used.
+[snes_faust/ppu.cpp:462]: (style) The function 'Write_BGHOFS' is never used.
+[snes_faust/ppu.cpp:478]: (style) The function 'Write_BGVOFS' is never used.
+[snes_faust/ppu.cpp:708]: (style) The function 'Write_WMLogic' is never used.
+[nes/x6502.cpp:397]: (style) The function 'X6502_GetIVectors' is never used.
+[pcfx/king.cpp:2422]: (style) The function 'YUV888_TO_RGB888' is never used.
+[drivers/2xSaI.cpp:767]: (style) The function '_2xSaI' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:526]: (style) The function 'attitudeA' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:559]: (style) The function 'attitudeB' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:592]: (style) The function 'attitudeC' is never used.
+[snes/src/ppu/debugger/debugger.cpp:260]: (style) The function 'back_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:255]: (style) The function 'bg1_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:108]: (style) The function 'bg1_hoffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:219]: (style) The function 'bg1_mainscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:233]: (style) The function 'bg1_mainscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:77]: (style) The function 'bg1_mosaic_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:99]: (style) The function 'bg1_name_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:83]: (style) The function 'bg1_screen_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:84]: (style) The function 'bg1_screen_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:226]: (style) The function 'bg1_subscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:240]: (style) The function 'bg1_subscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:68]: (style) The function 'bg1_tile_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:112]: (style) The function 'bg1_voffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:167]: (style) The function 'bg1_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:168]: (style) The function 'bg1_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:169]: (style) The function 'bg1_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:170]: (style) The function 'bg1_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:209]: (style) The function 'bg1_window_mask' is never used.
+[snes/src/ppu/debugger/debugger.cpp:256]: (style) The function 'bg2_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:115]: (style) The function 'bg2_hoffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:220]: (style) The function 'bg2_mainscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:234]: (style) The function 'bg2_mainscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:78]: (style) The function 'bg2_mosaic_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:100]: (style) The function 'bg2_name_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:87]: (style) The function 'bg2_screen_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:88]: (style) The function 'bg2_screen_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:227]: (style) The function 'bg2_subscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:241]: (style) The function 'bg2_subscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:69]: (style) The function 'bg2_tile_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:118]: (style) The function 'bg2_voffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:171]: (style) The function 'bg2_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:172]: (style) The function 'bg2_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:173]: (style) The function 'bg2_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:174]: (style) The function 'bg2_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:210]: (style) The function 'bg2_window_mask' is never used.
+[snes/src/ppu/debugger/debugger.cpp:257]: (style) The function 'bg3_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:121]: (style) The function 'bg3_hoffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:221]: (style) The function 'bg3_mainscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:235]: (style) The function 'bg3_mainscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:79]: (style) The function 'bg3_mosaic_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:103]: (style) The function 'bg3_name_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:91]: (style) The function 'bg3_screen_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:92]: (style) The function 'bg3_screen_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:228]: (style) The function 'bg3_subscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:242]: (style) The function 'bg3_subscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:70]: (style) The function 'bg3_tile_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:124]: (style) The function 'bg3_voffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:177]: (style) The function 'bg3_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:178]: (style) The function 'bg3_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:179]: (style) The function 'bg3_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:180]: (style) The function 'bg3_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:211]: (style) The function 'bg3_window_mask' is never used.
+[snes/src/ppu/debugger/debugger.cpp:258]: (style) The function 'bg4_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:127]: (style) The function 'bg4_hoffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:222]: (style) The function 'bg4_mainscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:236]: (style) The function 'bg4_mainscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:80]: (style) The function 'bg4_mosaic_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:104]: (style) The function 'bg4_name_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:95]: (style) The function 'bg4_screen_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:96]: (style) The function 'bg4_screen_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:229]: (style) The function 'bg4_subscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:243]: (style) The function 'bg4_subscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:71]: (style) The function 'bg4_tile_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:130]: (style) The function 'bg4_voffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:181]: (style) The function 'bg4_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:182]: (style) The function 'bg4_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:183]: (style) The function 'bg4_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:184]: (style) The function 'bg4_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:212]: (style) The function 'bg4_window_mask' is never used.
+[snes/src/ppu/render/bg.cpp:26]: (style) The function 'bg_get_tile' is never used.
+[hash/sha1.cpp:69]: (style) The function 'block_sub' is never used.
+[snes/src/ppu/debugger/debugger.cpp:164]: (style) The function 'cgram_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:249]: (style) The function 'color_add_subtract_mode' is never used.
+[snes/src/ppu/debugger/debugger.cpp:263]: (style) The function 'color_constant_blue' is never used.
+[snes/src/ppu/debugger/debugger.cpp:264]: (style) The function 'color_constant_green' is never used.
+[snes/src/ppu/debugger/debugger.cpp:265]: (style) The function 'color_constant_red' is never used.
+[snes/src/ppu/debugger/debugger.cpp:247]: (style) The function 'color_mainscreen_window_mask' is never used.
+[snes/src/ppu/debugger/debugger.cpp:248]: (style) The function 'color_subscreen_window_mask' is never used.
+[snes/src/ppu/debugger/debugger.cpp:191]: (style) The function 'color_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:192]: (style) The function 'color_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:193]: (style) The function 'color_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:194]: (style) The function 'color_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:216]: (style) The function 'color_window_mask' is never used.
+[snes/src/system/audio/audio.cpp:15]: (style) The function 'coprocessor_frequency' is never used.
+[snes/src/system/audio/audio.cpp:38]: (style) The function 'coprocessor_sample' is never used.
+[sound/Blip_Buffer.cpp:174]: (style) The function 'count_clocks' is never used.
+[sound/Blip_Buffer.cpp:167]: (style) The function 'count_samples' is never used.
+[cputest/cputest.c:27]: (style) The function 'cputest_force_flags' is never used.
+[sms/pio.cpp:83]: (style) The function 'device_r' is never used.
+[snes/src/chip/superfx/disasm/disasm.cpp:3]: (style) The function 'disassemble_opcode' is never used.
+[snes/src/ppu/debugger/debugger.cpp:55]: (style) The function 'display_disable' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:74]: (style) The function 'dividend' is never used.
+[gba/GBA.cpp:785]: (style) The function 'doMirroring' is never used.
+[cdrom/CDUtility.cpp:141]: (style) The function 'edc_check' is never used.
+[cdrom/CDUtility.cpp:127]: (style) The function 'encode_mode2_form1_sector' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:86]: (style) The function 'fastrom_enable' is never used.
+[cputest/arm_cpu.c:24]: (style) The function 'ff_get_cpu_flags_arm' is never used.
+[nes/fds-sound.cpp:374]: (style) The function 'filterloop' is never used.
+[md/genesis.cpp:88]: (style) The function 'gen_shutdown' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:806]: (style) The function 'gyrate' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:60]: (style) The function 'hirq_enable' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:80]: (style) The function 'htime' is never used.
+[sound/Fir_Resampler.cpp:141]: (style) The function 'input_needed' is never used.
+[cdrom/lec.cpp:576]: (style) The function 'lec_scramble' is never used.
+[FileStream.cpp:197]: (style) The function 'map_size' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:261]: (style) The function 'memoryDump' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:268]: (style) The function 'memorySize' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:251]: (style) The function 'memoryTest' is never used.
+[sound/Blip_Buffer.cpp:436]: (style) The function 'mix_samples' is never used.
+[snes/src/ppu/debugger/debugger.cpp:146]: (style) The function 'mode7_a' is never used.
+[snes/src/ppu/debugger/debugger.cpp:149]: (style) The function 'mode7_b' is never used.
+[snes/src/ppu/debugger/debugger.cpp:152]: (style) The function 'mode7_c' is never used.
+[snes/src/ppu/debugger/debugger.cpp:155]: (style) The function 'mode7_d' is never used.
+[snes/src/ppu/debugger/debugger.cpp:107]: (style) The function 'mode7_hoffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:111]: (style) The function 'mode7_voffset' is never used.
+[snes/src/ppu/debugger/debugger.cpp:158]: (style) The function 'mode7_x' is never used.
+[snes/src/ppu/debugger/debugger.cpp:161]: (style) The function 'mode7_y' is never used.
+[mpcdec/mpc_demux.c:458]: (style) The function 'mpc_demux_chap' is never used.
+[mpcdec/mpc_demux.c:444]: (style) The function 'mpc_demux_chap_nb' is never used.
+[mpcdec/mpc_demux.c:641]: (style) The function 'mpc_demux_seek_second' is never used.
+[mpcdec/mpc_reader.c:136]: (style) The function 'mpc_reader_exit_stdio' is never used.
+[mpcdec/mpc_reader.c:128]: (style) The function 'mpc_reader_init_stdio' is never used.
+[mpcdec/mpc_demux.c:710]: (style) The function 'mpc_set_replay_level' is never used.
+[mpcdec/streaminfo.c:236]: (style) The function 'mpc_streaminfo_get_length' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:279]: (style) The function 'multiply' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:292]: (style) The function 'multiply2' is never used.
+[hw_sound/ym2612/Ym2612_Emu.cpp:702]: (style) The function 'mute_voices' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:59]: (style) The function 'nmi_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:64]: (style) The function 'oam_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:59]: (style) The function 'oam_base_size' is never used.
+[snes/src/ppu/debugger/debugger.cpp:259]: (style) The function 'oam_color_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:223]: (style) The function 'oam_mainscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:237]: (style) The function 'oam_mainscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:61]: (style) The function 'oam_name_base_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:60]: (style) The function 'oam_name_select' is never used.
+[snes/src/ppu/debugger/debugger.cpp:230]: (style) The function 'oam_subscreen_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:244]: (style) The function 'oam_subscreen_window_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:187]: (style) The function 'oam_window1_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:188]: (style) The function 'oam_window1_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:189]: (style) The function 'oam_window2_enable' is never used.
+[snes/src/ppu/debugger/debugger.cpp:190]: (style) The function 'oam_window2_invert' is never used.
+[snes/src/ppu/debugger/debugger.cpp:215]: (style) The function 'oam_window_mask' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:629]: (style) The function 'objectiveA' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:647]: (style) The function 'objectiveB' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:665]: (style) The function 'objectiveC' is never used.
+[tremor/framing.c:1022]: (style) The function 'ogg_packet_clear' is never used.
+[tremor/framing.c:91]: (style) The function 'ogg_page_packets' is never used.
+[tremor/framing.c:228]: (style) The function 'ogg_stream_destroy' is never used.
+[tremor/framing.c:559]: (style) The function 'ogg_stream_eos' is never used.
+[tremor/framing.c:517]: (style) The function 'ogg_stream_flush' is never used.
+[tremor/framing.c:525]: (style) The function 'ogg_stream_flush_fill' is never used.
+[tremor/framing.c:362]: (style) The function 'ogg_stream_packetin' is never used.
+[tremor/framing.c:533]: (style) The function 'ogg_stream_pageout' is never used.
+[tremor/framing.c:548]: (style) The function 'ogg_stream_pageout_fill' is never used.
+[tremor/framing.c:597]: (style) The function 'ogg_sync_destroy' is never used.
+[tremor/framing.c:757]: (style) The function 'ogg_sync_pageout' is never used.
+[tremor/bitwise.c:354]: (style) The function 'oggpackB_adv' is never used.
+[tremor/bitwise.c:366]: (style) The function 'oggpackB_adv1' is never used.
+[tremor/bitwise.c:511]: (style) The function 'oggpackB_bits' is never used.
+[tremor/bitwise.c:507]: (style) The function 'oggpackB_bytes' is never used.
+[tremor/bitwise.c:519]: (style) The function 'oggpackB_get_buffer' is never used.
+[tremor/bitwise.c:298]: (style) The function 'oggpackB_look' is never used.
+[tremor/bitwise.c:333]: (style) The function 'oggpackB_look1' is never used.
+[tremor/bitwise.c:415]: (style) The function 'oggpackB_read' is never used.
+[tremor/bitwise.c:478]: (style) The function 'oggpackB_read1' is never used.
+[tremor/bitwise.c:261]: (style) The function 'oggpackB_readinit' is never used.
+[tremor/bitwise.c:242]: (style) The function 'oggpackB_reset' is never used.
+[tremor/bitwise.c:174]: (style) The function 'oggpackB_writealign' is never used.
+[tremor/bitwise.c:56]: (style) The function 'oggpackB_writecheck' is never used.
+[tremor/bitwise.c:251]: (style) The function 'oggpackB_writeclear' is never used.
+[tremor/bitwise.c:231]: (style) The function 'oggpackB_writecopy' is never used.
+[tremor/bitwise.c:47]: (style) The function 'oggpackB_writeinit' is never used.
+[tremor/bitwise.c:71]: (style) The function 'oggpackB_writetrunc' is never used.
+[tremor/bitwise.c:328]: (style) The function 'oggpack_look1' is never used.
+[tremor/bitwise.c:457]: (style) The function 'oggpack_read1' is never used.
+[tremor/bitwise.c:168]: (style) The function 'oggpack_writealign' is never used.
+[tremor/bitwise.c:227]: (style) The function 'oggpack_writecopy' is never used.
+[tremor/bitwise.c:60]: (style) The function 'oggpack_writetrunc' is never used.
+[snes/src/cpu/core/algorithms.cpp:3]: (style) The function 'op_adc_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:271]: (style) The function 'op_adc_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:249]: (style) The function 'op_adc_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:31]: (style) The function 'op_adc_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:260]: (style) The function 'op_add_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:238]: (style) The function 'op_add_r' is never used.
+[snes/src/smp/core/algorithms.cpp:13]: (style) The function 'op_addw' is never used.
+[snes/src/smp/core/opcode_rmw.cpp:36]: (style) The function 'op_adjust_addr_a' is never used.
+[snes/src/cpu/core/opcode_rmw.cpp:3]: (style) The function 'op_adjust_imm_b' is never used.
+[snes/src/cpu/core/opcode_rmw.cpp:10]: (style) The function 'op_adjust_imm_w' is never used.
+[snes/src/smp/core/opcode_rmw.cpp:47]: (style) The function 'op_adjustw_dp' is never used.
+[snes/src/smp/core/algorithms.cpp:22]: (style) The function 'op_and' is never used.
+[snes/src/smp/core/opcode_read.cpp:115]: (style) The function 'op_and1_bit' is never used.
+[snes/src/cpu/core/algorithms.cpp:71]: (style) The function 'op_and_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:351]: (style) The function 'op_and_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:335]: (style) The function 'op_and_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:77]: (style) The function 'op_and_w' is never used.
+[snes/src/smp/core/algorithms.cpp:92]: (style) The function 'op_asl' is never used.
+[snes/src/cpu/core/algorithms.cpp:289]: (style) The function 'op_asl_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:296]: (style) The function 'op_asl_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:359]: (style) The function 'op_bic_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:343]: (style) The function 'op_bic_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:83]: (style) The function 'op_bit_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:89]: (style) The function 'op_bit_w' is never used.
+[snes/src/smp/core/opcode_pc.cpp:18]: (style) The function 'op_bitbranch' is never used.
+[snes/src/cpu/core/opcode_pc.cpp:3]: (style) The function 'op_branch' is never used.
+[snes/src/cpu/core/algorithms.cpp:95]: (style) The function 'op_cmp_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:315]: (style) The function 'op_cmp_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:102]: (style) The function 'op_cmp_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:109]: (style) The function 'op_cpx_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:116]: (style) The function 'op_cpx_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:123]: (style) The function 'op_cpy_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:130]: (style) The function 'op_cpy_w' is never used.
+[snes/src/smp/core/algorithms.cpp:85]: (style) The function 'op_dec' is never used.
+[snes/src/cpu/core/algorithms.cpp:277]: (style) The function 'op_dec_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:604]: (style) The function 'op_dec_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:283]: (style) The function 'op_dec_w' is never used.
+[snes/src/smp/core/algorithms.cpp:45]: (style) The function 'op_eor' is never used.
+[snes/src/cpu/core/algorithms.cpp:137]: (style) The function 'op_eor_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:143]: (style) The function 'op_eor_w' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:104]: (style) The function 'op_flag' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:523]: (style) The function 'op_from_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:498]: (style) The function 'op_ibt_r' is never used.
+[snes/src/smp/core/algorithms.cpp:78]: (style) The function 'op_inc' is never used.
+[snes/src/cpu/core/algorithms.cpp:265]: (style) The function 'op_inc_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:576]: (style) The function 'op_inc_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:271]: (style) The function 'op_inc_w' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:47]: (style) The function 'op_interrupt_e' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:60]: (style) The function 'op_interrupt_n' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:636]: (style) The function 'op_iwt_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:452]: (style) The function 'op_jmp_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:149]: (style) The function 'op_lda_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:155]: (style) The function 'op_lda_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:188]: (style) The function 'op_ldb_ir' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:178]: (style) The function 'op_ldw_ir' is never used.
+[snes/src/cpu/core/algorithms.cpp:161]: (style) The function 'op_ldx_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:167]: (style) The function 'op_ldx_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:173]: (style) The function 'op_ldy_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:179]: (style) The function 'op_ldy_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:410]: (style) The function 'op_link' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:458]: (style) The function 'op_ljmp_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:645]: (style) The function 'op_lm_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:504]: (style) The function 'op_lms_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:303]: (style) The function 'op_lsr_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:310]: (style) The function 'op_lsr_w' is never used.
+[snes/src/smp/core/opcode_mov.cpp:59]: (style) The function 'op_mov_a_addrr' is never used.
+[snes/src/smp/core/opcode_mov.cpp:128]: (style) The function 'op_mov_addr_reg' is never used.
+[snes/src/smp/core/opcode_mov.cpp:135]: (style) The function 'op_mov_addrr_a' is never used.
+[snes/src/smp/core/opcode_mov.cpp:114]: (style) The function 'op_mov_dp_reg' is never used.
+[snes/src/smp/core/opcode_mov.cpp:120]: (style) The function 'op_mov_dpr_reg' is never used.
+[snes/src/smp/core/opcode_mov.cpp:51]: (style) The function 'op_mov_reg_addr' is never used.
+[snes/src/smp/core/opcode_mov.cpp:15]: (style) The function 'op_mov_reg_const' is never used.
+[snes/src/smp/core/opcode_mov.cpp:36]: (style) The function 'op_mov_reg_dp' is never used.
+[snes/src/smp/core/opcode_mov.cpp:43]: (style) The function 'op_mov_reg_dpr' is never used.
+[snes/src/smp/core/opcode_mov.cpp:3]: (style) The function 'op_mov_reg_reg' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:21]: (style) The function 'op_move_b' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:34]: (style) The function 'op_move_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:385]: (style) The function 'op_mult_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:367]: (style) The function 'op_mult_r' is never used.
+[snes/src/smp/core/algorithms.cpp:52]: (style) The function 'op_or' is never used.
+[snes/src/smp/core/opcode_read.cpp:144]: (style) The function 'op_or1_bit' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:560]: (style) The function 'op_or_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:544]: (style) The function 'op_or_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:185]: (style) The function 'op_ora_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:191]: (style) The function 'op_ora_w' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:109]: (style) The function 'op_pflag_e' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:121]: (style) The function 'op_pflag_n' is never used.
+[snes/src/smp/core/opcode_misc.cpp:88]: (style) The function 'op_pop_reg' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:233]: (style) The function 'op_pull_b' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:241]: (style) The function 'op_pull_w' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:194]: (style) The function 'op_push_b' is never used.
+[snes/src/smp/core/opcode_misc.cpp:76]: (style) The function 'op_push_reg' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:199]: (style) The function 'op_push_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:317]: (style) The function 'op_rol_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:325]: (style) The function 'op_rol_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:333]: (style) The function 'op_ror_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:341]: (style) The function 'op_ror_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:197]: (style) The function 'op_sbc_b' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:293]: (style) The function 'op_sbc_r' is never used.
+[snes/src/cpu/core/algorithms.cpp:225]: (style) The function 'op_sbc_w' is never used.
+[snes/src/smp/core/opcode_misc.cpp:52]: (style) The function 'op_setbit' is never used.
+[snes/src/smp/core/opcode_misc.cpp:69]: (style) The function 'op_setbit_dp' is never used.
+[snes/src/smp/core/opcode_misc.cpp:63]: (style) The function 'op_seti' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:656]: (style) The function 'op_sm_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:514]: (style) The function 'op_sms_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:140]: (style) The function 'op_stb_ir' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:132]: (style) The function 'op_stw_ir' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:304]: (style) The function 'op_sub_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:282]: (style) The function 'op_sub_r' is never used.
+[snes/src/smp/core/algorithms.cpp:69]: (style) The function 'op_subw' is never used.
+[snes/src/smp/core/opcode_pc.cpp:110]: (style) The function 'op_tcall' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:115]: (style) The function 'op_to_r' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:132]: (style) The function 'op_transfer_b' is never used.
+[snes/src/cpu/core/opcode_misc.cpp:139]: (style) The function 'op_transfer_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:349]: (style) The function 'op_trb_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:354]: (style) The function 'op_trb_w' is never used.
+[snes/src/cpu/core/algorithms.cpp:359]: (style) The function 'op_tsb_b' is never used.
+[snes/src/cpu/core/algorithms.cpp:364]: (style) The function 'op_tsb_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:394]: (style) The function 'op_umult_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:376]: (style) The function 'op_umult_r' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:125]: (style) The function 'op_with_r' is never used.
+[snes/src/cpu/core/opcode_write.cpp:3]: (style) The function 'op_write_addr_b' is never used.
+[snes/src/cpu/core/opcode_write.cpp:9]: (style) The function 'op_write_addr_w' is never used.
+[snes/src/cpu/core/opcode_write.cpp:16]: (style) The function 'op_write_addrr_b' is never used.
+[snes/src/cpu/core/opcode_write.cpp:23]: (style) The function 'op_write_addrr_w' is never used.
+[snes/src/cpu/core/opcode_write.cpp:46]: (style) The function 'op_write_dp_b' is never used.
+[snes/src/cpu/core/opcode_write.cpp:52]: (style) The function 'op_write_dp_w' is never used.
+[snes/src/cpu/core/opcode_write.cpp:59]: (style) The function 'op_write_dpr_b' is never used.
+[snes/src/cpu/core/opcode_write.cpp:66]: (style) The function 'op_write_dpr_w' is never used.
+[snes/src/cpu/core/opcode_write.cpp:31]: (style) The function 'op_write_longr_b' is never used.
+[snes/src/cpu/core/opcode_write.cpp:38]: (style) The function 'op_write_longr_w' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:568]: (style) The function 'op_xor_i' is never used.
+[snes/src/chip/superfx/core/opcodes.cpp:552]: (style) The function 'op_xor_r' is never used.
+[snes/src/cpu/core/disassembler/disassembler.cpp:446]: (style) The function 'opcode_length' is never used.
+[tremor/vorbisfile.c:1099]: (style) The function 'ov_bitrate_instant' is never used.
+[tremor/vorbisfile.c:1002]: (style) The function 'ov_fopen' is never used.
+[tremor/vorbisfile.c:1041]: (style) The function 'ov_streams' is never used.
+[tremor/vorbisfile.c:1024]: (style) The function 'ov_test' is never used.
+[tremor/vorbisfile.c:1035]: (style) The function 'ov_test_open' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:871]: (style) The function 'parameter' is never used.
+[sexyal/drivers/dos_common.cpp:170]: (style) The function 'pci_read_config_u16' is never used.
+[sexyal/drivers/dos_common.cpp:211]: (style) The function 'pci_write_config_u16' is never used.
+[sexyal/drivers/dos_common.cpp:216]: (style) The function 'pci_write_config_u32' is never used.
+[sexyal/drivers/dos_common.cpp:206]: (style) The function 'pci_write_config_u8' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:65]: (style) The function 'pio_bits' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:462]: (style) The function 'polar' is never used.
+[wswan/dis/resolve.cpp:134]: (style) The function 'print_memory_access' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:1123]: (style) The function 'project' is never used.
+[quicklz/quicklz.c:12]: (style) The function 'qlz_get_setting' is never used.
+[snes/src/cpu/scpu/timing/event.cpp:3]: (style) The function 'queue_event' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:338]: (style) The function 'radius' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:374]: (style) The function 'range2' is never used.
+[sexyal/drivers/es1371.cpp:84]: (style) The function 'rdcodec' is never used.
+[sexyal/drivers/cmi8738.cpp:61]: (style) The function 'rddm16' is never used.
+[sexyal/drivers/cmi8738.cpp:82]: (style) The function 'rdmix' is never used.
+[sexyal/drivers/es1371.cpp:114]: (style) The function 'rdsrc' is never used.
+[snes/src/ppu/render/cache.cpp:27]: (style) The function 'render_bg_tile' is never used.
+[snes/src/ppu/render/bg.cpp:55]: (style) The function 'render_line_bg' is never used.
+[snes/src/ppu/ppu.cpp:11]: (style) The function 'renderer_enabled' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:436]: (style) The function 'rotate' is never used.
+[hash/sha1.cpp:27]: (style) The function 'rotl' is never used.
+[hash/sha256.cpp:39]: (style) The function 'rotr' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:748]: (style) The function 'scalarA' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:762]: (style) The function 'scalarB' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:776]: (style) The function 'scalarC' is never used.
+[drivers/scalebit.c:317]: (style) The function 'scale_precondition' is never used.
+[cdrom/CDUtility.cpp:426]: (style) The function 'scrambleize_data_sector' is never used.
+[nes/cart.cpp:200]: (style) The function 'setprg2' is never used.
+[nes/cart.cpp:366]: (style) The function 'setvram4' is never used.
+[nes/cart.cpp:355]: (style) The function 'setvram8' is never used.
+[nes/cart.cpp:377]: (style) The function 'setvramb1' is never used.
+[nes/cart.cpp:384]: (style) The function 'setvramb2' is never used.
+[nes/cart.cpp:391]: (style) The function 'setvramb4' is never used.
+[nes/cart.cpp:401]: (style) The function 'setvramb8' is never used.
+[sound/Fir_Resampler.cpp:187]: (style) The function 'skip_input' is never used.
+[gba/Sound.cpp:114]: (style) The function 'soundRead' is never used.
+[gba/sram.cpp:27]: (style) The function 'sramRead' is never used.
+[error.cpp:95]: (style) The function 'srr_wrap' is never used.
+[md/cart/ssp16.c:1027]: (style) The function 'ssp1601_reset' is never used.
+[md/cart/ssp16.c:1038]: (style) The function 'ssp1601_run' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:687]: (style) The function 'subjectiveA' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:705]: (style) The function 'subjectiveB' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:723]: (style) The function 'subjectiveC' is never used.
+[cdrom/CDUtility.cpp:196]: (style) The function 'subpw_deinterleave' is never used.
+[snes/src/system/system.cpp:115]: (style) The function 'term' is never used.
+[sound/Fir_Resampler.cpp:87]: (style) The function 'time_ratio' is never used.
+[sms/vdp.cpp:462]: (style) The function 'tms_write' is never used.
+[snes/src/chip/dsp1/dsp1emu.cpp:322]: (style) The function 'triangle' is never used.
+[compress/unzip.c:508]: (style) The function 'unzClose' is never used.
+[compress/unzip.c:905]: (style) The function 'unzGetFilePos' is never used.
+[compress/unzip.c:1496]: (style) The function 'unzGetGlobalComment' is never used.
+[compress/unzip.c:529]: (style) The function 'unzGetGlobalInfo' is never used.
+[compress/unzip.c:1402]: (style) The function 'unzGetLocalExtrafield' is never used.
+[compress/unzip.c:1527]: (style) The function 'unzGetOffset' is never used.
+[compress/unzip.c:923]: (style) The function 'unzGoToFilePos' is never used.
+[compress/unzip.c:826]: (style) The function 'unzLocateFile' is never used.
+[compress/unzip.c:497]: (style) The function 'unzOpen' is never used.
+[compress/unzip.c:1168]: (style) The function 'unzOpenCurrentFile' is never used.
+[compress/unzip.c:1181]: (style) The function 'unzOpenCurrentFile2' is never used.
+[compress/unzip.c:1174]: (style) The function 'unzOpenCurrentFilePassword' is never used.
+[compress/unzip.c:1200]: (style) The function 'unzReadCurrentFile' is never used.
+[compress/unzip.c:1543]: (style) The function 'unzSetOffset' is never used.
+[compress/unzip.c:1369]: (style) The function 'unzeof' is never used.
+[compress/unzip.c:1349]: (style) The function 'unztell' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:61]: (style) The function 'virq_enable' is never used.
+[tremor/info.c:56]: (style) The function 'vorbis_comment_query' is never used.
+[tremor/info.c:77]: (style) The function 'vorbis_comment_query_count' is never used.
+[snes/src/ppu/debugger/debugger.cpp:138]: (style) The function 'vram_address' is never used.
+[snes/src/ppu/debugger/debugger.cpp:134]: (style) The function 'vram_increment_formation' is never used.
+[snes/src/ppu/debugger/debugger.cpp:133]: (style) The function 'vram_increment_mode' is never used.
+[snes/src/ppu/debugger/debugger.cpp:135]: (style) The function 'vram_increment_size' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:83]: (style) The function 'vtime' is never used.
+[snes/src/cpu/scpu/debugger/debugger.cpp:53]: (style) The function 'wram_address' is never used.
+[sexyal/drivers/cmi8738.cpp:56]: (style) The function 'wrdm16' is never used.
+[snes/src/chip/cx4/cx4.cpp:169]: (style) The function 'writel' is never used.
+(information) Cppcheck cannot find all the include files (use --check-config for details)

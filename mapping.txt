@@ -17,3 +17,11 @@ R : keyboard 8
 
 Start : keyboard 13
 Select : keyboard 27
+
+Stick (Down) : joystick e68993f7a0787c33 00008001
+
+Stick (Left) : joystick e68993f7a0787c33 0000c000
+
+Stick (Right) : joystick e68993f7a0787c33 00008000
+
+Stick (Up) : joystick e68993f7a0787c33 0000c001

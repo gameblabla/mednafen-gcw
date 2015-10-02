@@ -892,13 +892,13 @@ void VIP_StartFrame(EmulateSpecStruct *espec)
 	break;
 
   case VB3DMODE_VLI:
-	espec->DisplayRect.w = 768 * VBPrescale;
+	espec->DisplayRect.w = 384 * VBPrescale;
 	espec->DisplayRect.h = 224;
 	break;
 
   case VB3DMODE_HLI:
         espec->DisplayRect.w = 384;
-        espec->DisplayRect.h = 448 * VBPrescale;
+        espec->DisplayRect.h = 224 * VBPrescale;
         break;
 
   case VB3DMODE_CSCOPE:
@@ -907,7 +907,7 @@ void VIP_StartFrame(EmulateSpecStruct *espec)
 	break;
 
   case VB3DMODE_SIDEBYSIDE:
-	espec->DisplayRect.w = 768 + VBSBS_Separation;
+	espec->DisplayRect.w = 384 + VBSBS_Separation;
 	espec->DisplayRect.h = 224;
 	break;
  }

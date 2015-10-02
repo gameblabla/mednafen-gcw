@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Mednafen VB
+Comment=Mednafen (VB core)
+Exec=mednafen -force_module vb %f
+Icon=icon
+Terminal=false
+Categories=emulators;
+X-OD-NeedsDownscaling=true

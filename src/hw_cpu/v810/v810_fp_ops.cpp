@@ -22,18 +22,6 @@ bool V810_FP_Ops::fp_is_zero(uint32 v)
  return((v & 0x7FFFFFFF) == 0);
 }
 
-#if 0
-bool V810_FP_Ops::fp_is_nan(uint32 v)
-{
- return((v & 0x7FFFFFFF) > (255 << 23));
-}
-
-bool V810_FP_Ops::fp_is_inf(uint32 v)
-{
- return((v & 0x7FFFFFFF) == (255 << 23));
-}
-#endif
-
 bool V810_FP_Ops::fp_is_inf_nan_sub(uint32 v)
 {
  if((v & 0x7FFFFFFF) == 0)
@@ -109,8 +97,8 @@ void V810_FP_Ops::fpim_round(fpim* df)
  {
   const unsigned sa = vbc - 24;
 
-  if(1) // round to nearest
-  {
+  /*if(1) // round to nearest
+  {*/
    uint64 old_f = df->f;
 
    df->f = (df->f + ((df->f >> sa) & 1) + ((1ULL << (sa - 1)) - 1)) & ~((1ULL << sa) - 1);
@@ -120,9 +108,9 @@ void V810_FP_Ops::fpim_round(fpim* df)
     //printf("Inexact mr\n");
     exception_flags |= flag_inexact;
    }
-  }
+  /*}
   else
-   abort();
+   abort();*/
  }
 }
 
@@ -171,29 +159,29 @@ uint32 V810_FP_Ops::fpim_encode(fpim* df)
  {
   exception_flags |= flag_underflow | flag_inexact;
   //printf("Subnormal: %lld. %d\n", tmp_walrus, tmp_exp);
-  if(1)
-  {
+  /*if(1)
+  {*/
    tmp_exp = -127;
    tmp_walrus = 0;
-  }
+  /*}
   else
   {
    tmp_walrus >>= -(tmp_exp + 126);
    tmp_exp = -127;
-  }
+  }*/
  }
  else if(tmp_exp >= 128)
  {
   exception_flags |= flag_overflow;
   //printf("Overflow!\n");
 
-  if(1)
+  /*if(1)*/
    tmp_exp -= 192;
-  else
+  /*else
   {
    tmp_exp = 128;
    tmp_walrus = 0;
-  }
+  }*/
 
  }
  return (tmp_sign << 31) | ((tmp_exp + 127) << 23) | (tmp_walrus & 0x7FFFFF);
@@ -237,8 +225,7 @@ uint32 V810_FP_Ops::add(uint32 a, uint32 b)
   exception_flags |= flag_reserved;
   return(~0U);
  }
-
- if(a == b && !(a & 0x7FFFFFFF))
+ else if(a == b && !(a & 0x7FFFFFFF))
  {
   return(a & 0x80000000);
  }

@@ -1255,7 +1255,7 @@ uint16 KING_Read16(const v810_timestamp_t timestamp, uint32 A)
 	      
  }
 
- PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));    // TODO: Optimize this to only be called when necessary.
+ /*PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));*/    // TODO: Optimize this to only be called when necessary.
 
  return(ret);
 }
@@ -1677,7 +1677,7 @@ void KING_Write16(const v810_timestamp_t timestamp, uint32 A, uint16 V)
 			   break;
 	      }
 
-  PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));	// TODO: Optimize this to only be called when necessary.
+  /*PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));*/	// TODO: Optimize this to only be called when necessary.
  }
 }
 
@@ -1968,19 +1968,6 @@ static void DrawBG(uint32 *target, int n, bool sub)
   1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
  };
 
-#if 0
- const uint32 cg_per_mode[0x8] = 
- {
-  0, // Invalid mode
-  1, // 2-bit mode
-  2, // 4-bit mode
-  4, // 8-bit mode
-  8, // 16-bit mode
-  8, // 16-bit mode
-  8, // 16-bit mode
-  8, // 16-bit mode
- };
-#endif
  const uint32 layer_or = (LAYER_BG0 + n) << 28;
 
  const uint32 palette_offset = ((fx_vce.palette_offset[1 + (n >> 1)] >> ((n & 1) ? 8 : 0)) << 1) & 0x1FF;
@@ -2658,10 +2645,10 @@ static void DrawActive(void)
         // CanDrawBG_Fast(x);
 
        // TODO/FIXME: TEST MORE
-       if(CanDrawBG_Fast(x)) // && (rand() & 1))
-	DrawBG_Fast(bg_linebuffer, x);
-       else
-        DrawBG(bg_linebuffer, x, 0);
+       /*if(CanDrawBG_Fast(x)) // && (rand() & 1))*/
+		DrawBG_Fast(bg_linebuffer, x);
+       /*else
+        DrawBG(bg_linebuffer, x, 0);*/
       }
      }
     }
@@ -2686,10 +2673,10 @@ static INLINE void VDC_PIXELMIX(bool SPRCOMBO_ON, bool BGCOMBO_ON)
      const uint32 zort[2] = { vdc_linebuffers[0][x], vdc_linebuffers[1][x] };
      uint32 tmp_pixel;
    
-     /* SPR combination */
+     //SPR combination
      if(SPRCOMBO_ON && (zort[1] & 0x18F) > 0x180)
       tmp_pixel = (zort[1] & 0xF) | ((zort[0] & 0xF) << 4) | 0x100;
-     /* BG combination  */                                                      
+     // BG combination                                                   
      else if(BGCOMBO_ON && ((zort[1] ^ 0x100) & 0x18F) > 0x180)
       tmp_pixel = (zort[1] & 0xF) | ((zort[0] & 0xF) << 4);
      else
@@ -3014,7 +3001,7 @@ static void MDFN_FASTCALL KING_RunGfx(int32 clocks)
    RunVDCs(chunk_clocks, vdc_linebuffers[0], vdc_linebuffers[1]);
   }
 
-  assert(HPhaseCounter >= 0);
+ /* assert(HPhaseCounter >= 0);*/
 
   while(HPhaseCounter <= 0)
   {
@@ -3136,29 +3123,6 @@ void KING_SetLayerEnableMask(uint64 mask)
 
  RAINBOWLayerDisable = (~ms) & 0x1;
  ms >>= 1;
-
-#if 0
- if(which < 4)
- {
-  BGLayerDisable ^= 1 << which;
-  return( !((BGLayerDisable >> which) & 1));
- }
- else if(which == 4 || which == 5)
- {
-  return(fx_vdc_chips[0]->ToggleLayer(which - 4));
- }
- else if(which == 6 || which == 7)
- {
-  return(fx_vdc_chips[1]->ToggleLayer(which - 6));
- }
- else if(which == 8)
- {
-  RAINBOWLayerDisable = !RAINBOWLayerDisable;
-  return(!RAINBOWLayerDisable);
- }
- else
-  return(0);
-#endif
 }
 
 
