@@ -1,7 +1,7 @@
 ===========================
 Mednafen GCW0
 ===========================
-Version 1.21
+Version 1.3
 Port by gameblabla
 
 Here is a port of Mednafen for GCW0.

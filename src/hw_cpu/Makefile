@@ -56,7 +56,7 @@ host_triplet = mipsel-unknown-linux-gnu
 target_triplet = mipsel-unknown-linux-gnu
 am__append_1 = c68k/c68kexec.cpp c68k/c68k.cpp
 am__append_2 = z80-fuse/z80.cpp z80-fuse/z80_ops.cpp
-#am__append_3 = v810/v810_cpu.cpp v810/v810_cpuD.cpp v810/v810_fp_ops.cpp
+am__append_3 = v810/v810_cpu.cpp v810/v810_cpuD.cpp v810/v810_fp_ops.cpp
 #am__append_4 = huc6280/huc6280.cpp
 ##am__append_5 = huc6280/dis6280.cpp
 subdir = src/hw_cpu
@@ -108,9 +108,9 @@ am__objects_1 = c68k/c68kexec.$(OBJEXT) \
 	c68k/c68k.$(OBJEXT)
 am__objects_2 = z80-fuse/z80.$(OBJEXT) \
 	z80-fuse/z80_ops.$(OBJEXT)
-#am__objects_3 = v810/v810_cpu.$(OBJEXT) \
-#	v810/v810_cpuD.$(OBJEXT) \
-#	v810/v810_fp_ops.$(OBJEXT)
+am__objects_3 = v810/v810_cpu.$(OBJEXT) \
+	v810/v810_cpuD.$(OBJEXT) \
+	v810/v810_fp_ops.$(OBJEXT)
 #am__objects_4 = huc6280/huc6280.$(OBJEXT)
 ##am__objects_5 = huc6280/dis6280.$(OBJEXT)
 am_libmdfnhwcpu_a_OBJECTS = $(am__objects_1) $(am__objects_2) \
@@ -207,16 +207,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O2 -mips32r2
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O2 -mips32r2
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O2 -mips32r2 -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  
@@ -305,9 +305,9 @@ PKG_CONFIG_PATH =
 POSUB = po
 PRI_MACROS_BROKEN = 0
 RANLIB = mipsel-linux-ranlib
-SDL_CFLAGS = -I/home/hatsune/Ndless/ndless-sdk//include/SDL
-SDL_CONFIG = /home/hatsune/Ndless/ndless-sdk/bin/sdl-config
-SDL_LIBS = -lSDL
+SDL_CFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
+SDL_CONFIG = /usr/bin/sdl-config
+SDL_LIBS = -L/usr/lib/x86_64-linux-gnu -lSDL
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/sh

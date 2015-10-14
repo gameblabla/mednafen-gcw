@@ -168,19 +168,19 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O2 -mips32r2
+CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O2 -mips32r2
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O2 -mips32r2 -std=gnu++11
+CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
-DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  -I/home/hatsune/Ndless/ndless-sdk//include/SDL
+DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -266,9 +266,9 @@ PKG_CONFIG_PATH =
 POSUB = po
 PRI_MACROS_BROKEN = 0
 RANLIB = mipsel-linux-ranlib
-SDL_CFLAGS = -I/home/hatsune/Ndless/ndless-sdk//include/SDL
-SDL_CONFIG = /home/hatsune/Ndless/ndless-sdk/bin/sdl-config
-SDL_LIBS = -lSDL
+SDL_CFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
+SDL_CONFIG = /usr/bin/sdl-config
+SDL_LIBS = -L/usr/lib/x86_64-linux-gnu -lSDL
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/sh
@@ -359,7 +359,7 @@ libsexyal_a_SOURCES = sexyal.cpp convert.cpp drivers/dummy.cpp \
 TMP_OSSDSP = drivers/oss.cpp
 #TMP_JACK = drivers/jack.cpp
 TMP_SDL = drivers/sdl.cpp
-libsexyal_a_CFLAGS = -I/home/hatsune/Ndless/ndless-sdk//include/SDL
+libsexyal_a_CFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
 TMP_ALSA = drivers/alsa.cpp
 #TMP_DOS = drivers/dos_common.cpp drivers/cmi8738.cpp drivers/es1370.cpp drivers/es1371.cpp drivers/sb.cpp
 all: all-am

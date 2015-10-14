@@ -106,7 +106,7 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -Drelocate=libintl_relocate \
 -DDEPENDS_ON_LIBICONV=1 -DHAVE_CONFIG_H
 CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
-CFLAGS = -O2 -mips32r2 -fvisibility=hidden
+CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fvisibility=hidden
 LDFLAGS = -Wl,--as-needed -flto $(LDFLAGS_no)
 LDFLAGS_yes = -Wl,--export-all-symbols
 LDFLAGS_no =

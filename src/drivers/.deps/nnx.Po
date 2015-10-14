@@ -176,36 +176,22 @@ nnx.o: nnx.cpp main.h ../../include/mednafen/driver.h \
  ../../include/mednafen/movie-driver.h \
  ../../include/mednafen/mempatcher-driver.h \
  ../../include/mednafen/video-driver.h ../../include/mednafen/mednafen.h \
- ../../include/mednafen/settings.h args.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_main.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_stdinc.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_config.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_platform.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_config_minimal.h \
+ ../../include/mednafen/settings.h args.h /usr/include/SDL/SDL.h \
+ /usr/include/SDL/SDL_main.h /usr/include/SDL/SDL_stdinc.h \
+ /usr/include/SDL/SDL_config.h /usr/include/SDL/SDL_platform.h \
  /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/strings.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/begin_code.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/close_code.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_audio.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_error.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_endian.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_mutex.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_thread.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_rwops.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_cdrom.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_cpuinfo.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_events.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_active.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_keyboard.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_keysym.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_mouse.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_video.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_joystick.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_quit.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_loadso.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_timer.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_version.h \
- /home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_thread.h \
+ /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/iconv.h \
+ /usr/include/SDL/begin_code.h /usr/include/SDL/close_code.h \
+ /usr/include/SDL/SDL_audio.h /usr/include/SDL/SDL_error.h \
+ /usr/include/SDL/SDL_endian.h /usr/include/SDL/SDL_mutex.h \
+ /usr/include/SDL/SDL_thread.h /usr/include/SDL/SDL_rwops.h \
+ /usr/include/SDL/SDL_cdrom.h /usr/include/SDL/SDL_cpuinfo.h \
+ /usr/include/SDL/SDL_events.h /usr/include/SDL/SDL_active.h \
+ /usr/include/SDL/SDL_keyboard.h /usr/include/SDL/SDL_keysym.h \
+ /usr/include/SDL/SDL_mouse.h /usr/include/SDL/SDL_video.h \
+ /usr/include/SDL/SDL_joystick.h /usr/include/SDL/SDL_quit.h \
+ /usr/include/SDL/SDL_loadso.h /usr/include/SDL/SDL_timer.h \
+ /usr/include/SDL/SDL_version.h /usr/include/SDL/SDL_thread.h \
  ../../include/mednafen/gettext.h nnx.h
 
 main.h:
@@ -590,63 +576,63 @@ main.h:
 
 args.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL.h:
+/usr/include/SDL/SDL.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_main.h:
+/usr/include/SDL/SDL_main.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_stdinc.h:
+/usr/include/SDL/SDL_stdinc.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_config.h:
+/usr/include/SDL/SDL_config.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_platform.h:
-
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_config_minimal.h:
+/usr/include/SDL/SDL_platform.h:
 
 /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/strings.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/begin_code.h:
+/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/iconv.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/close_code.h:
+/usr/include/SDL/begin_code.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_audio.h:
+/usr/include/SDL/close_code.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_error.h:
+/usr/include/SDL/SDL_audio.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_endian.h:
+/usr/include/SDL/SDL_error.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_mutex.h:
+/usr/include/SDL/SDL_endian.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_thread.h:
+/usr/include/SDL/SDL_mutex.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_rwops.h:
+/usr/include/SDL/SDL_thread.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_cdrom.h:
+/usr/include/SDL/SDL_rwops.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_cpuinfo.h:
+/usr/include/SDL/SDL_cdrom.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_events.h:
+/usr/include/SDL/SDL_cpuinfo.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_active.h:
+/usr/include/SDL/SDL_events.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_keyboard.h:
+/usr/include/SDL/SDL_active.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_keysym.h:
+/usr/include/SDL/SDL_keyboard.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_mouse.h:
+/usr/include/SDL/SDL_keysym.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_video.h:
+/usr/include/SDL/SDL_mouse.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_joystick.h:
+/usr/include/SDL/SDL_video.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_quit.h:
+/usr/include/SDL/SDL_joystick.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_loadso.h:
+/usr/include/SDL/SDL_quit.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_timer.h:
+/usr/include/SDL/SDL_loadso.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_version.h:
+/usr/include/SDL/SDL_timer.h:
 
-/home/hatsune/Ndless/ndless-sdk//include/SDL/SDL_thread.h:
+/usr/include/SDL/SDL_version.h:
+
+/usr/include/SDL/SDL_thread.h:
 
 ../../include/mednafen/gettext.h:
 
