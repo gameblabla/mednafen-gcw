@@ -664,7 +664,7 @@
 /* #undef WANT_PCE_FAST_EMU */
 
 /* Define if we are compiling with PC-FX emulation. */
-/* #undef WANT_PCFX_EMU */
+#define WANT_PCFX_EMU 1
 
 /* Define if we are compiling with PlayStation emulation. */
 #define WANT_PSX_EMU 1
@@ -679,7 +679,7 @@
 /* #undef WANT_SNES_FAUST_EMU */
 
 /* Define if we are compiling with Virtual Boy emulation. */
-#define WANT_VB_EMU 1
+/* #undef WANT_VB_EMU */
 
 /* Define if we are compiling with WonderSwan emulation. */
 /* #undef WANT_WSWAN_EMU */

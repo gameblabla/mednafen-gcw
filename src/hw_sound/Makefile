@@ -56,7 +56,7 @@ am__append_1 = ym2413/emu2413.cpp
 am__append_2 = ym2612/Ym2612_Emu.cpp
 #am__append_3 = gb_apu/Gb_Apu.cpp gb_apu/Gb_Apu_State.cpp gb_apu/Gb_Oscs.cpp
 am__append_4 = sms_apu/Sms_Apu.cpp
-#am__append_5 = pce_psg/pce_psg.cpp
+am__append_5 = pce_psg/pce_psg.cpp
 subdir = src/hw_sound
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -108,7 +108,7 @@ am__objects_2 = ym2612/Ym2612_Emu.$(OBJEXT)
 #	gb_apu/Gb_Apu_State.$(OBJEXT) \
 #	gb_apu/Gb_Oscs.$(OBJEXT)
 am__objects_4 = sms_apu/Sms_Apu.$(OBJEXT)
-#am__objects_5 = pce_psg/pce_psg.$(OBJEXT)
+am__objects_5 = pce_psg/pce_psg.$(OBJEXT)
 am_libmdfnhwsound_a_OBJECTS = $(am__objects_1) $(am__objects_2) \
 	$(am__objects_3) $(am__objects_4) $(am__objects_5)
 libmdfnhwsound_a_OBJECTS = $(am_libmdfnhwsound_a_OBJECTS)

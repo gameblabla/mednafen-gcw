@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Mednafen
-Comment=Mednafen (GB/GBA/NES/LYNX)
-Exec=mednafen %f
-Icon=icon
-Terminal=false
-Categories=emulators;
-X-OD-NeedsDownscaling=true
