@@ -405,14 +405,6 @@ uint32 PS_CPU::Exception(uint32 code, uint32 PC, const uint32 NPM)
  const bool InBDSlot = !(NPM & 0x3);
  uint32 handler = 0x80000080;
 
- assert(code < 16);
-
- if(code != EXCEPTION_INT && code != EXCEPTION_BP && code != EXCEPTION_SYSCALL)
- {
-  PSX_DBG(PSX_DBG_WARNING, "Exception: %08x @ PC=0x%08x(IBDS=%d) -- IPCache=0x%02x -- IPEND=0x%02x -- SR=0x%08x ; IRQC_Status=0x%04x -- IRQC_Mask=0x%04x\n", code, PC, InBDSlot, IPCache, (CP0.CAUSE >> 8) & 0xFF, CP0.SR,
-	IRQ_GetRegister(IRQ_GSREG_STATUS, NULL, 0), IRQ_GetRegister(IRQ_GSREG_MASK, NULL, 0));
- }
-
  if(CP0.SR & (1 << 22))	// BEV
   handler = 0xBFC00180;
 
@@ -504,28 +496,6 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
     BACKING_TO_ACTIVE;
    }
 
-   if(BIOSPrintMode)
-   {
-    if(PC == 0xB0)
-    {
-     if(MDFN_UNLIKELY(GPR[9] == 0x3D))
-     {
-      PSX_DBG_BIOS_PUTC(GPR[4]);
-     }
-    }
-   }
-
-   // We can't fold this into the ICache[] != PC handling, since the lower 2 bits of TV
-   // are already used for cache management purposes and it assumes that the lower 2 bits of PC will be 0.
-   if(MDFN_UNLIKELY(PC & 0x3))
-   {
-    // This will block interrupt processing, but since we're going more for keeping broken homebrew/hacks from working
-    // than super-duper-accurate pipeline emulation, it shouldn't be a problem.
-    new_PC = Exception(EXCEPTION_ADEL, PC, new_PC_mask);
-    new_PC_mask = 0;
-    goto OpDone;
-   }
-
    instr = ICache[(PC & 0xFFC) >> 2].Data;
 
    if(ICache[(PC & 0xFFC) >> 2].TV != PC)
@@ -537,13 +507,13 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
     ReadAbsorbWhich = 0;
 
     // FIXME: Handle executing out of scratchpad.
-    if(PC >= 0xA0000000 || !(BIU & 0x800))
+    /*if(PC >= 0xA0000000 || !(BIU & 0x800))
     {
      instr = MDFN_de32lsb<true>(&FastMap[PC >> FAST_MAP_SHIFT][PC]);
      timestamp += 4;	// Approximate best-case cache-disabled time, per PS1 tests(executing out of 0xA0000000+); it can be 5 in *some* sequences of code(like a lot of sequential "nop"s, probably other simple instructions too).
     }
     else
-    {
+    {*/
      __ICache *ICI = &ICache[((PC & 0xFF0) >> 2)];
      const uint8 *FMP = &FastMap[(PC &~ 0xF) >> FAST_MAP_SHIFT][PC &~ 0xF];
 
@@ -576,7 +546,7 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	break;
      }
      instr = ICache[(PC & 0xFFC) >> 2].Data;
-    }
+    //}
    }
 
    //printf("PC=%08x, SP=%08x - op=0x%02x - funct=0x%02x - instr=0x%08x\n", PC, GPR[29], instr >> 26, instr & 0x3F, instr);
@@ -591,13 +561,7 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 
    opf |= IPCache;
 
-#if 0
-   {
-    uint32 tmp = (ReadAbsorb[ReadAbsorbWhich] + 0x7FFFFFFF) >> 31;
-    ReadAbsorb[ReadAbsorbWhich] -= tmp;
-    timestamp = timestamp + 1 - tmp;
-   }
-#else
+
    if(ReadAbsorb[ReadAbsorbWhich])
     ReadAbsorb[ReadAbsorbWhich]--;
    //else if((uint8)WriteAbsorb)
@@ -613,7 +577,7 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
    //}
    else
     timestamp++;
-#endif
+
 
    #define DO_LDS() { GPR[LDWhich] = LDValue; ReadAbsorb[LDWhich] = LDAbsorb; ReadFudge = LDWhich; ReadAbsorbWhich |= LDWhich & 0x1F; LDWhich = 0x20; }
    #define BEGIN_OPF(name, arg_op, arg_funct) { op_##name: /*assert( ((arg_op) ? (0x40 | (arg_op)) : (arg_funct)) == opf); */
@@ -728,16 +692,8 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	GPR_DEPRES_END
 
 	uint32 result = GPR[rs] + GPR[rt];
-	bool ep = ((~(GPR[rs] ^ GPR[rt])) & (GPR[rs] ^ result)) & 0x80000000;
 
 	DO_LDS();
-
-	if(MDFN_UNLIKELY(ep))
-	{
-	 new_PC = Exception(EXCEPTION_OV, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
 	 GPR[rd] = result;
 
     END_OPF;
@@ -754,16 +710,9 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	GPR_DEPRES_END
 
         uint32 result = GPR[rs] + immediate;
-	bool ep = ((~(GPR[rs] ^ immediate)) & (GPR[rs] ^ result)) & 0x80000000;
 
 	DO_LDS();
 
-        if(MDFN_UNLIKELY(ep))
-	{
-	 new_PC = Exception(EXCEPTION_OV, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-        else
          GPR[rt] = result;
 
     END_OPF;
@@ -1206,18 +1155,10 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 
 	DO_LDS();
 
-        if(MDFN_UNLIKELY(address & 3))
-	{
-         new_PC = Exception(EXCEPTION_ADEL, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-        else
-	{
          if(timestamp < gte_ts_done)
           timestamp = gte_ts_done;
 
          GTE_WriteDR(rt, ReadMemory<uint32>(timestamp, address, false, true));
-	}
 	// GTE stuff here
     END_OPF;
 
@@ -1256,18 +1197,11 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
         ITYPE;
         uint32 address = GPR[rs] + immediate;
 
-	if(MDFN_UNLIKELY(address & 0x3))
-	{
-	 new_PC = Exception(EXCEPTION_ADES, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
-	{
          if(timestamp < gte_ts_done)
           timestamp = gte_ts_done;
 
 	 WriteMemory<uint32>(timestamp, address, GTE_ReadDR(rt));
-	}
+
 	DO_LDS();
     END_OPF;
 
@@ -1847,16 +1781,9 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	GPR_DEPRES_END
 
 	uint32 result = GPR[rs] - GPR[rt];
-	bool ep = (((GPR[rs] ^ GPR[rt])) & (GPR[rs] ^ result)) & 0x80000000;
 
 	DO_LDS();
 
-	if(MDFN_UNLIKELY(ep))
-	{
-	 new_PC = Exception(EXCEPTION_OV, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
 	 GPR[rd] = result;
 
     END_OPF;
@@ -1986,16 +1913,8 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 
 	DO_LDS();
 
-	if(MDFN_UNLIKELY(address & 1))
-	{
-	 new_PC = Exception(EXCEPTION_ADEL, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
-	{
 	 LDWhich = rt;
          LDValue = (int32)ReadMemory<int16>(timestamp, address);
-	}
     END_OPF;
 
     //
@@ -2011,17 +1930,8 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
         uint32 address = GPR[rs] + immediate;
 
 	DO_LDS();
-
-        if(MDFN_UNLIKELY(address & 1))
-	{
-         new_PC = Exception(EXCEPTION_ADEL, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
-	{
 	 LDWhich = rt;
          LDValue = ReadMemory<uint16>(timestamp, address);
-	}
     END_OPF;
 
 
@@ -2038,17 +1948,8 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
         uint32 address = GPR[rs] + immediate;
 
 	DO_LDS();
-
-        if(MDFN_UNLIKELY(address & 3))
-	{
-         new_PC = Exception(EXCEPTION_ADEL, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-        else
-	{
 	 LDWhich = rt;
          LDValue = ReadMemory<uint32>(timestamp, address);
-	}
     END_OPF;
 
     //
@@ -2081,13 +1982,6 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	GPR_DEPRES_END
 
         uint32 address = GPR[rs] + immediate;
-
-	if(MDFN_UNLIKELY(address & 0x1))
-	{
-	 new_PC = Exception(EXCEPTION_ADES, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
 	 WriteMemory<uint16>(timestamp, address, GPR[rt]);
 
 	DO_LDS();
@@ -2105,13 +1999,6 @@ pscpu_timestamp_t PS_CPU::RunReal(pscpu_timestamp_t timestamp_in)
 	GPR_DEPRES_END
 
         uint32 address = GPR[rs] + immediate;
-
-	if(MDFN_UNLIKELY(address & 0x3))
-	{
-	 new_PC = Exception(EXCEPTION_ADES, PC, new_PC_mask);
-         new_PC_mask = 0;
-	}
-	else
 	 WriteMemory<uint32>(timestamp, address, GPR[rt]);
 
 	DO_LDS();

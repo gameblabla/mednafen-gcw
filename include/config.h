@@ -234,7 +234,7 @@
 #define HAVE_LIBASOUND 1
 
 /* Define if we are compiling with libsndfile support. */
-#define HAVE_LIBSNDFILE 1
+/* #undef HAVE_LIBSNDFILE */
 
 /* Define to 1 if you have the `z' library (-lz). */
 #define HAVE_LIBZ 1

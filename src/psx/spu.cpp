@@ -386,13 +386,6 @@ void PS_SPU::RunDecoder(SPU_Voice *voice)
     {
      voice->LoopAddr = voice->CurAddr;
     }
-    else
-    {
-     if(voice->LoopAddr != voice->CurAddr)
-     {
-      PSX_DBG(PSX_DBG_FLOOD, "[SPU] Ignore: LoopAddr=0x%08x, SampLA=0x%08x\n", voice->LoopAddr, voice->CurAddr);
-     }
-    }
    }
    voice->CurAddr = (voice->CurAddr + 1) & 0x3FFFF;
   }
@@ -411,14 +404,6 @@ void PS_SPU::RunDecoder(SPU_Voice *voice)
 
    CV = SPURAM[voice->CurAddr];
    shift = voice->DecodeShift;
-
-   if(MDFN_UNLIKELY(shift > 12))
-   {
-    //PSX_DBG(PSX_DBG_FLOOD, "[SPU] Buggy/Illegal ADPCM block shift value on voice %u: %u\n", (unsigned)(voice - Voices), shift);
-
-    shift = 8;
-    CV &= 0x8888;
-   }
 
    coded = (uint32)CV << 12;
 
@@ -1062,10 +1047,7 @@ void PS_SPU::Write(pscpu_timestamp_t timestamp, uint32 A, uint16 V)
 	      }
 	      CheckIRQAddr(RWAddr);
 	      break;
-
-   case 0x2C: PSX_WARNING("[SPU] Global reg 0x2c set: 0x%04x", V);
-	      break;
-
+	      
    case 0x30: CDVol[0] = V;
 	      break;
 
@@ -1090,8 +1072,6 @@ void PS_SPU::Write(pscpu_timestamp_t timestamp, uint32 A, uint16 V)
 uint16 PS_SPU::Read(pscpu_timestamp_t timestamp, uint32 A)
 {
  A &= 0x3FF;
-
- PSX_DBGINFO("[SPU] Read: %08x", A);
 
  if(A >= 0x200)
  {
@@ -1130,8 +1110,7 @@ uint16 PS_SPU::Read(pscpu_timestamp_t timestamp, uint32 A)
    case 0x26: //PSX_WARNING("[SPU] RWADDR Read");
 	      break;
 
-   case 0x28: PSX_WARNING("[SPU] SPURAM Read port(?) Read");
-
+   case 0x28: 
 	      {
 	       uint16 ret = ReadSPURAM(RWAddr);
 

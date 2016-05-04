@@ -55,12 +55,12 @@ INSTALL_DATA = ${INSTALL} -m 644
 # We use $(mkdir_p).
 # In automake <= 1.9.x, $(mkdir_p) is defined either as "mkdir -p --" or as
 # "$(mkinstalldirs)" or as "$(install_sh) -d". For these automake versions,
-# ${SHELL} /home/hatsune/Documents/DEV/mednafen-gcw/install-sh does not start with $(SHELL), so we add it.
+# ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh does not start with $(SHELL), so we add it.
 # In automake >= 1.10, /bin/mkdir -p is derived from ${MKDIR_P}, which is defined
 # either as "/path/to/mkdir -p" or ".../install-sh -c -d". For these automake
 # versions, $(mkinstalldirs) and $(install_sh) are unused.
-mkinstalldirs = $(SHELL) ${SHELL} /home/hatsune/Documents/DEV/mednafen-gcw/install-sh -d
-install_sh = $(SHELL) ${SHELL} /home/hatsune/Documents/DEV/mednafen-gcw/install-sh
+mkinstalldirs = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh -d
+install_sh = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh
 MKDIR_P = /bin/mkdir -p
 mkdir_p = /bin/mkdir -p
 
@@ -105,12 +105,12 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -Dset_relocation_prefix=libintl_set_relocation_prefix \
 -Drelocate=libintl_relocate \
 -DDEPENDS_ON_LIBICONV=1 -DHAVE_CONFIG_H
-CPPFLAGS = -I/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include    
+CPPFLAGS =   
 CFLAGS = -O3 -fomit-frame-pointer -mips32r2 -fvisibility=hidden
 LDFLAGS = -Wl,--as-needed -flto $(LDFLAGS_no)
 LDFLAGS_yes = -Wl,--export-all-symbols
 LDFLAGS_no =
-LIBS = -L/opt/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/lib -lsndfile   -lz  -lz  -lasound -lm -ldl -lpthread
+LIBS =  -lz  -lz  -lasound -lm -ldl -lpthread
 
 COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
 

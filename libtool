@@ -1,8 +1,8 @@
-#! /bin/sh
+#! /bin/bash
 
 # libtool - Provide generalized library-building support services.
 # Generated automatically by config.status (mednafen) 0.9.38.6
-# Libtool was configured on host hatsune-R510-P510:
+# Libtool was configured on host anonymous:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 #
 #   Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2003, 2004, 2005,
@@ -56,7 +56,7 @@ pic_mode=default
 fast_install=yes
 
 # Shell to use when invoking shell scripts.
-SHELL="/bin/sh"
+SHELL="/bin/bash"
 
 # An echo program that protects backslashes.
 ECHO="printf %s\\n"
@@ -272,10 +272,10 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 /home/hatsune/Documents/DEV/gcw0-toolchain/usr/lib/gcc /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/lib /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/lib /home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/lib "
+sys_lib_search_path_spec="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/lib /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/lib /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/lib "
 
 # Run-time system search path for libraries.
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/lib/i386-linux-gnu/mesa /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa /usr/lib/x86_64-linux-gnu/mir/clientplatform/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/x86_64-linux-gnu/libfakeroot /usr/lib/i386-linux-gnu/mesa-egl /usr/lib/i386-linux-gnu/mesa /lib/i386-linux-gnu /usr/lib/i386-linux-gnu /lib/i686-linux-gnu /usr/lib/i686-linux-gnu /usr/local/lib /lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/mesa-egl /usr/lib/x86_64-linux-gnu/mesa /usr/lib/x86_64-linux-gnu/mir/clientplatform/mesa /lib32 /usr/lib32 /libx32 /usr/libx32 "
 
 # Whether dlopen is supported.
 dlopen_support=unknown
@@ -292,7 +292,7 @@ striplib="mipsel-linux-strip --strip-unneeded"
 
 
 # The linker used to build libraries.
-LD="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld"
+LD="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld"
 
 # How to create reloadable object files.
 reload_flag=" -r"
@@ -10099,7 +10099,7 @@ build_old_libs=`case $build_libtool_libs in yes) echo no;; *) echo yes;; esac`
 # ### BEGIN LIBTOOL TAG CONFIG: CXX
 
 # The linker used to build libraries.
-LD="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld"
+LD="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld"
 
 # How to create reloadable object files.
 reload_flag=" -r"
@@ -10230,17 +10230,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/../../../../mipsel-gcw0-linux-uclibc/lib /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/lib /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib"
+compiler_lib_search_dirs="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/../../../../mipsel-gcw0-linux-uclibc/lib /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/lib /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib"
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crti.o /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtbeginS.o"
-postdep_objects="/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtendS.o /home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crtn.o"
+predep_objects="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crti.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtbeginS.o"
+postdep_objects="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtendS.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 -L/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc -L/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/../../../../mipsel-gcw0-linux-uclibc/lib -L/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/lib -L/home/hatsune/Documents/DEV/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib"
+compiler_lib_search_path="-L/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1 -L/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc -L/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/../../../../mipsel-gcw0-linux-uclibc/lib -L/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/lib -L/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib"
 
 # ### END LIBTOOL TAG CONFIG: CXX

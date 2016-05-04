@@ -1237,7 +1237,8 @@ static void BigDrawThingy(EmulateSpecStruct *espec, bool IsHES)
 
   if(frame_counter == 0)
   {
-   VDS = M_vdc_VDS;
+   /*VDS = M_vdc_VDS;*/
+   VDS = M_vdc_VDS - 3;
    VSW = M_vdc_VSW;
    VDW = M_vdc_VDW;
    VCR = M_vdc_VCR;

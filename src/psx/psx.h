@@ -103,7 +103,6 @@ namespace MDFN_IEN_PSX
 #include "gpu.h"
 #include "dma.h"
 //#include "sio.h"
-#include "debug.h"
 
 namespace MDFN_IEN_PSX
 {

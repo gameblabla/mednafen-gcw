@@ -800,14 +800,16 @@ void Video_Init(MDFNGI *gi)
   }
  }
  
-
+ 
+   flags |= SDL_SWSURFACE;
+/*
 #ifdef SDL_TRIPLEBUF
  if(vinf->hw_available)
   flags |= SDL_HWSURFACE | SDL_TRIPLEBUF;
 #else
  if(vinf->hw_available)
   flags |= SDL_HWSURFACE | SDL_DOUBLEBUF;
-#endif
+#endif*/
 
  if(_fullscreen)
   flags |= SDL_FULLSCREEN;

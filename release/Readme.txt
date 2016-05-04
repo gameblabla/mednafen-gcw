@@ -1,11 +1,11 @@
 ===========================
 Mednafen GCW0
 ===========================
-Version 1.3
+Version 1.31
 Port by gameblabla
 
 Here is a port of Mednafen for GCW0.
-Only cores for PC Engine (CD), NEC PC-FX, PSX and GB/GBA/NES/LYNX are included as separates OPKs.
+Only cores for PC Engine (CD), NEC PC-FX, PSX and GB/GBA/NES/LYNX are available.
 For other cores, you should use the other emulators available on the platform instead. 
 (Mednafen's cores are accurate and way too slow)
 
@@ -13,7 +13,7 @@ For other cores, you should use the other emulators available on the platform in
 CONTROLS
 ================
 
-Exit 						: Select + X
+Exit 			: Select + X
 Configure Controls 	: Start  + X
 
 ================

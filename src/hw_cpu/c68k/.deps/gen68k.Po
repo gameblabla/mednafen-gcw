@@ -141,7 +141,7 @@ c68k/gen68k.o: c68k/gen68k.cpp /usr/include/stdc-predef.h c68k/c68k.h \
  ../../include/mednafen/Stream.h ../../include/mednafen/types.h \
  ../../include/mednafen/endian.h ../../include/mednafen/state.h \
  ../../include/mednafen/state-common.h ../../include/mednafen/Stream.h \
- ../../include/mednafen/settings-common.h ../../include/mednafen/debug.h \
+ ../../include/mednafen/settings-common.h \
  ../../include/mednafen/settings.h \
  ../../include/mednafen/mednafen-driver.h ../../include/mednafen/endian.h \
  ../../include/mednafen/memory.h c68k/gen68k.h c68k/gen68k.inc
@@ -529,8 +529,6 @@ c68k/c68k.h:
 ../../include/mednafen/Stream.h:
 
 ../../include/mednafen/settings-common.h:
-
-../../include/mednafen/debug.h:
 
 ../../include/mednafen/settings.h:
 

@@ -21,7 +21,6 @@
 #include "king.h"
 #include "timer.h"
 #include "interrupt.h"
-#include "debug.h"
 #include "rainbow.h"
 #include "huc6273.h"
 #include "fxscsi.h"

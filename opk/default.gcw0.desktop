@@ -5,4 +5,5 @@ Comment=Mednafen (GB/GBA/NES/LYNX/NGP)
 Exec=mednafen %f
 Icon=icon
 Terminal=false
+X-OD-NeedsDownscaling=true
 Categories=emulators;

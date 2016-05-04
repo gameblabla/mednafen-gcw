@@ -138,8 +138,8 @@ void PS_GPU::FillVideoParams(MDFNGI* gi)
   gi->lcm_width = hide_hoverscan ? 2640 : 2800;
   gi->lcm_height = (LineVisLast + 1 - LineVisFirst) * 2; //480;
 
-  gi->nominal_width = (hide_hoverscan ? 302 : 320);
-  gi->nominal_height = LineVisLast + 1 - LineVisFirst; //240;
+  gi->nominal_width = 320;
+  gi->nominal_height = 240; //240;
 
   gi->fb_width = 768;
   gi->fb_height = 480;
@@ -420,7 +420,7 @@ INLINE void PS_GPU::Command_FBCopy(const uint32 *cb)
 
 INLINE void PS_GPU::Command_FBWrite(const uint32 *cb)
 {
- assert(InCmd == INCMD_NONE);
+ //assert(InCmd == INCMD_NONE);
 
  FBRW_X = (cb[1] >>  0) & 0x3FF;
  FBRW_Y = (cb[1] >> 16) & 0x3FF;
@@ -449,7 +449,7 @@ INLINE void PS_GPU::Command_FBWrite(const uint32 *cb)
 //
 INLINE void PS_GPU::Command_FBRead(const uint32 *cb)
 {
- assert(InCmd == INCMD_NONE);
+ //assert(InCmd == INCMD_NONE);
 
  FBRW_X = (cb[1] >>  0) & 0x3FF;
  FBRW_Y = (cb[1] >> 16) & 0x3FF;
@@ -1243,7 +1243,7 @@ pscpu_timestamp_t PS_GPU::Update(const pscpu_timestamp_t sys_timestamp)
 
     if(scanline == 0)
     {
-     assert(sl_zero_reached == false);
+     //assert(sl_zero_reached == false);
      sl_zero_reached = true;
 
      if(DisplayMode & 0x20)
