@@ -152,16 +152,16 @@ CATOBJEXT = .gmo
 CC = mipsel-linux-gcc
 CCAS = mipsel-linux-gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -O3 -fomit-frame-pointer -mips32r2
+CCASFLAGS = -Ofast -fomit-frame-pointer -mips32r2
 CCDEPMODE = depmode=gcc3
-CFLAGS = -O3 -fomit-frame-pointer -mips32r2
+CFLAGS = -Ofast -fomit-frame-pointer -mips32r2
 CFLAG_VISIBILITY = -fvisibility=hidden
 CPP = mipsel-linux-gcc -E
 CPPFLAGS =   
 CXX = mipsel-linux-g++
 CXXCPP = mipsel-linux-g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -O3 -fomit-frame-pointer -mips32r2 -std=gnu++11
+CXXFLAGS = -Ofast -fomit-frame-pointer -mips32r2 -std=gnu++11
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  -fno-strict-aliasing

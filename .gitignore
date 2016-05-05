@@ -4,6 +4,7 @@
 *.wsc
 *.cfg
 *.map
+*.log
 *.wsc
 *.ws
 *.out

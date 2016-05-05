@@ -1,25 +1,25 @@
 export PATH="/opt/gcw0-toolchain/usr/bin:${PATH}"
 
 make clean
-./configure --host=mipsel-linux --without-libsndfile --enable-ngp --enable-nes --enable-gba --enable-gb --enable-lynx --disable-psx --disable-pce --disable-pce-fast --disable-vb --disable-pcfx --disable-snes --disable-wswan --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-O3 -fomit-frame-pointer -mips32r2" CXXFLAGS="-O3 -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
-make -j6
+./configure --host=mipsel-linux --without-libsndfile --enable-ngp --enable-nes --enable-gba --enable-gb --enable-lynx --disable-psx --disable-pce --disable-pce-fast --disable-vb --disable-pcfx --disable-snes --disable-wswan --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-Ofast -fomit-frame-pointer -mips32r2" CXXFLAGS="-Ofast -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
+make -j7
 mv ./src/mednafen ./opk/mednafen
 
 make clean
-./configure --host=mipsel-linux --without-libsndfile --enable-psx --disable-pce --disable-pce-fast --disable-lynx --disable-ngp --disable-vb --disable-pcfx --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-O3 -fomit-frame-pointer -mips32r2" CXXFLAGS="-O3 -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
-make -j6
-mv ./src/mednafen ./opk_psx/mednafen_psx
+./configure --host=mipsel-linux --without-libsndfile --enable-psx --disable-pce --disable-pce-fast --disable-lynx --disable-ngp --disable-vb --disable-pcfx --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-Ofast -fomit-frame-pointer -mips32r2" CXXFLAGS="-Ofast -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
+make -j7
+mv ./src/mednafen ./opk_psx/mednafen
 
 make clean
-./configure --host=mipsel-linux --without-libsndfile --enable-pce-fast --disable-pce --disable-ngp --disable-lynx --disable-vb --disable-pcfx --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-O3 -fomit-frame-pointer -mips32r2" CXXFLAGS="-O3 -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
-make -j6
-mv ./src/mednafen ./opk_pce/mednafen_pce
+./configure --host=mipsel-linux --without-libsndfile --enable-pce-fast --disable-pce --disable-ngp --disable-lynx --disable-vb --disable-pcfx --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-Ofast -fomit-frame-pointer -mips32r2" CXXFLAGS="-Ofast -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
+make -j7
+mv ./src/mednafen ./opk_pce/mednafen
 
 make clean
-./configure --host=mipsel-linux --without-libsndfile --enable-pcfx --disable-pce --disable-pce-fast --disable-lynx --disable-ngp --disable-vb --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-O3 -fomit-frame-pointer -mips32r2" CXXFLAGS="-O3 -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
-make -j6
+./configure --host=mipsel-linux --without-libsndfile --enable-pcfx --disable-pce --disable-pce-fast --disable-lynx --disable-ngp --disable-vb --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --disable-snes-faust --disable-fancy-scalers CFLAGS="-Ofast -fomit-frame-pointer -mips32r2" CXXFLAGS="-Ofast -fomit-frame-pointer -mips32r2" LDFLAGS="-Wl,--as-needed -flto"
+make -j7
 
-mv ./src/mednafen ./opk_pcfx/mednafen_pcfx
+mv ./src/mednafen ./opk_pcfx/mednafen
 
 mksquashfs ./opk mednafen.opk -all-root -noappend -no-exports -no-xattrs
 mksquashfs ./opk_psx mednafen_psx.opk -all-root -noappend -no-exports -no-xattrs

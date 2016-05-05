@@ -164,7 +164,7 @@ lock_old_archive_extraction=no
 LTCC="mipsel-linux-gcc"
 
 # LTCC compiler flags.
-LTCFLAGS="-O3 -fomit-frame-pointer -mips32r2"
+LTCFLAGS="-Ofast -fomit-frame-pointer -mips32r2"
 
 # Take the output of nm and produce a listing of raw symbols and C names.
 global_symbol_pipe="sed -n -e 's/^.*[	 ]\\([ABCDGIRSTW][ABCDGIRSTW]*\\)[	 ][	 ]*\\([_A-Za-z][_A-Za-z0-9]*\\)\$/\\1 \\2 \\2/p' | sed '/ __gnu_lto/d'"
@@ -10235,7 +10235,7 @@ compiler_lib_search_dirs="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/.
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
 predep_objects="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crti.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtbeginS.o"
-postdep_objects="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtendS.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crtn.o"
+postdep_objects="/home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtfastmath.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/crtendS.o /home/anonymous/Documents/Dev/gcw0-toolchain/usr/bin/../mipsel-gcw0-linux-uclibc/sysroot/usr/lib/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 

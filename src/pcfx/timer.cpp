@@ -122,11 +122,6 @@ void FXTIMER_StateAction(StateMem *sm, const unsigned load, const bool data_only
  };
 
  MDFNSS_StateAction(sm, load, data_only, StateRegs, "TIMR");
-
- if(load)
- {
-
- }
 }
 
 
@@ -155,11 +150,6 @@ uint32 FXTIMER_GetRegister(const unsigned int id, char *special, const uint32 sp
 
   case FXTIMER_GSREG_TCNTR:
 	value = counter;
-	if(special)
-	{
-	 //trio_snprintf(buf, 256, "Pad: %d, ??: %d, Timer: %d, Reset: %d",
-	 //*special = std::string(buf);
-	}
 	break;
  }
 
