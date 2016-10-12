@@ -6,8 +6,7 @@ video/font-data-12x13.o: video/font-data-12x13.c ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h \
- video/font12x13.h
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h
 
 ../include/config.h:
 
@@ -26,5 +25,3 @@ video/font-data-12x13.o: video/font-data-12x13.c ../include/config.h \
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h:
-
-video/font12x13.h:

@@ -1,4 +1,5 @@
-Stereo_Buffer.o: Stereo_Buffer.cpp Stereo_Buffer.h Blip_Buffer.h \
+sound/Stereo_Buffer.o: sound/Stereo_Buffer.cpp sound/Stereo_Buffer.h \
+ sound/Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/syslimits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/limits.h \
@@ -17,12 +18,12 @@ Stereo_Buffer.o: Stereo_Buffer.cpp Stereo_Buffer.h Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h \
- ../../include/config.h \
+ ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h
 
-Stereo_Buffer.h:
+sound/Stereo_Buffer.h:
 
-Blip_Buffer.h:
+sound/Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h:
 
@@ -60,6 +61,6 @@ Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:

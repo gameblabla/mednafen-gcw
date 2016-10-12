@@ -59,9 +59,8 @@ MDVDP::MDVDP()
 
     UserLE = ~0;
 
-    /* Allocate and align pixel look-up tables */
-    lut_base = (uint8 *)malloc((LUT_MAX * LUT_SIZE) + LUT_SIZE);
-    lut[0] = (uint8 *)(((uint64)lut_base + LUT_SIZE) & ~(LUT_SIZE - 1));
+    /* Align pixel look-up tables */
+    lut[0] = (uint8 *)(((uintptr_t)lut_base + LUT_SIZE) & ~(LUT_SIZE - 1));
     for(i = 1; i < LUT_MAX; i += 1)
     {
         lut[i] = lut[0] + (i * LUT_SIZE);
@@ -92,7 +91,7 @@ void MDVDP::SetSettings(bool PAL, bool PAL_reported, bool auto_aspect)
 
 MDVDP::~MDVDP()
 {
-   if(lut_base) free(lut_base);
+
 }
 
 void MDVDP::RedoViewport(void)
@@ -168,7 +167,7 @@ void MDVDP::Reset(void)
 
     MD_Suspend68K(FALSE);
     z80_set_interrupt(FALSE);
-    C68k_Set_IRQ(&Main68K, 0);
+    Main68K.SetIPL(0);
 
     RedoViewport();
 
@@ -708,33 +707,19 @@ void MDVDP::StateAction(StateMem *sm, const unsigned load, const bool data_only)
   SFVAR(pending),
   SFVAR(buffer),
   SFVAR(status),
-  SFVAR(ntab),
-  SFVAR(ntbb),
-  SFVAR(ntwb),
-  SFVAR(satb),
-  SFVAR(hscb),
-  SFVAR(sat_base_mask),
-  SFVAR(sat_addr_mask),
 
   SFVAR(dma_fill_latch),
   SFVAR(DMASource),
   SFVAR(DMALength),
-  SFVAR(border),
-  SFVAR(playfield_shift),
-  SFVAR(playfield_col_mask),
-  SFVAR(playfield_row_mask),
-  SFVAR(y_mask),
 
   SFVAR(hint_pending),
   SFVAR(vint_pending),
   SFVAR(counter),
   SFVAR(dma_fill),
   SFVAR(im2_flag),
-  SFVAR(visible_frame_end),
   SFVAR(v_counter),
   SFVAR(v_update),
   SFVAR(vdp_cycle_counter),
-  SFVAR(vdp_last_ts),
   SFVAR(vdp_line_phase),
   SFVAR(vdp_hcounter_start_ts),
   SFVAR(scanline),
@@ -749,6 +734,29 @@ void MDVDP::StateAction(StateMem *sm, const unsigned load, const bool data_only)
 
  if(load)
  {
+  if(vdp_cycle_counter < 1)
+   vdp_cycle_counter = 1;
+  else if(vdp_cycle_counter > 5000)
+   vdp_cycle_counter = 5000;
+
+  visible_frame_end = (reg[1] & 8) ? 0xF0 : 0xE0;
+
+  ntab = (reg[0x02] << 10) & 0xE000;
+  ntwb = (reg[0x03] << 10) & ((reg[12] & 1) ? 0xF000 : 0xF800);
+  ntbb = (reg[0x04] << 13) & 0xE000;
+
+  sat_base_mask = (reg[12] & 1) ? 0xFC00 : 0xFE00;
+  sat_addr_mask = (reg[12] & 1) ? 0x03FF : 0x01FF;
+  satb = (reg[0x05] << 9) & sat_base_mask;
+
+  border = reg[0x07] & 0x3F;
+
+  hscb = (reg[0x0D] << 10) & 0xFC00;
+  playfield_shift = shift_table[(reg[0x10] & 3)];
+  playfield_col_mask = col_mask_table[(reg[0x10] & 3)];
+  playfield_row_mask = row_mask_table[(reg[0x10] >> 4) & 3];
+  y_mask = y_mask_table[(reg[0x10] & 3)];
+
   vdp_line_phase %= 8; // tied to table in vdp_run.inc !!!
 
   status &= ~(0x200 | 0x100);

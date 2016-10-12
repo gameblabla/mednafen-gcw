@@ -1,6 +1,6 @@
-arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
- ../../include/mednafen/mednafen.h ../../include/mednafen/types.h \
- ../../include/config.h \
+hw_misc/arcade_card/arcade_card.o: hw_misc/arcade_card/arcade_card.cpp \
+ ../include/mednafen/mednafen.h ../include/mednafen/types.h \
+ ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -110,17 +110,9 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
- ../../include/mednafen/error.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
@@ -129,15 +121,6 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
- ../../include/mednafen/gettext.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
- ../../include/mednafen/math_ops.h ../../include/mednafen/git.h \
- ../../include/mednafen/video.h ../../include/mednafen/video/surface.h \
- ../../include/mednafen/video/primitives.h \
- ../../include/mednafen/video/text.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
@@ -160,19 +143,42 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
- ../../include/mednafen/file.h ../../include/mednafen/Stream.h \
- ../../include/mednafen/types.h ../../include/mednafen/endian.h \
- ../../include/mednafen/state.h ../../include/mednafen/state-common.h \
- ../../include/mednafen/Stream.h ../../include/mednafen/settings-common.h \
- ../../include/mednafen/settings.h \
- ../../include/mednafen/mednafen-driver.h ../../include/mednafen/endian.h \
- ../../include/mednafen/memory.h arcade_card/arcade_card.h
+ ../include/mednafen/error.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ ../include/mednafen/gettext.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
+ ../include/mednafen/math_ops.h ../include/mednafen/git.h \
+ ../include/mednafen/video.h ../include/mednafen/video/surface.h \
+ ../include/mednafen/video/primitives.h ../include/mednafen/video/text.h \
+ ../include/mednafen/file.h ../include/mednafen/Stream.h \
+ ../include/mednafen/types.h ../include/mednafen/endian.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h \
+ ../include/mednafen/state.h ../include/mednafen/state-common.h \
+ ../include/mednafen/Stream.h ../include/mednafen/settings-common.h \
+ ../include/mednafen/settings.h ../include/mednafen/mednafen-driver.h \
+ ../include/mednafen/endian.h ../include/mednafen/memory.h \
+ hw_misc/arcade_card/arcade_card.h
 
-../../include/mednafen/mednafen.h:
+../include/mednafen/mednafen.h:
 
-../../include/mednafen/types.h:
+../include/mednafen/types.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 
@@ -392,27 +398,11 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
 
-../../include/mednafen/error.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
 
@@ -429,28 +419,6 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
-
-../../include/mednafen/gettext.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
-
-../../include/mednafen/math_ops.h:
-
-../../include/mednafen/git.h:
-
-../../include/mednafen/video.h:
-
-../../include/mednafen/video/surface.h:
-
-../../include/mednafen/video/primitives.h:
-
-../../include/mednafen/video/text.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
 
@@ -496,28 +464,80 @@ arcade_card/arcade_card.o: arcade_card/arcade_card.cpp \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
 
-../../include/mednafen/file.h:
+../include/mednafen/error.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
 
-../../include/mednafen/types.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
 
-../../include/mednafen/state.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
 
-../../include/mednafen/state-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
 
-../../include/mednafen/settings-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
 
-../../include/mednafen/settings.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
 
-../../include/mednafen/mednafen-driver.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-../../include/mednafen/memory.h:
+../include/mednafen/gettext.h:
 
-arcade_card/arcade_card.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
+
+../include/mednafen/math_ops.h:
+
+../include/mednafen/git.h:
+
+../include/mednafen/video.h:
+
+../include/mednafen/video/surface.h:
+
+../include/mednafen/video/primitives.h:
+
+../include/mednafen/video/text.h:
+
+../include/mednafen/file.h:
+
+../include/mednafen/Stream.h:
+
+../include/mednafen/types.h:
+
+../include/mednafen/endian.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h:
+
+../include/mednafen/state.h:
+
+../include/mednafen/state-common.h:
+
+../include/mednafen/Stream.h:
+
+../include/mednafen/settings-common.h:
+
+../include/mednafen/settings.h:
+
+../include/mednafen/mednafen-driver.h:
+
+../include/mednafen/endian.h:
+
+../include/mednafen/memory.h:
+
+hw_misc/arcade_card/arcade_card.h:

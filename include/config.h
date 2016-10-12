@@ -88,9 +88,6 @@
 /* Define to 1 if you have the `connect' function. */
 #define HAVE_CONNECT 1
 
-/* define if the compiler supports basic C++11 syntax */
-/* #undef HAVE_CXX11 */
-
 /* Define if the GNU dcgettext() function is already present or preinstalled.
    */
 #define HAVE_DCGETTEXT 1
@@ -123,6 +120,12 @@
 
 /* Define to 1 if you have the `dup2' function. */
 #define HAVE_DUP2 1
+
+/* Define if we are compiling and linking with external mpcdec. */
+/* #undef HAVE_EXTERNAL_MPCDEC */
+
+/* Define if we are compiling and linking with external tremor. */
+/* #undef HAVE_EXTERNAL_TREMOR */
 
 /* Define to 1 if you have the `fcntl' function. */
 #define HAVE_FCNTL 1
@@ -211,6 +214,9 @@
 /* Define if you have the iconv() function and it works. */
 #define HAVE_ICONV 1
 
+/* Define if GNU-style AVX inline assembly is supported. */
+/* #undef HAVE_INLINEASM_AVX */
+
 /* Define if you have the 'intmax_t' type in <stdint.h> or <inttypes.h>. */
 #define HAVE_INTMAX_T 1
 
@@ -231,10 +237,16 @@
 #define HAVE_LC_MESSAGES 1
 
 /* Define to 1 if you have the `asound' library (-lasound). */
-#define HAVE_LIBASOUND 1
+/* #undef HAVE_LIBASOUND */
+
+/* Define to 1 if you have the `mpcdec' library (-lmpcdec). */
+/* #undef HAVE_LIBMPCDEC */
 
 /* Define if we are compiling with libsndfile support. */
 /* #undef HAVE_LIBSNDFILE */
+
+/* Define to 1 if you have the `vorbisidec' library (-lvorbisidec). */
+/* #undef HAVE_LIBVORBISIDEC */
 
 /* Define to 1 if you have the `z' library (-lz). */
 #define HAVE_LIBZ 1
@@ -312,10 +324,10 @@
 #define HAVE_POSIX_SOCKETS 1
 
 /* Define if the <pthread.h> defines PTHREAD_MUTEX_RECURSIVE. */
-#define HAVE_PTHREAD_MUTEX_RECURSIVE 1
+/* #undef HAVE_PTHREAD_MUTEX_RECURSIVE */
 
 /* Define if the POSIX multithreading library has read/write locks. */
-#define HAVE_PTHREAD_RWLOCK 1
+/* #undef HAVE_PTHREAD_RWLOCK */
 
 /* Define to 1 if you have the `putenv' function. */
 #define HAVE_PUTENV 1
@@ -480,10 +492,10 @@
 #define LT_OBJDIR ".libs/"
 
 /* Mednafen version definition. */
-#define MEDNAFEN_VERSION "0.9.38.6"
+#define MEDNAFEN_VERSION "0.9.39.2"
 
 /* Mednafen version numeric. */
-#define MEDNAFEN_VERSION_NUMERIC 0x000938
+#define MEDNAFEN_VERSION_NUMERIC 0x00093902
 
 /* Define if config.h is present */
 #define MINILZO_HAVE_CONFIG_H 1
@@ -496,9 +508,6 @@
 
 /* Define on big-endian platforms. */
 /* #undef MSB_FIRST */
-
-/* Define to 1 if your C compiler doesn't accept -c and -o together. */
-/* #undef NO_MINUS_C_MINUS_O */
 
 /* Name of package */
 #define PACKAGE "mednafen"
@@ -566,7 +575,7 @@
 /* Define as the maximum value of type 'size_t', if the system doesn't define
    it. */
 #ifndef SIZE_MAX
-# define SIZE_MAX (((1U << 31) - 1) * 2 + 1)
+/* # undef SIZE_MAX */
 #endif
 
 /* If using the C implementation of alloca, define if you know the
@@ -581,11 +590,11 @@
 #define STDC_HEADERS 1
 
 /* Define if the POSIX multithreading library can be used. */
-#define USE_POSIX_THREADS 1
+/* #undef USE_POSIX_THREADS */
 
 /* Define if references to the POSIX multithreading library should be made
    weak. */
-#define USE_POSIX_THREADS_WEAK 1
+/* #undef USE_POSIX_THREADS_WEAK */
 
 /* Define if the GNU Pth multithreading library can be used. */
 /* #undef USE_PTH_THREADS */
@@ -627,7 +636,7 @@
 /* #undef USE_WIN32_THREADS */
 
 /* Version number of package */
-#define VERSION "0.9.38.6"
+#define VERSION "0.9.39.2"
 
 /* Define if we are compiling with debugger. */
 /* #undef WANT_DEBUGGER */
@@ -637,25 +646,25 @@
 /* #undef WANT_FANCY_SCALERS */
 
 /* Define if we are compiling with GBA emulation. */
-/* #undef WANT_GBA_EMU */
+#define WANT_GBA_EMU 1
 
 /* Define if we are compiling with GB emulation. */
-/* #undef WANT_GB_EMU */
+#define WANT_GB_EMU 1
 
 /* Define if we are compiling with internal CJK fonts. */
-#define WANT_INTERNAL_CJK 1
+/* #undef WANT_INTERNAL_CJK */
 
 /* Define if we are compiling with Lynx emulation. */
-/* #undef WANT_LYNX_EMU */
+#define WANT_LYNX_EMU 1
 
 /* Define if we are compiling with Sega Genesis/MegaDrive emulation. */
-#define WANT_MD_EMU 1
+/* #undef WANT_MD_EMU */
 
 /* Define if we are compiling with NES emulation. */
-/* #undef WANT_NES_EMU */
+#define WANT_NES_EMU 1
 
 /* Define if we are compiling with NGP emulation. */
-/* #undef WANT_NGP_EMU */
+#define WANT_NGP_EMU 1
 
 /* Define if we are compiling with PCE emulation. */
 /* #undef WANT_PCE_EMU */
@@ -664,19 +673,25 @@
 /* #undef WANT_PCE_FAST_EMU */
 
 /* Define if we are compiling with PC-FX emulation. */
-#define WANT_PCFX_EMU 1
+/* #undef WANT_PCFX_EMU */
 
 /* Define if we are compiling with PlayStation emulation. */
-#define WANT_PSX_EMU 1
+/* #undef WANT_PSX_EMU */
 
 /* Define if we are compiling with SMS+GG emulation. */
-#define WANT_SMS_EMU 1
+/* #undef WANT_SMS_EMU */
 
 /* Define if we are compiling with SNES emulation. */
 /* #undef WANT_SNES_EMU */
 
-/* Define if we are compiling with shrieking zombies. */
+/* Define if we are compiling with experimental fast SNES emulation. */
 /* #undef WANT_SNES_FAUST_EMU */
+
+/* Define if we are compiling with SSF playback support. */
+/* #undef WANT_SSFPLAY_EMU */
+
+/* Define if we are compiling with Sega Saturn emulation. */
+/* #undef WANT_SS_EMU */
 
 /* Define if we are compiling with Virtual Boy emulation. */
 /* #undef WANT_VB_EMU */

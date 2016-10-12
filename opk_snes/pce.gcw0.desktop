@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Mednafen SNES
+Comment=Mednafen (SNES core)
+Exec=mednafen -force_module snes_faust %f
+Icon=icon_pce
+Terminal=false
+Categories=emulators;
+X-OD-NeedsDownscaling=false

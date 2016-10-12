@@ -5,8 +5,10 @@
 static const ButtConfig NESGamePadConfig[4][8]={
         /* Gamepad 1 */
         {
-         MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(w),MK(s),
-                MK(a), MK(d)
+				/*MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(w),MK(s),
+                MK(a), MK(d)*/
+                MK(LCTRL), MK(LALT), MK(ESCAPE), MK(RETURN), MK(UP),MK(DOWN),
+                MK(LEFT), MK(RIGHT)
         },
 
         /* Gamepad 2 */
@@ -22,14 +24,18 @@ static const ButtConfig NESGamePadConfig[4][8]={
 
 static const ButtConfig GBPadConfig[8] =
 {
-         MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(d),MK(a),
-                MK(w), MK(s)
+         /*MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(d),MK(a),
+                MK(w), MK(s)*/
+                MK(LCTRL), MK(LALT), MK(ESCAPE), MK(RETURN), MK(RIGHT),MK(LEFT),
+                MK(UP), MK(DOWN)
 };
 
 static const ButtConfig GBAPadConfig[10] =
 {
-         MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(d),MK(a),
-                MK(w), MK(s), MK(KP6), MK(KP5)
+         /*MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(d),MK(a),
+                MK(w), MK(s), MK(KP6), MK(KP5)*/
+                MK(LCTRL), MK(LALT), MK(ESCAPE), MK(RETURN), MK(RIGHT),MK(LEFT),
+                MK(UP), MK(DOWN),MK(TAB), MK(BACKSPACE)
 };
 
 #define GPZ()   {MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ(), MKZ()}
@@ -37,9 +43,12 @@ static const ButtConfig PCFXPadConfig[2][15]=
 {
         /* Gamepad 1 */
         {
-         MK(KP3), MK(KP2), MK(KP1), MK(KP4), MK(KP5), MK(KP6), MK(TAB), MK(RETURN),
-         MK(w), MK(d), MK(s), MK(a),
-	 MK(KP8), MK(KP9),
+		MK(LCTRL), MK(LALT), MK(LSHIFT), MK(SPACE), MK(KP5), MK(KP6), MK(ESCAPE), MK(RETURN),
+		MK(UP), MK(RIGHT), MK(DOWN), MK(LEFT),
+		MK(TAB), MK(BACKSPACE),
+		/*MK(KP3), MK(KP2), MK(KP1), MK(KP4), MK(KP5), MK(KP6), MK(TAB), MK(RETURN),
+		MK(w), MK(d), MK(s), MK(a),
+		MK(KP8), MK(KP9),*/
         },
 
         /* Gamepad 2 */
@@ -51,10 +60,19 @@ static const ButtConfig PCFXPadConfig[2][15]=
 static const ButtConfig PCEPadConfig[5][13]={
         /* Gamepad 1 */
         {
-         MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(w), MK(d), MK(s), MK(a),
+         /*MK(KP3), MK(KP2), MK(TAB), MK(RETURN), MK(w), MK(d), MK(s), MK(a),
 
          // Extra 4 buttons on 6-button pad
          MK(KP1), MK(KP4), MK(KP5), MK(KP6),
+
+         // ..and special 2/6 mode select
+         MK(m),*/
+         
+         
+         MK(LCTRL), MK(LALT), MK(ESCAPE), MK(RETURN), MK(UP), MK(RIGHT), MK(DOWN), MK(LEFT),
+
+         // Extra 4 buttons on 6-button pad
+         MK(LSHIFT), MK(SPACE), MK(TAB), MK(BACKSPACE),
 
          // ..and special 2/6 mode select
          MK(m),
@@ -77,14 +95,17 @@ static const ButtConfig PCEPadConfig[5][13]={
 static const ButtConfig LynxPadConfig[9] =
 {
         // A, B, Option 2, Option 1, Left, Right, Up, Down, Pause
-         MK(KP3), MK(KP2), MK(KP1), MK(KP7), MK(a),MK(d),
-                MK(w), MK(s), MK(RETURN)
+         /*MK(KP3), MK(KP2), MK(KP1), MK(KP7), MK(a),MK(d),
+                MK(w), MK(s), MK(RETURN)*/
+                MK(LCTRL), MK(LALT), MK(ESCAPE), MK(RETURN), MK(LEFT),MK(RIGHT),
+                MK(UP), MK(DOWN), MK(LSHIFT)
 };
 
 static const ButtConfig NGPPadConfig[7 + 2] =
 {
         // Up, down, left, right, a(inner), b(outer), option
-        MK(w), MK(s), MK(a), MK(d), MK(KP2), MK(KP3), MK(RETURN), MK(KP5), MK(KP6)
+        /*MK(w), MK(s), MK(a), MK(d), MK(KP2), MK(KP3), MK(RETURN), MK(KP5), MK(KP6)*/
+       MK(UP), MK(DOWN), MK(LEFT), MK(RIGHT), MK(LCTRL), MK(LALT), MK(RETURN), MK(KP5), MK(KP6)
 };
 
 static const ButtConfig WSwanPadConfig[12] =
@@ -394,10 +415,50 @@ static ButtConfig MDMegaMouseConfig[4] =
  MK(RETURN),
 };
 
+static const ButtConfig SSPadConfig[13] =
+{
+ MK(KP6),
+ MK(KP5),
+ MK(KP4),
+ MK(KP9),
+
+ MK(w),
+ MK(s),
+ MK(a),
+ MK(d),
+
+ MK(KP2),
+ MK(KP3),
+ MK(KP1),
+ MK(RETURN),
+
+ MK(KP7),
+
+};
+
+static ButtConfig SSMouseConfig[4] =
+{
+ { BUTTC_MOUSE, 0, 0, 0 },
+ { BUTTC_MOUSE, 0, 2, 0 },
+ { BUTTC_MOUSE, 0, 1, 0 },
+ MK(RETURN),
+};
 
 static const ButtConfig SNESPadConfig[12] =
 {
- MK(KP2),
+ MK(LCTRL),
+ MK(LALT),
+ MK(ESCAPE),
+ MK(RETURN),
+ MK(UP),
+ MK(DOWN),
+ MK(LEFT),
+ MK(RIGHT),
+ MK(LSHIFT),
+ MK(SPACE),
+ MK(TAB),
+ MK(BACKSPACE),
+ /*MK(KP2),
  MK(KP4),
  MK(TAB),
  MK(RETURN),
@@ -408,7 +469,7 @@ static const ButtConfig SNESPadConfig[12] =
  MK(KP6),
  MK(KP8),
  MK(KP7),
- MK(KP9),
+ MK(KP9),*/
 };
 
 
@@ -553,19 +614,19 @@ static DefaultSettingsMeow defset[] =
  { "ngp.input.builtin.gamepad", NGPPadConfig, sizeof(NGPPadConfig) / sizeof(ButtConfig) },
  { "wswan.input.builtin.gamepad", WSwanPadConfig, sizeof(WSwanPadConfig) / sizeof(ButtConfig) },
 
- { "pce.input.port1.gamepad", PCEPadConfig[0], sizeof(PCEPadConfig[0]) / sizeof(ButtConfig) },
- { "pce.input.port2.gamepad", PCEPadConfig[1], sizeof(PCEPadConfig[1]) / sizeof(ButtConfig)  },
- { "pce.input.port3.gamepad", PCEPadConfig[2], sizeof(PCEPadConfig[2]) / sizeof(ButtConfig)  },
- { "pce.input.port4.gamepad", PCEPadConfig[3], sizeof(PCEPadConfig[3]) / sizeof(ButtConfig)  },
- { "pce.input.port5.gamepad", PCEPadConfig[4], sizeof(PCEPadConfig[4]) / sizeof(ButtConfig)  },
+ { "pce_fast.input.port1.gamepad", PCEPadConfig[0], sizeof(PCEPadConfig[0]) / sizeof(ButtConfig) },
+ { "pce_fast.input.port2.gamepad", PCEPadConfig[1], sizeof(PCEPadConfig[1]) / sizeof(ButtConfig)  },
+ { "pce_fast.input.port3.gamepad", PCEPadConfig[2], sizeof(PCEPadConfig[2]) / sizeof(ButtConfig)  },
+ { "pce_fast.input.port4.gamepad", PCEPadConfig[3], sizeof(PCEPadConfig[3]) / sizeof(ButtConfig)  },
+ { "pce_fast.input.port5.gamepad", PCEPadConfig[4], sizeof(PCEPadConfig[4]) / sizeof(ButtConfig)  },
 
- { "pce.input.port1.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
- { "pce.input.port2.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
- { "pce.input.port3.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
- { "pce.input.port4.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
- { "pce.input.port5.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port1.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port2.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port3.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port4.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port5.mouse", PCEMouseConfig, sizeof(PCEMouseConfig) / sizeof(ButtConfig) },
 
- { "pce.input.port1.tsushinkb", TsushinKBConfig, sizeof(TsushinKBConfig) / sizeof(ButtConfig) },
+ { "pce_fast.input.port1.tsushinkb", TsushinKBConfig, sizeof(TsushinKBConfig) / sizeof(ButtConfig) },
 
  { "pcfx.input.port1.gamepad", PCFXPadConfig[0], sizeof(PCFXPadConfig[0]) / sizeof(ButtConfig)  },
  { "pcfx.input.port2.gamepad", PCFXPadConfig[1], sizeof(PCFXPadConfig[1]) / sizeof(ButtConfig)  },
@@ -613,10 +674,12 @@ static DefaultSettingsMeow defset[] =
  { "md.input.port8.megamouse", MDMegaMouseConfig, sizeof(MDMegaMouseConfig) / sizeof(ButtConfig) },
 
 
- { "snes.input.port1.gamepad", SNESPadConfig, sizeof(SNESPadConfig) / sizeof(ButtConfig) },
- { "snes.input.port1.mouse", SNESMouseConfig, sizeof(SNESMouseConfig) / sizeof(ButtConfig) },
- { "snes.input.port2.mouse", SNESMouseConfig, sizeof(SNESMouseConfig) / sizeof(ButtConfig) },
- { "snes.input.port2.superscope", SNESSuperScopeConfig, sizeof(SNESSuperScopeConfig) / sizeof(ButtConfig) },
+ { "snes_faust.input.port1.gamepad", SNESPadConfig, sizeof(SNESPadConfig) / sizeof(ButtConfig) },
+ { "snes_faust.input.port1.mouse", SNESMouseConfig, sizeof(SNESMouseConfig) / sizeof(ButtConfig) },
+ { "snes_faust.input.port2.mouse", SNESMouseConfig, sizeof(SNESMouseConfig) / sizeof(ButtConfig) },
+ { "snes_faust.input.port2.superscope", SNESSuperScopeConfig, sizeof(SNESSuperScopeConfig) / sizeof(ButtConfig) },
+
+ { "snes_faust.input.port1.gamepad", SNESPadConfig, sizeof(SNESPadConfig) / sizeof(ButtConfig) },
 
  { "psx.input.port1.gamepad", PSXPadConfig, sizeof(PSXPadConfig) / sizeof(ButtConfig) },
 
@@ -644,6 +707,21 @@ static DefaultSettingsMeow defset[] =
  { "psx.input.port2.justifier", PSXJustifierConfig, sizeof(PSXJustifierConfig) / sizeof(ButtConfig) },
 
  //{ "vb.input.builtin.gamepad", VBPadConfig, sizeof(VBPadConfig) / sizeof(VBPadConfig) },
+
+ { "ss.input.port1.gamepad", SSPadConfig, sizeof(SSPadConfig) / sizeof(ButtConfig) },
+
+ { "ss.input.port1.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port2.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port3.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port4.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port5.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port6.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port7.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port8.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port9.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port10.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port11.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
+ { "ss.input.port12.mouse", SSMouseConfig, sizeof(SSMouseConfig) / sizeof(ButtConfig) },
 
  { "mmplay.input.builtin.controller", MMPlayInputConfig, sizeof(MMPlayInputConfig) / sizeof(ButtConfig) },
  { "cdplay.input.builtin.controller", CDPlayInputConfig, sizeof(CDPlayInputConfig) / sizeof(ButtConfig) },

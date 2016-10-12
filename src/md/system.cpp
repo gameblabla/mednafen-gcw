@@ -65,6 +65,7 @@ static bool run_cpu;
 void MD_Suspend68K(bool state)
 {
  suspend68k = state;
+ Main68K.SetExtHalted(state);
 }
 
 bool MD_Is68KSuspended(void)
@@ -170,20 +171,12 @@ static int system_frame(int do_skip)
 
  while(run_cpu > 0)
  {
-  if(suspend68k)
-  {
-   Main68K.timestamp += 4;
-  }
-  else
-  {
-   #ifdef WANT_DEBUGGER
-   if(MD_DebugMode)
-    MDDBG_CPUHook();
-   #endif
+  #ifdef WANT_DEBUGGER
+  if(MDFN_UNLIKELY(MD_DebugMode) && MDFN_UNLIKELY(!suspend68k))
+   MDDBG_CPUHook();
+  #endif
 
-   C68k_Exec(&Main68K);
-  }
-
+  Main68K.Step();
   MD_UpdateSubStuff();
  }
  return gen_running;
@@ -191,6 +184,8 @@ static int system_frame(int do_skip)
 
 static void Emulate(EmulateSpecStruct *espec)
 {
+ //printf("%016llx %016llx %016llx\n", z80_tstates, last_z80_tstates, z80.interrupts_enabled_at);
+
  MDFNMP_ApplyPeriodicCheats();
 
  MDIO_BeginTimePeriod(md_timestamp);
@@ -449,7 +444,9 @@ static void LoadCommonPost(const md_game_info &ginfo)
  MDFN_indent(-1);
 
  MDFNMP_Init(8192, (1 << 24) / 8192);
- MDFNMP_AddRAM(65536, 0x7 << 21, work_ram);
+
+ for(uint32 A = (0x7 << 21); A < (0x8 << 21); A += 65536)
+  MDFNMP_AddRAM(65536, A, work_ram, (A == 0xFF0000));
 
  MDFNGameInfo->GameSetMD5Valid = FALSE;
 
@@ -668,10 +665,7 @@ static void DoSimpleCommand(int cmd)
 
 static void StateAction(StateMem *sm, const unsigned load, const bool data_only)
 {
- const unsigned int c68k_state_len = C68k_State_Max_Len;
- uint8 c68k_state[c68k_state_len];
-
- C68k_Save_State(&Main68K, c68k_state);
+ uint8 c68k_state[M68K::OldStateLen];
 
  SFORMAT StateRegs[] =
  {
@@ -683,26 +677,44 @@ static void StateAction(StateMem *sm, const unsigned load, const bool data_only)
   SFVAR(zirq),
   SFVAR(zbank),
 
-  SFVAR(md_timestamp),
   SFVAR(suspend68k),
   SFVAR(z80_cycle_counter),
 
-  SFARRAY(c68k_state, c68k_state_len),
+  SFARRAYN((load && load < 0x939) ? c68k_state : NULL, sizeof(c68k_state), "c68k_state"),
   SFEND
  };
 
 
  MDFNSS_StateAction(sm, load, data_only, StateRegs, "MAIN");
+ if(load)
+ {
+  zbusreq &= 1;
+  zreset &= 1;
+  zbusack &= 1;
+
+  if(z80_cycle_counter > 0)
+   z80_cycle_counter = 0;
+ }
+
+
  z80_state_action(sm, load, data_only, "Z80");
  MDINPUT_StateAction(sm, load, data_only);
  MainVDP.StateAction(sm, load, data_only);
  MDSound_StateAction(sm, load, data_only);
  MDCart_StateAction(sm, load, data_only);
 
+ if(!load || load >= 0x939)
+  Main68K.StateAction(sm, load, data_only, "M68K");
+
  if(load)
  {
-  C68k_Load_State(&Main68K, c68k_state);
   z80_set_interrupt(zirq);
+  //
+  if(load < 0x939)
+  {
+   Main68K.LoadOldState(c68k_state);
+   Main68K.SetExtHalted(suspend68k);
+  }
  }
 }
 
@@ -795,10 +807,9 @@ MDFNGI EmulatedMD =
 
  NULL,
  0,
- NULL, //InstallReadPatch,
- NULL, //RemoveReadPatches,
- NULL, //MemRead,
- NULL,
+
+ CheatInfo_Empty,
+
  false,
  StateAction,
  Emulate,
@@ -806,6 +817,7 @@ MDFNGI EmulatedMD =
  MDINPUT_SetInput,
  NULL,
  DoSimpleCommand,
+ NULL,
  MDSettings,
  0,	// MasterClock(set in game loading code)
  0,

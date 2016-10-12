@@ -1,4 +1,4 @@
-Blip_Buffer.o: Blip_Buffer.cpp Blip_Buffer.h \
+sound/Blip_Buffer.o: sound/Blip_Buffer.cpp sound/Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/syslimits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/limits.h \
@@ -17,7 +17,7 @@ Blip_Buffer.o: Blip_Buffer.cpp Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h \
- ../../include/config.h \
+ ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h \
@@ -62,7 +62,7 @@ Blip_Buffer.o: Blip_Buffer.cpp Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h
 
-Blip_Buffer.h:
+sound/Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h:
 
@@ -100,7 +100,7 @@ Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wordsize.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 

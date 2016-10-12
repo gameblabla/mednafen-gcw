@@ -109,6 +109,39 @@ compress/ZLInflateFilter.o: compress/ZLInflateFilter.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cmath \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/math.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_val.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_valf.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_vall.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/inf.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/limits \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/vector \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_vector.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_bvector.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/vector.tcc \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/opt_random.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
  ../include/mednafen/error.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
@@ -134,49 +167,18 @@ compress/ZLInflateFilter.o: compress/ZLInflateFilter.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_local_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix2_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h \
  ../include/mednafen/mednafen.h ../include/mednafen/types.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
  ../include/mednafen/math_ops.h ../include/mednafen/git.h \
  ../include/mednafen/video.h ../include/mednafen/video/surface.h \
  ../include/mednafen/video/primitives.h ../include/mednafen/video/text.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cmath \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/math.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_val.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_valf.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_vall.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/inf.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/limits \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/vector \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_vector.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_bvector.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/vector.tcc \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/opt_random.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
  ../include/mednafen/file.h ../include/mednafen/endian.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h \
  ../include/mednafen/state.h ../include/mednafen/state-common.h \
  ../include/mednafen/Stream.h ../include/mednafen/settings-common.h \
  ../include/mednafen/settings.h ../include/mednafen/mednafen-driver.h \
@@ -404,6 +406,72 @@ compress/ZLInflateFilter.o: compress/ZLInflateFilter.cpp \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
 
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cmath:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/math.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_val.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_valf.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_vall.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/inf.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/limits:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/vector:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_vector.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_bvector.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/vector.tcc:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/opt_random.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
+
 ../include/mednafen/error.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
@@ -456,14 +524,6 @@ compress/ZLInflateFilter.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/types.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/select.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
-
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h:
@@ -478,14 +538,6 @@ compress/ZLInflateFilter.h:
 
 ../include/mednafen/types.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
-
 ../include/mednafen/math_ops.h:
 
 ../include/mednafen/git.h:
@@ -498,59 +550,13 @@ compress/ZLInflateFilter.h:
 
 ../include/mednafen/video/text.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cmath:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/math.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_val.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_valf.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/huge_vall.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/inf.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/limits:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/vector:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_vector.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_bvector.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/vector.tcc:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/mipsel-gcw0-linux-uclibc/bits/opt_random.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
-
 ../include/mednafen/file.h:
 
 ../include/mednafen/endian.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h:
 
 ../include/mednafen/state.h:
 

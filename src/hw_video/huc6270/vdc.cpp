@@ -291,7 +291,7 @@ void VDC::SetLayerEnableMask(uint64 mask)
 
 void VDC::RunSATDMA(int32 cycles, bool force_completion)
 {
- /*assert(sat_dma_counter > 0);*/
+ assert(sat_dma_counter > 0);
 
  if(force_completion)
   cycles = sat_dma_counter;
@@ -493,20 +493,20 @@ void VDC::HDS_Start(void)
   NeedRCRInc = false;
  }
 
- /*if(sprite_cg_fetch_counter > 0)
+ if(sprite_cg_fetch_counter > 0)
  {
   VDC_WARNING("Sprite truncation on %d.  Wanted sprites: %d, cycles needed but not left: %d\n", RCRCount, active_sprites, sprite_cg_fetch_counter);
   sprite_cg_fetch_counter = 0;
   CheckAndCommitPending();
- }*/
+ }
 
  HSW_cache = M_vdc_HSW;
  HDS_cache = M_vdc_HDS;
  HDW_cache = M_vdc_HDW;
  HDE_cache = M_vdc_HDE;
 
- /*VDC_DEBUG("HDS Start!  HSW: %d, HDW: %d, HDW: %d, HDE: %d\n", HSW_cache, HDS_cache, HDW_cache, HDE_cache);
-*/
+ VDC_DEBUG("HDS Start!  HSW: %d, HDW: %d, HDW: %d, HDE: %d\n", HSW_cache, HDS_cache, HDW_cache, HDE_cache);
+
  CR_cache = CR;
 
  HPhase = HPHASE_HDS;
@@ -572,10 +572,10 @@ int32 VDC::VSync(bool vb)
   VPhase = VPHASE_VSW;
   VPhaseCounter = VSW_cache + 1;
  }
- /*else	
+ else	// Leaving vsync
  {
 
- }*/
+ }
  return(CalcNextEvent());
 }
 
@@ -657,7 +657,7 @@ int32 VDC::Run(int32 clocks, uint16 *pixels, bool skip)
 
   if(DMAPending && burst_mode)
   {
-   /*VDC_DEBUG("DMA Started");*/
+   VDC_DEBUG("DMA Started");
    DMAPending = false;
    DMARunning = true;
    VDMA_CycleCounter = 0;
@@ -718,7 +718,7 @@ int32 VDC::Run(int32 clocks, uint16 *pixels, bool skip)
 
   HPhaseCounter -= chunk_clocks;
 
-  /*assert(HPhaseCounter >= 0);*/
+  assert(HPhaseCounter >= 0);
 
   while(HPhaseCounter <= 0)
   {
@@ -748,7 +748,7 @@ int32 VDC::Run(int32 clocks, uint16 *pixels, bool skip)
     case HPHASE_HDS_PART3:
 		     HPhaseCounter = (HDS_cache + 1) * 8 - TimeFromHDSStartToBYRLatch() - TimeFromBYRLatchToBXRLatch();
 
-		     /*assert(HPhaseCounter > 0);*/
+		     assert(HPhaseCounter > 0);
 
 		     BG_XOffset = BXR;
 		     break;
@@ -983,7 +983,7 @@ void VDC::FetchSpriteData(void)
     {
      status |= VDCS_OR;
      IRQHook(TRUE);
-    /* VDC_DEBUG("Overflow IRQ");*/
+     VDC_DEBUG("Overflow IRQ");
     }
     if(!unlimited_sprites)
      break;
@@ -1100,7 +1100,7 @@ void VDC::DrawSprites(uint16 *target, int enabled)
      if(sprite_line_buf[tx] & 0xF)
      {
       status |= VDCS_CR;
-      /*VDC_DEBUG("Sprite hit IRQ");*/
+      VDC_DEBUG("Sprite hit IRQ");
       IRQHook(TRUE);
      }
      sprite_line_buf[tx] = pi | raw_pixel | prio_or;
@@ -1190,9 +1190,9 @@ void VDC::DoWaitStates(void)
 
  //if(did_wait)
  // printf("End of wait stating: %d %d\n", VDMA_CycleCounter, sat_dma_counter);
-/*
+
  assert(!pending_read);
- assert(!pending_write);*/
+ assert(!pending_write);
 }
 
 uint8 VDC::Read(uint32 A, int32 &next_event, bool peek)
@@ -1440,7 +1440,7 @@ void VDC::Write(uint32 A, uint8 V, int32 &next_event)
 
                        if(msb)
        	               {
-                       /* VDC_DEBUG("DMA: %04x %04x %04x, %02x", SOUR, DESR, LENR, DCR);*/
+                        VDC_DEBUG("DMA: %04x %04x %04x, %02x", SOUR, DESR, LENR, DCR);
 			DMAPending = 1;
                        }
                        break;
@@ -1552,7 +1552,7 @@ void VDC::Write16(bool A, uint16 V)
                        break;
 
             case 0x12: LENR = V;
-                       /*if(DMARunning)
+                       if(DMARunning)
                        {
                         VDC_UNDEFINED("Set LENR during DMA: %04x\n", LENR);
                        }
@@ -1563,7 +1563,7 @@ void VDC::Write16(bool A, uint16 V)
                        }
 
                        VDC_DEBUG("DMA: %04x %04x %04x, %02x", SOUR, DESR, LENR, DCR);
-*/
+
 		       DMAPending = 1;
                        break;
 
@@ -1677,23 +1677,37 @@ int32 VDC::Reset(void)
  return(CalcNextEvent());
 }
 
-VDC::VDC(bool nospritelimit, uint32 par_VRAM_Size)
+VDC::VDC()
 {
- unlimited_sprites = nospritelimit; //MDFN_GetSettingB("pce.nospritelimit");
+ SetUnlimitedSprites(false);
+ SetVRAMSize(65536);
  userle = ~0;
-
- /*assert(par_VRAM_Size == round_up_pow2(par_VRAM_Size));
- assert(par_VRAM_Size >= 16 && par_VRAM_Size <= 65536);*/
-
- VRAM_Size = par_VRAM_Size;
- VRAM_SizeMask = VRAM_Size - 1;
- VRAM_BGTileNoMask = VRAM_SizeMask / 16;
 
  WSHook = NULL;
  IRQHook = NULL;
 
  in_exhsync = false;
  in_exvsync = false;
+}
+
+void VDC::SetUnlimitedSprites(const bool nospritelimit)
+{
+ unlimited_sprites = nospritelimit;
+}
+
+void VDC::SetVRAMSize(const uint32 par_VRAM_Size)
+{
+ //const uint32 old_VRAM_Size;
+
+ assert(par_VRAM_Size == round_up_pow2(par_VRAM_Size));
+ assert(par_VRAM_Size >= 16 && par_VRAM_Size <= 65536);
+
+ VRAM_Size = par_VRAM_Size;
+ VRAM_SizeMask = VRAM_Size - 1;
+ VRAM_BGTileNoMask = VRAM_SizeMask / 16;
+
+ // for(uint32 A = std::min<uint32>(old_VRAM_Size, par_VRAM_Size); A < 65536; A += 16)
+ //  FixTileCache(A);
 }
 
 VDC::~VDC()
@@ -1823,6 +1837,23 @@ void VDC::StateAction(StateMem *sm, const unsigned load, const bool data_only, c
 
   if(load)
   {
+   HSW_cache &= 0x1F;
+   HDS_cache &= 0x7F;
+   HDW_cache &= 0x7F;
+   HDE_cache &= 0x7F;
+
+   VSW_cache &= 0x1F;
+   VDS_cache &= 0xFF;
+   VDW_cache &= 0x1FF;
+   VCR_cache &= 0xFF;
+
+   if(HPhaseCounter < 1)
+    HPhaseCounter = 1;
+   else if(HPhaseCounter > (0x7F + 1) * 8)
+    HPhaseCounter = (0x7F + 1) * 8;
+
+   VDMA_CycleCounter &= 0x1;
+   //
    StateExtra(sl_packer, true);
 
    for(int x = 0; x < VRAM_Size; x++)

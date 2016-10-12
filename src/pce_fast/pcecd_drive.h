@@ -53,7 +53,7 @@ extern pcecd_drive_bus_t cd_bus; // Don't access this structure directly by name
 #define PCECD_Drive_GetRST() RST_signal
 #define PCECD_Drive_GetSEL() SEL_signal
 
-void PCECD_Drive_Power(pcecd_drive_timestamp_t system_timestamp);
+void PCECD_Drive_Power(pcecd_drive_timestamp_t system_timestamp) MDFN_COLD;
 void PCECD_Drive_SetDB(uint8 data);
 
 // These PCECD_Drive_Set* functions are kind of misnomers, at least in comparison to the PCECD_Drive_Get* functions...
@@ -79,7 +79,7 @@ void PCECD_Drive_Close(void) MDFN_COLD;
 
 void PCECD_Drive_SetTransferRate(uint32 TransferRate);
 void PCECD_Drive_SetCDDAVolume(unsigned vol); // vol of 65536 = 1.0 = maximum.
-int PCECD_Drive_StateAction(StateMem *sm, int load, int data_only, const char *sname);
+void PCECD_Drive_StateAction(StateMem *sm, int load, int data_only, const char *sname);
 
 void PCECD_Drive_SetDisc(bool tray_open, CDIF *cdif, bool no_emu_side_effects = false) MDFN_COLD;
 

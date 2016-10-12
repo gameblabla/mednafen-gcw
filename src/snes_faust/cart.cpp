@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+/******************************************************************************/
+/* Mednafen Fast SNES Emulation Module                                        */
+/******************************************************************************/
+/* cart.cpp:
+**  Copyright (C) 2015-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include "snes.h"
 #include "cart.h"
@@ -108,6 +112,8 @@ enum
  ROM_LAYOUT_HIROM,
  ROM_LAYOUT_EXLOROM,
  ROM_LAYOUT_EXHIROM,
+
+ ROM_LAYOUT_INVALID = 0xFFFFFFFF
 };
 
 void CART_Init(Stream* fp, uint8 id[16])
@@ -143,7 +149,7 @@ void CART_Init(Stream* fp, uint8 id[16])
  //
  //
 
- unsigned rom_layout = ROM_LAYOUT_LOROM;
+ unsigned rom_layout = ROM_LAYOUT_INVALID;
  unsigned ram_size = 0;
  uint8* header = NULL;
 
@@ -158,6 +164,9 @@ void CART_Init(Stream* fp, uint8 id[16])
    const uint8 header_rom_size = tmp[0x7FD7];
    const uint8 country_code = tmp[0x7FD9];
    const uint8 header_rom_type = tmp[0x7FD5];
+
+   if(rom_layout == ROM_LAYOUT_INVALID)
+    rom_layout = (s ? ROM_LAYOUT_HIROM : ROM_LAYOUT_LOROM);
 
    if(header_rom_size >= 0x01 && header_rom_size <= 0x0D && header_ram_size >= 0x00 && header_ram_size <= 0x09)
    {
@@ -198,8 +207,10 @@ void CART_Init(Stream* fp, uint8 id[16])
   }
  }
 
- SNES_DBG("[CART] rom_layout=%d\n", rom_layout);
+ if(rom_layout == ROM_LAYOUT_INVALID)	// FIXME: Error out?
+  rom_layout = ROM_LAYOUT_LOROM;
 
+ SNES_DBG("[CART] rom_layout=%d\n", rom_layout);
  //if((rom_type &~ 0x10) == 0x20)
  //{
  // assert(raw_ram_size <= 0x09);
@@ -329,7 +340,7 @@ void CART_StateAction(StateMem* sm, const unsigned load, const bool data_only)
 {
  SFORMAT StateRegs[] =
  {
-  SFARRAY(&CartRAM[0], CartRAM.size()),
+  SFARRAYN(CartRAM.size() ? &CartRAM[0] : NULL, CartRAM.size(), "&CartRAM[0]"),
 
   SFEND
  };

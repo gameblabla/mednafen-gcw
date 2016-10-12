@@ -8,6 +8,13 @@ on game load for each emulated system.
 !!! Systems with RTC emulation: Fix code to NOT use localtime(), which has consistency issues due to relying on external state(IE time zones), at
 			    any time other than virtual power toggle/init.
 
+SF*() state variable macro overhaul; add macro/function for handling std::array and std::vector.
+
+Save state preview images should reflect the screen-rotation(ALT+O) state somehow, probably at time of creation.
+
+Display current input setup(port mappings) in upper right corner of screen in smallest or second-smallest font, with black border, on
+game load; setting to control the time length of this display.
+
 Rework state rewinding code to run the XOR filter and compressor on small chunks instead of the whole save state, to improve performance due to better
 L1 cache utilization.
 
@@ -28,7 +35,7 @@ logical AND mode.
 CD emulation/handling:
 	Stricter CUE and TOC sheet parsing.
 
-	Support for indexes other than 0 and 1 in CUE and TOC sheets(maybe using std::map?).
+	Support for "INDEX" directive in TOC files.
 
 YM2612:
 	Timer fixes?
@@ -45,6 +52,15 @@ Internationalization issues:
 	Replace string/ConvertUTF.cpp with iconv() usage.
 
 	Wrap iconv() in C++ classes.
+
+	Win32 Unicode:
+		MDFN_mkdir_T(), MDFN_stat(), MDFN_unlink(), MDFN_rename(), FileStream, GZFileStream, unzip code. GetCommandLineW, CommandLineToArgvW,
+		basic_string<uint16>(u16string might not be safe).
+		Use UTF-16<->UTF-8 conversion that permits lone/mismatched surrogates.  UTF-8 to UTF-16 conversion MUST error out(exception) on
+		overlong encodings, though.  Don't use MultiByteToWideChar(), as it's documented to simply delete such characters on Windows XP,
+		which could allow subversion of the crude unsafe file-include-path checking code.
+		-municode -DUNICODE=1 -D_UNICODE=1
+		May cause problems with people's CUE sheets, especially with certain PCE CD dumps with the ² character in the filenames.
 
 Documentation:
 	Document systems with a debugger available.
@@ -106,10 +122,16 @@ SNES:
 	src/ppu/render/oam.cpp:161:40: runtime error: index 32 out of bounds for type 'unsigned char [32]'
 
 PCE_FAST:
+	Add padding to start of data mapped into HuC6280 for instruction reads to prevent a crash if a game does a negative relative branch to
+	before the start of the memory region.
+
 	MWR latching!
 
 
 PCE:
+	Test writes to $0806 when channel is enabled and DDA mode disabled, to track down the cause of some bus-conflicty-sounding
+	glitches in an old sound playback demo program I wrote.
+
 	Fix emulation of CD-DA current amplitude register used by the BIOS CD-DA player(right now L and R appear to be reversed,
 	but I think there are more problems with its emulation than just that).
 
@@ -144,6 +166,8 @@ PCE:
 
 	Double-check timer IRQ semantics vs real system(what reads and writes acknowledge IRQs, cli-then-ack behavior, 
 	mask register write effective delay, etc.).
+
+	Fix ADPCM crackling during save state rewinding.
 
 GBA:
 	GSF multiboot support, and make sure it works(and GSF loading in general) on big-endian platforms.
@@ -183,6 +207,9 @@ Genesis:
 
 PC-FX:
 	cdrom/scsicd.cpp
+		Increase data transfer buffer size(or separate the CD read buffer from the SCSI data transfer buffer,
+		and make it larger).
+
 		Allow commands that require medium access to complete successfully if there's no disc present and 
 		the "alloc size" field is 0.
 
@@ -226,6 +253,8 @@ PC-FX:
 	the channel number/index before each sample write(on a real PC-FX, it doesn't work; IE, likely either the sample
 	writes are being ignored, or the waveform memory index is being reset on channel number/index write).
 
+	Fix ADPCM crackling during save state rewinding.
+
 NES:
 	Save/Load expansion sound chip state when utilizing save states in the NSF player.
 
@@ -236,6 +265,11 @@ NES:
 	Fix weird graphical glitches in Quattro Sports: BMX Simulator
 
 	nes/boards/vrc7.cpp (slot save state saving)
+
+WonderSwan:
+	Fix V30MZ rep prefix emulation timing accuracy problems.
+
+	http://daifukkat.su/docs/wsman/#snd_specifics (REG_SND_VOICE_VOL fix in particular, and DMA loop mode for that one game with the rain)  and Tonpuusou, writing to frequency reg implicitly turns on timer?
 
 Reexamine the code for choosing which emulation module to use.  Highest priority to file extension(as long as the extension is unique to a system,
 "bin" is not unique for example), and special magic test functions if that fails.
@@ -253,8 +287,6 @@ TODO: Do locking in drivers/remote.cpp
 TODO: Consider locking in MDFNI_printf() due to the indentation global variable.
 
 Alter MD5 hash of games based on the module's name for save states etc.?
-
-Emulation "module" namespace encapsulation.
 
 Save state timestamp-related variables consistency checks to avoid the possibility of buffer overruns and, less importantly, locking up the emulator
 by use of malicious save states.

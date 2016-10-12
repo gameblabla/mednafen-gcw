@@ -471,7 +471,7 @@ int Ym2612_Impl::YM_SET(int Adr, int data)
 			break;
 		}
 		case 0x2A:
-			YM2612.DACdata = ((int)data - 0x80) << 5;
+			YM2612.DACdata = (unsigned int)((int)data - 0x80) << 5;
 			break;
 
 		case 0x2B:
@@ -1056,8 +1056,8 @@ void Ym2612_Emu::serialize(MDFN::LEPacker &slizer, bool load)
 
    if(load)
    {
-    tun &= 0x07;
-    sl->DT = &g->DT_TAB[tun][0];
+    tun &= 0x07 * 32;
+    sl->DT = &g->DT_TAB[0][0] + tun;
    }
 
    slizer ^ sl->MUL;

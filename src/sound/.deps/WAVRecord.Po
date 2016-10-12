@@ -1,5 +1,5 @@
-WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
- ../../include/config.h \
+sound/WAVRecord.o: sound/WAVRecord.cpp sound/../mednafen.h \
+ sound/../types.h ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -109,17 +109,9 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
- ../error.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
@@ -128,13 +120,6 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
- ../gettext.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
- ../math_ops.h ../git.h ../video.h ../video/surface.h \
- ../video/primitives.h ../video/text.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
@@ -157,17 +142,42 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
- ../file.h ../../include/mednafen/Stream.h ../../include/mednafen/types.h \
- ../../include/mednafen/gettext.h ../../include/mednafen/endian.h \
- ../state.h ../state-common.h ../Stream.h ../settings-common.h \
- ../settings.h ../mednafen-driver.h ../endian.h ../memory.h WAVRecord.h \
- ../FileStream.h
+ sound/../error.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ sound/../gettext.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
+ sound/../math_ops.h sound/../git.h sound/../video.h \
+ sound/../video/surface.h sound/../video/primitives.h \
+ sound/../video/text.h sound/../file.h ../include/mednafen/Stream.h \
+ ../include/mednafen/types.h ../include/mednafen/gettext.h \
+ ../include/mednafen/endian.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h \
+ sound/../state.h sound/../state-common.h sound/../Stream.h \
+ sound/../settings-common.h sound/../settings.h \
+ sound/../mednafen-driver.h sound/../endian.h sound/../memory.h \
+ sound/WAVRecord.h ../include/mednafen/mednafen.h \
+ ../include/mednafen/FileStream.h ../include/mednafen/Stream.h
 
-../mednafen.h:
+sound/../mednafen.h:
 
-../types.h:
+sound/../types.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 
@@ -387,27 +397,11 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
 
-../error.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
 
@@ -424,28 +418,6 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
-
-../gettext.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
-
-../math_ops.h:
-
-../git.h:
-
-../video.h:
-
-../video/surface.h:
-
-../video/primitives.h:
-
-../video/text.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
 
@@ -491,32 +463,88 @@ WAVRecord.o: WAVRecord.cpp ../mednafen.h ../types.h \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
 
-../file.h:
+sound/../error.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
 
-../../include/mednafen/types.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
 
-../../include/mednafen/gettext.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
 
-../state.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
 
-../state-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
 
-../Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
 
-../settings-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
 
-../settings.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
 
-../mednafen-driver.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-../endian.h:
+sound/../gettext.h:
 
-../memory.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
 
-WAVRecord.h:
+sound/../math_ops.h:
 
-../FileStream.h:
+sound/../git.h:
+
+sound/../video.h:
+
+sound/../video/surface.h:
+
+sound/../video/primitives.h:
+
+sound/../video/text.h:
+
+sound/../file.h:
+
+../include/mednafen/Stream.h:
+
+../include/mednafen/types.h:
+
+../include/mednafen/gettext.h:
+
+../include/mednafen/endian.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h:
+
+sound/../state.h:
+
+sound/../state-common.h:
+
+sound/../Stream.h:
+
+sound/../settings-common.h:
+
+sound/../settings.h:
+
+sound/../mednafen-driver.h:
+
+sound/../endian.h:
+
+sound/../memory.h:
+
+sound/WAVRecord.h:
+
+../include/mednafen/mednafen.h:
+
+../include/mednafen/FileStream.h:
+
+../include/mednafen/Stream.h:

@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+/******************************************************************************/
+/* Mednafen Fast SNES Emulation Module                                        */
+/******************************************************************************/
+/* spc700.inc:
+**  Copyright (C) 2015-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 class SPC700 final
 {
@@ -1154,8 +1158,8 @@ INLINE void SPC700::Instr_BRK(void)
  Push(PSW);
 
  PC = ReadMem(0xFFDE);
- PC |= ReadMem(0xFFDF);
- PSW |= B_FLAG;
+ PC |= ReadMem(0xFFDF) << 8;
+ PSW = (PSW | B_FLAG) & ~I_FLAG;
 
  IO();
  IO();
@@ -1412,14 +1416,14 @@ INLINE void SPC700::Instr_NOTC(void)
 INLINE void SPC700::Instr_EI(void)
 {
  IO();
- PSW &= ~I_FLAG;
+ PSW |= I_FLAG;
  IO();
 }
 
 INLINE void SPC700::Instr_DI(void)
 {
  IO();
- PSW |= I_FLAG;
+ PSW &= ~I_FLAG;
  IO();
 }
 

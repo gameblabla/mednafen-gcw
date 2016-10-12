@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+/******************************************************************************/
+/* Mednafen Virtual Boy Emulation Module                                      */
+/******************************************************************************/
+/* vb.cpp:
+**  Copyright (C) 2010-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include "vb.h"
 #include "timer.h"
@@ -488,7 +492,7 @@ static void ReadHeader(const uint8* const rom_data, const uint64 rom_size, VB_He
 
   *out_ptr = 0;
 
-  MDFN_RemoveControlChars(hi->game_title);
+  MDFN_zapctrlchars(hi->game_title);
   MDFN_trim(hi->game_title);
  }
  else
@@ -501,10 +505,10 @@ static void ReadHeader(const uint8* const rom_data, const uint64 rom_size, VB_He
 
 static bool TestMagic(MDFNFILE *fp)
 {
- if(!strcasecmp(fp->ext, "vb") || !strcasecmp(fp->ext, "vboy"))
-  return(true);
+ if(fp->ext == "vb" || fp->ext == "vboy")
+  return true;
 
- return(false);
+ return false;
 }
 
 static void Cleanup(void)
@@ -536,8 +540,8 @@ static void Load(MDFNFILE *fp)
   md5_context md5;
 
   VB_InDebugPeek = 0;
-	cpu_mode = V810_EMU_MODE_FAST;
-  /*cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("vb.cpu_emulation");*/
+
+  cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("vb.cpu_emulation");
 
   if(rom_size != round_up_pow2(rom_size))
   {
@@ -700,9 +704,9 @@ static void Load(MDFNFILE *fp)
    default: break;
 
    case VB3DMODE_VLI:
-         MDFNGameInfo->nominal_width = 384 * prescale;
+         MDFNGameInfo->nominal_width = 768 * prescale;
          MDFNGameInfo->nominal_height = 224;
-         MDFNGameInfo->fb_width = 384 * prescale;
+         MDFNGameInfo->fb_width = 768 * prescale;
          MDFNGameInfo->fb_height = 224;
          break;
 
@@ -799,10 +803,6 @@ static void Emulate(EmulateSpecStruct *espec)
  VB_V810->ResetTS(0);
 }
 
-}
-
-using namespace MDFN_IEN_VB;
-
 #ifdef WANT_DEBUGGER
 static DebuggerInfoStruct DBGInfo =
 {
@@ -845,6 +845,10 @@ static void StateAction(StateMem *sm, const unsigned load, const bool data_only)
  };
 
  MDFNSS_StateAction(sm, load, data_only, StateRegs, "MAIN");
+ if(load)
+ {
+  VSU_CycleFix &= 3;
+ }
 
  VB_V810->StateAction(sm, load, data_only);
 
@@ -977,6 +981,10 @@ static const FileExtensionSpecStruct KnownExtensions[] =
  { NULL, NULL }
 };
 
+}
+
+using namespace MDFN_IEN_VB;
+
 MDFNGI EmulatedVB =
 {
  "vb",
@@ -1004,10 +1012,8 @@ MDFNGI EmulatedVB =
  NULL,
  0,
 
- NULL,
- NULL,
- NULL,
- NULL,
+ CheatInfo_Empty,
+
  false,
  StateAction,
  Emulate,
@@ -1015,6 +1021,7 @@ MDFNGI EmulatedVB =
  VBINPUT_SetInput,
  NULL,
  DoSimpleCommand,
+ NULL,
  VBSettings,
  MDFN_MASTERCLOCK_FIXED(VB_MASTER_CLOCK),
  0,

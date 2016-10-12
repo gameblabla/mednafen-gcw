@@ -1,4 +1,4 @@
-ntsc/nes_ntsc.o: ntsc/nes_ntsc.cpp ntsc/nes_ntsc.h \
+nes/ntsc/nes_ntsc.o: nes/ntsc/nes_ntsc.cpp nes/ntsc/nes_ntsc.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -23,7 +23,7 @@ ntsc/nes_ntsc.o: ntsc/nes_ntsc.cpp ntsc/nes_ntsc.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h
 
-ntsc/nes_ntsc.h:
+nes/ntsc/nes_ntsc.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 

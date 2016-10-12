@@ -84,6 +84,32 @@ static MDFNSetting_EnumList SDriver_List[] =
 
  { "jack", -1, "JACK", gettext_noop("The latency reported during startup is for the local sound buffer only and does not include server-side latency.  Please note that video card drivers(in the kernel or X), and hardware-accelerated OpenGL, may interfere with jackd's ability to effectively run with realtime response.") },
 
+ { "dummy", -1 },
+
+ { NULL, 0 },
+};
+
+static const MDFNSetting_EnumList FontSize_List[] =
+{
+ { "5x7",	MDFN_FONT_5x7, gettext_noop("5x7") },
+ { "6x9",	MDFN_FONT_6x9, gettext_noop("6x9") },
+ { "6x12",	MDFN_FONT_6x12, gettext_noop("6x12") },
+#ifdef WANT_INTERNAL_CJK
+ { "6x13",	MDFN_FONT_6x13_12x13, gettext_noop("6x13.  CJK support.") },
+ { "9x18",	MDFN_FONT_9x18_18x18, gettext_noop("9x18;  CJK support.") },
+#else
+ { "6x13",	MDFN_FONT_6x13_12x13, gettext_noop("6x13.") },
+ { "9x18",	MDFN_FONT_9x18_18x18, gettext_noop("9x18.") },
+#endif
+ // Backwards compat:
+ { "xsmall", 	MDFN_FONT_5x7 }, // 4x5 font was removed.
+ { "small",	MDFN_FONT_5x7 },
+ { "medium",	MDFN_FONT_6x13_12x13 },
+ { "large",	MDFN_FONT_9x18_18x18 },
+
+ { "0",		MDFN_FONT_9x18_18x18 },
+ { "1",		MDFN_FONT_5x7 },
+
  { NULL, 0 },
 };
 
@@ -98,14 +124,16 @@ static MDFNSetting DriverSettings[] =
 
   { "netplay.host", MDFNSF_NOFLAGS, gettext_noop("Server hostname."), NULL, MDFNST_STRING, "netplay.fobby.net" },
   { "netplay.port", MDFNSF_NOFLAGS, gettext_noop("Server port."), NULL, MDFNST_UINT, "4046", "1", "65535" },
-  { "netplay.smallfont", MDFNSF_NOFLAGS, gettext_noop("Use small(tiny!) font for netplay chat console."), NULL, MDFNST_BOOL, "0" },
+  { "netplay.console.font", MDFNSF_NOFLAGS, gettext_noop("Font for netplay chat console."), NULL, MDFNST_ENUM, "5x7", NULL, NULL, NULL, NULL, FontSize_List },
+  { "netplay.console.scale", MDFNSF_NOFLAGS, gettext_noop("Netplay chat console text scale factor."), gettext_noop("A value of 0 enables auto-scaling."), MDFNST_UINT, "1", "0", "16" },
+  { "netplay.console.lines", MDFNSF_NOFLAGS, gettext_noop("Height of chat console, in lines."), NULL, MDFNST_UINT, "5", "5", "64" },
 
   { "video.frameskip", MDFNSF_NOFLAGS, gettext_noop("Enable frameskip during emulation rendering."), 
 					gettext_noop("Disable for rendering code performance testing."), MDFNST_BOOL, "1" },
 
   { "video.blit_timesync", MDFNSF_NOFLAGS, gettext_noop("Enable time synchronization(waiting) for frame blitting."),
 					gettext_noop("Disable to reduce latency, at the cost of potentially increased video \"juddering\", with the maximum reduction in latency being about 1 video frame's time.\nWill work best with emulated systems that are not very computationally expensive to emulate, combined with running on a relatively fast CPU."),
-					MDFNST_BOOL, "1" },
+					MDFNST_BOOL, "0" },
 
   { "ffspeed", MDFNSF_NOFLAGS, gettext_noop("Fast-forwarding speed multiplier."), NULL, MDFNST_FLOAT, "4", "1", "15" },
   { "fftoggle", MDFNSF_NOFLAGS, gettext_noop("Treat the fast-forward button as a toggle."), NULL, MDFNST_BOOL, "0" },
@@ -115,14 +143,14 @@ static MDFNSetting DriverSettings[] =
   { "sftoggle", MDFNSF_NOFLAGS, gettext_noop("Treat the SLOW-forward button as a toggle."), NULL, MDFNST_BOOL, "0" },
 
   { "nothrottle", MDFNSF_NOFLAGS, gettext_noop("Disable speed throttling when sound is disabled."), NULL, MDFNST_BOOL, "0"},
-  { "autosave", MDFNSF_NOFLAGS, gettext_noop("Automatic load/save state on game load/save."), gettext_noop("Automatically save and load save states when a game is closed or loaded, respectively."), MDFNST_BOOL, "0"},
-  { "sound.driver", MDFNSF_NOFLAGS, gettext_noop("Select sound driver."), gettext_noop("The following choices are possible, sorted by preference, high to low, when \"default\" driver is used, but dependent on being compiled in."), MDFNST_ENUM, "default", NULL, NULL, NULL, NULL, SDriver_List },
+  { "autosave", MDFNSF_NOFLAGS, gettext_noop("Automatic load/save state on game load/save."), gettext_noop("Automatically save and load save states when a game is closed or loaded, respectively."), MDFNST_BOOL, "1"},
+  { "sound.driver", MDFNSF_NOFLAGS, gettext_noop("Select sound driver."), gettext_noop("The following choices are possible, sorted by preference, high to low, when \"default\" driver is used, but dependent on being compiled in."), MDFNST_ENUM, "alsa", NULL, NULL, NULL, NULL, SDriver_List },
   { "sound.device", MDFNSF_NOFLAGS, gettext_noop("Select sound output device."), gettext_noop("When using ALSA sound output under Linux, the \"sound.device\" setting \"default\" is Mednafen's default, IE \"hw:0\", not ALSA's \"default\". If you want to use ALSA's \"default\", use \"sexyal-literal-default\"."), MDFNST_STRING, "default", NULL, NULL },
   { "sound.volume", MDFNSF_NOFLAGS, gettext_noop("Sound volume level, in percent."), gettext_noop("Setting this volume control higher than the default of \"100\" may severely distort the sound."), MDFNST_UINT, "100", "0", "150" },
   { "sound", MDFNSF_NOFLAGS, gettext_noop("Enable sound output."), NULL, MDFNST_BOOL, "1" },
-  { "sound.period_time", MDFNSF_NOFLAGS, gettext_noop("Desired period size in microseconds(μs)."), gettext_noop("Currently only affects OSS, ALSA, WASAPI(exclusive mode), and SDL output.  A value of 0 defers to the default in the driver code in SexyAL.\n\nNote: This is not the \"sound buffer size\" setting, that would be \"sound.buffer_time\"."), MDFNST_UINT,  "0", "0", "100000" },
+  { "sound.period_time", MDFNSF_NOFLAGS, gettext_noop("Desired period size in microseconds(μs)."), gettext_noop("Currently only affects OSS, ALSA, WASAPI(exclusive mode), and SDL output.  A value of 0 defers to the default in the driver code in SexyAL.\n\nNote: This is not the \"sound buffer size\" setting, that would be \"sound.buffer_time\"."), MDFNST_UINT,  "10000", "0", "100000" },
   { "sound.buffer_time", MDFNSF_NOFLAGS, gettext_noop("Desired buffer size in milliseconds(ms)."), gettext_noop("The default value of 0 enables automatic buffer size selection."), MDFNST_UINT, "0", "0", "1000" },
-  { "sound.rate", MDFNSF_NOFLAGS, gettext_noop("Specifies the sound playback rate, in sound frames per second(\"Hz\")."), NULL, MDFNST_UINT, "48000", "22050", "192000"},
+  { "sound.rate", MDFNSF_NOFLAGS, gettext_noop("Specifies the sound playback rate, in sound frames per second(\"Hz\")."), NULL, MDFNST_UINT, "44800", "22050", "192000"},
 
   #ifdef WANT_DEBUGGER
   { "debugger.autostepmode", MDFNSF_NOFLAGS, gettext_noop("Automatically go into the debugger's step mode after a game is loaded."), NULL, MDFNST_BOOL, "0" },
@@ -130,7 +158,7 @@ static MDFNSetting DriverSettings[] =
 
   { "osd.message_display_time", MDFNSF_NOFLAGS, gettext_noop("Length of time, in milliseconds, to display internal status and error messages"), gettext_noop("Time lengths less than 100ms are recommended against unless you understand you may miss important non-fatal error messages, and that the input configuration process may become unusable."), MDFNST_UINT, "2500", "0", "15000" },
   { "osd.state_display_time", MDFNSF_NOFLAGS, gettext_noop("Length of time, in milliseconds, to display the save state or the movie selector after selecting a state or movie."),  NULL, MDFNST_UINT, "2000", "0", "15000" },
-  { "osd.alpha_blend", MDFNSF_NOFLAGS, gettext_noop("Enable alpha blending for OSD elements."), NULL, MDFNST_BOOL, "1" },
+  { "osd.alpha_blend", MDFNSF_NOFLAGS, gettext_noop("Enable alpha blending for OSD elements."), NULL, MDFNST_BOOL, "0" },
 
   { "srwautoenable", MDFNSF_SUPPRESS_DOC, gettext_noop("DO NOT USE UNLESS YOU'RE A SPACE GOAT"/*"Automatically enable state rewinding functionality on game load."*/), gettext_noop("Use this setting with caution, as save state rewinding can have widely variable memory and CPU usage requirements among different games and different emulated systems."), MDFNST_BOOL, "0" },
 };
@@ -159,17 +187,6 @@ void BuildSystemSetting(MDFNSetting *setting, const char *system_name, const cha
  setting->enum_list = enum_list;
 }
 
-// TODO: Actual enum values
-static const MDFNSetting_EnumList DisFontSize_List[] =
-{
- { "xsmall", 	-1, gettext_noop("4x5") },
- { "small",	-1, gettext_noop("5x7") },
- { "medium",	-1, gettext_noop("6x13") },
- { "large",	-1, gettext_noop("9x18") },
- { NULL, 0 },
-};
-
-
 void MakeDebugSettings(std::vector <MDFNSetting> &settings)
 {
  #ifdef WANT_DEBUGGER
@@ -182,7 +199,7 @@ void MakeDebugSettings(std::vector <MDFNSetting> &settings)
   if(!dbg)
    continue;
 
-  BuildSystemSetting(&setting, sysname, "debugger.disfontsize", gettext_noop("Disassembly font size."), gettext_noop("Note: Setting the font size to larger than the default may cause text overlap in the debugger."), MDFNST_ENUM, "small", NULL, NULL, NULL, NULL, DisFontSize_List);
+  BuildSystemSetting(&setting, sysname, "debugger.disfontsize", gettext_noop("Disassembly font size."), gettext_noop("Note: Setting the font size to larger than the default may cause text overlap in the debugger."), MDFNST_ENUM, "5x7", NULL, NULL, NULL, NULL, FontSize_List);
   settings.push_back(setting);
 
   BuildSystemSetting(&setting, sysname, "debugger.memcharenc", gettext_noop("Character encoding for the debugger's memory editor."), NULL, MDFNST_STRING, dbg->DefaultCharEnc);
@@ -370,6 +387,11 @@ static void SetSignals(void (*t)(int))
   sigaction(SignalDefs[x].number, &act, NULL);
   #else
   signal(SignalDefs[x].number, t);
+
+  //#ifdef HAVE_SIGINTERRUPT
+  //siginterrupt(SignalDefs[x].number, 0);
+  //#endif
+
   #endif
  }
 }
@@ -947,21 +969,13 @@ int GameLoop(void *arg)
 	 {
 	  if(!GameThreadRun) return(1);	// Might happen if video initialization failed
 	  SDL_Delay(2);
-	  }
-         do
-         {
-	  if(InFrameAdvance && !NeedFrameAdvance)
-	  {
-	   SDL_Delay(10);
-	  }
-	 } while(InFrameAdvance && !NeedFrameAdvance);
-
+	 }
 
 	 if(Sound_NeedReInit())
 	  GT_ReinitSound();
 
-	 /*if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
-	  ers.SetETtoRT();*/
+	 if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
+	  ers.SetETtoRT();
 
 	 fskip = ers.NeedFrameSkip();
 	
@@ -1249,11 +1263,11 @@ void PumpWrap(void)
  SDL_Event gtevents_temp[gtevents_size];
  int numevents = 0;
 
- /*bool NITI;*/
+ bool NITI;
 
- /*NITI = Netplay_IsTextInput();*/
+ NITI = Netplay_IsTextInput();
 
- if(/*Debugger_IsActive() || NITI || CheatIF_Active() ||*/ Help_IsActive())
+ if(Debugger_IsActive() || NITI || CheatIF_Active() || Help_IsActive())
  {
   if(!krepeat)
    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
@@ -1273,10 +1287,10 @@ void PumpWrap(void)
 
  while(SDL_PollEvent(&event))
  {
-  /*if(CheatIF_Active())
+  if(CheatIF_Active())
    CheatIF_MT_EventHook(&event);
 
-  NetplayEventHook(&event);*/
+  NetplayEventHook(&event);
 
   /* Handle the event, and THEN hand it over to the GUI. Order is important due to global variable mayhem(CEVT_TOGGLEFS. */
   switch(event.type)
@@ -1366,6 +1380,26 @@ void PrintCompilerVersion(void)
  #endif
 }
 
+#if 0
+#include <vector>	// To make sure we pick up c++config.h if it's there
+void PrintGLIBCXXInfo(void)
+{
+ #if defined(__GLIBCXX__)
+  MDFN_printf(_("Compiled with GNU libstdc++ %lu\n"), (unsigned long)__GLIBCXX__);
+  {
+   MDFN_AutoIndent aind(1);
+   const char* sjljresp;
+   #if defined(_GLIBCXX_SJLJ_EXCEPTIONS)
+    sjljresp = _("Yes");
+   #else
+    sjljresp = _("No");
+   #endif
+   MDFN_printf(_("Using SJLJ Exceptions: %s\n"), sjljresp);
+  }
+ #endif
+}
+#endif
+
 void PrintSDLVersion(void)
 {
  const SDL_version *sver = SDL_Linked_Version();
@@ -1399,8 +1433,6 @@ void PrintLIBICONVVersion(void)
 										   _libiconv_version & 0xFF, _libiconv_version >> 8);
  #endif
 }
-
-//#include <sched.h>
 
 #if 0//#ifdef WIN32
 char *GetFileDialog(void)
@@ -1595,7 +1627,48 @@ static bool HandleVideoChange(void)
 int main(int argc, char *argv[])
 {
 	//ThreadTest();
-	std::vector<MDFNGI *> ExternalSystems;
+
+#if 0
+	// Special helper mode. (TODO)
+	if(argc == 3 && !strcmp(argv[1], "-joy_config_helper"))
+	{
+	 int fd = atoi(argv[2]);
+	 int64 ltime = MDFND_GetTime();
+
+	 if(SDL_Init(0))
+	 {
+	  fprintf(stderr, "Could not initialize SDL: %s\n", SDL_GetError());
+	  return(-1);
+	 }
+	 SDL_JoystickEventState(SDL_IGNORE);
+
+ 	 joy_manager = new JoystickManager();
+	 joy_manager->SetAnalogThreshold(0.75);
+
+	 for(;;)
+	 {
+	  char command[256];
+	  if(0)
+	  {
+	   if(!strcasecmp(command, "reset"))
+	    joy_manager->Reset_BC_ChangeCheck();
+	   else if(!strcasecmp(command, "detect_analog_buttons"))
+	    joy_manager->DetectAnalogButtonsForChangeCheck();
+	   else if(!strcasecmp(command, "exit"))
+	    break;
+	  }
+
+
+	  while((MDFND_GetTime() - ltime) < 15)
+	   MDFND_Sleep(1);
+	  ltime += 15;
+	 }
+
+	 delete joy_manager;
+	 joy_manager = NULL;	 
+	 return(0);
+	}
+#endif
 	char *needie = NULL;
 
 	MDFNDHaveFocus = false;
@@ -1653,9 +1726,7 @@ int main(int argc, char *argv[])
 
         MainThreadID = MDFND_ThreadID();
 
-        // Look for external emulation modules here.
-
-	if(!MDFNI_InitializeModules(ExternalSystems))
+	if(!MDFNI_InitializeModules())
 	 return(-1);
 
 	for(unsigned int x = 0; x < sizeof(DriverSettings) / sizeof(MDFNSetting); x++)
@@ -1895,7 +1966,7 @@ static void UpdateSoundSync(int16 *Buffer, int Count)
   //
   // Cheap code to fix sound buffer underruns due to accumulation of time error during netplay.
   //
-  /*if(MDFNDnetplay)
+  if(MDFNDnetplay)
   {
    int cw = Sound_CanWrite();
 
@@ -1913,13 +1984,13 @@ static void UpdateSoundSync(int16 *Buffer, int Count)
     }
     ers.SetETtoRT();
    }
-  }*/
+  }
  }
  else
  {
   bool nothrottle = MDFN_GetSettingB("nothrottle");
 
-  if(!NoWaiting && !nothrottle && GameThreadRun/* && !MDFNDnetplay*/)
+  if(!NoWaiting && !nothrottle && GameThreadRun && !MDFNDnetplay)
    ers.Sync();
  }
 }
@@ -2045,3 +2116,4 @@ void MDFND_Sleep(uint32 ms)
 {
  SDL_Delay(ms);
 }
+

@@ -1,6 +1,6 @@
-boards/86.o: boards/86.cpp boards/mapinc.h boards/../nes.h \
- ../../include/mednafen/mednafen.h ../../include/mednafen/types.h \
- ../../include/config.h \
+nes/boards/86.o: nes/boards/86.cpp nes/boards/mapinc.h \
+ nes/boards/../nes.h ../include/mednafen/mednafen.h \
+ ../include/mednafen/types.h ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -110,17 +110,9 @@ boards/86.o: boards/86.cpp boards/mapinc.h boards/../nes.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
- ../../include/mednafen/error.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
@@ -129,15 +121,6 @@ boards/86.o: boards/86.cpp boards/mapinc.h boards/../nes.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
- ../../include/mednafen/gettext.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
- ../../include/mednafen/math_ops.h ../../include/mednafen/git.h \
- ../../include/mednafen/video.h ../../include/mednafen/video/surface.h \
- ../../include/mednafen/video/primitives.h \
- ../../include/mednafen/video/text.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
@@ -160,29 +143,52 @@ boards/86.o: boards/86.cpp boards/mapinc.h boards/../nes.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
- ../../include/mednafen/file.h ../../include/mednafen/Stream.h \
- ../../include/mednafen/types.h ../../include/mednafen/endian.h \
- ../../include/mednafen/state.h ../../include/mednafen/state-common.h \
- ../../include/mednafen/Stream.h ../../include/mednafen/settings-common.h \
- ../../include/mednafen/settings.h \
- ../../include/mednafen/mednafen-driver.h ../../include/mednafen/endian.h \
- ../../include/mednafen/memory.h ../../include/mednafen/state.h \
- ../../include/mednafen/general.h ../../include/mednafen/string/trim.h \
- ../../include/mednafen/file.h ../../include/mednafen/hash/md5.h \
- ../../include/mednafen/video.h boards/../x6502.h boards/../x6502struct.h \
- boards/../ppu/ppu.h boards/../sound.h boards/../cart.h boards/../sound.h \
- boards/../unif.h ../../include/mednafen/mempatcher.h \
- ../../include/mednafen/mempatcher-driver.h
+ ../include/mednafen/error.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ ../include/mednafen/gettext.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
+ ../include/mednafen/math_ops.h ../include/mednafen/git.h \
+ ../include/mednafen/video.h ../include/mednafen/video/surface.h \
+ ../include/mednafen/video/primitives.h ../include/mednafen/video/text.h \
+ ../include/mednafen/file.h ../include/mednafen/Stream.h \
+ ../include/mednafen/types.h ../include/mednafen/endian.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h \
+ ../include/mednafen/state.h ../include/mednafen/state-common.h \
+ ../include/mednafen/Stream.h ../include/mednafen/settings-common.h \
+ ../include/mednafen/settings.h ../include/mednafen/mednafen-driver.h \
+ ../include/mednafen/endian.h ../include/mednafen/memory.h \
+ ../include/mednafen/state.h ../include/mednafen/general.h \
+ ../include/mednafen/string/trim.h ../include/mednafen/file.h \
+ ../include/mednafen/hash/md5.h ../include/mednafen/video.h \
+ nes/boards/../x6502.h nes/boards/../x6502struct.h \
+ nes/boards/../ppu/ppu.h nes/boards/../sound.h nes/boards/../cart.h \
+ nes/boards/../sound.h nes/boards/../unif.h \
+ ../include/mednafen/mempatcher.h ../include/mednafen/mempatcher-driver.h
 
-boards/mapinc.h:
+nes/boards/mapinc.h:
 
-boards/../nes.h:
+nes/boards/../nes.h:
 
-../../include/mednafen/mednafen.h:
+../include/mednafen/mednafen.h:
 
-../../include/mednafen/types.h:
+../include/mednafen/types.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 
@@ -402,27 +408,11 @@ boards/../nes.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
 
-../../include/mednafen/error.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
 
@@ -439,28 +429,6 @@ boards/../nes.h:
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
-
-../../include/mednafen/gettext.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
-
-../../include/mednafen/math_ops.h:
-
-../../include/mednafen/git.h:
-
-../../include/mednafen/video.h:
-
-../../include/mednafen/video/surface.h:
-
-../../include/mednafen/video/primitives.h:
-
-../../include/mednafen/video/text.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
 
@@ -506,56 +474,108 @@ boards/../nes.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
 
-../../include/mednafen/file.h:
+../include/mednafen/error.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
 
-../../include/mednafen/types.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
 
-../../include/mednafen/state.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
 
-../../include/mednafen/state-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
 
-../../include/mednafen/settings-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
 
-../../include/mednafen/settings.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
 
-../../include/mednafen/mednafen-driver.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-../../include/mednafen/memory.h:
+../include/mednafen/gettext.h:
 
-../../include/mednafen/state.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
 
-../../include/mednafen/general.h:
+../include/mednafen/math_ops.h:
 
-../../include/mednafen/string/trim.h:
+../include/mednafen/git.h:
 
-../../include/mednafen/file.h:
+../include/mednafen/video.h:
 
-../../include/mednafen/hash/md5.h:
+../include/mednafen/video/surface.h:
 
-../../include/mednafen/video.h:
+../include/mednafen/video/primitives.h:
 
-boards/../x6502.h:
+../include/mednafen/video/text.h:
 
-boards/../x6502struct.h:
+../include/mednafen/file.h:
 
-boards/../ppu/ppu.h:
+../include/mednafen/Stream.h:
 
-boards/../sound.h:
+../include/mednafen/types.h:
 
-boards/../cart.h:
+../include/mednafen/endian.h:
 
-boards/../sound.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h:
 
-boards/../unif.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h:
 
-../../include/mednafen/mempatcher.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h:
 
-../../include/mednafen/mempatcher-driver.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h:
+
+../include/mednafen/state.h:
+
+../include/mednafen/state-common.h:
+
+../include/mednafen/Stream.h:
+
+../include/mednafen/settings-common.h:
+
+../include/mednafen/settings.h:
+
+../include/mednafen/mednafen-driver.h:
+
+../include/mednafen/endian.h:
+
+../include/mednafen/memory.h:
+
+../include/mednafen/state.h:
+
+../include/mednafen/general.h:
+
+../include/mednafen/string/trim.h:
+
+../include/mednafen/file.h:
+
+../include/mednafen/hash/md5.h:
+
+../include/mednafen/video.h:
+
+nes/boards/../x6502.h:
+
+nes/boards/../x6502struct.h:
+
+nes/boards/../ppu/ppu.h:
+
+nes/boards/../sound.h:
+
+nes/boards/../cart.h:
+
+nes/boards/../sound.h:
+
+nes/boards/../unif.h:
+
+../include/mednafen/mempatcher.h:
+
+../include/mednafen/mempatcher-driver.h:

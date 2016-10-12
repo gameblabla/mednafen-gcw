@@ -1,4 +1,5 @@
-Fir_Resampler.o: Fir_Resampler.cpp Fir_Resampler.h fir_blargg_common.h \
+sound/Fir_Resampler.o: sound/Fir_Resampler.cpp sound/Fir_Resampler.h \
+ sound/fir_blargg_common.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
@@ -35,7 +36,7 @@ Fir_Resampler.o: Fir_Resampler.cpp Fir_Resampler.h fir_blargg_common.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix2_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
- fir_blargg_config.h ../../include/config.h \
+ sound/fir_blargg_config.h ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
@@ -60,11 +61,11 @@ Fir_Resampler.o: Fir_Resampler.cpp Fir_Resampler.h fir_blargg_common.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h \
- fir_blargg_source.h
+ sound/fir_blargg_source.h
 
-Fir_Resampler.h:
+sound/Fir_Resampler.h:
 
-fir_blargg_common.h:
+sound/fir_blargg_common.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h:
 
@@ -138,9 +139,9 @@ fir_blargg_common.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-fir_blargg_config.h:
+sound/fir_blargg_config.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h:
 
@@ -190,4 +191,4 @@ fir_blargg_config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h:
 
-fir_blargg_source.h:
+sound/fir_blargg_source.h:

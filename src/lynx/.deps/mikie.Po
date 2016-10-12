@@ -1,5 +1,6 @@
-mikie.o: mikie.cpp system.h machine.h ../../include/mednafen/mednafen.h \
- ../../include/mednafen/types.h ../../include/config.h \
+lynx/mikie.o: lynx/mikie.cpp lynx/system.h lynx/machine.h \
+ ../include/mednafen/mednafen.h ../include/mednafen/types.h \
+ ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -109,17 +110,9 @@ mikie.o: mikie.cpp system.h machine.h ../../include/mednafen/mednafen.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/shared_ptr_base.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/ext/aligned_buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h \
- ../../include/mednafen/error.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitflags.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/waitstatus.h \
@@ -128,15 +121,6 @@ mikie.o: mikie.cpp system.h machine.h ../../include/mednafen/mednafen.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/select.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h \
- ../../include/mednafen/gettext.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
- ../../include/mednafen/math_ops.h ../../include/mednafen/git.h \
- ../../include/mednafen/video.h ../../include/mednafen/video/surface.h \
- ../../include/mednafen/video/primitives.h \
- ../../include/mednafen/video/text.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h \
- /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_heap.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/random \
@@ -159,16 +143,39 @@ mikie.o: mikie.cpp system.h machine.h ../../include/mednafen/mednafen.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/random.tcc \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/numeric \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h \
- ../../include/mednafen/file.h ../../include/mednafen/Stream.h \
- ../../include/mednafen/types.h ../../include/mednafen/endian.h \
- ../../include/mednafen/state.h ../../include/mednafen/state-common.h \
- ../../include/mednafen/Stream.h ../../include/mednafen/settings-common.h \
- ../../include/mednafen/settings.h \
- ../../include/mednafen/mednafen-driver.h ../../include/mednafen/endian.h \
- ../../include/mednafen/memory.h lynxbase.h sysbase.h ram.h rom.h \
- memmap.h cart.h susie.h mikie.h \
- ../../include/mednafen/sound/Stereo_Buffer.h \
- ../../include/mednafen/sound/Blip_Buffer.h \
+ ../include/mednafen/error.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
+ ../include/mednafen/gettext.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h \
+ ../include/mednafen/math_ops.h ../include/mednafen/git.h \
+ ../include/mednafen/video.h ../include/mednafen/video/surface.h \
+ ../include/mednafen/video/primitives.h ../include/mednafen/video/text.h \
+ ../include/mednafen/file.h ../include/mednafen/Stream.h \
+ ../include/mednafen/types.h ../include/mednafen/endian.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h \
+ /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h \
+ ../include/mednafen/state.h ../include/mednafen/state-common.h \
+ ../include/mednafen/Stream.h ../include/mednafen/settings-common.h \
+ ../include/mednafen/settings.h ../include/mednafen/mednafen-driver.h \
+ ../include/mednafen/endian.h ../include/mednafen/memory.h \
+ lynx/lynxbase.h lynx/sysbase.h lynx/ram.h lynx/rom.h lynx/memmap.h \
+ lynx/cart.h lynx/susie.h lynx/mikie.h \
+ ../include/mednafen/sound/Stereo_Buffer.h \
+ ../include/mednafen/sound/Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/syslimits.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/limits.h \
@@ -178,17 +185,17 @@ mikie.o: mikie.cpp system.h machine.h ../../include/mednafen/mednafen.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_local_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix2_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h \
- c65c02.h c6502mak.h lynxdef.h
+ lynx/c65c02.h lynx/c6502mak.h lynx/lynxdef.h
 
-system.h:
+lynx/system.h:
 
-machine.h:
+lynx/machine.h:
 
-../../include/mednafen/mednafen.h:
+../include/mednafen/mednafen.h:
 
-../../include/mednafen/types.h:
+../include/mednafen/types.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/assert.h:
 
@@ -408,27 +415,11 @@ machine.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/backward/auto_ptr.h:
 
-../../include/mednafen/error.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
 
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h:
 
@@ -445,28 +436,6 @@ machine.h:
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/sysmacros.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/alloca.h:
-
-../../include/mednafen/gettext.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
-
-../../include/mednafen/math_ops.h:
-
-../../include/mednafen/git.h:
-
-../../include/mednafen/video.h:
-
-../../include/mednafen/video/surface.h:
-
-../../include/mednafen/video/primitives.h:
-
-../../include/mednafen/video/text.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/algorithm:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_algo.h:
-
-/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/cstdlib:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/algorithmfwd.h:
 
@@ -512,49 +481,101 @@ machine.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/include/c++/4.9.1/bits/stl_numeric.h:
 
-../../include/mednafen/file.h:
+../include/mednafen/error.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/errno.h:
 
-../../include/mednafen/types.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/errno.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/linux/errno.h:
 
-../../include/mednafen/state.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm/errno.h:
 
-../../include/mednafen/state-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/asm-generic/errno-base.h:
 
-../../include/mednafen/Stream.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/string.h:
 
-../../include/mednafen/settings-common.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_stdio.h:
 
-../../include/mednafen/settings.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_mutex.h:
 
-../../include/mednafen/mednafen-driver.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_pthread.h:
 
-../../include/mednafen/endian.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-../../include/mednafen/memory.h:
+../include/mednafen/gettext.h:
 
-lynxbase.h:
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/libintl.h:
 
-sysbase.h:
+../include/mednafen/math_ops.h:
 
-ram.h:
+../include/mednafen/git.h:
 
-rom.h:
+../include/mednafen/video.h:
 
-memmap.h:
+../include/mednafen/video/surface.h:
 
-cart.h:
+../include/mednafen/video/primitives.h:
 
-susie.h:
+../include/mednafen/video/text.h:
 
-mikie.h:
+../include/mednafen/file.h:
 
-../../include/mednafen/sound/Stereo_Buffer.h:
+../include/mednafen/Stream.h:
 
-../../include/mednafen/sound/Blip_Buffer.h:
+../include/mednafen/types.h:
+
+../include/mednafen/endian.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/sys/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stat.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/unistd.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix_opt.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/environments.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/confname.h:
+
+/home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/getopt.h:
+
+../include/mednafen/state.h:
+
+../include/mednafen/state-common.h:
+
+../include/mednafen/Stream.h:
+
+../include/mednafen/settings-common.h:
+
+../include/mednafen/settings.h:
+
+../include/mednafen/mednafen-driver.h:
+
+../include/mednafen/endian.h:
+
+../include/mednafen/memory.h:
+
+lynx/lynxbase.h:
+
+lynx/sysbase.h:
+
+lynx/ram.h:
+
+lynx/rom.h:
+
+lynx/memmap.h:
+
+lynx/cart.h:
+
+lynx/susie.h:
+
+lynx/mikie.h:
+
+../include/mednafen/sound/Stereo_Buffer.h:
+
+../include/mednafen/sound/Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include-fixed/limits.h:
 
@@ -574,8 +595,8 @@ mikie.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h:
 
-c65c02.h:
+lynx/c65c02.h:
 
-c6502mak.h:
+lynx/c6502mak.h:
 
-lynxdef.h:
+lynx/lynxdef.h:

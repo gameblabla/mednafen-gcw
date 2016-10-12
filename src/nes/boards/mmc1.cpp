@@ -21,6 +21,9 @@
 
 #include "mapinc.h"
 
+namespace MDFN_IEN_NES
+{
+
 static void GenMMC1Power(CartInfo *info);
 static int GenMMC1Init(CartInfo *info, int prg, int chr, int wram, int battery);
 
@@ -413,6 +416,9 @@ static void GenMMC1Power(CartInfo *info)
    memset(WRAM,0,8192);
  }
 
+ if(CHRRAM)
+  memset(CHRRAM, 0x00, 8192);
+
  if(mmc1opts&1)
  {
   setprg8r(0x10,0x6000,0);
@@ -424,9 +430,11 @@ static void GenMMC1Power(CartInfo *info)
 static void GenMMC1Close(void)
 {
  if(CHRRAM)
-  MDFN_free(CHRRAM);
+  free(CHRRAM);
+
  if(WRAM)
-  MDFN_free(WRAM);
+  free(WRAM);
+
  CHRRAM=WRAM=NULL;
 } 
 
@@ -498,14 +506,16 @@ static int GenMMC1Init(CartInfo *info, int prg, int chr, int wram, int battery)
  WRAM_Size = wram * 1024;
  if(wram) 
  { 
-  if(!(WRAM=(uint8*)malloc(wram*1024)))
+  if(!(WRAM=(uint8*)malloc(WRAM_Size)))
   {
    GenMMC1Close();
    return(0);
   }
+  memset(WRAM, 0, WRAM_Size);
+
   mmc1opts|=1;
   if(wram>8) mmc1opts|=4;
-  SetupCartPRGMapping(0x10,WRAM,wram*1024,1);
+  SetupCartPRGMapping(0x10,WRAM,WRAM_Size,1);
 
   if(battery)
   {
@@ -536,7 +546,7 @@ static int GenMMC1Init(CartInfo *info, int prg, int chr, int wram, int battery)
 
  if(mmc1opts&1)
  {
-  MDFNMP_AddRAM(8192,0x6000,WRAM);
+  MDFNMP_AddRAM(WRAM_Size, 0x6000, WRAM);
   SetReadHandler(0x6000,0x7FFF,MAWRAM);
   SetWriteHandler(0x6000,0x7FFF,MBWRAM);
  }
@@ -634,4 +644,4 @@ int SOROM_Init(CartInfo *info)
  return(GenMMC1Init(info, 256, 0, 16, info->battery));
 }
 
-
+}

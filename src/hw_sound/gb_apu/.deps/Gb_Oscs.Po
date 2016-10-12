@@ -1,5 +1,6 @@
-gb_apu/Gb_Oscs.o: gb_apu/Gb_Oscs.cpp gb_apu/Gb_Apu.h gb_apu/Gb_Oscs.h \
- gb_apu/blargg_common.h \
+hw_sound/gb_apu/Gb_Oscs.o: hw_sound/gb_apu/Gb_Oscs.cpp \
+ hw_sound/gb_apu/Gb_Apu.h hw_sound/gb_apu/Gb_Oscs.h \
+ hw_sound/gb_apu/blargg_common.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdlib.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
@@ -36,19 +37,19 @@ gb_apu/Gb_Oscs.o: gb_apu/Gb_Oscs.cpp gb_apu/Gb_Apu.h gb_apu/Gb_Oscs.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/posix2_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/xopen_lim.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h \
- gb_apu/blargg_config.h ../../include/config.h \
+ hw_sound/gb_apu/blargg_config.h ../include/config.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdint.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h \
- ../../include/mednafen/sound/Blip_Buffer.h \
+ ../include/mednafen/sound/Blip_Buffer.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/inttypes.h \
- gb_apu/blargg_source.h
+ hw_sound/gb_apu/blargg_source.h
 
-gb_apu/Gb_Apu.h:
+hw_sound/gb_apu/Gb_Apu.h:
 
-gb_apu/Gb_Oscs.h:
+hw_sound/gb_apu/Gb_Oscs.h:
 
-gb_apu/blargg_common.h:
+hw_sound/gb_apu/blargg_common.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stddef.h:
 
@@ -122,9 +123,9 @@ gb_apu/blargg_common.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/stdio_lim.h:
 
-gb_apu/blargg_config.h:
+hw_sound/gb_apu/blargg_config.h:
 
-../../include/config.h:
+../include/config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/lib/gcc/mipsel-gcw0-linux-uclibc/4.9.1/include/stdint.h:
 
@@ -132,8 +133,8 @@ gb_apu/blargg_config.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/wchar.h:
 
-../../include/mednafen/sound/Blip_Buffer.h:
+../include/mednafen/sound/Blip_Buffer.h:
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/inttypes.h:
 
-gb_apu/blargg_source.h:
+hw_sound/gb_apu/blargg_source.h:

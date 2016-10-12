@@ -9,6 +9,9 @@
 #include <mednafen/sound/Blip_Buffer.h>
 #include <mednafen/sound/Stereo_Buffer.h>
 
+namespace MDFN_IEN_MD
+{
+
 static Stereo_Buffer zebuf;
 static Sms_Apu apu;
 
@@ -20,9 +23,6 @@ static int32 fm_div;
 static uint32 fm_latch;          // Address latch(9-bits)
 static Ym2612_Emu FMUnit;
 static bool FMReset;
-
-namespace MDFN_IEN_MD
-{
 
 static void UpdateFM(void)
 {
@@ -154,6 +154,8 @@ void MDSound_Kill(void)
 
 void MDSound_Power(void)
 {
+ fm_div = 1;
+
  FMUnit.reset();
  apu.reset();
 }
@@ -168,7 +170,6 @@ void MDSound_StateAction(StateMem *sm, const unsigned load, const bool data_only
 
  SFORMAT StateRegs[] =
  {
-  SFVAR(fm_last_timestamp),
   SFVAR(FMReset),
   SFVAR(fm_div),
   SFVAR(fm_latch),
@@ -189,6 +190,10 @@ void MDSound_StateAction(StateMem *sm, const unsigned load, const bool data_only
 
  if(load)
  {
+  if(fm_div < 1)
+   fm_div = 1;
+
+  //
   FMUnit.serialize(fm_slizer, true);
   apu.load_state(&sn_state);
  }

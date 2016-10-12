@@ -51,8 +51,6 @@ uint8 ROMSpace[0x88 * 8192 + 8192];	// + 8192 for PC-as-pointer safety padding
 uint8 BaseRAM[32768 + 8192]; // 8KB for PCE, 32KB for Super Grafx // + 8192 for PC-as-pointer safety padding
 
 uint8 PCEIODataBuffer;
-readfunc PCERead[0x100];
-writefunc PCEWrite[0x100];
 
 static DECLFR(PCEBusRead)
 {
@@ -181,19 +179,18 @@ void PCE_InitCD(void)
 }
 
 
-static void LoadCommon(void);
-static void LoadCommonPre(void);
+static void LoadCommon(void) MDFN_COLD;
+static void LoadCommonPre(void) MDFN_COLD;
 
-static bool TestMagic(MDFNFILE *fp)
+static MDFN_COLD bool TestMagic(MDFNFILE *fp)
 {
- if(strcasecmp(fp->ext, "hes") && strcasecmp(fp->ext, "pce") && strcasecmp(fp->ext, "sgx"))
+ if(fp->ext != "hes" && fp->ext != "pce" && fp->ext != "sgx")
   return false;
 
  return true;
 }
 
-static void Cleanup(void) MDFN_COLD;
-static void Cleanup(void)
+static MDFN_COLD void Cleanup(void)
 {
  if(IsHES)
   HES_Close();
@@ -233,7 +230,7 @@ static const struct
 	{ 0x3b13af61, "Battle Ace" },
 };
 
-static void Load(MDFNFILE *fp)
+static MDFN_COLD void Load(MDFNFILE *fp)
 {
  try
  {
@@ -252,8 +249,8 @@ static void Load(MDFNFILE *fp)
 
   for(int x = 0; x < 0x100; x++)
   {
-   PCERead[x] = PCEBusRead;
-   PCEWrite[x] = PCENullWrite;
+   HuCPU.PCERead[x] = PCEBusRead;
+   HuCPU.PCEWrite[x] = PCENullWrite;
   }
 
   if(IsHES)
@@ -264,7 +261,7 @@ static void Load(MDFNFILE *fp)
 
    crc = HuC_Load(fp);
 
-   if(!strcasecmp(fp->ext, "sgx"))
+   if(fp->ext == "sgx")
     IsSGX = true;
    else
    {
@@ -291,6 +288,8 @@ static void Load(MDFNFILE *fp)
 
 static void LoadCommonPre(void)
 {
+ HuC6280_Init();
+
  // FIXME:  Make these globals less global!
  pce_overclocked = MDFN_GetSettingUI("pce_fast.ocmultiplier");
  PCE_ACEnabled = MDFN_GetSettingB("pce_fast.arcadecard");
@@ -301,11 +300,10 @@ static void LoadCommonPre(void)
  if(MDFN_GetSettingUI("pce_fast.cdspeed") > 1)
   MDFN_printf(_("CD-ROM speed:  %ux\n"), (unsigned int)MDFN_GetSettingUI("pce_fast.cdspeed"));
 
- memset(HuCPUFastMap, 0, sizeof(HuCPUFastMap));
  for(int x = 0; x < 0x100; x++)
  {
-  PCERead[x] = PCEBusRead;
-  PCEWrite[x] = PCENullWrite;
+  HuCPU.PCERead[x] = PCEBusRead;
+  HuCPU.PCEWrite[x] = PCENullWrite;
  }
 
  MDFNMP_Init(1024, (1 << 21) / 1024);
@@ -322,37 +320,36 @@ static void LoadCommon(void)
  // Don't modify IsSGX past this point.
  
  VDC_Init(IsSGX);
+ VDC_SetSettings(MDFN_GetSettingB("pce_fast.nospritelimit"), MDFN_GetSettingB("pce_fast.correct_aspect"));
 
  if(IsSGX)
  {
   MDFN_printf("SuperGrafx Emulation Enabled.\n");
-  PCERead[0xF8] = PCERead[0xF9] = PCERead[0xFA] = PCERead[0xFB] = BaseRAMReadSGX;
-  PCEWrite[0xF8] = PCEWrite[0xF9] = PCEWrite[0xFA] = PCEWrite[0xFB] = BaseRAMWriteSGX;
+  HuCPU.PCERead[0xF8] = HuCPU.PCERead[0xF9] = HuCPU.PCERead[0xFA] = HuCPU.PCERead[0xFB] = BaseRAMReadSGX;
+  HuCPU.PCEWrite[0xF8] = HuCPU.PCEWrite[0xF9] = HuCPU.PCEWrite[0xFA] = HuCPU.PCEWrite[0xFB] = BaseRAMWriteSGX;
 
   for(int x = 0xf8; x < 0xfb; x++)
-   HuCPUFastMap[x] = BaseRAM - 0xf8 * 8192;
+   HuCPU.FastMap[x] = &BaseRAM[(x & 0x3) * 8192];
 
-  PCERead[0xFF] = IOReadSGX;
+  HuCPU.PCERead[0xFF] = IOReadSGX;
  }
  else
  {
-  PCERead[0xF8] = BaseRAMRead;
-  PCERead[0xF9] = PCERead[0xFA] = PCERead[0xFB] = BaseRAMRead_Mirrored;
+  HuCPU.PCERead[0xF8] = BaseRAMRead;
+  HuCPU.PCERead[0xF9] = HuCPU.PCERead[0xFA] = HuCPU.PCERead[0xFB] = BaseRAMRead_Mirrored;
 
-  PCEWrite[0xF8] = BaseRAMWrite;
-  PCEWrite[0xF9] = PCEWrite[0xFA] = PCEWrite[0xFB] = BaseRAMWrite_Mirrored;
+  HuCPU.PCEWrite[0xF8] = BaseRAMWrite;
+  HuCPU.PCEWrite[0xF9] = HuCPU.PCEWrite[0xFA] = HuCPU.PCEWrite[0xFB] = BaseRAMWrite_Mirrored;
 
   for(int x = 0xf8; x < 0xfb; x++)
-   HuCPUFastMap[x] = BaseRAM - x * 8192;
+   HuCPU.FastMap[x] = &BaseRAM[0];
 
-  PCERead[0xFF] = IORead;
+  HuCPU.PCERead[0xFF] = IORead;
  }
 
  MDFNMP_AddRAM(IsSGX ? 32768 : 8192, 0xf8 * 8192, BaseRAM);
 
- PCEWrite[0xFF] = IOWrite;
-
- HuC6280_Init();
+ HuCPU.PCEWrite[0xFF] = IOWrite;
 
  psg = new PCEFast_PSG(sbuf);
 
@@ -378,21 +375,23 @@ static void LoadCommon(void)
  MDFNGameInfo->LayerNames = IsSGX ? "BG0\0SPR0\0BG1\0SPR1\0" : "Background\0Sprites\0";
  MDFNGameInfo->fps = (uint32)((double)7159090.90909090 / 455 / 263 * 65536 * 256);
 
- // Clean this up:
- if(!MDFN_GetSettingB("pce_fast.correct_aspect"))
-  MDFNGameInfo->fb_width = 682;
-
  if(!IsHES)
  {
-  MDFNGameInfo->nominal_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 288 : 341;
+  // Clean this up:
+  if(!MDFN_GetSettingB("pce_fast.correct_aspect"))
+  MDFNGameInfo->fb_width = 682;
+
+  //MDFNGameInfo->nominal_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 288 : 341;
+  MDFNGameInfo->nominal_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 288 : 320;
   MDFNGameInfo->nominal_height = MDFN_GetSettingUI("pce_fast.slend") - MDFN_GetSettingUI("pce_fast.slstart") + 1;
 
-  MDFNGameInfo->lcm_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 1024 : 341;
+  //MDFNGameInfo->lcm_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 1024 : 341;
+  MDFNGameInfo->lcm_width = MDFN_GetSettingB("pce_fast.correct_aspect") ? 1024 : 320;
   MDFNGameInfo->lcm_height = MDFNGameInfo->nominal_height;
  }
 }
 
-static bool TestMagicCD(std::vector<CDIF *> *CDInterfaces)
+static MDFN_COLD bool TestMagicCD(std::vector<CDIF *> *CDInterfaces)
 {
  static const uint8 magic_test[0x20] = { 0x82, 0xB1, 0x82, 0xCC, 0x83, 0x76, 0x83, 0x8D, 0x83, 0x4F, 0x83, 0x89, 0x83, 0x80, 0x82, 0xCC,
                                          0x92, 0x98, 0x8D, 0xEC, 0x8C, 0xA0, 0x82, 0xCD, 0x8A, 0x94, 0x8E, 0xAE, 0x89, 0xEF, 0x8E, 0xD0
@@ -452,7 +451,7 @@ static bool TestMagicCD(std::vector<CDIF *> *CDInterfaces)
  return(ret);
 }
 
-static void LoadCD(std::vector<CDIF *> *CDInterfaces)
+static MDFN_COLD void LoadCD(std::vector<CDIF *> *CDInterfaces)
 {
  try
  {
@@ -478,7 +477,7 @@ static void LoadCD(std::vector<CDIF *> *CDInterfaces)
 }
 
 
-static void CloseGame(void)
+static MDFN_COLD void CloseGame(void)
 {
  HuC_SaveNV();
  Cleanup();
@@ -630,6 +629,7 @@ void PCE_Power(void)
  }
 }
 
+static bool SetMedia(uint32 drive_idx, uint32 state_idx, uint32 media_idx, uint32 orientation_idx) MDFN_COLD;
 static bool SetMedia(uint32 drive_idx, uint32 state_idx, uint32 media_idx, uint32 orientation_idx)
 {
  const RMD_Layout* rmd = EmulatedPCE_Fast.RMD;
@@ -649,6 +649,7 @@ static bool SetMedia(uint32 drive_idx, uint32 state_idx, uint32 media_idx, uint3
 }
 
 
+static void DoSimpleCommand(int cmd) MDFN_COLD;
 static void DoSimpleCommand(int cmd)
 {
  switch(cmd)
@@ -658,9 +659,9 @@ static void DoSimpleCommand(int cmd)
  }
 }
 
-static MDFNSetting PCESettings[] = 
+static const MDFNSetting PCESettings[] = 
 {
-  { "pce_fast.correct_aspect", MDFNSF_CAT_VIDEO, gettext_noop("Correct the aspect ratio."), NULL, MDFNST_BOOL, "1" },
+  { "pce_fast.correct_aspect", MDFNSF_CAT_VIDEO, gettext_noop("Correct the aspect ratio."), NULL, MDFNST_BOOL, "0" },
   { "pce_fast.slstart", MDFNSF_NOFLAGS, gettext_noop("First rendered scanline."), NULL, MDFNST_UINT, "4", "0", "239" },
   { "pce_fast.slend", MDFNSF_NOFLAGS, gettext_noop("Last rendered scanline."), NULL, MDFNST_UINT, "235", "0", "239" },
   { "pce_fast.mouse_sensitivity", MDFNSF_NOFLAGS, gettext_noop("Mouse sensitivity."), NULL, MDFNST_FLOAT, "0.50", NULL, NULL, NULL, PCEINPUT_SettingChanged },
@@ -682,7 +683,7 @@ static MDFNSetting PCESettings[] =
 
 static uint8 MemRead(uint32 addr)
 {
- return(PCERead[(addr / 8192) & 0xFF](addr));
+ return HuCPU.PCERead[(addr / 8192) & 0xFF](addr);
 }
 
 static const FileExtensionSpecStruct KnownExtensions[] =
@@ -698,6 +699,16 @@ static const CustomPalette_Spec CPInfo[] =
  { gettext_noop("PCE/TG16 9-bit RGB"), NULL, { 512, 1024, 0 } },
 
  { NULL, NULL }
+};
+
+static const CheatInfoStruct CheatInfo =
+{
+ NULL,
+ NULL,
+ MemRead,
+ NULL,
+
+ CheatFormatInfo_Empty
 };
 
 };
@@ -725,10 +736,8 @@ MDFNGI EmulatedPCE_Fast =
  CPInfo,
  1 << 0,
 
- NULL,
- NULL,
- MemRead,
- NULL,
+ CheatInfo,
+
  false,
  StateAction,
  Emulate,
@@ -736,6 +745,7 @@ MDFNGI EmulatedPCE_Fast =
  PCEINPUT_SetInput,
  SetMedia,
  DoSimpleCommand,
+ NULL,
  PCESettings,
  MDFN_MASTERCLOCK_FIXED(PCE_MASTER_CLOCK),
  0,

@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+/******************************************************************************/
+/* Mednafen Sony PS1 Emulation Module                                         */
+/******************************************************************************/
+/* dis.cpp:
+**  Copyright (C) 2011-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include "psx.h"
 
@@ -37,13 +41,15 @@ struct OpEntry
 
 #define MK_OP(mnemonic, format, op, func, extra_mask)	{ MASK_OP | (op ? 0 : MASK_FUNC) | extra_mask, ((unsigned)op << 26) | func, mnemonic, format }
 
-#define MK_OP_REGIMM(mnemonic, regop)	{ MASK_OP | MASK_RT, (0x01U << 26) | (regop << 16), mnemonic, "s, p" }
+#define MK_OP_REGIMM(mnemonic, regop_mask, regop)	{ MASK_OP | (regop_mask << 16), (0x01U << 26) | (regop << 16), mnemonic, "s, p" }
 
 
 #define MK_COPZ(z) { MASK_OP | (0x1U << 25), (0x1U << 25) | ((0x10U | z) << 26), "cop" #z, "F" }
 #define MK_COP0_FUNC(mnemonic, func) { MASK_OP | (0x1U << 25) | MASK_FUNC, (0x10U << 26) | (0x1U << 25) | func, mnemonic, "" }
 
 #define MK_COPZ_XFER(z, mnemonic, format, xf) { MASK_OP | (0x1FU << 21), ((0x10U | z) << 26) | (xf << 21), mnemonic, format }
+#define MK_COPZ_BCzx(z, x) { MASK_OP | (0x1BU << 21) | (0x01 << 16), ((0x10U | z) << 26) | (0x08 << 21) | (x << 16), (x ? "bc" #z "t" : "bc" #z "f"), "p" }
+#define MK_COPZ_BC(z) MK_COPZ_BCzx(z, 0), MK_COPZ_BCzx(z, 1)
 
 #define MK_GTE(mnemonic, format, func) { MASK_OP | (0x1U << 25) | MASK_FUNC, (0x1U << 25) | (0x12U << 26) | func, mnemonic, format }
 
@@ -89,10 +95,12 @@ static OpEntry ops[] =
  MK_OP("slt",   "d, s, t", 0, 42, 0),
  MK_OP("sltu",  "d, s, t", 0, 43, 0),
 
- MK_OP_REGIMM("bgez",	0x01),
- MK_OP_REGIMM("bgezal", 0x11),
- MK_OP_REGIMM("bltz",	0x00),
- MK_OP_REGIMM("bltzal",	0x10),
+ // keep *al before the non-linking versions, due to mask setup.
+ MK_OP_REGIMM("bgezal", 0x1F, 0x11),
+ MK_OP_REGIMM("bltzal",	0x1F, 0x10),
+
+ MK_OP_REGIMM("bgez",	0x01, 0x01),
+ MK_OP_REGIMM("bltz",	0x00, 0x00),
 
  
  MK_OP("j",	"P", 2, 0, 0),
@@ -133,6 +141,11 @@ static OpEntry ops[] =
  MK_COPZ_XFER(1, "ctc1", "t, ?", 0x06),
  MK_COPZ_XFER(2, "ctc2", "t, G", 0x06),
  MK_COPZ_XFER(3, "ctc3", "t, ?", 0x06),
+
+ MK_COPZ_BC(0),
+ MK_COPZ_BC(1),
+ MK_COPZ_BC(2),
+ MK_COPZ_BC(3),
 
  // COP0 stuff here
  MK_COP0_FUNC("rfe", 0x10),
@@ -223,8 +236,8 @@ std::string DisassembleMIPS(uint32 PC, uint32 instr)
 
  static const char *cop0_names[32] =
  {
-  "CPR0", "CPR1", "CPR2", "BPC", "CPR4", "BDA", "TAR", "DCIC", "CPR8", "BDAM", "CPR10", "BPCM", "SR", "CAUSE", "EPC", "PRID",
-  "ERREG", "CPR17", "CPR18", "CPR19", "CPR20", "CPR21", "CPR22", "CPR23", "CPR24", "CPR25", "CPR26", "CPR27", "CPR28", "CPR29", "CPR30", "CPR31"
+  "CPR0", "CPR1", "CPR2", "BPC", "CPR4", "BDA", "TAR", "DCIC", "BADA", "BDAM", "CPR10", "BPCM", "SR", "CAUSE", "EPC", "PRID",
+  "CPR16", "CPR17", "CPR18", "CPR19", "CPR20", "CPR21", "CPR22", "CPR23", "CPR24", "CPR25", "CPR26", "CPR27", "CPR28", "CPR29", "CPR30", "CPR31"
  };
 
  static const char *gte_cr_names[32] =

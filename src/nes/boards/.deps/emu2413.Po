@@ -1,4 +1,4 @@
-boards/emu2413.o: boards/emu2413.cpp \
+nes/boards/emu2413.o: nes/boards/emu2413.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdio.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/features.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/uClibc_config.h \
@@ -47,7 +47,7 @@ boards/emu2413.o: boards/emu2413.cpp \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/nan.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathdef.h \
  /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h \
- boards/emu2413.h boards/emutypes.h boards/vrc7tone.h
+ nes/boards/emu2413.h nes/boards/emutypes.h nes/boards/vrc7tone.h
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/stdio.h:
 
@@ -145,8 +145,8 @@ boards/emu2413.o: boards/emu2413.cpp \
 
 /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/sysroot/usr/include/bits/mathcalls.h:
 
-boards/emu2413.h:
+nes/boards/emu2413.h:
 
-boards/emutypes.h:
+nes/boards/emutypes.h:
 
-boards/vrc7tone.h:
+nes/boards/vrc7tone.h:

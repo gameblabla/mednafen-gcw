@@ -20,6 +20,9 @@
 
 #include "mapinc.h"
 
+namespace MDFN_IEN_NES
+{
+
 static uint8 CHRBanks[8], PRGBanks[2], IRQCount, IRQLatch, Mirroring, K4IRQ, IRQa, K4sel;
 static int32 acount;
 static uint8 *WRAM = NULL;
@@ -176,6 +179,8 @@ int Mapper23_Init(CartInfo *info)
 	if(!(WRAM = (uint8 *)malloc(8192)))
 	 return(0);
 
+	memset(WRAM, 0, 8192);
+
 	SetupCartPRGMapping(0x10, WRAM, 8192, 1);
 	if(info->battery)
 	{
@@ -185,3 +190,4 @@ int Mapper23_Init(CartInfo *info)
 	return(1);
 }
 
+}

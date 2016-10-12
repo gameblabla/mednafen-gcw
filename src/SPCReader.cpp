@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License
- * as published by the Free Software Foundation; either version 2
- * of the License, or (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+/******************************************************************************/
+/* Mednafen - Multi-system Emulator                                           */
+/******************************************************************************/
+/* SPCReader.cpp:
+**  Copyright (C) 2015-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include <mednafen/mednafen.h>
 #include <mednafen/SPCReader.h>
@@ -23,6 +27,9 @@
 
 bool SPCReader::TestMagic(Stream* fp)
 {
+#if 0
+ return true;
+#endif
  static const char* spc_magic = "SNES-SPC700 Sound File Data";
  uint8 header[0x100];
  uint64 rc;
@@ -54,7 +61,7 @@ static std::string GrabString(Stream* fp, size_t len)
  if(null_pos != std::string::npos)
   ret.resize(null_pos);
 
- MDFN_RemoveControlChars(ret);
+ MDFN_zapctrlchars(ret);
  MDFN_trim(ret);
 
  return ret;
@@ -62,6 +69,22 @@ static std::string GrabString(Stream* fp, size_t len)
 
 SPCReader::SPCReader(Stream* fp)
 {
+#if 0
+ reg_pc = 0x430;
+ reg_a = 0;
+ reg_x = 0;
+ reg_y = 0;
+ reg_psw = 0;
+ reg_sp = 0xFF;
+
+ memset(apuram, 0x00, sizeof(apuram));
+ memset(dspregs, 0x00, sizeof(dspregs));
+ dspregs[0x6C] = 0xE0;
+
+ fp->read(&apuram[0x400], 0x1000);
+ return;
+#endif
+
  if(!TestMagic(fp))
   throw MDFN_Error(0, _("Not a valid SPC file!"));
 

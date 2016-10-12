@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+/******************************************************************************/
+/* Mednafen NEC PC-FX Emulation Module                                        */
+/******************************************************************************/
+/* pcfx.cpp:
+**  Copyright (C) 2006-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include "pcfx.h"
 #include "soundbox.h"
@@ -21,6 +25,7 @@
 #include "king.h"
 #include "timer.h"
 #include "interrupt.h"
+#include "debug.h"
 #include "rainbow.h"
 #include "huc6273.h"
 #include "fxscsi.h"
@@ -37,6 +42,9 @@
 #include <math.h>
 
 extern MDFNGI EmulatedPCFX;
+
+namespace MDFN_IEN_PCFX
+{
 
 /* FIXME:  soundbox, vce, vdc, rainbow, and king store wait states should be 4, not 2, but V810 has write buffers which can mask wait state penalties.
   This is a hack to somewhat address the issue, but to really fix it, we need to handle write buffer emulation in the V810 emulation core itself.
@@ -176,13 +184,13 @@ int32 MDFN_FASTCALL pcfx_event_handler(const v810_timestamp_t timestamp)
 
      if(timestamp >= next_adpcm_ts)
       next_adpcm_ts = SoundBox_ADPCMUpdate(timestamp);
-/*
+
 #if 1
      assert(next_king_ts > timestamp);
      assert(next_pad_ts > timestamp);
      assert(next_timer_ts > timestamp);
      assert(next_adpcm_ts > timestamp);
-#endif*/
+#endif
      return(CalcNextTS());
 }
 
@@ -239,7 +247,7 @@ static void Emulate(EmulateSpecStruct *espec)
 
  FXINPUT_Frame();
 
- /*MDFNMP_ApplyPeriodicCheats();*/
+ MDFNMP_ApplyPeriodicCheats();
 
  if(espec->VideoFormatChanged)
   KING_SetPixelFormat(espec->surface->format); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
@@ -570,8 +578,11 @@ static void LoadCommon(std::vector<CDIF *> *CDInterfaces)
  PCFXDBG_Init();
  #endif
 
-
-  cpu_mode = V810_EMU_MODE_FAST;
+ cpu_mode = (V810_Emu_Mode)MDFN_GetSettingI("pcfx.cpu_emulation");
+ if(cpu_mode == _V810_EMU_MODE_COUNT)
+ {
+  cpu_mode = (EmuFlags & CDGE_FLAG_ACCURATE_V810) ? V810_EMU_MODE_ACCURATE : V810_EMU_MODE_FAST;
+ }
 
  if(EmuFlags & CDGE_FLAG_FXGA)
  {
@@ -622,7 +633,9 @@ static void LoadCommon(std::vector<CDIF *> *CDInterfaces)
 
  for(int i = 0; i < 2; i++)
  {
-  fx_vdc_chips[i] = new VDC(MDFN_GetSettingB("pcfx.nospritelimit"), 65536);
+  fx_vdc_chips[i] = new VDC();
+  fx_vdc_chips[i]->SetUnlimitedSprites(MDFN_GetSettingB("pcfx.nospritelimit"));
+  fx_vdc_chips[i]->SetVRAMSize(65536);
   fx_vdc_chips[i]->SetWSHook(NULL);
   fx_vdc_chips[i]->SetIRQHook(i ? VDCB_IRQHook : VDCA_IRQHook);
 
@@ -674,7 +687,6 @@ static void LoadCommon(std::vector<CDIF *> *CDInterfaces)
  // Emulation raw framebuffer image should always be of 256 width when the pcfx.high_dotclock_width setting is set to "256",
  // but it could be either 256 or 341 when the setting is set to "341", so stay with 1024 in that case so we won't have
  // a messed up aspect ratio in our recorded QuickTime movies.
-/* MDFNGameInfo->lcm_width = (MDFN_GetSettingUI("pcfx.high_dotclock_width") == 256) ? 256 : 1024;*/
  MDFNGameInfo->lcm_width = 256;
  MDFNGameInfo->lcm_height = MDFNGameInfo->nominal_height;
 
@@ -884,7 +896,7 @@ static void DoMD5CDVoodoo(std::vector<CDIF *> *CDInterfaces)
     MDFNGameInfo->GameSetMD5Valid = TRUE;
    }
    //printf("%s\n", found_entry->name);
-   MDFNGameInfo->name = strdup(found_entry->name);
+   MDFNGameInfo->name = std::string(found_entry->name);
    break;
   }
  } // end: for(unsigned if_disc = 0; if_disc < CDInterfaces->size(); if_disc++)
@@ -1073,13 +1085,13 @@ static MDFNSetting PCFXSettings[] =
   { "pcfx.mouse_sensitivity", MDFNSF_NOFLAGS, gettext_noop("Mouse sensitivity."), NULL, MDFNST_FLOAT, "1.25", NULL, NULL },
   { "pcfx.disable_softreset", MDFNSF_NOFLAGS, gettext_noop("When RUN+SEL are pressed simultaneously, disable both buttons temporarily."), NULL, MDFNST_BOOL, "0", NULL, NULL, NULL, FXINPUT_SettingChanged },
 
-  { "pcfx.cpu_emulation", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("CPU emulation mode."), NULL, MDFNST_ENUM, "auto", NULL, NULL, NULL, NULL, V810Mode_List },
+  { "pcfx.cpu_emulation", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("CPU emulation mode."), NULL, MDFNST_ENUM, "fast", NULL, NULL, NULL, NULL, V810Mode_List },
   { "pcfx.bios", MDFNSF_EMU_STATE, gettext_noop("Path to the ROM BIOS"), NULL, MDFNST_STRING, "pcfx.rom" },
   { "pcfx.fxscsi", MDFNSF_EMU_STATE, gettext_noop("Path to the FX-SCSI ROM"), gettext_noop("Intended for developers only."), MDFNST_STRING, "0" },
   { "pcfx.disable_bram", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("Disable internal and external BRAM."), gettext_noop("It is intended for viewing games' error screens that may be different from simple BRAM full and uninitialized BRAM error screens, though it can cause the game to crash outright."), MDFNST_BOOL, "0" },
-  { "pcfx.cdspeed", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("Emulated CD-ROM speed."), gettext_noop("Setting the value higher than 2, the default, will decrease loading times in most games by some degree."), MDFNST_UINT, "2", "2", "10" },
+  { "pcfx.cdspeed", MDFNSF_EMU_STATE | MDFNSF_UNTRUSTED_SAFE, gettext_noop("Emulated CD-ROM speed."), gettext_noop("Setting the value higher than 2, the default, will decrease loading times in most games by some degree."), MDFNST_UINT, "10", "2", "10" },
 
-  { "pcfx.nospritelimit", MDFNSF_NOFLAGS, gettext_noop("Remove 16-sprites-per-scanline hardware limit."), NULL, MDFNST_BOOL, "0" },
+  { "pcfx.nospritelimit", MDFNSF_NOFLAGS, gettext_noop("Remove 16-sprites-per-scanline hardware limit."), NULL, MDFNST_BOOL, "1" },
   { "pcfx.high_dotclock_width", MDFNSF_NOFLAGS, gettext_noop("Emulated width for 7.16MHz dot-clock mode."), gettext_noop("Lower values are faster, but will cause some degree of pixel distortion."), MDFNST_ENUM, "256", NULL, NULL, NULL, NULL, HDCWidthList },
 
   { "pcfx.slstart", MDFNSF_NOFLAGS, gettext_noop("First rendered scanline."), NULL, MDFNST_UINT, "4", "0", "239" },
@@ -1093,7 +1105,7 @@ static MDFNSetting PCFXSettings[] =
   //correctly-encoded  ADPCM?) sound worse
   { "pcfx.adpcm.emulate_buggy_codec", MDFNSF_NOFLAGS, gettext_noop("Hack that emulates the codec a buggy ADPCM encoder used for some games' ADPCM."), NULL, MDFNST_BOOL, "0" },
 
-  { "pcfx.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency."), MDFNST_INT, "3", "0", "5" },
+  { "pcfx.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency."), MDFNST_INT, "1", "0", "5" },
   { "pcfx.resamp_rate_error", MDFNSF_NOFLAGS, gettext_noop("Output rate tolerance."), gettext_noop("Lower values correspond to better matching of the output rate of the resampler to the actual desired output rate, at the expense of increased RAM usage and poorer CPU cache utilization."), MDFNST_FLOAT, "0.0000009", "0.0000001", "0.0000350" },
 
   { NULL }
@@ -1105,6 +1117,10 @@ static const FileExtensionSpecStruct KnownExtensions[] =
  //{ ".ex", gettext_noop("PC-FX HuEXE") },
  { NULL, NULL }
 };
+
+}
+
+using namespace MDFN_IEN_PCFX;
 
 MDFNGI EmulatedPCFX =
 {
@@ -1133,10 +1149,8 @@ MDFNGI EmulatedPCFX =
  NULL,
  0,
 
- NULL,
- NULL,
- NULL,
- NULL,
+ CheatInfo_Empty,
+
  false,
  StateAction,
  Emulate,
@@ -1144,6 +1158,7 @@ MDFNGI EmulatedPCFX =
  FXINPUT_SetInput,
  SetMedia,
  DoSimpleCommand,
+ NULL,
  PCFXSettings,
  MDFN_MASTERCLOCK_FIXED(PCFX_MASTER_CLOCK),
  0,

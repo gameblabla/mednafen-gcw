@@ -1,19 +1,23 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+/******************************************************************************/
+/* Mednafen - Multi-system Emulator                                           */
+/******************************************************************************/
+/* surface.cpp:
+**  Copyright (C) 2009-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
 #include <mednafen/mednafen.h>
 #include "surface.h"
@@ -97,11 +101,11 @@ void MDFN_Surface::Resize(const uint32 p_width, const uint32 p_height, const uin
 void MDFN_Surface::Init(void *const p_pixels, const uint32 p_width, const uint32 p_height, const uint32 p_pitchinpix, const MDFN_PixelFormat &nf, const bool alloc_init_pixels)
 {
  void *rpix = NULL;
- /*assert(nf.bpp == 8 || nf.bpp == 16 || nf.bpp == 32);*/
+ assert(nf.bpp == 8 || nf.bpp == 16 || nf.bpp == 32);
 
  format = nf;
 
- /*if(nf.bpp == 8)
+ if(nf.bpp == 8)
  {
   //assert(!nf.Rshift && !nf.Gshift && !nf.Bshift && !nf.Ashift);
   //assert(!nf.Rprec && !nf.Gprec && !nf.Bprec && !nf.Aprec);
@@ -113,13 +117,13 @@ void MDFN_Surface::Init(void *const p_pixels, const uint32 p_width, const uint32
  else
  {
   assert((nf.Rshift + nf.Gshift + nf.Bshift + nf.Ashift) == 48);
-  assert(!((nf.Rshift | nf.Gshift | nf.Bshift | nf.Ashift) & 0x7));*/
+  assert(!((nf.Rshift | nf.Gshift | nf.Bshift | nf.Ashift) & 0x7));
 
   format.Rprec = 8;
   format.Gprec = 8;
   format.Bprec = 8;
   format.Aprec = 8;
- /*}*/
+ }
 
  pixels16 = NULL;
  pixels8 = NULL;
@@ -182,20 +186,8 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
  if(format.bpp != 32 || nf.bpp != 32)
   printf("%u->%u\n",format.bpp, nf.bpp);
 
- /*assert(format.bpp == 8 || format.bpp == 16 || format.bpp == 32);
- assert((nf.bpp == 8 && !convert) || nf.bpp == 16 || nf.bpp == 32);*/
- /*
-	switch(nf.bpp)
-	{
-		case 8:
-		case 16:
-		
-		break;
-		default:
-		assert((nf.Rshift + nf.Gshift + nf.Bshift + nf.Ashift) == 48);
-		assert(!((nf.Rshift | nf.Gshift | nf.Bshift | nf.Ashift) & 0x7));
-		break;
-	}
+ assert(format.bpp == 8 || format.bpp == 16 || format.bpp == 32);
+ assert((nf.bpp == 8 && !convert) || nf.bpp == 16 || nf.bpp == 32);
 
  if(nf.bpp == 8)
  {
@@ -210,7 +202,7 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
   assert((nf.Rshift + nf.Gshift + nf.Bshift + nf.Ashift) == 48);
   assert(!((nf.Rshift | nf.Gshift | nf.Bshift | nf.Ashift) & 0x7));
  }
-*/
+
  if(nf.bpp != format.bpp)
  {
   void *rpix = calloc(1, pitchinpix * h * (nf.bpp / 8));
@@ -218,7 +210,7 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
 
   if(nf.bpp == 8)
   {
-   /*assert(!convert);*/
+   assert(!convert);
 
    pixels8 = (uint8 *)rpix;
    palette = (MDFN_PaletteEntry*)calloc(sizeof(MDFN_PaletteEntry), 256);
@@ -360,7 +352,7 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
   if(format.bpp == 16)
   {
    // We should assert that surface->pixels is non-NULL even if we don't need to convert the surface, to catch more insidious bugs.
-  /* assert(pixels16);*/
+   assert(pixels16);
 
    if(memcmp(&format, &nf, sizeof(MDFN_PixelFormat)))
    {
@@ -383,7 +375,7 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
   else
   {
    // We should assert that surface->pixels is non-NULL even if we don't need to convert the surface, to catch more insidious bugs.
-   /*assert(pixels);*/
+   assert(pixels);
 
    if(memcmp(&format, &nf, sizeof(MDFN_PixelFormat)))
    {
@@ -411,27 +403,24 @@ void MDFN_Surface::Fill(uint8 r, uint8 g, uint8 b, uint8 a)
 {
  uint32 color = MakeColor(r, g, b, a);
 
- /*if(format.bpp == 8)
+ if(format.bpp == 8)
  {
   assert(pixels8);
 
-  for(int32 i = 0; i < pitchinpix * h; i++)
-   pixels8[i] = color;
+  MDFN_FastArraySet(pixels8, color, pitchinpix * h);
  }
  else if(format.bpp == 16)
  {
   assert(pixels16);
 
-  for(int32 i = 0; i < pitchinpix * h; i++)
-   pixels16[i] = color;
+  MDFN_FastArraySet(pixels16, color, pitchinpix * h);
  }
  else
  {
-  assert(pixels);*/
+  assert(pixels);
 
-  for(int32 i = 0; i < pitchinpix * h; i++)
-   pixels[i] = color;
- /*}*/
+  MDFN_FastArraySet(pixels, color, pitchinpix * h);
+ }
 }
 
 MDFN_Surface::~MDFN_Surface()

@@ -1,21 +1,24 @@
-/* Mednafen - Multi-system Emulator
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
- */
+/******************************************************************************/
+/* Mednafen NEC PC-FX Emulation Module                                        */
+/******************************************************************************/
+/* king.cpp - Emulation of HuC6261(VCE descendant) and the HuC6272(KING)
+**  Copyright (C) 2006-2016 Mednafen Team
+**
+** This program is free software; you can redistribute it and/or
+** modify it under the terms of the GNU General Public License
+** as published by the Free Software Foundation; either version 2
+** of the License, or (at your option) any later version.
+**
+** This program is distributed in the hope that it will be useful,
+** but WITHOUT ANY WARRANTY; without even the implied warranty of
+** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+** GNU General Public License for more details.
+**
+** You should have received a copy of the GNU General Public License
+** along with this program; if not, write to the Free Software Foundation, Inc.,
+** 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
 
-/* Emulation for HuC6261(descendant of the VCE) and the HuC6272(KING) */
 /* Note: Some technical comments may be outdated */
 
 /*
@@ -41,6 +44,7 @@
 #include "soundbox.h"
 #include "input.h"
 #include "timer.h"
+#include "debug.h"
 #include <trio/trio.h>
 #include <math.h>
 #include <mednafen/video.h>
@@ -49,6 +53,9 @@
 #ifdef __MMX__
 #include <mmintrin.h>
 #endif
+
+namespace MDFN_IEN_PCFX
+{
 
 #define KINGDBG(format, ...) (void)0
 //#define KINGDBG FXDBG
@@ -191,7 +198,7 @@ enum
 
 static int32 HPhase;
 static int32 HPhaseCounter;
-static int32 vdc_lb_pos;
+static uint32 vdc_lb_pos;
 
 alignas(8) static uint16 vdc_linebuffers[2][512];
 alignas(8) static uint32 vdc_linebuffer[512];
@@ -1254,7 +1261,7 @@ uint16 KING_Read16(const v810_timestamp_t timestamp, uint32 A)
 	      
  }
 
- /*PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));*/    // TODO: Optimize this to only be called when necessary.
+ PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));    // TODO: Optimize this to only be called when necessary.
 
  return(ret);
 }
@@ -1676,7 +1683,7 @@ void KING_Write16(const v810_timestamp_t timestamp, uint32 A, uint16 V)
 			   break;
 	      }
 
-  /*PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));*/	// TODO: Optimize this to only be called when necessary.
+  PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));	// TODO: Optimize this to only be called when necessary.
  }
 }
 
@@ -1736,7 +1743,7 @@ static void Cleanup(void)
 {
  if(king)
  {
-  free(king);
+  delete king;
   king = NULL;
  }
 
@@ -1747,7 +1754,8 @@ void KING_Init(void)
 {
  try
  {
-  king = (king_t*)MDFN_calloc_T(1, sizeof(king_t), _("KING Data"));
+  king = new king_t();
+  memset(king, 0, sizeof(king_t));
 
   king->lastts = 0;
 
@@ -1967,6 +1975,19 @@ static void DrawBG(uint32 *target, int n, bool sub)
   1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1
  };
 
+#if 0
+ const uint32 cg_per_mode[0x8] = 
+ {
+  0, // Invalid mode
+  1, // 2-bit mode
+  2, // 4-bit mode
+  4, // 8-bit mode
+  8, // 16-bit mode
+  8, // 16-bit mode
+  8, // 16-bit mode
+  8, // 16-bit mode
+ };
+#endif
  const uint32 layer_or = (LAYER_BG0 + n) << 28;
 
  const uint32 palette_offset = ((fx_vce.palette_offset[1 + (n >> 1)] >> ((n & 1) ? 8 : 0)) << 1) & 0x1FF;
@@ -2452,11 +2473,11 @@ static int skip;
 
 void KING_StartFrame(VDC **arg_vdc_chips, EmulateSpecStruct *espec)
 {
- ::vdc_chips = arg_vdc_chips;
- ::surface = espec->surface;
- ::DisplayRect = &espec->DisplayRect;
- ::LineWidths = espec->LineWidths;
- ::skip = espec->skip;
+ MDFN_IEN_PCFX::vdc_chips = arg_vdc_chips;
+ MDFN_IEN_PCFX::surface = espec->surface;
+ MDFN_IEN_PCFX::DisplayRect = &espec->DisplayRect;
+ MDFN_IEN_PCFX::LineWidths = espec->LineWidths;
+ MDFN_IEN_PCFX::skip = espec->skip;
 
  //MDFN_DispMessage("P0:%06x P1:%06x; I0: %06x I1: %06x", king->ADPCMPlayAddress[0], king->ADPCMPlayAddress[1], king->ADPCMIntermediateAddress[0] << 6, king->ADPCMIntermediateAddress[1] << 6);
  //MDFN_DispMessage("%d %d\n", SCSICD_GetACK(), SCSICD_GetREQ());
@@ -2625,7 +2646,7 @@ static void DrawActive(void)
         0 = Hidden
     */
 
-   MDFN_FastU32MemsetM8(bg_linebuffer + 8, 0, 256);
+   MDFN_FastArraySet(bg_linebuffer + 8, 0, 256);
 
     // Only bother to draw the BGs if the microprogram is enabled.
    if(king->MPROGControl & 0x1)
@@ -2644,10 +2665,10 @@ static void DrawActive(void)
         // CanDrawBG_Fast(x);
 
        // TODO/FIXME: TEST MORE
-       /*if(CanDrawBG_Fast(x)) // && (rand() & 1))*/
-		DrawBG_Fast(bg_linebuffer, x);
-       /*else
-        DrawBG(bg_linebuffer, x, 0);*/
+       if(CanDrawBG_Fast(x)) // && (rand() & 1))
+	DrawBG_Fast(bg_linebuffer, x);
+       else
+        DrawBG(bg_linebuffer, x, 0);
       }
      }
     }
@@ -2672,10 +2693,10 @@ static INLINE void VDC_PIXELMIX(bool SPRCOMBO_ON, bool BGCOMBO_ON)
      const uint32 zort[2] = { vdc_linebuffers[0][x], vdc_linebuffers[1][x] };
      uint32 tmp_pixel;
    
-     //SPR combination
+     /* SPR combination */
      if(SPRCOMBO_ON && (zort[1] & 0x18F) > 0x180)
       tmp_pixel = (zort[1] & 0xF) | ((zort[0] & 0xF) << 4) | 0x100;
-     // BG combination                                                   
+     /* BG combination  */                                                      
      else if(BGCOMBO_ON && ((zort[1] ^ 0x100) & 0x18F) > 0x180)
       tmp_pixel = (zort[1] & 0xF) | ((zort[0] & 0xF) << 4);
      else
@@ -2694,7 +2715,7 @@ static void MixVDC(void)
     // Optimization for when both layers are disabled in the VCE.
     if(!vce_rendercache.LayerPriority[LAYER_VDC_BG] && !vce_rendercache.LayerPriority[LAYER_VDC_SPR])
     {
-     MDFN_FastU32MemsetM8(vdc_linebuffer_yuved, 0, 512);
+     MDFN_FastArraySet(vdc_linebuffer_yuved, 0, 512);
     }
     else switch(fx_vce.picture_mode & 0xC0)
     {
@@ -2962,7 +2983,11 @@ static INLINE void RunVDCs(const int master_cycles, uint16 *pixels0, uint16 *pix
  if(pixels1)
   pixels1 += vdc_lb_pos;
 
- assert((vdc_lb_pos + div_clocks) <= 512);
+ if(MDFN_UNLIKELY(((uint64)vdc_lb_pos + div_clocks) > 512))
+ {
+  //puts("Bug");
+  pixels0 = pixels1 = NULL;
+ }
 
  fx_vce.vdc_event[0] = vdc_chips[0]->Run(div_clocks, pixels0, pixels0 ? false : true);
  fx_vce.vdc_event[1] = vdc_chips[1]->Run(div_clocks, pixels1, pixels1 ? false : true);
@@ -3000,7 +3025,7 @@ static void MDFN_FASTCALL KING_RunGfx(int32 clocks)
    RunVDCs(chunk_clocks, vdc_linebuffers[0], vdc_linebuffers[1]);
   }
 
- /* assert(HPhaseCounter >= 0);*/
+  assert(HPhaseCounter >= 0);
 
   while(HPhaseCounter <= 0)
   {
@@ -3122,6 +3147,29 @@ void KING_SetLayerEnableMask(uint64 mask)
 
  RAINBOWLayerDisable = (~ms) & 0x1;
  ms >>= 1;
+
+#if 0
+ if(which < 4)
+ {
+  BGLayerDisable ^= 1 << which;
+  return( !((BGLayerDisable >> which) & 1));
+ }
+ else if(which == 4 || which == 5)
+ {
+  return(fx_vdc_chips[0]->ToggleLayer(which - 4));
+ }
+ else if(which == 6 || which == 7)
+ {
+  return(fx_vdc_chips[1]->ToggleLayer(which - 6));
+ }
+ else if(which == 8)
+ {
+  RAINBOWLayerDisable = !RAINBOWLayerDisable;
+  return(!RAINBOWLayerDisable);
+ }
+ else
+  return(0);
+#endif
 }
 
 
@@ -3262,6 +3310,12 @@ void KING_StateAction(StateMem *sm, const unsigned load, const bool data_only)
 
   fx_vce.dot_clock_ratio = fx_vce.dot_clock ? 3 : 4;
 
+  if(fx_vce.clock_divider < 0)
+   fx_vce.clock_divider = 0;
+  else if(fx_vce.clock_divider > 3)
+   fx_vce.clock_divider = 3;
+
+
   fx_vce.palette_rw_offset &= 0x1FF;
   fx_vce.palette_offset[3] &= 0x00FF;
   fx_vce.priority[0] &= 0x0777;
@@ -3274,7 +3328,16 @@ void KING_StateAction(StateMem *sm, const unsigned load, const bool data_only)
    RedoPaletteCache(x);
 
   vdc_lb_pos &= 0x1FF; // FIXME: Better checks(in case we remove the assert() elsewhere)?
+  //
+  if(king->dma_cycle_counter < 1)
+   king->dma_cycle_counter = 1;
 
+  if(scsicd_ne < 1)
+   scsicd_ne = 1;
+
+  if(HPhaseCounter < 1)
+   HPhaseCounter = 1;
+  //
   RedoKINGIRQCheck();
   SoundBox_SetKINGADPCMControl(king->ADPCMControl);
  }
@@ -4026,3 +4089,5 @@ static void DoGfxDecode(void)
 }
 
 #endif
+
+}

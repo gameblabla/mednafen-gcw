@@ -35,6 +35,55 @@
 #include "MemoryStream.h"
 #include "compress/GZFileStream.h"
 #include <list>
+#include <exception>
+
+struct StateSectionMapEntry
+{
+ uint64 pos;
+ uint32 size;
+ bool used;
+};
+
+struct StateMem
+{
+ StateMem(Stream*s, bool svbe_ = false) : st(s), svbe(svbe_) { };
+ ~StateMem();
+
+ Stream* st = nullptr;
+ bool svbe = false;	// State variable data is stored big-endian(for normal-path state loading only).
+
+ std::map<std::string, StateSectionMapEntry> secmap; // For loads
+
+ std::exception_ptr deferred_error;
+ void ThrowDeferred(void);
+};
+
+static void MakeSectionMap(StateMem* sm, const uint64 sss_bound)
+{
+ Stream* const st = sm->st;
+ char sname_tmp[32 + 1];
+
+ while(st->tell() < sss_bound)
+ {
+  StateSectionMapEntry sme;
+
+  st->read(sname_tmp, 32);
+  sname_tmp[32] = 0;
+
+  sme.size = st->get_LE<uint32>();
+  sme.pos = st->tell();
+  sme.used = false;
+  st->seek(sme.size, SEEK_CUR);
+  //
+  std::string name_ss = sname_tmp;
+
+  if(sm->secmap.count(name_ss))
+   throw MDFN_Error(0, _("Duplicate section \"%s\" in save state!"), name_ss.c_str());
+  else
+   sm->secmap[name_ss] = sme;
+ }
+}
+
 
 static void SubWrite(Stream *st, SFORMAT *sf)
 {
@@ -68,7 +117,7 @@ static void SubWrite(Stream *st, SFORMAT *sf)
   st->put_LE<uint32>(bytesize);
 
   // Special case for the evil bool type, to convert bool to 1-byte elements.
-  if(sf->flags & MDFNSTATE_BOOL)
+  if(sf->flags & SFORMAT::FLAG_BOOL)
   {
    for(int32 bool_monster = 0; bool_monster < bytesize; bool_monster++)
    {
@@ -122,7 +171,7 @@ static void MakeSFMap(SFORMAT *sf, SFMap_t &sfmap)
  }
 }
 
-static void ReadStateChunk(Stream *st, SFORMAT *sf, uint32 size, const bool svbe)
+static void ReadStateChunk(Stream *st, SFORMAT *sf, uint32 size, const bool svbe, const bool fuzz)
 {
  SFMap_t sfmap;
  SFMap_t sfmap_found;	// Used for identifying variables that are missing in the save state.
@@ -162,8 +211,20 @@ static void ReadStateChunk(Stream *st, SFORMAT *sf, uint32 size, const bool svbe
     sfmap_found[tmp->name] = tmp;
 
     st->read((uint8 *)tmp->v, expected_size);
+#if 0
+    if(MDFN_UNLIKELY(fuzz))
+    {
+     static uint64 lcg[2] = { 0xDEADBEEFCAFEBABEULL, 0x0123456789ABCDEFULL };
 
-    if(tmp->flags & MDFNSTATE_BOOL)
+     for(unsigned i = 0; i < expected_size; i++)
+     {
+      ((uint8*)tmp->v)[i] = (lcg[0] ^ lcg[1]) >> 28;
+      lcg[0] = (19073486328125ULL * lcg[0]) + 1;
+      lcg[1] = (6364136223846793005ULL * lcg[1]) + 1442695040888963407ULL;
+     }
+    }
+#endif
+    if(tmp->flags & SFORMAT::FLAG_BOOL)
     {
      // Converting downwards is necessary for the case of sizeof(bool) > 1
      for(int32 bool_monster = expected_size - 1; bool_monster >= 0; bool_monster--)
@@ -175,24 +236,24 @@ static void ReadStateChunk(Stream *st, SFORMAT *sf, uint32 size, const bool svbe
     {
      if(svbe)
      {
-      if(tmp->flags & MDFNSTATE_RLSB64)
+      if(tmp->flags & SFORMAT::FLAG_RLSB64)
        Endian_A64_NE_BE(tmp->v, expected_size / sizeof(uint64));
-      else if(tmp->flags & MDFNSTATE_RLSB32)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB32)
        Endian_A32_NE_BE(tmp->v, expected_size / sizeof(uint32));
-      else if(tmp->flags & MDFNSTATE_RLSB16)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB16)
        Endian_A16_NE_BE(tmp->v, expected_size / sizeof(uint16));
-      else if(tmp->flags & MDFNSTATE_RLSB)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB)
        Endian_V_NE_BE(tmp->v, expected_size);
      }
      else
      {
-      if(tmp->flags & MDFNSTATE_RLSB64)
+      if(tmp->flags & SFORMAT::FLAG_RLSB64)
        Endian_A64_NE_LE(tmp->v, expected_size / sizeof(uint64));
-      else if(tmp->flags & MDFNSTATE_RLSB32)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB32)
        Endian_A32_NE_LE(tmp->v, expected_size / sizeof(uint32));
-      else if(tmp->flags & MDFNSTATE_RLSB16)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB16)
        Endian_A16_NE_LE(tmp->v, expected_size / sizeof(uint16));
-      else if(tmp->flags & MDFNSTATE_RLSB)
+      else if(tmp->flags & SFORMAT::FLAG_RLSB)
        Endian_V_NE_LE(tmp->v, expected_size);
      }
     }
@@ -241,7 +302,7 @@ static void FastRWChunk(Stream *st, SFORMAT *sf)
   // If we're only saving the raw data, and we come across a bool type, we save it as it is in memory, rather than converting it to
   // 1-byte.  In the SFORMAT structure, the size member for bool entries is the number of bool elements, not the total in-memory size,
   // so we adjust it here.
-  if(sf->flags & MDFNSTATE_BOOL)
+  if(sf->flags & SFORMAT::FLAG_BOOL)
    bytesize *= sizeof(bool);
   
   //
@@ -305,42 +366,24 @@ bool MDFNSS_StateAction(StateMem *sm, const unsigned load, const bool data_only,
   {
    if(load)
    {
-    char sname_tmp[32];
-    bool found = false;
-    uint32 tmp_size;
-    uint32 total = 0;
+    auto msme = sm->secmap.find(sname);
 
-    while(st->tell() < sm->sss_bound)
-    {
-     st->read(sname_tmp, 32);
-     tmp_size = st->get_LE<uint32>();
-
-     total += tmp_size + 32 + 4;
-
-     // Yay, we found the section
-     if(!strncmp(sname_tmp, sname, 32))
-     {
-      ReadStateChunk(st, sf, tmp_size, sm->svbe);
-      found = true;
-      break;
-     } 
-     else
-     {
-      st->seek(tmp_size, SEEK_CUR);
-     }
-    }
-
-    st->seek(-(int64)total, SEEK_CUR);
-
-    if(!found)
+    if(msme == sm->secmap.end())
     {
      if(optional)
      {
       printf("Missing optional section: %.32s\n", sname);
-      return(false);
+
+      return false;
      }
      else
       throw MDFN_Error(0, _("Section missing: %.32s"), sname);
+    }
+    else
+    {
+     msme->second.used = true;
+     st->seek(msme->second.pos, SEEK_SET);
+     ReadStateChunk(st, sf, msme->second.size, sm->svbe, (bool)(load & 0x80000000));
     }
    }
    else
@@ -394,6 +437,11 @@ void StateMem::ThrowDeferred(void)
 
 void MDFNSS_SaveSM(Stream *st, bool data_only, const MDFN_Surface *surface, const MDFN_Rect *DisplayRect, const int32 *LineWidths)
 {
+	if(!MDFNGameInfo->StateAction)
+	{
+	 throw MDFN_Error(0, _("Module \"%s\" doesn't support save states."), MDFNGameInfo->shortname);
+	}
+
 	StateMem sm(st);
 
 	if(data_only)
@@ -510,6 +558,11 @@ void MDFNSS_SaveSM(Stream *st, bool data_only, const MDFN_Surface *surface, cons
 
 void MDFNSS_LoadSM(Stream *st, bool data_only)
 {
+	if(!MDFNGameInfo->StateAction)
+	{
+	 throw MDFN_Error(0, _("Module \"%s\" doesn't support save states."), MDFNGameInfo->shortname);
+	}
+
 	if(MDFN_LIKELY(data_only))
 	{
 	 StateMem sm(st);
@@ -543,10 +596,21 @@ void MDFNSS_LoadSM(Stream *st, bool data_only)
 
 	 st->seek(preview_len, SEEK_CUR);				// Skip preview
 
-	 StateMem sm(st, start_pos + total_len, svbe);
-	 MDFN_StateAction(&sm, stateversion, false);			// Load state data.
-	 sm.ThrowDeferred();
+	 {
+	  StateMem sm(st, svbe);
 
+	  MakeSectionMap(&sm, start_pos + total_len);
+
+	  MDFN_StateAction(&sm, stateversion, false);			// Load state data.
+
+	  for(auto msme : sm.secmap)
+	  {
+	   if(!msme.second.used)
+	    printf("Warning: Unused section \"%s\".\n", msme.first.c_str());
+	  }
+
+	  sm.ThrowDeferred();
+	 }
 	 st->seek(start_pos + total_len, SEEK_SET);			// Seek to just beyond end of save state before returning.
 	}
 }
@@ -572,7 +636,7 @@ void MDFNSS_CheckStates(void)
 
 	 SaveStateStatus[ssel] = false;
 	 //printf("%s\n", MDFN_MakeFName(MDFNMKF_STATE, ssel, 0).c_str());
-	 if(stat(MDFN_MakeFName(MDFNMKF_STATE, ssel, 0).c_str(), &stat_buf) == 0)
+	 if(MDFN_stat(MDFN_MakeFName(MDFNMKF_STATE, ssel, 0).c_str(), &stat_buf) == 0)
 	 {
 	  SaveStateStatus[ssel] = true;
 	  if(stat_buf.st_mtime > last_time)
@@ -587,7 +651,7 @@ void MDFNSS_CheckStates(void)
 	MDFND_SetStateStatus(NULL);
 }
 
-void MDFNSS_GetStateInfo(const char *filename, StateStatusStruct *status)
+void MDFNSS_GetStateInfo(const std::string& path, StateStatusStruct* status)
 {
  uint32 StateShowPBWidth;
  uint32 StateShowPBHeight;
@@ -595,7 +659,7 @@ void MDFNSS_GetStateInfo(const char *filename, StateStatusStruct *status)
 
  try
  {
-  GZFileStream fp(filename, GZFileStream::MODE::READ);
+  GZFileStream fp(path, GZFileStream::MODE::READ);
   uint8 header[32];
 
   fp.read(header, 32);
@@ -609,7 +673,7 @@ void MDFNSS_GetStateInfo(const char *filename, StateStatusStruct *status)
   if(height > 1024)
    height = 1024;
 
-  previewbuffer = (uint8 *)MDFN_malloc_T(3 * width * height, _("Save state preview buffer"));
+  previewbuffer = new uint8[3 * width * height];
   fp.read(previewbuffer, 3 * width * height);
 
   StateShowPBWidth = width;
@@ -619,7 +683,7 @@ void MDFNSS_GetStateInfo(const char *filename, StateStatusStruct *status)
  {
   if(previewbuffer != NULL)
   {
-   MDFN_free(previewbuffer);
+   delete[] previewbuffer;
    previewbuffer = NULL;
   }
 
@@ -642,31 +706,42 @@ void MDFNI_SelectState(int w) noexcept
   MDFND_SetStateStatus(NULL);
   return; 
  }
+
  MDFNI_SelectMovie(-1);
 
- if(w == 666 + 1)
-  CurrentState = (CurrentState + 1) % 10;
- else if(w == 666 - 1)
+ try
  {
-  CurrentState--;
+  if(w == 666 + 1)
+   CurrentState = (CurrentState + 1) % 10;
+  else if(w == 666 - 1)
+  {
+   CurrentState--;
 
-  if(CurrentState < 0 || CurrentState > 9)
-   CurrentState = 9;
- }
- else
-  CurrentState = w;
+   if(CurrentState < 0 || CurrentState > 9)
+    CurrentState = 9;
+  }
+  else
+   CurrentState = w;
 
- MDFN_ResetMessages();
+  MDFN_ResetMessages();
 
- StateStatusStruct *status = (StateStatusStruct*)MDFN_calloc(1, sizeof(StateStatusStruct), _("Save state status"));
+  std::unique_ptr<StateStatusStruct> status(new StateStatusStruct());
+
+  memset(status.get(), 0, sizeof(StateStatusStruct));
  
- memcpy(status->status, SaveStateStatus, 10 * sizeof(int));
+  memcpy(status->status, SaveStateStatus, 10 * sizeof(int));
 
- status->current = CurrentState;
- status->recently_saved = RecentlySavedState;
+  status->current = CurrentState;
+  status->recently_saved = RecentlySavedState;
 
- MDFNSS_GetStateInfo(MDFN_MakeFName(MDFNMKF_STATE,CurrentState,NULL).c_str(), status);
- MDFND_SetStateStatus(status);
+  MDFNSS_GetStateInfo(MDFN_MakeFName(MDFNMKF_STATE, CurrentState, NULL), status.get());
+  MDFND_SetStateStatus(status.release());
+ }
+ catch(std::exception& e)
+ {
+  MDFN_DispMessage("%s", e.what());
+  MDFND_SetStateStatus(NULL);
+ }
 }  
 
 bool MDFNI_SaveState(const char *fname, const char *suffix, const MDFN_Surface *surface, const MDFN_Rect *DisplayRect, const int32 *LineWidths) noexcept
@@ -675,11 +750,6 @@ bool MDFNI_SaveState(const char *fname, const char *suffix, const MDFN_Surface *
 
  try
  {
-  if(!MDFNGameInfo->StateAction)
-  {
-   throw MDFN_Error(0, _("Module \"%s\" doesn't support save states."), MDFNGameInfo->shortname);
-  }
-
   if(MDFNnetplay && (MDFNGameInfo->SaveStateAltersState == true))
   {
    throw MDFN_Error(0, _("Module %s is not compatible with manual state saving during netplay."), MDFNGameInfo->shortname);
@@ -733,11 +803,6 @@ bool MDFNI_LoadState(const char *fname, const char *suffix) noexcept
 
  try
  {
-  if(!MDFNGameInfo->StateAction)
-  {
-   throw MDFN_Error(0, _("Module \"%s\" doesn't support save states."), MDFNGameInfo->shortname);
-  }
-
   /* For network play and movies, be load the state locally, and then save the state to a temporary buffer,
      and send or record that.  This ensures that if an older state is loaded that is missing some
      information expected in newer save states, desynchronization won't occur(at least not
