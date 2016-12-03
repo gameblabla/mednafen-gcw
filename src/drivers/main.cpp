@@ -788,14 +788,14 @@ static int LoadGame(const char *force_module, const char *path)
         if(MDFN_GetSettingB("autosave"))
 	 MDFNI_LoadState(NULL, "mca");
 
-	if(netconnect)
-	 MDFND_NetworkConnect();
+	/*if(netconnect)
+	 MDFND_NetworkConnect();*/
 
 	ers.SetEmuClock(CurGame->MasterClock >> 32);
 
-	Debugger_Init();
+	/*Debugger_Init();*/
 
-	if(qtrecfn)
+	/*if(qtrecfn)
 	{
 	// MDFNI_StartAVRecord() needs to be called after MDFNI_Load(Game/CD)
          if(!MDFNI_StartAVRecord(qtrecfn, Sound_GetRate()))
@@ -805,9 +805,9 @@ static int LoadGame(const char *force_module, const char *path)
 
 	  return(0);
 	 }
-	}
+	}*/
 
-        if(soundrecfn)
+        /*if(soundrecfn)
         {
  	 if(!MDFNI_StartWAVRecord(soundrecfn, Sound_GetRate()))
          {
@@ -816,7 +816,7 @@ static int LoadGame(const char *force_module, const char *path)
 
 	  return(0);
          }
-        }
+        }*/
 
 	ffnosound = MDFN_GetSettingB("ffnosound");
 	RewindState = MDFN_GetSettingB("srwautoenable");
@@ -907,17 +907,17 @@ static int GameLoopPaused = 0;
 
 void DebuggerFudge(void)
 {
-	  MDFND_Update((MDFN_Surface *)VTBuffer[VTBackBuffer ^ 1], (MDFN_Rect*)&VTDisplayRects[VTBackBuffer ^ 1], (int32*)VTLineWidths[VTBackBuffer ^ 1], VTInterlaceField, NULL, 0);
+	 /* MDFND_Update((MDFN_Surface *)VTBuffer[VTBackBuffer ^ 1], (MDFN_Rect*)&VTDisplayRects[VTBackBuffer ^ 1], (int32*)VTLineWidths[VTBackBuffer ^ 1], VTInterlaceField, NULL, 0);
 
 	  if(sound_active)
 	   Sound_WriteSilence(10);
 	  else
-	   SDL_Delay(10);
+	   SDL_Delay(10);*/
 }
 
 int64 Time64(void)
 {
- static bool cgt_fail_warning = 0;
+ /*static bool cgt_fail_warning = 0;
 
  #if HAVE_CLOCK_GETTIME && ( _POSIX_MONOTONIC_CLOCK > 0 || defined(CLOCK_MONOTONIC))
  struct timespec tp;
@@ -949,7 +949,7 @@ int64 Time64(void)
  return((int64)tv.tv_sec * 1000000 + tv.tv_usec);
  #else
   #warning "gettimeofday() not available!!!"
- #endif
+ #endif*/
 
  // Yeaaah, this isn't going to work so well.
  return((int64)time(NULL) * 1000000);
@@ -968,14 +968,14 @@ int GameLoop(void *arg)
 	 while(NeedVideoChange)
 	 {
 	  if(!GameThreadRun) return(1);	// Might happen if video initialization failed
-	  SDL_Delay(2);
+	  /*SDL_Delay(2);*/
 	 }
 
 	 if(Sound_NeedReInit())
 	  GT_ReinitSound();
 
-	 if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
-	  ers.SetETtoRT();
+	 /*if(MDFNDnetplay && !(NoWaiting & 0x2))	// TODO: Hacky, clean up.
+	  ers.SetETtoRT();*/
 
 	 fskip = ers.NeedFrameSkip();
 	
@@ -1033,6 +1033,10 @@ int GameLoop(void *arg)
 	 {
 	  VTBackBuffer = ThisBackBuffer;
 
+
+	#ifdef WANT_EMU_PCFX
+		MDFND_Update((MDFN_Surface *)VTBuffer[VTBackBuffer ^ 1], (MDFN_Rect*)&VTDisplayRects[VTBackBuffer ^ 1], (int32*)VTLineWidths[VTBackBuffer ^ 1], VTInterlaceField, sound, ssize);
+	#else
  	  if(fskip && GameLoopPaused)
 	  {
 	   // If this frame was skipped, and the game loop is paused(IE cheat interface is active), just blit the previous "successful" frame so the cheat
@@ -1051,15 +1055,16 @@ int GameLoop(void *arg)
            if(MDFND_Update(fskip ? NULL : (MDFN_Surface *)VTBuffer[VTBackBuffer], (MDFN_Rect*)&VTDisplayRects[VTBackBuffer], (int32*)VTLineWidths[VTBackBuffer], espec.InterlaceOn ? espec.InterlaceField : -1, sound, ssize))
 	    VTBackBuffer ^= 1;
 	  }
-
+	 #endif
+	  
 	  FPS_UpdateCalc();
 
-          if((InFrameAdvance && !NeedFrameAdvance) || GameLoopPaused)
+          /*if((InFrameAdvance && !NeedFrameAdvance) || GameLoopPaused)
 	  {
            if(ssize)
 	    for(int x = 0; x < CurGame->soundchan * ssize; x++)
 	     sound[x] = 0;
-	  }
+	  }*/
 	 } while(((InFrameAdvance && !NeedFrameAdvance) || GameLoopPaused) && GameThreadRun);
 	}
 	return(1);
@@ -1265,20 +1270,20 @@ void PumpWrap(void)
 
  bool NITI;
 
- NITI = Netplay_IsTextInput();
+ /*NITI = Netplay_IsTextInput();*/
 
- if(Debugger_IsActive() || NITI || CheatIF_Active() || Help_IsActive())
+ /*if(Debugger_IsActive() || NITI || CheatIF_Active() || Help_IsActive())
  {
   if(!krepeat)
    SDL_EnableKeyRepeat(SDL_DEFAULT_REPEAT_DELAY, SDL_DEFAULT_REPEAT_INTERVAL);
   krepeat = 1;
  }
  else
- {
+ {*/
   if(krepeat)
    SDL_EnableKeyRepeat(0, 0);
   krepeat = 0;
- }
+ /*}*/
 
  #if defined(HAVE_SIGNAL) || defined(HAVE_SIGACTION)
  if(SignalSafeExitWanted)

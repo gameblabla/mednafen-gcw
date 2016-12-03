@@ -216,7 +216,7 @@ static void SettingChanged(const char* name)
 
 bool MDFNI_StartWAVRecord(const char *path, double SoundRate)
 {
- try
+ /*try
  {
   wavrecorder = new WAVRecord(path, SoundRate, MDFNGameInfo->soundchan);
  }
@@ -224,14 +224,14 @@ bool MDFNI_StartWAVRecord(const char *path, double SoundRate)
  {
   MDFND_PrintError(e.what());
   return(false);
- }
+ }*/
 
- return(true);
+ return(false);
 }
 
 bool MDFNI_StartAVRecord(const char *path, double SoundRate)
 {
- try
+ /*try
  {
   QTRecord::VideoSpec spec;
 
@@ -278,34 +278,34 @@ bool MDFNI_StartAVRecord(const char *path, double SoundRate)
  {
   MDFND_PrintError(e.what());
   return(false);
- }
- return(true);
+ }*/
+ return(false);
 }
 
 void MDFNI_StopAVRecord(void)
 {
- if(qtrecorder)
+ /*if(qtrecorder)
  {
   delete qtrecorder;
   qtrecorder = NULL;
- }
+ }*/
 }
 
 void MDFNI_StopWAVRecord(void)
 {
- if(wavrecorder)
+ /*if(wavrecorder)
  {
   delete wavrecorder;
   wavrecorder = NULL;
- }
+ }*/
 }
 
 void MDFNI_CloseGame(void)
 {
  if(MDFNGameInfo)
  {
-  if(MDFNnetplay)
-   MDFNI_NetplayStop();
+  /*if(MDFNnetplay)
+   MDFNI_NetplayStop();*/
 
   MDFNSRW_End();
   MDFNMOV_Stop();
@@ -1388,14 +1388,14 @@ static void ProcessAudio(EmulateSpecStruct *espec)
   }
 
 
-  if(qtrecorder && (volume_save != 1 || multiplier_save != 1))
+  /*if(qtrecorder && (volume_save != 1 || multiplier_save != 1))
   {
    int32 orig_size = SoundBufPristine.size();
 
    SoundBufPristine.resize(orig_size + SoundBufSize * MDFNGameInfo->soundchan);
    for(int i = 0; i < SoundBufSize * MDFNGameInfo->soundchan; i++)
     SoundBufPristine[orig_size + i] = SoundBuf[i];
-  }
+  }*/
 
 #if 0
   //
@@ -1552,9 +1552,9 @@ static void ProcessAudio(EmulateSpecStruct *espec)
 
 void MDFN_MidSync(EmulateSpecStruct *espec)
 {
- if(MDFNnetplay)
+/* if(MDFNnetplay)
   return;
-
+*/
  ProcessAudio(espec);
 
  MDFND_MidSync(espec);
@@ -1611,7 +1611,7 @@ void MDFNI_Emulate(EmulateSpecStruct *espec)
 
  // We want to record movies without any dropped video frames and without fast-forwarding sound distortion and without custom volume.
  // The same goes for WAV recording(sans the dropped video frames bit :b).
- if(qtrecorder || wavrecorder)
+/* if(qtrecorder || wavrecorder)
  {
   multiplier_save = espec->soundmultiplier;
   espec->soundmultiplier = 1;
@@ -1619,38 +1619,38 @@ void MDFNI_Emulate(EmulateSpecStruct *espec)
   volume_save = espec->SoundVolume;
   espec->SoundVolume = 1;
  }
-
+*/
  if(MDFNGameInfo->TransformInput)
   MDFNGameInfo->TransformInput();
 
- if(MDFNnetplay)
+ /*if(MDFNnetplay)
  {
   Netplay_Update(PortDevice, PortData, PortDataLen);
- }
+ }*/
 
  MDFNMOV_ProcessInput(PortData, PortDataLen, MDFNGameInfo->PortInfo.size());
 
- if(qtrecorder)
-  espec->skip = 0;
+ /*if(qtrecorder)
+  espec->skip = 0;*/
 
  if(TBlur_IsOn())
   espec->skip = 0;
 
- if(espec->NeedRewind)
+ /*if(espec->NeedRewind)
  {
   if(MDFNnetplay)
   {
    espec->NeedRewind = false;
    MDFN_DispMessage(_("Can't rewind during netplay."));
   }
- }
+ }*/
 
  // Don't even save states with state rewinding if netplay is enabled, it will degrade netplay performance, and can cause
  // desynchs with some emulation(IE SNES based on bsnes).
 
- if(MDFNnetplay)
+ /*if(MDFNnetplay)
   espec->NeedSoundReverse = false;
- else
+ else*/
   espec->NeedSoundReverse = MDFNSRW_Frame(espec->NeedRewind);
 
  MDFNGameInfo->Emulate(espec);
@@ -1680,8 +1680,8 @@ void MDFNI_Emulate(EmulateSpecStruct *espec)
  }
 #endif
 
- if(MDFNnetplay)
-  Netplay_PostProcess(PortDevice, PortData, PortDataLen);
+ /*if(MDFNnetplay)
+  Netplay_PostProcess(PortDevice, PortData, PortDataLen);*/
 
  //
  // Sanity checks
@@ -1728,7 +1728,7 @@ void MDFNI_Emulate(EmulateSpecStruct *espec)
 
  ProcessAudio(espec);
 
- if(qtrecorder)
+ /*if(qtrecorder)
  {
   int16 *sb_backup = espec->SoundBuf;
   int32 sbs_backup = espec->SoundBufSize;
@@ -1754,7 +1754,7 @@ void MDFNI_Emulate(EmulateSpecStruct *espec)
 
   espec->SoundBuf = sb_backup;
   espec->SoundBufSize = sbs_backup;
- }
+ }*/
 
  if(TBlur_IsOn())
   TBlur_Run(espec);
@@ -1927,7 +1927,7 @@ void MDFN_DoSimpleCommand(int cmd)
 
 void MDFN_QSimpleCommand(int cmd)
 {
- if(MDFNnetplay)
+ /*if(MDFNnetplay)
   NetplaySendCommand(cmd, 0);
  else
  {
@@ -1936,7 +1936,7 @@ void MDFN_QSimpleCommand(int cmd)
    MDFN_DoSimpleCommand(cmd);
    MDFNMOV_AddCommand(cmd);
   }
- }
+ }*/
 }
 
 void MDFNI_Power(void)
@@ -2047,7 +2047,7 @@ bool MDFNI_SetMedia(uint32 drive_idx, uint32 state_idx, uint32 media_idx, uint32
 {
  assert(MDFNGameInfo);
 
- if(MDFNnetplay || MDFNMOV_IsRecording())
+ /*if(MDFNnetplay || MDFNMOV_IsRecording())
  {
   uint8 buf[4 * 4];
 
@@ -2061,12 +2061,12 @@ bool MDFNI_SetMedia(uint32 drive_idx, uint32 state_idx, uint32 media_idx, uint32
 
   if(MDFNMOV_IsRecording())
    MDFNMOV_AddCommand(MDFNNPCMD_SET_MEDIA, sizeof(buf), buf);
- }
+ }*/
 
- if(!MDFNnetplay && !MDFNMOV_IsPlaying())
+ /*if(!MDFNnetplay && !MDFNMOV_IsPlaying())*/
   return MDFN_UntrustedSetMedia(drive_idx, state_idx, media_idx, orientation_idx);
- else
-  return false;
+ /*else
+  return false;*/
 }
 
 void MDFNI_SetLayerEnableMask(uint64 mask)

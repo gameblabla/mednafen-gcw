@@ -815,11 +815,11 @@ static const FileExtensionSpecStruct KnownExtensions[] =
 
 static const MDFNSetting Settings[] =
 {
- { "snes_faust.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency.\n\nHigher values will also slightly increase the probability of sample clipping(relevant if Mednafen's volume control settings are set too high), due to increased (time-domain) ringing."), MDFNST_INT, "3", "0", "5" },
- { "snes_faust.resamp_rate_error", MDFNSF_NOFLAGS, gettext_noop("Sound output rate tolerance."), gettext_noop("Lower values correspond to better matching of the output rate of the resampler to the actual desired output rate, at the expense of increased RAM usage and poorer CPU cache utilization."), MDFNST_FLOAT, "0.000035", "0.0000001", "0.0015" },
+ { "snes_faust.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency.\n\nHigher values will also slightly increase the probability of sample clipping(relevant if Mednafen's volume control settings are set too high), due to increased (time-domain) ringing."), MDFNST_INT, "0", "0", "5" },
+ { "snes_faust.resamp_rate_error", MDFNSF_NOFLAGS, gettext_noop("Sound output rate tolerance."), gettext_noop("Lower values correspond to better matching of the output rate of the resampler to the actual desired output rate, at the expense of increased RAM usage and poorer CPU cache utilization."), MDFNST_FLOAT, "0.000001", "0.0000001", "0.0015" },
 
  { "snes_faust.spex", MDFNSF_NOFLAGS, gettext_noop("Enable 1-frame speculative execution for video output."), gettext_noop("Hack to reduce input->output video latency by 1 frame.  Enabling will increase CPU usage, and may cause video glitches(such as \"jerkiness\") in some oddball games, but most commercially-released games should be fine."), MDFNST_BOOL, "0" },
- { "snes_faust.spex.sound", MDFNSF_NOFLAGS, gettext_noop("Enable speculative execution for sound output too."), gettext_noop("Only has an effect when speculative-execution for video output is enabled.  Will cause minor sound glitches in some games."), MDFNST_BOOL, "1" },
+ { "snes_faust.spex.sound", MDFNSF_NOFLAGS, gettext_noop("Enable speculative execution for sound output too."), gettext_noop("Only has an effect when speculative-execution for video output is enabled.  Will cause minor sound glitches in some games."), MDFNST_BOOL, "0" },
  { NULL }
 };
 
@@ -878,7 +878,7 @@ MDFNGI EmulatedSNES_Faust =
  448,	// lcm_height
  NULL,  // Dummy
 
- 292,   // Nominal width
+ 256,   // Nominal width
  224,   // Nominal height
 
  512,   // Framebuffer width

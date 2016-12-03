@@ -35,29 +35,29 @@ INSTALL_DATA = ${INSTALL} -m 644
 # We use $(mkdir_p).
 # In automake <= 1.9.x, $(mkdir_p) is defined either as "mkdir -p --" or as
 # "$(mkinstalldirs)" or as "$(install_sh) -d". For these automake versions,
-# ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh does not start with $(SHELL), so we add it.
+# ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh does not start with $(SHELL), so we add it.
 # In automake >= 1.10, /bin/mkdir -p is derived from ${MKDIR_P}, which is defined
 # either as "/path/to/mkdir -p" or ".../install-sh -c -d". For these automake
 # versions, $(mkinstalldirs) and $(install_sh) are unused.
-mkinstalldirs = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh -d
-install_sh = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh
+mkinstalldirs = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh -d
+install_sh = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh
 MKDIR_P = /bin/mkdir -p
 mkdir_p = /bin/mkdir -p
 
-GMSGFMT_ = /opt/gcw0-toolchain/usr/bin/msgfmt
-GMSGFMT_no = /opt/gcw0-toolchain/usr/bin/msgfmt
-GMSGFMT_yes = /opt/gcw0-toolchain/usr/bin/msgfmt
+GMSGFMT_ = /usr/bin/msgfmt
+GMSGFMT_no = /usr/bin/msgfmt
+GMSGFMT_yes = /usr/bin/msgfmt
 GMSGFMT = $(GMSGFMT_$(USE_MSGCTXT))
-MSGFMT_ = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGFMT_no = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGFMT_yes = /opt/gcw0-toolchain/usr/bin/msgfmt
+MSGFMT_ = /usr/bin/msgfmt
+MSGFMT_no = /usr/bin/msgfmt
+MSGFMT_yes = /usr/bin/msgfmt
 MSGFMT = $(MSGFMT_$(USE_MSGCTXT))
-XGETTEXT_ = /opt/gcw0-toolchain/usr/bin/xgettext
-XGETTEXT_no = /opt/gcw0-toolchain/usr/bin/xgettext
-XGETTEXT_yes = /opt/gcw0-toolchain/usr/bin/xgettext
+XGETTEXT_ = /usr/bin/xgettext
+XGETTEXT_no = /usr/bin/xgettext
+XGETTEXT_yes = /usr/bin/xgettext
 XGETTEXT = $(XGETTEXT_$(USE_MSGCTXT))
 MSGMERGE = msgmerge
-MSGMERGE_UPDATE = /opt/gcw0-toolchain/usr/bin/msgmerge --update
+MSGMERGE_UPDATE = /usr/bin/msgmerge --update
 MSGINIT = msginit
 MSGCONV = msgconv
 MSGFILTER = msgfilter

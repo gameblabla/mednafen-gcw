@@ -183,7 +183,7 @@ void MDFN_Surface::Init(void *const p_pixels, const uint32 p_width, const uint32
 // to boot.
 void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
 {
- if(format.bpp != 32 || nf.bpp != 32)
+ /*if(format.bpp != 32 || nf.bpp != 32)
   printf("%u->%u\n",format.bpp, nf.bpp);
 
  assert(format.bpp == 8 || format.bpp == 16 || format.bpp == 32);
@@ -395,7 +395,7 @@ void MDFN_Surface::SetFormat(const MDFN_PixelFormat &nf, bool convert)
     }
    }
   }
- }
+ }*/
  format = nf;
 }
 

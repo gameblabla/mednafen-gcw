@@ -11,13 +11,13 @@
 /* #undef ARCH_POWERPC_ALTIVEC */
 
 /* Define if we are compiling for 32-bit or 64-bit x86 architectures. */
-/* #undef ARCH_X86 */
+#define ARCH_X86 1
 
 /* Define if we are compiling for 32-bit x86 architectures. */
 /* #undef ARCH_X86_32 */
 
 /* Define if we are compiling for 64-bit x86 architectures. */
-/* #undef ARCH_X86_64 */
+#define ARCH_X86_64 1
 
 /* Define to one of `_getb67', `GETB67', `getb67' for Cray-2 and Cray-YMP
    systems. This function is required for `alloca.c' support on those systems.
@@ -51,16 +51,16 @@
 /* #undef HAVE_ALTIVEC_H */
 
 /* Define to 1 if you have the `argz_count' function. */
-/* #undef HAVE_ARGZ_COUNT */
+#define HAVE_ARGZ_COUNT 1
 
 /* Define to 1 if you have the <argz.h> header file. */
-/* #undef HAVE_ARGZ_H */
+#define HAVE_ARGZ_H 1
 
 /* Define to 1 if you have the `argz_next' function. */
-/* #undef HAVE_ARGZ_NEXT */
+#define HAVE_ARGZ_NEXT 1
 
 /* Define to 1 if you have the `argz_stringify' function. */
-/* #undef HAVE_ARGZ_STRINGIFY */
+#define HAVE_ARGZ_STRINGIFY 1
 
 /* Define to 1 if you have the `asprintf' function. */
 #define HAVE_ASPRINTF 1
@@ -215,7 +215,7 @@
 #define HAVE_ICONV 1
 
 /* Define if GNU-style AVX inline assembly is supported. */
-/* #undef HAVE_INLINEASM_AVX */
+#define HAVE_INLINEASM_AVX 1
 
 /* Define if you have the 'intmax_t' type in <stdint.h> or <inttypes.h>. */
 #define HAVE_INTMAX_T 1
@@ -303,10 +303,10 @@
 #define HAVE_NEARBYINT 1
 
 /* Define to 1 if you have the `nearbyintf' function. */
-/* #undef HAVE_NEARBYINTF */
+#define HAVE_NEARBYINTF 1
 
 /* Define to 1 if you have the `newlocale' function. */
-/* #undef HAVE_NEWLOCALE */
+#define HAVE_NEWLOCALE 1
 
 /* Define if we are compiling with OSS support. */
 #define HAVE_OSSDSP 1
@@ -436,7 +436,7 @@
 #define HAVE_UNSIGNED_LONG_LONG_INT 1
 
 /* Define to 1 if you have the `uselocale' function. */
-/* #undef HAVE_USELOCALE */
+#define HAVE_USELOCALE 1
 
 /* Define to 1 if you have the `usleep' function. */
 #define HAVE_USLEEP 1
@@ -467,7 +467,7 @@
 #define HAVE_WORKING_O_NOATIME 0
 
 /* Define to 1 if O_NOFOLLOW works. */
-#define HAVE_WORKING_O_NOFOLLOW 0
+#define HAVE_WORKING_O_NOFOLLOW 1
 
 /* Define to 1 if you have the `_mkdir' function. */
 /* #undef HAVE__MKDIR */
@@ -482,7 +482,7 @@
 #define ICONV_CONST 
 
 /* Define if integer division by zero raises signal SIGFPE. */
-#define INTDIV0_RAISES_SIGFPE 0
+#define INTDIV0_RAISES_SIGFPE 1
 
 /* Define on little-endian platforms. */
 #define LSB_FIRST 1
@@ -549,7 +549,7 @@
 #define SIZEOF_INT 4
 
 /* The size of `long', as computed by sizeof. */
-#define SIZEOF_LONG 4
+#define SIZEOF_LONG 8
 
 /* The size of `long long', as computed by sizeof. */
 #define SIZEOF_LONG_LONG 8
@@ -558,16 +558,16 @@
 #define SIZEOF_OFF_T 8
 
 /* The size of `ptrdiff_t', as computed by sizeof. */
-#define SIZEOF_PTRDIFF_T 4
+#define SIZEOF_PTRDIFF_T 8
 
 /* The size of `short', as computed by sizeof. */
 #define SIZEOF_SHORT 2
 
 /* The size of `size_t', as computed by sizeof. */
-#define SIZEOF_SIZE_T 4
+#define SIZEOF_SIZE_T 8
 
 /* The size of `void *', as computed by sizeof. */
-#define SIZEOF_VOID_P 4
+#define SIZEOF_VOID_P 8
 
 /* The size of `__int64', as computed by sizeof. */
 #define SIZEOF___INT64 0
@@ -646,25 +646,25 @@
 /* #undef WANT_FANCY_SCALERS */
 
 /* Define if we are compiling with GBA emulation. */
-#define WANT_GBA_EMU 1
+/* #undef WANT_GBA_EMU */
 
 /* Define if we are compiling with GB emulation. */
-#define WANT_GB_EMU 1
+/* #undef WANT_GB_EMU */
 
 /* Define if we are compiling with internal CJK fonts. */
 /* #undef WANT_INTERNAL_CJK */
 
 /* Define if we are compiling with Lynx emulation. */
-#define WANT_LYNX_EMU 1
+/* #undef WANT_LYNX_EMU */
 
 /* Define if we are compiling with Sega Genesis/MegaDrive emulation. */
 /* #undef WANT_MD_EMU */
 
 /* Define if we are compiling with NES emulation. */
-#define WANT_NES_EMU 1
+/* #undef WANT_NES_EMU */
 
 /* Define if we are compiling with NGP emulation. */
-#define WANT_NGP_EMU 1
+/* #undef WANT_NGP_EMU */
 
 /* Define if we are compiling with PCE emulation. */
 /* #undef WANT_PCE_EMU */
@@ -685,7 +685,7 @@
 /* #undef WANT_SNES_EMU */
 
 /* Define if we are compiling with experimental fast SNES emulation. */
-/* #undef WANT_SNES_FAUST_EMU */
+#define WANT_SNES_FAUST_EMU 1
 
 /* Define if we are compiling with SSF playback support. */
 /* #undef WANT_SSFPLAY_EMU */
@@ -720,7 +720,7 @@
 #endif
 
 /* Number of bits in a file offset, on hosts where this is settable. */
-#define _FILE_OFFSET_BITS 64
+/* #undef _FILE_OFFSET_BITS */
 
 /* Define for largefile support through extra functions. */
 #define _LARGEFILE64_SOURCE 1

@@ -113,20 +113,20 @@ void V810_FP_Ops::fpim_round(fpim* df)
  {
   const unsigned sa = vbc - 24;
 
-  if(1) // round to nearest
-  {
+  /*if(1) // round to nearest
+  {*/
    uint64 old_f = df->f;
 
    df->f = (df->f + ((df->f >> sa) & 1) + ((1ULL << (sa - 1)) - 1)) & ~((1ULL << sa) - 1);
 
-   if(df->f != old_f)
+   /*if(df->f != old_f)
    {
     //printf("Inexact mr\n");
     exception_flags |= flag_inexact;
-   }
-  }
+   }*/
+  /*}
   else
-   abort();
+   abort();*/
  }
 }
 
@@ -151,11 +151,11 @@ void V810_FP_Ops::fpim_round_int(fpim* df, bool truncate)
     df->f = (df->f + ((df->f >> sa) & 1) + ((1ULL << (sa - 1)) - 1)) & ~((1ULL << sa) - 1);
   }
 
-  if(df->f != old_f)
+  /*if(df->f != old_f)
   {
    //printf("Inexact\n");
    exception_flags |= flag_inexact;
-  }
+  }*/
  }
 }
 
@@ -173,20 +173,20 @@ uint32 V810_FP_Ops::fpim_encode(fpim* df)
   tmp_exp = -127;
  else if(tmp_exp <= -127)
  {
-  exception_flags |= flag_underflow | flag_inexact;
+  /*exception_flags |= flag_underflow | flag_inexact;*/
   //printf("Subnormal: %lld. %d\n", tmp_walrus, tmp_exp);
-  if(1)
-  {
+  /*if(1)
+  {*/
    tmp_exp = -127;
    tmp_walrus = 0;
-  }
+  /*}
   else
   {
    tmp_walrus >>= -(tmp_exp + 126);
    tmp_exp = -127;
-  }
+  }*/
  }
- else if(tmp_exp >= 128)
+ /*else if(tmp_exp >= 128)
  {
   exception_flags |= flag_overflow;
   //printf("Overflow!\n");
@@ -199,7 +199,7 @@ uint32 V810_FP_Ops::fpim_encode(fpim* df)
    tmp_walrus = 0;
   }
 
- }
+ }*/
  return (tmp_sign << 31) | ((tmp_exp + 127) << 23) | (tmp_walrus & 0x7FFFFF);
 }
 
@@ -208,11 +208,11 @@ uint32 V810_FP_Ops::mul(uint32 a, uint32 b)
  fpim ins[2];
  fpim res;
 
- if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
+ /*if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
  {
   exception_flags |= flag_reserved;
   return(~0U);
- }
+ }*/
 
  fpim_decode(&ins[0], a);
  fpim_decode(&ins[1], b);
@@ -236,11 +236,11 @@ uint32 V810_FP_Ops::add(uint32 a, uint32 b)
  int64 tr;
  int max_exp;
 
- if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
+/* if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
  {
   exception_flags |= flag_reserved;
   return(~0U);
- }
+ }*/
 
  if(a == b && !(a & 0x7FFFFFFF))
  {
@@ -314,7 +314,7 @@ uint32 V810_FP_Ops::div(uint32 a, uint32 b)
  fpim res;
  uint64 mtmp;
 
- if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
+ /*if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
  {
   exception_flags |= flag_reserved;
   return(~0U);
@@ -324,21 +324,21 @@ uint32 V810_FP_Ops::div(uint32 a, uint32 b)
  {
   exception_flags |= flag_invalid;
   return(~0U);
- }
+ }*/
 
  fpim_decode(&ins[0], a);
  fpim_decode(&ins[1], b);
 
  res.sign = ins[0].sign ^ ins[1].sign;
 
- if(ins[1].f == 0)
+ /*if(ins[1].f == 0)
  {
   //puts("Divide by zero!");
   exception_flags |= flag_divbyzero;
   return((res.sign << 31) | (255 << 23));
  }
  else
- {
+ {*/
   res.exp = ins[0].exp - ins[1].exp - 2 - 1; // + 23 - 2;
   res.f = ((ins[0].f << 24) / ins[1].f) << 2;
   mtmp = ((ins[0].f << 24) % ins[1].f) << 1;
@@ -351,7 +351,7 @@ uint32 V810_FP_Ops::div(uint32 a, uint32 b)
    res.f |= 2;
   else if(mtmp > 0)
    res.f |= 1;
- }
+ /*}*/
 
  fpim_round(&res);
 
@@ -362,11 +362,11 @@ int V810_FP_Ops::cmp(uint32 a, uint32 b)
 {
  fpim ins[2];
 
- if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
+ /*if(fp_is_inf_nan_sub(a) || fp_is_inf_nan_sub(b))
  {
   exception_flags |= flag_reserved;
   return(~0U);
- }
+ }*/
 
  fpim_decode(&ins[0], a);
  fpim_decode(&ins[1], b);
@@ -409,12 +409,12 @@ uint32 V810_FP_Ops::ftoi(uint32 v, bool truncate)
  int sa;
  int ret;
 
- if(fp_is_inf_nan_sub(v))
+ /*if(fp_is_inf_nan_sub(v))
  {
   exception_flags |= flag_reserved;
   return(~0U);
  }
-
+*/
  fpim_decode(&ins, v);
  fpim_round_int(&ins, truncate);
 
@@ -433,11 +433,11 @@ uint32 V810_FP_Ops::ftoi(uint32 v, bool truncate)
   {
    if(sa == 8 && ins.f == 0x800000 && ins.sign)
     return(0x80000000);
-   else
+   /*else
    {
     ret = ~0U;
     exception_flags |= flag_invalid;
-   }
+   }*/
   }
   else
   {

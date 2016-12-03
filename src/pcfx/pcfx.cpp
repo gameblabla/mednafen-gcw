@@ -247,7 +247,7 @@ static void Emulate(EmulateSpecStruct *espec)
 
  FXINPUT_Frame();
 
- MDFNMP_ApplyPeriodicCheats();
+ /*MDFNMP_ApplyPeriodicCheats();*/
 
  if(espec->VideoFormatChanged)
   KING_SetPixelFormat(espec->surface->format); //.Rshift, espec->surface->format.Gshift, espec->surface->format.Bshift);
@@ -307,6 +307,7 @@ static void Emulate(EmulateSpecStruct *espec)
   if(!BackupSaveDelay)
   {
    //puts("SAVE");
+   SaveBackupMemory();
    try
    {
     SaveBackupMemory();
@@ -1105,8 +1106,8 @@ static MDFNSetting PCFXSettings[] =
   //correctly-encoded  ADPCM?) sound worse
   { "pcfx.adpcm.emulate_buggy_codec", MDFNSF_NOFLAGS, gettext_noop("Hack that emulates the codec a buggy ADPCM encoder used for some games' ADPCM."), NULL, MDFNST_BOOL, "0" },
 
-  { "pcfx.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency."), MDFNST_INT, "1", "0", "5" },
-  { "pcfx.resamp_rate_error", MDFNSF_NOFLAGS, gettext_noop("Output rate tolerance."), gettext_noop("Lower values correspond to better matching of the output rate of the resampler to the actual desired output rate, at the expense of increased RAM usage and poorer CPU cache utilization."), MDFNST_FLOAT, "0.0000009", "0.0000001", "0.0000350" },
+  { "pcfx.resamp_quality", MDFNSF_NOFLAGS, gettext_noop("Sound quality."), gettext_noop("Higher values correspond to better SNR and better preservation of higher frequencies(\"brightness\"), at the cost of increased computational complexity and a negligible increase in latency."), MDFNST_INT, "0", "0", "5" },
+  { "pcfx.resamp_rate_error", MDFNSF_NOFLAGS, gettext_noop("Output rate tolerance."), gettext_noop("Lower values correspond to better matching of the output rate of the resampler to the actual desired output rate, at the expense of increased RAM usage and poorer CPU cache utilization."), MDFNST_FLOAT, "0.0000001", "0.0000001", "0.0000350" },
 
   { NULL }
 };

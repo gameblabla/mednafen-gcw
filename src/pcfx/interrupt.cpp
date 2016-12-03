@@ -48,10 +48,10 @@ static void BuildInterruptCache(void)
 
    if(tmp_prio >= last_prio)
    {
-    if(tmp_prio == last_prio)
+    /*if(tmp_prio == last_prio)
     {
      FXDBG("Undefined IRQ behavior: %d, %d\n", level, tmp_prio);
-    }
+    }*/
     InterruptCache = 8 + tmp_prio;
     last_prio = tmp_prio;
    }
@@ -98,7 +98,7 @@ void PCFXIRQ_Write16(uint32 A, uint16 V)
 // printf("IRQ Controller Write: %08x %04x\n", A, V);
  switch(A & 0xC0)
  {
-  case 0x00: puts("Address error clear");
+  case 0x00: /*puts("Address error clear");*/
 	     break;
 
   case 0x40: InterruptMask = V & 0x7F;

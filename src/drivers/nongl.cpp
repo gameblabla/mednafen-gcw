@@ -143,21 +143,21 @@ static void BlitStraight(const MDFN_Surface *src_surface, const MDFN_Rect *src_r
 
  for(int32 y = 0; y < iter_h; y++)
  {
-  if(alpha_shift >= 0)
+  /*if(alpha_shift >= 0)
   {
    for(int32 x = 0; x < iter_w; x++)
    {
     WPSAE<T, alpha_shift>(dest_pixels[x], src_pixels[x]);
    }
   }
-  else
+  else*/
    memcpy(dest_pixels, src_pixels, iter_w * sizeof(T));
 
   src_pixels += src_pitchinpix;
   dest_pixels += dest_pitchinpix;
  }
 }
-
+/*
 template<typename T, int alpha_shift>
 static void BlitIScale(const MDFN_Surface *src_surface, const MDFN_Rect &sr, MDFN_Surface *dest_surface, const MDFN_Rect &dr, int xscale, int yscale)
 {
@@ -385,10 +385,16 @@ static void BlitSScale(const MDFN_Surface *src_surface, const MDFN_Rect *src_rec
    sl += sl_inc;
  }
 }
-
+*/
 void MDFN_StretchBlitSurface(const MDFN_Surface* src_surface, const MDFN_Rect& src_rect, MDFN_Surface* dest_surface, const MDFN_Rect& dest_rect, bool source_alpha, int scanlines, const MDFN_Rect* original_src_rect, int rotated, int InterlaceField)
 {
- if(!CheckSourceRect(src_surface, &src_rect))
+ MDFN_Rect sr, dr, o_sr;
+ sr = src_rect;
+ o_sr = *original_src_rect;
+ dr = dest_rect;
+ BlitStraight<uint32, 31>(src_surface, &sr, dest_surface, &dr);
+	
+ /*if(!CheckSourceRect(src_surface, &src_rect))
   return;
 
  if(!CheckDestRect(dest_surface, &dest_rect))
@@ -468,5 +474,5 @@ void MDFN_StretchBlitSurface(const MDFN_Surface* src_surface, const MDFN_Rect& s
    case  16: BlitSScale<uint32, 16, false, false>(src_surface, &src_rect, dest_surface, &dest_rect, original_src_rect); break;
    case  24: BlitSScale<uint32, 24, false, false>(src_surface, &src_rect, dest_surface, &dest_rect, original_src_rect); break;
   }
- }
+ }*/
 }

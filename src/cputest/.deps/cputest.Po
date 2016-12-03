@@ -1,5 +1,7 @@
-cputest/cputest.o: cputest/cputest.c cputest/cputest.h \
- ../include/config.h
+cputest/cputest.o: cputest/cputest.c /usr/include/stdc-predef.h \
+ cputest/cputest.h ../include/config.h
+
+/usr/include/stdc-predef.h:
 
 cputest/cputest.h:
 

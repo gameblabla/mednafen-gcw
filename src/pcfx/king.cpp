@@ -330,7 +330,7 @@ static INLINE void RebuildLayerPrioCache(void)
    Done[LAYER_RAINBOW] = true;
   }
  }
- assert(RemapPriority <= 8);
+ //assert(RemapPriority <= 8);
 
  //if(fx_vce.raster_counter == 50)
  // MDFN_DispMessage("%d BG0: %d %d %d %d, VBG: %d, VSPR: %d, RAIN: %d", vr->LayerPriority[0], vr->LayerPriority[1], vr->LayerPriority[2], vr->LayerPriority[3],
@@ -1354,10 +1354,10 @@ void KING_Write16(const v810_timestamp_t timestamp, uint32 A, uint16 V)
   // printf("KING: %02x %04x, %d\n", king->AR, V, fx_vce.raster_counter);
   KING_Update(timestamp);
 
-  if(king->AR >= 0x50 && king->AR <= 0x5E)
+  /*if(king->AR >= 0x50 && king->AR <= 0x5E)
   {
    //ADPCMDBG("Write: %02x(%d), %04x", king->AR, msh, V);
-  }
+  }*/
 
 	      switch(king->AR)
 	      {
@@ -1683,7 +1683,7 @@ void KING_Write16(const v810_timestamp_t timestamp, uint32 A, uint16 V)
 			   break;
 	      }
 
-  PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));	// TODO: Optimize this to only be called when necessary.
+  //PCFX_SetEvent(PCFX_EVENT_KING, timestamp + CalcNextExternalEvent(0x4FFFFFFF));	// TODO: Optimize this to only be called when necessary.
  }
 }
 
@@ -1694,14 +1694,14 @@ uint16 KING_GetADPCMHalfWord(int ch)
 
  king->ADPCMPlayAddress[ch] = (king->ADPCMPlayAddress[ch] & 0x20000) | ((king->ADPCMPlayAddress[ch] + 1) & 0x1FFFF);
 
- if(!(king->ADPCMPlayAddress[ch] & 0x1FFFF))
+ /*if(!(king->ADPCMPlayAddress[ch] & 0x1FFFF))
  {
   ADPCMDBG("Ch %d Wrapped", ch);
- }
+ }*/
 
  if(king->ADPCMPlayAddress[ch] == (((king->ADPCMEndAddress[ch] + 1) & 0x1FFFF) | (king->ADPCMEndAddress[ch] & 0x20000)) )
  {
-  ADPCMDBG("Ch %d End", ch);
+  //ADPCMDBG("Ch %d End", ch);
 
   if(!(king->ADPCMBufferMode[ch] & 1))
   {
@@ -1752,8 +1752,7 @@ static void Cleanup(void)
 
 void KING_Init(void)
 {
- try
- {
+
   king = new king_t();
   memset(king, 0, sizeof(king_t));
 
@@ -1825,12 +1824,6 @@ void KING_Init(void)
   #endif
 
   SCSICD_Init(SCSICD_PCFX, 3, FXCDDABufs[0]->Buf(), FXCDDABufs[1]->Buf(), 153600 * MDFN_GetSettingUI("pcfx.cdspeed"), 21477273, KING_CDIRQ, KING_StuffSubchannels);
- }
- catch(...)
- {
-  Cleanup();
-  throw;
- }
 }
 
 void KING_Close(void)
@@ -2492,7 +2485,7 @@ void KING_StartFrame(VDC **arg_vdc_chips, EmulateSpecStruct *espec)
  DisplayRect->y = MDFN_GetSettingUI("pcfx.slstart");
  DisplayRect->h = MDFN_GetSettingUI("pcfx.slend") - DisplayRect->y + 1;
 
- if(fx_vce.frame_interlaced)
+ /*if(fx_vce.frame_interlaced)
  {
   skip = false;
 
@@ -2500,7 +2493,7 @@ void KING_StartFrame(VDC **arg_vdc_chips, EmulateSpecStruct *espec)
   espec->InterlaceField = fx_vce.odd_field;
   DisplayRect->y *= 2;
   DisplayRect->h *= 2;
- }
+ }*/
 }
 
 static int rb_type;
@@ -2665,10 +2658,10 @@ static void DrawActive(void)
         // CanDrawBG_Fast(x);
 
        // TODO/FIXME: TEST MORE
-       if(CanDrawBG_Fast(x)) // && (rand() & 1))
+       /*if(CanDrawBG_Fast(x)) // && (rand() & 1))*/
 	DrawBG_Fast(bg_linebuffer, x);
-       else
-        DrawBG(bg_linebuffer, x, 0);
+       /*else
+        DrawBG(bg_linebuffer, x, 0);*/
       }
      }
     }
@@ -2782,9 +2775,9 @@ static void MixLayers(void)
     uint32 *target;
     uint32 BPC_Cache = (LAYER_NONE << 28); // Backmost pixel color(cache)
 
-    if(fx_vce.frame_interlaced)
+    /*if(fx_vce.frame_interlaced)
      target = pXBuf + surface->pitch32 * ((fx_vce.raster_counter - 22) * 2 + fx_vce.odd_field);
-    else
+    else*/
      target = pXBuf + surface->pitch32 * (fx_vce.raster_counter - 22);
     
 
@@ -2947,25 +2940,25 @@ static void MixLayers(void)
       target[x] = YUV888_TO_xxx(zeout);	\
      }
 
-    if(surface->format.colorspace == MDFN_COLORSPACE_YCbCr)
+    /*if(surface->format.colorspace == MDFN_COLORSPACE_YCbCr)
     {
      #define YUV888_TO_xxx YUV888_TO_YCbCr888
      #include "king_mix_body.inc"
      #undef YUV888_TO_xxx
     }
     else
-    {
+    {*/
      #define YUV888_TO_xxx YUV888_TO_RGB888
      #include "king_mix_body.inc"
      #undef YUV888_TO_xxx
-    }
+    /*}*/
     DisplayRect->w = fx_vce.dot_clock ? HighDotClockWidth : 256;
     DisplayRect->x = 0;
 
 	// FIXME
-    if(fx_vce.frame_interlaced)
+    /*f(fx_vce.frame_interlaced)
      LineWidths[(fx_vce.raster_counter - 22) * 2 + fx_vce.odd_field] = DisplayRect->w;
-    else
+    else*/
      LineWidths[fx_vce.raster_counter - 22] = DisplayRect->w;
 }
 
@@ -3025,7 +3018,7 @@ static void MDFN_FASTCALL KING_RunGfx(int32 clocks)
    RunVDCs(chunk_clocks, vdc_linebuffers[0], vdc_linebuffers[1]);
   }
 
-  assert(HPhaseCounter >= 0);
+ /* assert(HPhaseCounter >= 0);*/
 
   while(HPhaseCounter <= 0)
   {
@@ -3147,29 +3140,6 @@ void KING_SetLayerEnableMask(uint64 mask)
 
  RAINBOWLayerDisable = (~ms) & 0x1;
  ms >>= 1;
-
-#if 0
- if(which < 4)
- {
-  BGLayerDisable ^= 1 << which;
-  return( !((BGLayerDisable >> which) & 1));
- }
- else if(which == 4 || which == 5)
- {
-  return(fx_vdc_chips[0]->ToggleLayer(which - 4));
- }
- else if(which == 6 || which == 7)
- {
-  return(fx_vdc_chips[1]->ToggleLayer(which - 6));
- }
- else if(which == 8)
- {
-  RAINBOWLayerDisable = !RAINBOWLayerDisable;
-  return(!RAINBOWLayerDisable);
- }
- else
-  return(0);
-#endif
 }
 
 
@@ -3888,7 +3858,7 @@ static void DoGfxDecode(void)
 {
  int pbn = GfxDecode_PBN;
 
- if(GfxDecode_Layer >= 4 && GfxDecode_Layer <= 7)
+ /*if(GfxDecode_Layer >= 4 && GfxDecode_Layer <= 7)
  {
   uint32 palette_offset = fx_vce.palette_offset[0] >> (((GfxDecode_Layer - 4) & 1) * 8);
   palette_offset <<= 1;
@@ -4084,7 +4054,7 @@ static void DoGfxDecode(void)
 
   }
  }
- else
+ else*/
   memset(GfxDecode_Buf->pixels, 0, GfxDecode_Buf->w * GfxDecode_Buf->h * sizeof(uint32) * 3);
 }
 

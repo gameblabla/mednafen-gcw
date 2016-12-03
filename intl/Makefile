@@ -55,21 +55,21 @@ INSTALL_DATA = ${INSTALL} -m 644
 # We use $(mkdir_p).
 # In automake <= 1.9.x, $(mkdir_p) is defined either as "mkdir -p --" or as
 # "$(mkinstalldirs)" or as "$(install_sh) -d". For these automake versions,
-# ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh does not start with $(SHELL), so we add it.
+# ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh does not start with $(SHELL), so we add it.
 # In automake >= 1.10, /bin/mkdir -p is derived from ${MKDIR_P}, which is defined
 # either as "/path/to/mkdir -p" or ".../install-sh -c -d". For these automake
 # versions, $(mkinstalldirs) and $(install_sh) are unused.
-mkinstalldirs = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh -d
-install_sh = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh
+mkinstalldirs = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh -d
+install_sh = $(SHELL) ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh
 MKDIR_P = /bin/mkdir -p
 mkdir_p = /bin/mkdir -p
 
 l = 
 
 AR = ar
-CC = mipsel-linux-gcc -std=gnu99 -fsigned-char
+CC = gcc -std=gnu99 -fsigned-char
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
-RANLIB = mipsel-linux-ranlib
+RANLIB = ranlib
 YACC = bison -y -d
 YFLAGS = --name-prefix=__gettext
 # Windows resource compiler (windres). Used when libtool is not used.
@@ -106,8 +106,8 @@ DEFS = -DLOCALEDIR=\"$(localedir)\" -DLOCALE_ALIAS_PATH=\"$(aliaspath)\" \
 -Drelocate=libintl_relocate \
 -DDEPENDS_ON_LIBICONV=1 -DHAVE_CONFIG_H
 CPPFLAGS = 
-CFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-PIE -fvisibility=hidden
-LDFLAGS = -fno-PIE -Wl,--as-needed -Wl,--gc-sections -flto -s $(LDFLAGS_no)
+CFLAGS = -g -O2 -fvisibility=hidden
+LDFLAGS =  $(LDFLAGS_no)
 LDFLAGS_yes = -Wl,--export-all-symbols
 LDFLAGS_no =
 LIBS = -lz 
@@ -220,7 +220,7 @@ libintl.a libgnuintl.a: $(OBJECTS)
 libintl.la libgnuintl.la: $(OBJECTS) $(OBJECTS_RES_no)
 	$(AM_V_GEN)$(LIBTOOL) $(AM_V_lt) --tag=CC --mode=link \
 	  $(CC) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS) $(LDFLAGS) -o $@ \
-	  $(OBJECTS) -liconv  $(LIBS)  -lc \
+	  $(OBJECTS)   $(LIBS)  -lc \
 	  $(OBJECTS_RES_no) \
 	  -version-info $(LTV_CURRENT):$(LTV_REVISION):$(LTV_AGE) \
 	  -rpath $(libdir) \
@@ -345,7 +345,7 @@ libgnuintl.h: $(srcdir)/libgnuintl.h.in
 	sed -e '/IN_LIBGLOCALE/d' \
 	    -e 's,@''HAVE_POSIX_PRINTF''@,1,g' \
 	    -e 's,@''HAVE_ASPRINTF''@,1,g' \
-	    -e 's,@''HAVE_NEWLOCALE''@,0,g' \
+	    -e 's,@''HAVE_NEWLOCALE''@,1,g' \
 	    -e 's,@''HAVE_SNPRINTF''@,1,g' \
 	    -e 's,@''HAVE_WPRINTF''@,0,g' \
 	  < $(srcdir)/libgnuintl.h.in \
@@ -363,13 +363,13 @@ libintl.h: $(srcdir)/libgnuintl.h.in
 	sed -e '/IN_LIBGLOCALE/d' \
 	    -e 's,@''HAVE_POSIX_PRINTF''@,1,g' \
 	    -e 's,@''HAVE_ASPRINTF''@,1,g' \
-	    -e 's,@''HAVE_NEWLOCALE''@,0,g' \
+	    -e 's,@''HAVE_NEWLOCALE''@,1,g' \
 	    -e 's,@''HAVE_SNPRINTF''@,1,g' \
 	    -e 's,@''HAVE_WPRINTF''@,0,g' \
 	  < $(srcdir)/libgnuintl.h.in > libintl.h
 
 charset.alias: $(srcdir)/config.charset
-	$(SHELL) $(srcdir)/config.charset 'mipsel-unknown-linux-gnu' > t-$@
+	$(SHELL) $(srcdir)/config.charset 'x86_64-unknown-linux-gnu' > t-$@
 	mv t-$@ $@
 
 check: all

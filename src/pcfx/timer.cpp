@@ -147,18 +147,18 @@ uint32 FXTIMER_GetRegister(const unsigned int id, char *special, const uint32 sp
  {
   case FXTIMER_GSREG_TCTRL:
 	value = control;
-	if(special)
+	/*if(special)
 	{
 	 trio_snprintf(special, special_len, "Counting Enabled: %d, IRQ Enabled: %d, IRQ Asserted: %d", (int)(bool)(control & 2), (int)(bool)(control & 1), (int)(bool)(control & 4));
-	}
+	}*/
 	break;
 
   case FXTIMER_GSREG_TPRD:
 	value = period;
-	if(special)
+	/*if(special)
 	{
 	 trio_snprintf(special, special_len, "Effective Period: %d; 21477272 / %d = %fHz", EFF_PERIOD, EFF_PERIOD, (double)21477272 / (EFF_PERIOD));
-	}
+	}*/
 	break;
 
   case FXTIMER_GSREG_TCNTR:

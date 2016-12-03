@@ -77,8 +77,8 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
-host_triplet = mipsel-unknown-linux-gnu
-target_triplet = mipsel-unknown-linux-gnu
+host_triplet = x86_64-unknown-linux-gnu
+target_triplet = x86_64-unknown-linux-gnu
 subdir = src/trio
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/mkinstalldirs $(top_srcdir)/depcomp
@@ -184,34 +184,34 @@ am__define_uniq_tagged_files = \
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /home/anonymous/Documents/Dev/medn/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing aclocal-1.14
 ALLOCA = 
 ALSA_CFLAGS = 
 ALSA_LIBS =  -lasound -lm -ldl -lpthread
 AMTAR = $${TAR-tar}
-AM_CFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables 
-AM_CXXFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables  -fexceptions
+AM_CFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fno-ipa-icf -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables -mcmodel=small 
+AM_CXXFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fno-ipa-icf -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables -mcmodel=small  -fexceptions
 AM_DEFAULT_VERBOSITY = 1
-AR = mipsel-linux-ar
-AUTOCONF = ${SHELL} /home/anonymous/Documents/Dev/medn/missing autoconf
-AUTOHEADER = ${SHELL} /home/anonymous/Documents/Dev/medn/missing autoheader
-AUTOMAKE = ${SHELL} /home/anonymous/Documents/Dev/medn/missing automake-1.14
+AR = ar
+AUTOCONF = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing autoconf
+AUTOHEADER = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing autoheader
+AUTOMAKE = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing automake-1.14
 AWK = gawk
 BUILD_INCLUDED_LIBINTL = no
 CATOBJEXT = .gmo
-CC = mipsel-linux-gcc -std=gnu99 -fsigned-char
-CCAS = mipsel-linux-gcc
+CC = gcc -std=gnu99 -fsigned-char
+CCAS = gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-PIE
+CCASFLAGS = -g -O2
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-PIE
+CFLAGS = -g -O2
 CFLAG_VISIBILITY = -fvisibility=hidden
-CPP = mipsel-linux-gcc -E -std=gnu99
+CPP = gcc -E -std=gnu99
 CPPFLAGS = 
-CXX = mipsel-linux-g++ -std=gnu++11 -fsigned-char
-CXXCPP = mipsel-linux-g++ -E -std=gnu++11
+CXX = g++ -std=gnu++11 -fsigned-char
+CXXCPP = g++ -E -std=gnu++11
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-rtti -fno-PIE
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H  -fvisibility=hidden
@@ -229,11 +229,11 @@ GENCAT = gencat
 GETTEXT_MACRO_VERSION = 0.18
 GLIBC2 = yes
 GLIBC21 = yes
-GMSGFMT = /opt/gcw0-toolchain/usr/bin/msgfmt
-GMSGFMT_015 = /opt/gcw0-toolchain/usr/bin/msgfmt
+GMSGFMT = /usr/bin/msgfmt
+GMSGFMT_015 = /usr/bin/msgfmt
 GREP = /bin/grep
 HAVE_ASPRINTF = 1
-HAVE_NEWLOCALE = 0
+HAVE_NEWLOCALE = 1
 HAVE_POSIX_PRINTF = 1
 HAVE_SNPRINTF = 1
 HAVE_VISIBILITY = 1
@@ -245,17 +245,17 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 INSTOBJEXT = .mo
 INTLBISON = bison
-INTLLIBS = -lintl
+INTLLIBS = 
 INTLOBJS = 
 INTL_DEFAULT_VERBOSITY = 1
 INTL_LIBTOOL_SUFFIX_PREFIX = 
 INTL_MACOSX_LIBS = 
 JACK_CFLAGS = 
 JACK_LIBS = 
-LD = /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -fno-PIE -Wl,--as-needed -Wl,--gc-sections -flto -s
-LIBICONV = -liconv
-LIBINTL = -lintl
+LD = /usr/bin/ld -m elf_x86_64
+LDFLAGS = 
+LIBICONV = 
+LIBINTL = 
 LIBMULTITHREAD = 
 LIBOBJS = 
 LIBPTH = 
@@ -266,23 +266,23 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBC = -lc
-LTLIBICONV = -liconv
-LTLIBINTL = -lintl
+LTLIBICONV = 
+LTLIBINTL = 
 LTLIBMULTITHREAD = 
 LTLIBOBJS = 
 LTLIBPTH = 
 LTLIBTHREAD = 
-MAKEINFO = ${SHELL} /home/anonymous/Documents/Dev/medn/missing makeinfo
+MAKEINFO = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 MPCDEC_LIBS = 
-MSGFMT = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGFMT_015 = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGMERGE = /opt/gcw0-toolchain/usr/bin/msgmerge
-NM = /opt/gcw0-toolchain/usr/bin/mipsel-linux-nm -B
+MSGFMT = /usr/bin/msgfmt
+MSGFMT_015 = /usr/bin/msgfmt
+MSGMERGE = /usr/bin/msgmerge
+NM = /usr/bin/nm -B
 NMEDIT = 
 NO_STACK_PROTECTOR_FLAGS =  -fno-stack-protector
-OBJDUMP = mipsel-linux-objdump
+OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
@@ -294,12 +294,12 @@ PACKAGE_TARNAME =
 PACKAGE_URL = 
 PACKAGE_VERSION = 
 PATH_SEPARATOR = :
-PKG_CONFIG = /opt/gcw0-toolchain/usr/bin/pkg-config
+PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
 POSUB = po
 PRI_MACROS_BROKEN = 0
-RANLIB = mipsel-linux-ranlib
+RANLIB = ranlib
 SDL_CFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
 SDL_CONFIG = /usr/bin/sdl-config
 SDL_LIBS = -L/usr/lib/x86_64-linux-gnu -lSDL
@@ -310,8 +310,8 @@ SNDFILE_CFLAGS =
 SNDFILE_LIBS = 
 SNES_EXTRA_CXXFLAGS = 
 SNES_EXTRA_FLAGS =  -Wno-unused -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-parentheses -Wno-switch
-SS_EXTRA_FLAGS = 
-STRIP = mipsel-linux-strip
+SS_EXTRA_FLAGS =  -mtune=haswell
+STRIP = strip
 TREMOR_LIBS = 
 TRIO_CFLAGS = 
 USE_INCLUDED_LIBINTL = no
@@ -321,17 +321,17 @@ WARNING_FLAGS =  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariad
 WINDRES = 
 WOE32 = no
 WOE32DLL = no
-XGETTEXT = /opt/gcw0-toolchain/usr/bin/xgettext
-XGETTEXT_015 = /opt/gcw0-toolchain/usr/bin/xgettext
+XGETTEXT = /usr/bin/xgettext
+XGETTEXT_015 = /usr/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS = 
 ZLIB_LIBS = -lz
-abs_builddir = /home/anonymous/Documents/Dev/medn/src/trio
-abs_srcdir = /home/anonymous/Documents/Dev/medn/src/trio
-abs_top_builddir = /home/anonymous/Documents/Dev/medn
-abs_top_srcdir = /home/anonymous/Documents/Dev/medn
-ac_ct_AR = 
-ac_ct_CC = 
-ac_ct_CXX = 
+abs_builddir = /home/anonymous/Documents/Dev/mednafen-gcw/src/trio
+abs_srcdir = /home/anonymous/Documents/Dev/mednafen-gcw/src/trio
+abs_top_builddir = /home/anonymous/Documents/Dev/mednafen-gcw
+abs_top_srcdir = /home/anonymous/Documents/Dev/mednafen-gcw
+ac_ct_AR = ar
+ac_ct_CC = gcc
+ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
 am__include = include
 am__leading_dot = .
@@ -350,15 +350,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = mipsel-unknown-linux-gnu
-host_alias = mipsel-linux
-host_cpu = mipsel
+host = x86_64-unknown-linux-gnu
+host_alias = 
+host_cpu = x86_64
 host_os = linux-gnu
 host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh
+install_sh = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -374,9 +374,9 @@ sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
-target = mipsel-unknown-linux-gnu
+target = x86_64-unknown-linux-gnu
 target_alias = 
-target_cpu = mipsel
+target_cpu = x86_64
 target_os = linux-gnu
 target_vendor = unknown
 top_build_prefix = ../../

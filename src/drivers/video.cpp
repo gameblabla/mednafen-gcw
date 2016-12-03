@@ -1351,10 +1351,10 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
  // Reduce CPU usage when minimized, and prevent OpenGL memory quasi-leaks on Windows(though I have the feeling there's a
  // cleaner less-racey way to prevent that memory leak problem).
  //
- if(!(SDL_GetAppState() & SDL_APPACTIVE))
-  return;
+ /*if(!(SDL_GetAppState() & SDL_APPACTIVE))
+  return;*/
 
- if(NeedClear)
+/* if(NeedClear)
  {
   uint32 ct = MDFND_GetTime();
 
@@ -1365,9 +1365,9 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
   }
 
   ClearBackBuffer();
- }
+ }*/
 
- OverlayOK = false;
+ /*OverlayOK = false;
  if(vdriver == VDRIVER_OVERLAY)
  {
   bool osd_active = Help_IsActive() || SaveStatesActive() || CheatIF_Active() || Netplay_GetTextView() ||
@@ -1393,7 +1393,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
   if(OverlayOK)
    pf_needed = &pf_overlay;
- } // end if(vdriver == VDRIVER_OVERLAY)
+ } // end if(vdriver == VDRIVER_OVERLAY)*/
 
  msurface->SetFormat(*pf_needed, TRUE);
 
@@ -1432,7 +1432,8 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
   }
  }
 
- if(LineWidths[0] == ~0) // Skip multi line widths code?
+ SubBlit(msurface, src_rect, screen_dest_rect, InterlaceField);
+ /*if(LineWidths[0] == ~0) // Skip multi line widths code?
  {
   SubBlit(msurface, src_rect, screen_dest_rect, InterlaceField);
  }
@@ -1494,8 +1495,8 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
    }
   }
- }
-
+ }*/
+/*
  if(take_ssnapshot)
  {
   try
@@ -1548,29 +1549,6 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
 
  Debugger_MT_DrawToScreen(MDFN_PixelFormat(MDFN_COLORSPACE_RGB, real_rs, real_gs, real_bs, real_as), screen->w, screen->h);
 
-#if 0
- if(CKGUI_IsActive())
- {
-  if(!CKGUISurface)
-  {
-   CKGUIRect.w = screen->w;
-   CKGUIRect.h = screen->h;
-
-   CKGUISurface = SDL_CreateRGBSurface(SDL_SWSURFACE | SDL_SRCALPHA, CKGUIRect.w, CKGUIRect.h, 32, 0xFF << real_rs, 0xFF << real_gs, 0xFF << real_bs, 0xFF << real_as);
-   SDL_SetColorKey(CKGUISurface, SDL_SRCCOLORKEY, 0);
-   SDL_SetAlpha(CKGUISurface, SDL_SRCALPHA, 0);
-  }
-  MDFN_Rect zederect = CKGUIRect;
-  CKGUI_Draw(CKGUISurface, &CKGUIRect);
-  BlitRaw(CKGUISurface, &CKGUIRect, &zederect);
- }
- else if(CKGUISurface)
- {
-  SDL_FreeSurface(CKGUISurface);
-  CKGUISurface = NULL;
- }
-#endif
-
  if(Help_IsActive())
  {
   if(!HelpSurface)
@@ -1608,9 +1586,9 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
   HelpSurface = NULL;
  }
 
- DrawSaveStates(screen, exs, eys, real_rs, real_gs, real_bs, real_as);
+ DrawSaveStates(screen, exs, eys, real_rs, real_gs, real_bs, real_as);*/
 
- try
+ /*try
  {
   CheatIF_MT_Draw(MDFN_PixelFormat(MDFN_COLORSPACE_RGB, real_rs, real_gs, real_bs, real_as), screen->w, screen->h);
   Netplay_MT_Draw(MDFN_PixelFormat(MDFN_COLORSPACE_RGB, real_rs, real_gs, real_bs, real_as), screen->w, screen->h);
@@ -1618,7 +1596,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
  catch(std::exception& e)
  {
   MDFN_DispMessage("%s", e.what());
- }
+ }*/
 
  BlitInternalMessage();
 
@@ -1639,7 +1617,8 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
   FPS_DrawToScreen(screen, real_rs, real_gs, real_bs, real_as, fps_offsx, fps_offsy);
  }
 
- if(!(cur_flags & SDL_OPENGL))
+ SDL_Flip(screen);
+ /*if(!(cur_flags & SDL_OPENGL))
  {
   if(!OverlayOK)
    SDL_Flip(screen);
@@ -1649,7 +1628,7 @@ void BlitScreen(MDFN_Surface *msurface, const MDFN_Rect *DisplayRect, const int3
   PumpWrap();
   SDL_GL_SwapBuffers();
   //ogl_blitter->HardSync();
- }
+ }*/
 }
 
 void Video_PtoV(const int in_x, const int in_y, int32 *out_x, int32 *out_y)

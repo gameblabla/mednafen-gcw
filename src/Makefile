@@ -77,8 +77,8 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = x86_64-unknown-linux-gnu
-host_triplet = mipsel-unknown-linux-gnu
-target_triplet = mipsel-unknown-linux-gnu
+host_triplet = x86_64-unknown-linux-gnu
+target_triplet = x86_64-unknown-linux-gnu
 bin_PROGRAMS = mednafen$(EXEEXT)
 am__append_1 = drivers
 am__append_2 = drivers/libmdfnsdl.a
@@ -116,15 +116,15 @@ DIST_COMMON = $(srcdir)/cdplay/Makefile.am.inc \
 	$(srcdir)/cheat_formats/Makefile.am.inc $(srcdir)/Makefile.in \
 	$(srcdir)/Makefile.am $(top_srcdir)/mkinstalldirs \
 	$(top_srcdir)/depcomp
-am__append_9 = gb/gb.cpp gb/gfx.cpp gb/gbGlobals.cpp gb/memory.cpp gb/sound.cpp gb/z80.cpp
-am__append_10 = gba/GBAinline.cpp gba/arm.cpp \
-	gba/thumb.cpp gba/bios.cpp gba/eeprom.cpp \
-	gba/flash.cpp gba/GBA.cpp gba/Gfx.cpp \
-	gba/Globals.cpp gba/Mode0.cpp gba/Mode1.cpp \
-	gba/Mode2.cpp gba/Mode3.cpp gba/Mode4.cpp \
-	gba/Mode5.cpp gba/RTC.cpp gba/Sound.cpp \
-	gba/sram.cpp
-am__append_11 = lynx/cart.cpp lynx/c65c02.cpp lynx/memmap.cpp lynx/mikie.cpp lynx/ram.cpp lynx/rom.cpp lynx/susie.cpp lynx/system.cpp
+#am__append_9 = gb/gb.cpp gb/gfx.cpp gb/gbGlobals.cpp gb/memory.cpp gb/sound.cpp gb/z80.cpp
+#am__append_10 = gba/GBAinline.cpp gba/arm.cpp \
+#	gba/thumb.cpp gba/bios.cpp gba/eeprom.cpp \
+#	gba/flash.cpp gba/GBA.cpp gba/Gfx.cpp \
+#	gba/Globals.cpp gba/Mode0.cpp gba/Mode1.cpp \
+#	gba/Mode2.cpp gba/Mode3.cpp gba/Mode4.cpp \
+#	gba/Mode5.cpp gba/RTC.cpp gba/Sound.cpp \
+#	gba/sram.cpp
+#am__append_11 = lynx/cart.cpp lynx/c65c02.cpp lynx/memmap.cpp lynx/mikie.cpp lynx/ram.cpp lynx/rom.cpp lynx/susie.cpp lynx/system.cpp
 # md/cart/ssp16.c
 #am__append_12 = md/vdp.cpp md/genesis.cpp \
 #	md/genio.cpp md/header.cpp md/mem68k.cpp \
@@ -141,74 +141,74 @@ am__append_11 = lynx/cart.cpp lynx/c65c02.cpp lynx/memmap.cpp lynx/mikie.cpp lyn
 #	md/cd/timer.cpp md/cd/interrupt.cpp \
 #	md/cd/pcm.cpp md/cd/cdc_cdd.cpp
 ##am__append_13 = md/debug.cpp
-am__append_14 = nes/nes.cpp nes/x6502.cpp nes/cart.cpp nes/fds.cpp nes/ines.cpp nes/input.cpp nes/nsf.cpp nes/nsfe.cpp nes/unif.cpp nes/vsuni.cpp nes/sound.cpp nes/filter.cpp nes/fds-sound.cpp
-#am__append_15 = nes/debug.cpp \
-#	nes/dis6502.cpp
-am__append_16 = nes/ppu/ppu.cpp nes/ppu/palette.cpp \
-	nes/boards/8237.cpp nes/boards/h2288.cpp \
-	nes/boards/simple.cpp \
-	nes/boards/super24.cpp \
-	nes/boards/mmc2and4.cpp nes/boards/vrc6.cpp \
-	nes/boards/emu2413.cpp nes/boards/vrc7.cpp \
-	nes/boards/96.cpp nes/boards/208.cpp \
-	nes/boards/187.cpp nes/boards/95.cpp \
-	nes/boards/fme7.cpp nes/boards/mmc5.cpp \
-	nes/boards/mmc3.cpp nes/boards/mmc1.cpp \
-	nes/boards/tengen.cpp nes/boards/90.cpp \
-	nes/boards/deirom.cpp nes/boards/n106.cpp \
-	nes/boards/maxicart.cpp nes/boards/112.cpp \
-	nes/boards/113.cpp nes/boards/114.cpp \
-	nes/boards/117.cpp nes/boards/22.cpp \
-	nes/boards/23.cpp nes/boards/25.cpp \
-	nes/boards/67.cpp nes/boards/68.cpp \
-	nes/boards/16.cpp nes/boards/97.cpp \
-	nes/boards/99.cpp nes/boards/151.cpp \
-	nes/boards/180.cpp nes/boards/182.cpp \
-	nes/boards/184.cpp nes/boards/88.cpp \
-	nes/boards/89.cpp nes/boards/92.cpp \
-	nes/boards/86.cpp nes/boards/82.cpp \
-	nes/boards/80.cpp nes/boards/18.cpp \
-	nes/boards/21.cpp nes/boards/228.cpp \
-	nes/boards/234.cpp nes/boards/232.cpp \
-	nes/boards/42.cpp nes/boards/ffe.cpp \
-	nes/boards/65.cpp nes/boards/nina06.cpp \
-	nes/boards/73.cpp nes/boards/32.cpp \
-	nes/boards/33.cpp nes/boards/41.cpp \
-	nes/boards/46.cpp nes/boards/72.cpp \
-	nes/boards/75.cpp nes/boards/76.cpp \
-	nes/boards/77.cpp \
-	nes/boards/colordreams.cpp \
-	nes/boards/140.cpp nes/boards/93.cpp \
-	nes/boards/94.cpp nes/boards/malee.cpp \
-	nes/boards/156.cpp \
-	nes/boards/supervision.cpp \
-	nes/boards/novel.cpp nes/boards/242.cpp \
-	nes/boards/246.cpp nes/boards/248.cpp \
-	nes/boards/15.cpp nes/boards/8.cpp \
-	nes/boards/193.cpp nes/boards/189.cpp \
-	nes/boards/244.cpp nes/boards/sachen.cpp \
-	nes/boards/107.cpp nes/boards/51.cpp \
-	nes/boards/152.cpp nes/boards/70.cpp \
-	nes/boards/185.cpp nes/boards/78.cpp \
-	nes/boards/87.cpp nes/boards/34.cpp \
-	nes/boards/222.cpp \
-	nes/boards/codemasters.cpp \
-	nes/boards/38.cpp nes/boards/240.cpp \
-	nes/boards/241.cpp nes/boards/163.cpp \
-	nes/boards/30.cpp nes/input/cursor.cpp \
-	nes/input/zapper.cpp nes/input/powerpad.cpp \
-	nes/input/arkanoid.cpp nes/input/shadow.cpp \
-	nes/input/fkb.cpp nes/input/fkb.h \
-	nes/input/hypershot.cpp \
-	nes/input/mahjong.cpp \
-	nes/input/oekakids.cpp \
-	nes/input/ftrainer.cpp \
-	nes/input/partytap.cpp \
-	nes/input/toprider.cpp nes/input/bworld.cpp \
-	nes/input/suborkb.cpp nes/ntsc/nes_ntsc.cpp
-am__append_17 = ngp
-am__append_18 = ngp/libngp.a
-am__append_19 = ngp/libngp.a
+#am__append_14 = nes/nes.cpp nes/x6502.cpp nes/cart.cpp nes/fds.cpp nes/ines.cpp nes/input.cpp nes/nsf.cpp nes/nsfe.cpp nes/unif.cpp nes/vsuni.cpp nes/sound.cpp nes/filter.cpp nes/fds-sound.cpp
+##am__append_15 = nes/debug.cpp \
+##	nes/dis6502.cpp
+#am__append_16 = nes/ppu/ppu.cpp nes/ppu/palette.cpp \
+#	nes/boards/8237.cpp nes/boards/h2288.cpp \
+#	nes/boards/simple.cpp \
+#	nes/boards/super24.cpp \
+#	nes/boards/mmc2and4.cpp nes/boards/vrc6.cpp \
+#	nes/boards/emu2413.cpp nes/boards/vrc7.cpp \
+#	nes/boards/96.cpp nes/boards/208.cpp \
+#	nes/boards/187.cpp nes/boards/95.cpp \
+#	nes/boards/fme7.cpp nes/boards/mmc5.cpp \
+#	nes/boards/mmc3.cpp nes/boards/mmc1.cpp \
+#	nes/boards/tengen.cpp nes/boards/90.cpp \
+#	nes/boards/deirom.cpp nes/boards/n106.cpp \
+#	nes/boards/maxicart.cpp nes/boards/112.cpp \
+#	nes/boards/113.cpp nes/boards/114.cpp \
+#	nes/boards/117.cpp nes/boards/22.cpp \
+#	nes/boards/23.cpp nes/boards/25.cpp \
+#	nes/boards/67.cpp nes/boards/68.cpp \
+#	nes/boards/16.cpp nes/boards/97.cpp \
+#	nes/boards/99.cpp nes/boards/151.cpp \
+#	nes/boards/180.cpp nes/boards/182.cpp \
+#	nes/boards/184.cpp nes/boards/88.cpp \
+#	nes/boards/89.cpp nes/boards/92.cpp \
+#	nes/boards/86.cpp nes/boards/82.cpp \
+#	nes/boards/80.cpp nes/boards/18.cpp \
+#	nes/boards/21.cpp nes/boards/228.cpp \
+#	nes/boards/234.cpp nes/boards/232.cpp \
+#	nes/boards/42.cpp nes/boards/ffe.cpp \
+#	nes/boards/65.cpp nes/boards/nina06.cpp \
+#	nes/boards/73.cpp nes/boards/32.cpp \
+#	nes/boards/33.cpp nes/boards/41.cpp \
+#	nes/boards/46.cpp nes/boards/72.cpp \
+#	nes/boards/75.cpp nes/boards/76.cpp \
+#	nes/boards/77.cpp \
+#	nes/boards/colordreams.cpp \
+#	nes/boards/140.cpp nes/boards/93.cpp \
+#	nes/boards/94.cpp nes/boards/malee.cpp \
+#	nes/boards/156.cpp \
+#	nes/boards/supervision.cpp \
+#	nes/boards/novel.cpp nes/boards/242.cpp \
+#	nes/boards/246.cpp nes/boards/248.cpp \
+#	nes/boards/15.cpp nes/boards/8.cpp \
+#	nes/boards/193.cpp nes/boards/189.cpp \
+#	nes/boards/244.cpp nes/boards/sachen.cpp \
+#	nes/boards/107.cpp nes/boards/51.cpp \
+#	nes/boards/152.cpp nes/boards/70.cpp \
+#	nes/boards/185.cpp nes/boards/78.cpp \
+#	nes/boards/87.cpp nes/boards/34.cpp \
+#	nes/boards/222.cpp \
+#	nes/boards/codemasters.cpp \
+#	nes/boards/38.cpp nes/boards/240.cpp \
+#	nes/boards/241.cpp nes/boards/163.cpp \
+#	nes/boards/30.cpp nes/input/cursor.cpp \
+#	nes/input/zapper.cpp nes/input/powerpad.cpp \
+#	nes/input/arkanoid.cpp nes/input/shadow.cpp \
+#	nes/input/fkb.cpp nes/input/fkb.h \
+#	nes/input/hypershot.cpp \
+#	nes/input/mahjong.cpp \
+#	nes/input/oekakids.cpp \
+#	nes/input/ftrainer.cpp \
+#	nes/input/partytap.cpp \
+#	nes/input/toprider.cpp nes/input/bworld.cpp \
+#	nes/input/suborkb.cpp nes/ntsc/nes_ntsc.cpp
+#am__append_17 = ngp
+#am__append_18 = ngp/libngp.a
+#am__append_19 = ngp/libngp.a
 #am__append_20 = pce/huc6280.cpp pce/pce.cpp \
 #	pce/vce.cpp pce/input.cpp pce/huc.cpp \
 #	pce/pcecd.cpp pce/hes.cpp pce/tsushin.cpp \
@@ -242,7 +242,7 @@ am__append_19 = ngp/libngp.a
 #am__append_28 = snes
 #am__append_29 = snes/libsnes.a
 #am__append_30 = snes/libsnes.a
-#am__append_31 = snes_faust/cpu.cpp snes_faust/snes.cpp snes_faust/apu.cpp snes_faust/cart.cpp snes_faust/input.cpp snes_faust/ppu.cpp
+am__append_31 = snes_faust/cpu.cpp snes_faust/snes.cpp snes_faust/apu.cpp snes_faust/cart.cpp snes_faust/input.cpp snes_faust/ppu.cpp
 #am__append_32 = ss/libss.a
 #am__append_33 = ss/libss.a
 #am__append_34 = ss/libssfplay.a
@@ -255,17 +255,17 @@ am__append_19 = ngp/libngp.a
 #am__append_41 = desa68/libdesa68.a
 #am__append_42 = desa68/libdesa68.a
 #am__append_43 = hw_cpu/m68k/m68k.cpp
-am__append_44 = hw_cpu/z80-fuse/z80.cpp hw_cpu/z80-fuse/z80_ops.cpp
+#am__append_44 = hw_cpu/z80-fuse/z80.cpp hw_cpu/z80-fuse/z80_ops.cpp
 #am__append_45 = hw_cpu/v810/v810_cpu.cpp hw_cpu/v810/v810_cpuD.cpp hw_cpu/v810/v810_fp_ops.cpp
 #am__append_46 = hw_misc/arcade_card/arcade_card.cpp
 #am__append_47 = hw_sound/ym2413/emu2413.cpp
 #am__append_48 = hw_sound/ym2612/Ym2612_Emu.cpp
-am__append_49 = hw_sound/gb_apu/Gb_Apu.cpp hw_sound/gb_apu/Gb_Apu_State.cpp hw_sound/gb_apu/Gb_Oscs.cpp
+#am__append_49 = hw_sound/gb_apu/Gb_Apu.cpp hw_sound/gb_apu/Gb_Apu_State.cpp hw_sound/gb_apu/Gb_Oscs.cpp
 #am__append_50 = hw_sound/sms_apu/Sms_Apu.cpp
 #am__append_51 = hw_sound/pce_psg/pce_psg.cpp
 #am__append_52 = hw_video/huc6270/vdc.cpp
 #am__append_53 = cdrom/CDAFReader_SF.cpp
-#am__append_54 = cputest/x86_cpu.c
+am__append_54 = cputest/x86_cpu.c
 #am__append_55 = cputest/ppc_cpu.c
 #am__append_56 = 
 am__append_57 = tremor
@@ -433,24 +433,24 @@ am__mednafen_SOURCES_DIST = debug.cpp error.cpp mempatcher.cpp \
 am__dirstamp = $(am__leading_dot)dirstamp
 #am__objects_1 =  \
 #	drivers/win-resource.$(OBJEXT)
-am__objects_2 = gb/gb.$(OBJEXT) gb/gfx.$(OBJEXT) \
-	gb/gbGlobals.$(OBJEXT) gb/memory.$(OBJEXT) \
-	gb/sound.$(OBJEXT) gb/z80.$(OBJEXT)
-am__objects_3 = gba/GBAinline.$(OBJEXT) \
-	gba/arm.$(OBJEXT) gba/thumb.$(OBJEXT) \
-	gba/bios.$(OBJEXT) gba/eeprom.$(OBJEXT) \
-	gba/flash.$(OBJEXT) gba/GBA.$(OBJEXT) \
-	gba/Gfx.$(OBJEXT) gba/Globals.$(OBJEXT) \
-	gba/Mode0.$(OBJEXT) gba/Mode1.$(OBJEXT) \
-	gba/Mode2.$(OBJEXT) gba/Mode3.$(OBJEXT) \
-	gba/Mode4.$(OBJEXT) gba/Mode5.$(OBJEXT) \
-	gba/RTC.$(OBJEXT) gba/Sound.$(OBJEXT) \
-	gba/sram.$(OBJEXT)
-am__objects_4 = lynx/cart.$(OBJEXT) \
-	lynx/c65c02.$(OBJEXT) \
-	lynx/memmap.$(OBJEXT) lynx/mikie.$(OBJEXT) \
-	lynx/ram.$(OBJEXT) lynx/rom.$(OBJEXT) \
-	lynx/susie.$(OBJEXT) lynx/system.$(OBJEXT)
+#am__objects_2 = gb/gb.$(OBJEXT) gb/gfx.$(OBJEXT) \
+#	gb/gbGlobals.$(OBJEXT) gb/memory.$(OBJEXT) \
+#	gb/sound.$(OBJEXT) gb/z80.$(OBJEXT)
+#am__objects_3 = gba/GBAinline.$(OBJEXT) \
+#	gba/arm.$(OBJEXT) gba/thumb.$(OBJEXT) \
+#	gba/bios.$(OBJEXT) gba/eeprom.$(OBJEXT) \
+#	gba/flash.$(OBJEXT) gba/GBA.$(OBJEXT) \
+#	gba/Gfx.$(OBJEXT) gba/Globals.$(OBJEXT) \
+#	gba/Mode0.$(OBJEXT) gba/Mode1.$(OBJEXT) \
+#	gba/Mode2.$(OBJEXT) gba/Mode3.$(OBJEXT) \
+#	gba/Mode4.$(OBJEXT) gba/Mode5.$(OBJEXT) \
+#	gba/RTC.$(OBJEXT) gba/Sound.$(OBJEXT) \
+#	gba/sram.$(OBJEXT)
+#am__objects_4 = lynx/cart.$(OBJEXT) \
+#	lynx/c65c02.$(OBJEXT) \
+#	lynx/memmap.$(OBJEXT) lynx/mikie.$(OBJEXT) \
+#	lynx/ram.$(OBJEXT) lynx/rom.$(OBJEXT) \
+#	lynx/susie.$(OBJEXT) lynx/system.$(OBJEXT)
 #am__objects_5 = md/vdp.$(OBJEXT) \
 #	md/genesis.$(OBJEXT) md/genio.$(OBJEXT) \
 #	md/header.$(OBJEXT) md/mem68k.$(OBJEXT) \
@@ -476,127 +476,127 @@ am__objects_4 = lynx/cart.$(OBJEXT) \
 #	md/cd/pcm.$(OBJEXT) md/cd/cdc_cdd.$(OBJEXT)
 ##am__objects_6 =  \
 ##	md/debug.$(OBJEXT)
-am__objects_7 = nes/nes.$(OBJEXT) \
-	nes/x6502.$(OBJEXT) nes/cart.$(OBJEXT) \
-	nes/fds.$(OBJEXT) nes/ines.$(OBJEXT) \
-	nes/input.$(OBJEXT) nes/nsf.$(OBJEXT) \
-	nes/nsfe.$(OBJEXT) nes/unif.$(OBJEXT) \
-	nes/vsuni.$(OBJEXT) nes/sound.$(OBJEXT) \
-	nes/filter.$(OBJEXT) \
-	nes/fds-sound.$(OBJEXT)
-#am__objects_8 =  \
-#	nes/debug.$(OBJEXT) \
-#	nes/dis6502.$(OBJEXT)
-am__objects_9 = nes/ppu/ppu.$(OBJEXT) \
-	nes/ppu/palette.$(OBJEXT) \
-	nes/boards/8237.$(OBJEXT) \
-	nes/boards/h2288.$(OBJEXT) \
-	nes/boards/simple.$(OBJEXT) \
-	nes/boards/super24.$(OBJEXT) \
-	nes/boards/mmc2and4.$(OBJEXT) \
-	nes/boards/vrc6.$(OBJEXT) \
-	nes/boards/emu2413.$(OBJEXT) \
-	nes/boards/vrc7.$(OBJEXT) \
-	nes/boards/96.$(OBJEXT) \
-	nes/boards/208.$(OBJEXT) \
-	nes/boards/187.$(OBJEXT) \
-	nes/boards/95.$(OBJEXT) \
-	nes/boards/fme7.$(OBJEXT) \
-	nes/boards/mmc5.$(OBJEXT) \
-	nes/boards/mmc3.$(OBJEXT) \
-	nes/boards/mmc1.$(OBJEXT) \
-	nes/boards/tengen.$(OBJEXT) \
-	nes/boards/90.$(OBJEXT) \
-	nes/boards/deirom.$(OBJEXT) \
-	nes/boards/n106.$(OBJEXT) \
-	nes/boards/maxicart.$(OBJEXT) \
-	nes/boards/112.$(OBJEXT) \
-	nes/boards/113.$(OBJEXT) \
-	nes/boards/114.$(OBJEXT) \
-	nes/boards/117.$(OBJEXT) \
-	nes/boards/22.$(OBJEXT) \
-	nes/boards/23.$(OBJEXT) \
-	nes/boards/25.$(OBJEXT) \
-	nes/boards/67.$(OBJEXT) \
-	nes/boards/68.$(OBJEXT) \
-	nes/boards/16.$(OBJEXT) \
-	nes/boards/97.$(OBJEXT) \
-	nes/boards/99.$(OBJEXT) \
-	nes/boards/151.$(OBJEXT) \
-	nes/boards/180.$(OBJEXT) \
-	nes/boards/182.$(OBJEXT) \
-	nes/boards/184.$(OBJEXT) \
-	nes/boards/88.$(OBJEXT) \
-	nes/boards/89.$(OBJEXT) \
-	nes/boards/92.$(OBJEXT) \
-	nes/boards/86.$(OBJEXT) \
-	nes/boards/82.$(OBJEXT) \
-	nes/boards/80.$(OBJEXT) \
-	nes/boards/18.$(OBJEXT) \
-	nes/boards/21.$(OBJEXT) \
-	nes/boards/228.$(OBJEXT) \
-	nes/boards/234.$(OBJEXT) \
-	nes/boards/232.$(OBJEXT) \
-	nes/boards/42.$(OBJEXT) \
-	nes/boards/ffe.$(OBJEXT) \
-	nes/boards/65.$(OBJEXT) \
-	nes/boards/nina06.$(OBJEXT) \
-	nes/boards/73.$(OBJEXT) \
-	nes/boards/32.$(OBJEXT) \
-	nes/boards/33.$(OBJEXT) \
-	nes/boards/41.$(OBJEXT) \
-	nes/boards/46.$(OBJEXT) \
-	nes/boards/72.$(OBJEXT) \
-	nes/boards/75.$(OBJEXT) \
-	nes/boards/76.$(OBJEXT) \
-	nes/boards/77.$(OBJEXT) \
-	nes/boards/colordreams.$(OBJEXT) \
-	nes/boards/140.$(OBJEXT) \
-	nes/boards/93.$(OBJEXT) \
-	nes/boards/94.$(OBJEXT) \
-	nes/boards/malee.$(OBJEXT) \
-	nes/boards/156.$(OBJEXT) \
-	nes/boards/supervision.$(OBJEXT) \
-	nes/boards/novel.$(OBJEXT) \
-	nes/boards/242.$(OBJEXT) \
-	nes/boards/246.$(OBJEXT) \
-	nes/boards/248.$(OBJEXT) \
-	nes/boards/15.$(OBJEXT) \
-	nes/boards/8.$(OBJEXT) \
-	nes/boards/193.$(OBJEXT) \
-	nes/boards/189.$(OBJEXT) \
-	nes/boards/244.$(OBJEXT) \
-	nes/boards/sachen.$(OBJEXT) \
-	nes/boards/107.$(OBJEXT) \
-	nes/boards/51.$(OBJEXT) \
-	nes/boards/152.$(OBJEXT) \
-	nes/boards/70.$(OBJEXT) \
-	nes/boards/185.$(OBJEXT) \
-	nes/boards/78.$(OBJEXT) \
-	nes/boards/87.$(OBJEXT) \
-	nes/boards/34.$(OBJEXT) \
-	nes/boards/222.$(OBJEXT) \
-	nes/boards/codemasters.$(OBJEXT) \
-	nes/boards/38.$(OBJEXT) \
-	nes/boards/240.$(OBJEXT) \
-	nes/boards/241.$(OBJEXT) \
-	nes/boards/163.$(OBJEXT) \
-	nes/boards/30.$(OBJEXT) \
-	nes/input/cursor.$(OBJEXT) \
-	nes/input/zapper.$(OBJEXT) \
-	nes/input/powerpad.$(OBJEXT) \
-	nes/input/arkanoid.$(OBJEXT) \
-	nes/input/shadow.$(OBJEXT) \
-	nes/input/fkb.$(OBJEXT) \
-	nes/input/hypershot.$(OBJEXT) \
-	nes/input/mahjong.$(OBJEXT) \
-	nes/input/oekakids.$(OBJEXT) \
-	nes/input/ftrainer.$(OBJEXT) \
-	nes/input/partytap.$(OBJEXT) \
-	nes/input/toprider.$(OBJEXT) \
-	nes/input/bworld.$(OBJEXT) \
-	nes/input/suborkb.$(OBJEXT) \
-	nes/ntsc/nes_ntsc.$(OBJEXT)
+#am__objects_7 = nes/nes.$(OBJEXT) \
+#	nes/x6502.$(OBJEXT) nes/cart.$(OBJEXT) \
+#	nes/fds.$(OBJEXT) nes/ines.$(OBJEXT) \
+#	nes/input.$(OBJEXT) nes/nsf.$(OBJEXT) \
+#	nes/nsfe.$(OBJEXT) nes/unif.$(OBJEXT) \
+#	nes/vsuni.$(OBJEXT) nes/sound.$(OBJEXT) \
+#	nes/filter.$(OBJEXT) \
+#	nes/fds-sound.$(OBJEXT)
+##am__objects_8 =  \
+##	nes/debug.$(OBJEXT) \
+##	nes/dis6502.$(OBJEXT)
+#am__objects_9 = nes/ppu/ppu.$(OBJEXT) \
+#	nes/ppu/palette.$(OBJEXT) \
+#	nes/boards/8237.$(OBJEXT) \
+#	nes/boards/h2288.$(OBJEXT) \
+#	nes/boards/simple.$(OBJEXT) \
+#	nes/boards/super24.$(OBJEXT) \
+#	nes/boards/mmc2and4.$(OBJEXT) \
+#	nes/boards/vrc6.$(OBJEXT) \
+#	nes/boards/emu2413.$(OBJEXT) \
+#	nes/boards/vrc7.$(OBJEXT) \
+#	nes/boards/96.$(OBJEXT) \
+#	nes/boards/208.$(OBJEXT) \
+#	nes/boards/187.$(OBJEXT) \
+#	nes/boards/95.$(OBJEXT) \
+#	nes/boards/fme7.$(OBJEXT) \
+#	nes/boards/mmc5.$(OBJEXT) \
+#	nes/boards/mmc3.$(OBJEXT) \
+#	nes/boards/mmc1.$(OBJEXT) \
+#	nes/boards/tengen.$(OBJEXT) \
+#	nes/boards/90.$(OBJEXT) \
+#	nes/boards/deirom.$(OBJEXT) \
+#	nes/boards/n106.$(OBJEXT) \
+#	nes/boards/maxicart.$(OBJEXT) \
+#	nes/boards/112.$(OBJEXT) \
+#	nes/boards/113.$(OBJEXT) \
+#	nes/boards/114.$(OBJEXT) \
+#	nes/boards/117.$(OBJEXT) \
+#	nes/boards/22.$(OBJEXT) \
+#	nes/boards/23.$(OBJEXT) \
+#	nes/boards/25.$(OBJEXT) \
+#	nes/boards/67.$(OBJEXT) \
+#	nes/boards/68.$(OBJEXT) \
+#	nes/boards/16.$(OBJEXT) \
+#	nes/boards/97.$(OBJEXT) \
+#	nes/boards/99.$(OBJEXT) \
+#	nes/boards/151.$(OBJEXT) \
+#	nes/boards/180.$(OBJEXT) \
+#	nes/boards/182.$(OBJEXT) \
+#	nes/boards/184.$(OBJEXT) \
+#	nes/boards/88.$(OBJEXT) \
+#	nes/boards/89.$(OBJEXT) \
+#	nes/boards/92.$(OBJEXT) \
+#	nes/boards/86.$(OBJEXT) \
+#	nes/boards/82.$(OBJEXT) \
+#	nes/boards/80.$(OBJEXT) \
+#	nes/boards/18.$(OBJEXT) \
+#	nes/boards/21.$(OBJEXT) \
+#	nes/boards/228.$(OBJEXT) \
+#	nes/boards/234.$(OBJEXT) \
+#	nes/boards/232.$(OBJEXT) \
+#	nes/boards/42.$(OBJEXT) \
+#	nes/boards/ffe.$(OBJEXT) \
+#	nes/boards/65.$(OBJEXT) \
+#	nes/boards/nina06.$(OBJEXT) \
+#	nes/boards/73.$(OBJEXT) \
+#	nes/boards/32.$(OBJEXT) \
+#	nes/boards/33.$(OBJEXT) \
+#	nes/boards/41.$(OBJEXT) \
+#	nes/boards/46.$(OBJEXT) \
+#	nes/boards/72.$(OBJEXT) \
+#	nes/boards/75.$(OBJEXT) \
+#	nes/boards/76.$(OBJEXT) \
+#	nes/boards/77.$(OBJEXT) \
+#	nes/boards/colordreams.$(OBJEXT) \
+#	nes/boards/140.$(OBJEXT) \
+#	nes/boards/93.$(OBJEXT) \
+#	nes/boards/94.$(OBJEXT) \
+#	nes/boards/malee.$(OBJEXT) \
+#	nes/boards/156.$(OBJEXT) \
+#	nes/boards/supervision.$(OBJEXT) \
+#	nes/boards/novel.$(OBJEXT) \
+#	nes/boards/242.$(OBJEXT) \
+#	nes/boards/246.$(OBJEXT) \
+#	nes/boards/248.$(OBJEXT) \
+#	nes/boards/15.$(OBJEXT) \
+#	nes/boards/8.$(OBJEXT) \
+#	nes/boards/193.$(OBJEXT) \
+#	nes/boards/189.$(OBJEXT) \
+#	nes/boards/244.$(OBJEXT) \
+#	nes/boards/sachen.$(OBJEXT) \
+#	nes/boards/107.$(OBJEXT) \
+#	nes/boards/51.$(OBJEXT) \
+#	nes/boards/152.$(OBJEXT) \
+#	nes/boards/70.$(OBJEXT) \
+#	nes/boards/185.$(OBJEXT) \
+#	nes/boards/78.$(OBJEXT) \
+#	nes/boards/87.$(OBJEXT) \
+#	nes/boards/34.$(OBJEXT) \
+#	nes/boards/222.$(OBJEXT) \
+#	nes/boards/codemasters.$(OBJEXT) \
+#	nes/boards/38.$(OBJEXT) \
+#	nes/boards/240.$(OBJEXT) \
+#	nes/boards/241.$(OBJEXT) \
+#	nes/boards/163.$(OBJEXT) \
+#	nes/boards/30.$(OBJEXT) \
+#	nes/input/cursor.$(OBJEXT) \
+#	nes/input/zapper.$(OBJEXT) \
+#	nes/input/powerpad.$(OBJEXT) \
+#	nes/input/arkanoid.$(OBJEXT) \
+#	nes/input/shadow.$(OBJEXT) \
+#	nes/input/fkb.$(OBJEXT) \
+#	nes/input/hypershot.$(OBJEXT) \
+#	nes/input/mahjong.$(OBJEXT) \
+#	nes/input/oekakids.$(OBJEXT) \
+#	nes/input/ftrainer.$(OBJEXT) \
+#	nes/input/partytap.$(OBJEXT) \
+#	nes/input/toprider.$(OBJEXT) \
+#	nes/input/bworld.$(OBJEXT) \
+#	nes/input/suborkb.$(OBJEXT) \
+#	nes/ntsc/nes_ntsc.$(OBJEXT)
 #am__objects_10 = pce/huc6280.$(OBJEXT) \
 #	pce/pce.$(OBJEXT) pce/vce.$(OBJEXT) \
 #	pce/input.$(OBJEXT) pce/huc.$(OBJEXT) \
@@ -658,12 +658,12 @@ am__objects_9 = nes/ppu/ppu.$(OBJEXT) \
 #	sms/sms.$(OBJEXT) sms/sound.$(OBJEXT) \
 #	sms/system.$(OBJEXT) sms/tms.$(OBJEXT) \
 #	sms/vdp.$(OBJEXT)
-#am__objects_18 = snes_faust/cpu.$(OBJEXT) \
-#	snes_faust/snes.$(OBJEXT) \
-#	snes_faust/apu.$(OBJEXT) \
-#	snes_faust/cart.$(OBJEXT) \
-#	snes_faust/input.$(OBJEXT) \
-#	snes_faust/ppu.$(OBJEXT)
+am__objects_18 = snes_faust/cpu.$(OBJEXT) \
+	snes_faust/snes.$(OBJEXT) \
+	snes_faust/apu.$(OBJEXT) \
+	snes_faust/cart.$(OBJEXT) \
+	snes_faust/input.$(OBJEXT) \
+	snes_faust/ppu.$(OBJEXT)
 #am__objects_19 = vb/vb.$(OBJEXT) vb/timer.$(OBJEXT) \
 #	vb/input.$(OBJEXT) vb/vip.$(OBJEXT) \
 #	vb/vsu.$(OBJEXT)
@@ -685,8 +685,8 @@ am__objects_9 = nes/ppu/ppu.$(OBJEXT) \
 ##	wswan/dis/syntax.$(OBJEXT) \
 ##	wswan/debug.$(OBJEXT)
 #am__objects_23 = hw_cpu/m68k/m68k.$(OBJEXT)
-am__objects_24 = hw_cpu/z80-fuse/z80.$(OBJEXT) \
-	hw_cpu/z80-fuse/z80_ops.$(OBJEXT)
+#am__objects_24 = hw_cpu/z80-fuse/z80.$(OBJEXT) \
+#	hw_cpu/z80-fuse/z80_ops.$(OBJEXT)
 #am__objects_25 = hw_cpu/v810/v810_cpu.$(OBJEXT) \
 #	hw_cpu/v810/v810_cpuD.$(OBJEXT) \
 #	hw_cpu/v810/v810_fp_ops.$(OBJEXT)
@@ -695,10 +695,10 @@ am__objects_24 = hw_cpu/z80-fuse/z80.$(OBJEXT) \
 #	hw_sound/ym2413/emu2413.$(OBJEXT)
 #am__objects_28 =  \
 #	hw_sound/ym2612/Ym2612_Emu.$(OBJEXT)
-am__objects_29 =  \
-	hw_sound/gb_apu/Gb_Apu.$(OBJEXT) \
-	hw_sound/gb_apu/Gb_Apu_State.$(OBJEXT) \
-	hw_sound/gb_apu/Gb_Oscs.$(OBJEXT)
+#am__objects_29 =  \
+#	hw_sound/gb_apu/Gb_Apu.$(OBJEXT) \
+#	hw_sound/gb_apu/Gb_Apu_State.$(OBJEXT) \
+#	hw_sound/gb_apu/Gb_Oscs.$(OBJEXT)
 #am__objects_30 =  \
 #	hw_sound/sms_apu/Sms_Apu.$(OBJEXT)
 #am__objects_31 =  \
@@ -706,7 +706,7 @@ am__objects_29 =  \
 #am__objects_32 =  \
 #	hw_video/huc6270/vdc.$(OBJEXT)
 #am__objects_33 = cdrom/CDAFReader_SF.$(OBJEXT)
-#am__objects_34 = cputest/x86_cpu.$(OBJEXT)
+am__objects_34 = cputest/x86_cpu.$(OBJEXT)
 #am__objects_35 = cputest/ppc_cpu.$(OBJEXT)
 am_mednafen_OBJECTS = debug.$(OBJEXT) error.$(OBJEXT) \
 	mempatcher.$(OBJEXT) settings.$(OBJEXT) endian.$(OBJEXT) \
@@ -880,34 +880,34 @@ am__relativize = \
     dir1=`echo "$$dir1" | sed -e "$$sed_rest"`; \
   done; \
   reldir="$$dir2"
-ACLOCAL = ${SHELL} /home/anonymous/Documents/Dev/medn/missing aclocal-1.14
+ACLOCAL = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing aclocal-1.14
 ALLOCA = 
 ALSA_CFLAGS = 
 ALSA_LIBS =  -lasound -lm -ldl -lpthread
 AMTAR = $${TAR-tar}
-AM_CFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables 
-AM_CXXFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables  -fexceptions
+AM_CFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fno-ipa-icf -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables -mcmodel=small 
+AM_CXXFLAGS =   -fno-fast-math -fno-unsafe-math-optimizations -fno-aggressive-loop-optimizations -fno-ipa-icf -fomit-frame-pointer  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariadic-macros -Wdisabled-optimization  -fno-pic -fno-pie -fno-PIC -fno-PIE -fwrapv -fjump-tables -mcmodel=small  -fexceptions
 AM_DEFAULT_VERBOSITY = 1
-AR = mipsel-linux-ar
-AUTOCONF = ${SHELL} /home/anonymous/Documents/Dev/medn/missing autoconf
-AUTOHEADER = ${SHELL} /home/anonymous/Documents/Dev/medn/missing autoheader
-AUTOMAKE = ${SHELL} /home/anonymous/Documents/Dev/medn/missing automake-1.14
+AR = ar
+AUTOCONF = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing autoconf
+AUTOHEADER = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing autoheader
+AUTOMAKE = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing automake-1.14
 AWK = gawk
 BUILD_INCLUDED_LIBINTL = no
 CATOBJEXT = .gmo
-CC = mipsel-linux-gcc -std=gnu99 -fsigned-char
-CCAS = mipsel-linux-gcc
+CC = gcc -std=gnu99 -fsigned-char
+CCAS = gcc
 CCASDEPMODE = depmode=gcc3
-CCASFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-PIE
+CCASFLAGS = -g -O2
 CCDEPMODE = depmode=gcc3
-CFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-PIE
+CFLAGS = -g -O2
 CFLAG_VISIBILITY = -fvisibility=hidden
-CPP = mipsel-linux-gcc -E -std=gnu99
+CPP = gcc -E -std=gnu99
 CPPFLAGS = 
-CXX = mipsel-linux-g++ -std=gnu++11 -fsigned-char
-CXXCPP = mipsel-linux-g++ -E -std=gnu++11
+CXX = g++ -std=gnu++11 -fsigned-char
+CXXCPP = g++ -E -std=gnu++11
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -Ofast -fdata-sections -ffunction-sections -march=mips32r2 -mips32r2 -fno-rtti -fno-PIE
+CXXFLAGS = -g -O2
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DLOCALEDIR=\"$(datadir)/locale\" -DHAVE_CONFIG_H 
@@ -925,11 +925,11 @@ GENCAT = gencat
 GETTEXT_MACRO_VERSION = 0.18
 GLIBC2 = yes
 GLIBC21 = yes
-GMSGFMT = /opt/gcw0-toolchain/usr/bin/msgfmt
-GMSGFMT_015 = /opt/gcw0-toolchain/usr/bin/msgfmt
+GMSGFMT = /usr/bin/msgfmt
+GMSGFMT_015 = /usr/bin/msgfmt
 GREP = /bin/grep
 HAVE_ASPRINTF = 1
-HAVE_NEWLOCALE = 0
+HAVE_NEWLOCALE = 1
 HAVE_POSIX_PRINTF = 1
 HAVE_SNPRINTF = 1
 HAVE_VISIBILITY = 1
@@ -941,17 +941,17 @@ INSTALL_SCRIPT = ${INSTALL}
 INSTALL_STRIP_PROGRAM = $(install_sh) -c -s
 INSTOBJEXT = .mo
 INTLBISON = bison
-INTLLIBS = -lintl
+INTLLIBS = 
 INTLOBJS = 
 INTL_DEFAULT_VERBOSITY = 1
 INTL_LIBTOOL_SUFFIX_PREFIX = 
 INTL_MACOSX_LIBS = 
 JACK_CFLAGS = 
 JACK_LIBS = 
-LD = /home/anonymous/Documents/Dev/gcw0-toolchain/usr/mipsel-gcw0-linux-uclibc/bin/ld
-LDFLAGS = -fno-PIE -Wl,--as-needed -Wl,--gc-sections -flto -s
-LIBICONV = -liconv
-LIBINTL = -lintl
+LD = /usr/bin/ld -m elf_x86_64
+LDFLAGS = 
+LIBICONV = 
+LIBINTL = 
 LIBMULTITHREAD = 
 LIBOBJS = 
 LIBPTH = 
@@ -962,23 +962,23 @@ LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LIPO = 
 LN_S = ln -s
 LTLIBC = -lc
-LTLIBICONV = -liconv
-LTLIBINTL = -lintl
+LTLIBICONV = 
+LTLIBINTL = 
 LTLIBMULTITHREAD = 
 LTLIBOBJS = 
 LTLIBPTH = 
 LTLIBTHREAD = 
-MAKEINFO = ${SHELL} /home/anonymous/Documents/Dev/medn/missing makeinfo
+MAKEINFO = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/missing makeinfo
 MANIFEST_TOOL = :
 MKDIR_P = /bin/mkdir -p
 MPCDEC_LIBS = 
-MSGFMT = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGFMT_015 = /opt/gcw0-toolchain/usr/bin/msgfmt
-MSGMERGE = /opt/gcw0-toolchain/usr/bin/msgmerge
-NM = /opt/gcw0-toolchain/usr/bin/mipsel-linux-nm -B
+MSGFMT = /usr/bin/msgfmt
+MSGFMT_015 = /usr/bin/msgfmt
+MSGMERGE = /usr/bin/msgmerge
+NM = /usr/bin/nm -B
 NMEDIT = 
 NO_STACK_PROTECTOR_FLAGS =  -fno-stack-protector
-OBJDUMP = mipsel-linux-objdump
+OBJDUMP = objdump
 OBJEXT = o
 OTOOL = 
 OTOOL64 = 
@@ -990,12 +990,12 @@ PACKAGE_TARNAME =
 PACKAGE_URL = 
 PACKAGE_VERSION = 
 PATH_SEPARATOR = :
-PKG_CONFIG = /opt/gcw0-toolchain/usr/bin/pkg-config
+PKG_CONFIG = /usr/bin/pkg-config
 PKG_CONFIG_LIBDIR = 
 PKG_CONFIG_PATH = 
 POSUB = po
 PRI_MACROS_BROKEN = 0
-RANLIB = mipsel-linux-ranlib
+RANLIB = ranlib
 SDL_CFLAGS = -I/usr/include/SDL -D_GNU_SOURCE=1 -D_REENTRANT
 SDL_CONFIG = /usr/bin/sdl-config
 SDL_LIBS = -L/usr/lib/x86_64-linux-gnu -lSDL
@@ -1006,8 +1006,8 @@ SNDFILE_CFLAGS =
 SNDFILE_LIBS = 
 SNES_EXTRA_CXXFLAGS = 
 SNES_EXTRA_FLAGS =  -Wno-unused -Wno-shadow -Wno-sign-compare -Wno-uninitialized -Wno-parentheses -Wno-switch
-SS_EXTRA_FLAGS = 
-STRIP = mipsel-linux-strip
+SS_EXTRA_FLAGS =  -mtune=haswell
+STRIP = strip
 TREMOR_LIBS = 
 TRIO_CFLAGS = 
 USE_INCLUDED_LIBINTL = no
@@ -1017,17 +1017,17 @@ WARNING_FLAGS =  -Wall -Wshadow -Wempty-body -Wignored-qualifiers -Wvla -Wvariad
 WINDRES = 
 WOE32 = no
 WOE32DLL = no
-XGETTEXT = /opt/gcw0-toolchain/usr/bin/xgettext
-XGETTEXT_015 = /opt/gcw0-toolchain/usr/bin/xgettext
+XGETTEXT = /usr/bin/xgettext
+XGETTEXT_015 = /usr/bin/xgettext
 XGETTEXT_EXTRA_OPTIONS = 
 ZLIB_LIBS = -lz
-abs_builddir = /home/anonymous/Documents/Dev/medn/src
-abs_srcdir = /home/anonymous/Documents/Dev/medn/src
-abs_top_builddir = /home/anonymous/Documents/Dev/medn
-abs_top_srcdir = /home/anonymous/Documents/Dev/medn
-ac_ct_AR = 
-ac_ct_CC = 
-ac_ct_CXX = 
+abs_builddir = /home/anonymous/Documents/Dev/mednafen-gcw/src
+abs_srcdir = /home/anonymous/Documents/Dev/mednafen-gcw/src
+abs_top_builddir = /home/anonymous/Documents/Dev/mednafen-gcw
+abs_top_srcdir = /home/anonymous/Documents/Dev/mednafen-gcw
+ac_ct_AR = ar
+ac_ct_CC = gcc
+ac_ct_CXX = g++
 ac_ct_DUMPBIN = 
 am__include = include
 am__leading_dot = .
@@ -1046,15 +1046,15 @@ datarootdir = ${prefix}/share
 docdir = ${datarootdir}/doc/${PACKAGE}
 dvidir = ${docdir}
 exec_prefix = ${prefix}
-host = mipsel-unknown-linux-gnu
-host_alias = mipsel-linux
-host_cpu = mipsel
+host = x86_64-unknown-linux-gnu
+host_alias = 
+host_cpu = x86_64
 host_os = linux-gnu
 host_vendor = unknown
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /home/anonymous/Documents/Dev/medn/install-sh
+install_sh = ${SHELL} /home/anonymous/Documents/Dev/mednafen-gcw/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -1070,9 +1070,9 @@ sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 srcdir = .
 sysconfdir = ${prefix}/etc
-target = mipsel-unknown-linux-gnu
+target = x86_64-unknown-linux-gnu
 target_alias = 
-target_cpu = mipsel
+target_cpu = x86_64
 target_os = linux-gnu
 target_vendor = unknown
 top_build_prefix = ../
@@ -1124,8 +1124,8 @@ mednafen_LDADD = trio/libtrio.a $(am__append_2) $(am__append_6) \
 	$(am__append_18) $(am__append_29) $(am__append_32) \
 	$(am__append_34) $(am__append_41) quicklz/libmdfnquicklz.a \
 	$(am__append_56) $(am__append_58) $(am__append_60) \
-	$(am__append_62)  -lz -lintl \
-	-liconv $(am__empty)
+	$(am__append_62)  -lz  \
+	 $(am__empty)
 mednafen_DEPENDENCIES = trio/libtrio.a $(am__append_3) $(am__append_7) \
 	sexyal/libsexyal.a $(am__append_19) $(am__append_30) \
 	$(am__append_33) $(am__append_35) $(am__append_42) \

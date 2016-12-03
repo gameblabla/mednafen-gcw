@@ -31,7 +31,7 @@
 #include "v810_cpu.h"
 #include "v810_cpuD.h"
 
-
+/*
 ////////////////////////////////////////////////////////////
 // Defines
 
@@ -382,4 +382,4 @@ void v810_dis(uint32 &tPC, int num, char *buf, uint16 (*rhword)(uint32), bool vb
             tPC += 2;
         }
     }
-}
+}*/

@@ -78,6 +78,7 @@ static INLINE void FixPCache(int entry)
 
 static INLINE void FixTileCache(vdc_t *which_vdc, uint16 A)
 {
+	#warn "CACA !!!"
  uint32 charname = (A >> 4);
  uint32 y = (A & 0x7);
  uint64 *tc = &which_vdc->bg_tile_cache[charname][y];

@@ -1,0 +1,544 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00    43623     0.00     0.00  trio_string_size
+  0.00      0.00     0.00    43623     0.00     0.00  trio_xstring_append_char
+  0.00      0.00     0.00    42540     0.00     0.00  TrioOutStreamStringDynamic
+  0.00      0.00     0.00    35953     0.00     0.00  TrioWriteStringCharacter
+  0.00      0.00     0.00    13873     0.00     0.00  TrioInitializeParameter
+  0.00      0.00     0.00     5742     0.00     0.00  internal_string_grow
+  0.00      0.00     0.00     4863     0.00     0.00  TrioIsQualifier
+  0.00      0.00     0.00     4847     0.00     0.00  trio_to_long
+  0.00      0.00     0.00     4350     0.00     0.00  TrioCopyParameter
+  0.00      0.00     0.00     4350     0.00     0.00  TrioGetPosition
+  0.00      0.00     0.00     4350     0.00     0.00  TrioParseQualifiers
+  0.00      0.00     0.00     4350     0.00     0.00  TrioParseSpecifier
+  0.00      0.00     0.00     3804     0.00     0.00  TrioOutStreamStringMax
+  0.00      0.00     0.00     3602     0.00     0.00  TrioWriteString
+  0.00      0.00     0.00     3602     0.00     0.00  trio_length_max
+  0.00      0.00     0.00     2166     0.00     0.00  trio_length
+  0.00      0.00     0.00     1835     0.00     0.00  TrioInStreamString
+  0.00      0.00     0.00     1595     0.00     0.00  TrioParse
+  0.00      0.00     0.00     1387     0.00     0.00  TrioFormat
+  0.00      0.00     0.00     1387     0.00     0.00  TrioFormatProcess
+  0.00      0.00     0.00     1083     0.00     0.00  internal_duplicate_max
+  0.00      0.00     0.00     1083     0.00     0.00  internal_string_alloc
+  0.00      0.00     0.00     1083     0.00     0.00  trio_copy_max
+  0.00      0.00     0.00     1083     0.00     0.00  trio_create
+  0.00      0.00     0.00     1083     0.00     0.00  trio_destroy
+  0.00      0.00     0.00     1083     0.00     0.00  trio_string_destroy
+  0.00      0.00     0.00     1083     0.00     0.00  trio_string_extract
+  0.00      0.00     0.00     1083     0.00     0.00  trio_string_terminate
+  0.00      0.00     0.00     1083     0.00     0.00  trio_xstring_duplicate
+  0.00      0.00     0.00      816     0.00     0.00  TrioReadChar
+  0.00      0.00     0.00      620     0.00     0.00  trio_aprintf
+  0.00      0.00     0.00      385     0.00     0.00  trio_vasprintf
+  0.00      0.00     0.00      314     0.00     0.00  TrioWriteNumber
+  0.00      0.00     0.00      304     0.00     0.00  trio_snprintf
+  0.00      0.00     0.00      222     0.00     0.00  TrioSkipWhitespaces
+  0.00      0.00     0.00      208     0.00     0.00  TrioScan
+  0.00      0.00     0.00      208     0.00     0.00  TrioScanProcess
+  0.00      0.00     0.00      203     0.00     0.00  trio_sscanf
+  0.00      0.00     0.00      102     0.00     0.00  TrioGetCharacterClass
+  0.00      0.00     0.00      102     0.00     0.00  TrioReadGroup
+  0.00      0.00     0.00      102     0.00     0.00  TrioReadString
+  0.00      0.00     0.00       86     0.00     0.00  fread_file_func
+  0.00      0.00     0.00       78     0.00     0.00  trio_vaprintf
+  0.00      0.00     0.00       66     0.00     0.00  fseek_file_func
+  0.00      0.00     0.00       47     0.00     0.00  TrioPower
+  0.00      0.00     0.00       22     0.00     0.00  unzlocal_getByte
+  0.00      0.00     0.00       18     0.00     0.00  TrioReadNumber
+  0.00      0.00     0.00       16     0.00     0.00  TrioLogarithm
+  0.00      0.00     0.00       16     0.00     0.00  TrioWriteDouble
+  0.00      0.00     0.00       16     0.00     0.00  c99_fpclassify_and_signbit
+  0.00      0.00     0.00       16     0.00     0.00  trio_fpclassify_and_signbit
+  0.00      0.00     0.00        5     0.00     0.00  u2p
+  0.00      0.00     0.00        5     0.00     0.00  unzlocal_getShort
+  0.00      0.00     0.00        3     0.00     0.00  unzlocal_getLong
+  0.00      0.00     0.00        1     0.00     0.00  __lzo_init_v2
+  0.00      0.00     0.00        1     0.00     0.00  _lzo_config_check
+  0.00      0.00     0.00        1     0.00     0.00  fclose_file_func
+  0.00      0.00     0.00        1     0.00     0.00  ff_get_cpu_flags_x86
+  0.00      0.00     0.00        1     0.00     0.00  fill_fopen_filefunc
+  0.00      0.00     0.00        1     0.00     0.00  fopen_file_func
+  0.00      0.00     0.00        1     0.00     0.00  ftell_file_func
+  0.00      0.00     0.00        1     0.00     0.00  unzOpen
+  0.00      0.00     0.00        1     0.00     0.00  unzOpen2
+  0.00      0.00     0.00        1     0.00     0.00  unzlocal_SearchCentralDir
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2015 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00   43623/43623       trio_xstring_append_char [2]
+[1]      0.0    0.00    0.00   43623         trio_string_size [1]
+-----------------------------------------------
+                0.00    0.00    1083/43623       trio_string_terminate [28]
+                0.00    0.00   42540/43623       TrioOutStreamStringDynamic [3]
+[2]      0.0    0.00    0.00   43623         trio_xstring_append_char [2]
+                0.00    0.00   43623/43623       trio_string_size [1]
+                0.00    0.00    5742/5742        internal_string_grow [6]
+-----------------------------------------------
+                0.00    0.00      87/42540       TrioWriteDouble [49]
+                0.00    0.00     171/42540       TrioWriteNumber [33]
+                0.00    0.00    7806/42540       TrioFormatProcess [20]
+                0.00    0.00   34476/42540       TrioWriteStringCharacter [4]
+[3]      0.0    0.00    0.00   42540         TrioOutStreamStringDynamic [3]
+                0.00    0.00   42540/43623       trio_xstring_append_char [2]
+-----------------------------------------------
+                0.00    0.00   35953/35953       TrioWriteString [14]
+[4]      0.0    0.00    0.00   35953         TrioWriteStringCharacter [4]
+                0.00    0.00   34476/42540       TrioOutStreamStringDynamic [3]
+                0.00    0.00    1477/3804        TrioOutStreamStringMax [13]
+-----------------------------------------------
+                0.00    0.00   13873/13873       TrioParse [18]
+[5]      0.0    0.00    0.00   13873         TrioInitializeParameter [5]
+-----------------------------------------------
+                0.00    0.00    5742/5742        trio_xstring_append_char [2]
+[6]      0.0    0.00    0.00    5742         internal_string_grow [6]
+-----------------------------------------------
+                0.00    0.00    4863/4863        TrioParseQualifiers [11]
+[7]      0.0    0.00    0.00    4863         TrioIsQualifier [7]
+-----------------------------------------------
+                0.00    0.00     497/4847        TrioParseQualifiers [11]
+                0.00    0.00    4350/4847        TrioGetPosition [10]
+[8]      0.0    0.00    0.00    4847         trio_to_long [8]
+-----------------------------------------------
+                0.00    0.00    4350/4350        TrioParse [18]
+[9]      0.0    0.00    0.00    4350         TrioCopyParameter [9]
+-----------------------------------------------
+                0.00    0.00    4350/4350        TrioParseQualifiers [11]
+[10]     0.0    0.00    0.00    4350         TrioGetPosition [10]
+                0.00    0.00    4350/4847        trio_to_long [8]
+-----------------------------------------------
+                0.00    0.00    4350/4350        TrioParse [18]
+[11]     0.0    0.00    0.00    4350         TrioParseQualifiers [11]
+                0.00    0.00    4863/4863        TrioIsQualifier [7]
+                0.00    0.00    4350/4350        TrioGetPosition [10]
+                0.00    0.00     497/4847        trio_to_long [8]
+-----------------------------------------------
+                0.00    0.00    4350/4350        TrioParse [18]
+[12]     0.0    0.00    0.00    4350         TrioParseSpecifier [12]
+-----------------------------------------------
+                0.00    0.00      64/3804        TrioWriteDouble [49]
+                0.00    0.00     756/3804        TrioWriteNumber [33]
+                0.00    0.00    1477/3804        TrioWriteStringCharacter [4]
+                0.00    0.00    1507/3804        TrioFormatProcess [20]
+[13]     0.0    0.00    0.00    3804         TrioOutStreamStringMax [13]
+-----------------------------------------------
+                0.00    0.00    3602/3602        TrioFormatProcess [20]
+[14]     0.0    0.00    0.00    3602         TrioWriteString [14]
+                0.00    0.00   35953/35953       TrioWriteStringCharacter [4]
+                0.00    0.00    3602/3602        trio_length_max [15]
+-----------------------------------------------
+                0.00    0.00    3602/3602        TrioWriteString [14]
+[15]     0.0    0.00    0.00    3602         trio_length_max [15]
+-----------------------------------------------
+                0.00    0.00    2166/2166        trio_xstring_duplicate [29]
+[16]     0.0    0.00    0.00    2166         trio_length [16]
+-----------------------------------------------
+                0.00    0.00      36/1835        TrioReadNumber [47]
+                0.00    0.00     102/1835        TrioSkipWhitespaces [35]
+                0.00    0.00     218/1835        TrioScanProcess [37]
+                0.00    0.00     663/1835        TrioReadGroup [40]
+                0.00    0.00     816/1835        TrioReadChar [30]
+[17]     0.0    0.00    0.00    1835         TrioInStreamString [17]
+-----------------------------------------------
+                0.00    0.00     208/1595        TrioScan [36]
+                0.00    0.00    1387/1595        TrioFormat [19]
+[18]     0.0    0.00    0.00    1595         TrioParse [18]
+                0.00    0.00   13873/13873       TrioInitializeParameter [5]
+                0.00    0.00    4350/4350        TrioParseQualifiers [11]
+                0.00    0.00    4350/4350        TrioParseSpecifier [12]
+                0.00    0.00    4350/4350        TrioCopyParameter [9]
+-----------------------------------------------
+                0.00    0.00      78/1387        trio_vaprintf [43]
+                0.00    0.00     304/1387        trio_snprintf [34]
+                0.00    0.00     385/1387        trio_vasprintf [32]
+                0.00    0.00     620/1387        trio_aprintf [31]
+[19]     0.0    0.00    0.00    1387         TrioFormat [19]
+                0.00    0.00    1387/1595        TrioParse [18]
+                0.00    0.00    1387/1387        TrioFormatProcess [20]
+-----------------------------------------------
+                0.00    0.00    1387/1387        TrioFormat [19]
+[20]     0.0    0.00    0.00    1387         TrioFormatProcess [20]
+                0.00    0.00    7806/42540       TrioOutStreamStringDynamic [3]
+                0.00    0.00    3602/3602        TrioWriteString [14]
+                0.00    0.00    1507/3804        TrioOutStreamStringMax [13]
+                0.00    0.00     314/314         TrioWriteNumber [33]
+                0.00    0.00      16/16          TrioWriteDouble [49]
+-----------------------------------------------
+                0.00    0.00    1083/1083        trio_xstring_duplicate [29]
+[21]     0.0    0.00    0.00    1083         internal_duplicate_max [21]
+                0.00    0.00    1083/1083        trio_create [24]
+                0.00    0.00    1083/1083        trio_copy_max [23]
+-----------------------------------------------
+                0.00    0.00    1083/1083        trio_xstring_duplicate [29]
+[22]     0.0    0.00    0.00    1083         internal_string_alloc [22]
+-----------------------------------------------
+                0.00    0.00    1083/1083        internal_duplicate_max [21]
+[23]     0.0    0.00    0.00    1083         trio_copy_max [23]
+-----------------------------------------------
+                0.00    0.00    1083/1083        internal_duplicate_max [21]
+[24]     0.0    0.00    0.00    1083         trio_create [24]
+-----------------------------------------------
+                0.00    0.00    1083/1083        trio_string_destroy [26]
+[25]     0.0    0.00    0.00    1083         trio_destroy [25]
+-----------------------------------------------
+                0.00    0.00      78/1083        trio_vaprintf [43]
+                0.00    0.00     385/1083        trio_vasprintf [32]
+                0.00    0.00     620/1083        trio_aprintf [31]
+[26]     0.0    0.00    0.00    1083         trio_string_destroy [26]
+                0.00    0.00    1083/1083        trio_destroy [25]
+-----------------------------------------------
+                0.00    0.00      78/1083        trio_vaprintf [43]
+                0.00    0.00     385/1083        trio_vasprintf [32]
+                0.00    0.00     620/1083        trio_aprintf [31]
+[27]     0.0    0.00    0.00    1083         trio_string_extract [27]
+-----------------------------------------------
+                0.00    0.00      78/1083        trio_vaprintf [43]
+                0.00    0.00     385/1083        trio_vasprintf [32]
+                0.00    0.00     620/1083        trio_aprintf [31]
+[28]     0.0    0.00    0.00    1083         trio_string_terminate [28]
+                0.00    0.00    1083/43623       trio_xstring_append_char [2]
+-----------------------------------------------
+                0.00    0.00      78/1083        trio_vaprintf [43]
+                0.00    0.00     385/1083        trio_vasprintf [32]
+                0.00    0.00     620/1083        trio_aprintf [31]
+[29]     0.0    0.00    0.00    1083         trio_xstring_duplicate [29]
+                0.00    0.00    2166/2166        trio_length [16]
+                0.00    0.00    1083/1083        internal_string_alloc [22]
+                0.00    0.00    1083/1083        internal_duplicate_max [21]
+-----------------------------------------------
+                0.00    0.00     816/816         TrioReadString [41]
+[30]     0.0    0.00    0.00     816         TrioReadChar [30]
+                0.00    0.00     816/1835        TrioInStreamString [17]
+-----------------------------------------------
+                0.00    0.00     224/620         InitCommandInput(MDFNGI*) [826]
+                0.00    0.00     396/620         MakeInputSettings(std::vector<MDFNSetting, std::allocator<MDFNSetting> >&) [887]
+[31]     0.0    0.00    0.00     620         trio_aprintf [31]
+                0.00    0.00     620/1083        trio_xstring_duplicate [29]
+                0.00    0.00     620/1387        TrioFormat [19]
+                0.00    0.00     620/1083        trio_string_terminate [28]
+                0.00    0.00     620/1083        trio_string_extract [27]
+                0.00    0.00     620/1083        trio_string_destroy [26]
+-----------------------------------------------
+                0.00    0.00     385/385         Stream::print_format(char const*, ...) [1808]
+[32]     0.0    0.00    0.00     385         trio_vasprintf [32]
+                0.00    0.00     385/1083        trio_xstring_duplicate [29]
+                0.00    0.00     385/1387        TrioFormat [19]
+                0.00    0.00     385/1083        trio_string_terminate [28]
+                0.00    0.00     385/1083        trio_string_extract [27]
+                0.00    0.00     385/1083        trio_string_destroy [26]
+-----------------------------------------------
+                0.00    0.00     314/314         TrioFormatProcess [20]
+[33]     0.0    0.00    0.00     314         TrioWriteNumber [33]
+                0.00    0.00     756/3804        TrioOutStreamStringMax [13]
+                0.00    0.00     171/42540       TrioOutStreamStringDynamic [3]
+-----------------------------------------------
+                0.00    0.00       1/304         GZFileStream::GZFileStream(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, GZFileStream::MODE, int) [1337]
+                0.00    0.00       2/304         MDFNI_LoadCD(char const*, char const*) [707]
+                0.00    0.00       3/304         RMDUI_Init(MDFNGI*) [657]
+                0.00    0.00       8/304         InitCommandInput(MDFNGI*) [826]
+                0.00    0.00      15/304         BuildDynamicSetting(MDFNSetting*, char const*, char const*, unsigned int, char const*, MDFNSettingType, char const*, char const*, char const*, bool (*)(char const*, char const*), void (*)(char const*)) [clone .constprop.247] [1131]
+                0.00    0.00      16/304         MDFN_IEN_PCFX::FXINPUT_StateAction(StateMem*, unsigned int, bool) [1478]
+                0.00    0.00      16/304         Video_MakeSettings(std::vector<MDFNSetting, std::allocator<MDFNSetting> >&) [915]
+                0.00    0.00      24/304         MDFN_MakeFName[abi:cxx11](MakeFName_Type, int, char const*) [783]
+                0.00    0.00      27/304         MakeInputSettings(std::vector<MDFNSetting, std::allocator<MDFNSetting> >&) [887]
+                0.00    0.00      34/304         MDFN_StateAction(StateMem*, unsigned int, bool) [845]
+                0.00    0.00      44/304         BuildSystemSetting(MDFNSetting*, char const*, char const*, char const*, char const*, MDFNSettingType, char const*, char const*, char const*, bool (*)(char const*, char const*), void (*)(char const*), MDFNSetting_EnumList const*) [891]
+                0.00    0.00     114/304         BCToString(ButtConfig const&) [1030]
+[34]     0.0    0.00    0.00     304         trio_snprintf [34]
+                0.00    0.00     304/1387        TrioFormat [19]
+-----------------------------------------------
+                0.00    0.00      18/222         TrioReadNumber [47]
+                0.00    0.00     102/222         TrioReadString [41]
+                0.00    0.00     102/222         TrioScanProcess [37]
+[35]     0.0    0.00    0.00     222         TrioSkipWhitespaces [35]
+                0.00    0.00     102/1835        TrioInStreamString [17]
+-----------------------------------------------
+                0.00    0.00     208/208         trio_sscanf [38]
+[36]     0.0    0.00    0.00     208         TrioScan [36]
+                0.00    0.00     208/1595        TrioParse [18]
+                0.00    0.00     208/208         TrioScanProcess [37]
+-----------------------------------------------
+                0.00    0.00     208/208         TrioScan [36]
+[37]     0.0    0.00    0.00     208         TrioScanProcess [37]
+                0.00    0.00     218/1835        TrioInStreamString [17]
+                0.00    0.00     102/222         TrioSkipWhitespaces [35]
+                0.00    0.00     102/102         TrioReadString [41]
+                0.00    0.00     102/102         TrioGetCharacterClass [39]
+                0.00    0.00     102/102         TrioReadGroup [40]
+                0.00    0.00      18/18          TrioReadNumber [47]
+-----------------------------------------------
+                0.00    0.00       3/203         CDAccess_Image::ImageOpen(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, bool) [1569]
+                0.00    0.00     200/203         StringToBC(char const*, std::vector<ButtConfig, std::allocator<ButtConfig> >&) [1044]
+[38]     0.0    0.00    0.00     203         trio_sscanf [38]
+                0.00    0.00     208/208         TrioScan [36]
+-----------------------------------------------
+                0.00    0.00     102/102         TrioScanProcess [37]
+[39]     0.0    0.00    0.00     102         TrioGetCharacterClass [39]
+-----------------------------------------------
+                0.00    0.00     102/102         TrioScanProcess [37]
+[40]     0.0    0.00    0.00     102         TrioReadGroup [40]
+                0.00    0.00     663/1835        TrioInStreamString [17]
+-----------------------------------------------
+                0.00    0.00     102/102         TrioScanProcess [37]
+[41]     0.0    0.00    0.00     102         TrioReadString [41]
+                0.00    0.00     816/816         TrioReadChar [30]
+                0.00    0.00     102/222         TrioSkipWhitespaces [35]
+-----------------------------------------------
+                0.00    0.00      22/86          unzlocal_getByte [46]
+                0.00    0.00      64/86          unzlocal_SearchCentralDir [62]
+[42]     0.0    0.00    0.00      86         fread_file_func [42]
+-----------------------------------------------
+                0.00    0.00      20/78          MDFN_Error::MDFN_Error(int, char const*, ...) [1245]
+                0.00    0.00      58/78          MDFN_printf(char const*, ...) [691]
+[43]     0.0    0.00    0.00      78         trio_vaprintf [43]
+                0.00    0.00      78/1083        trio_xstring_duplicate [29]
+                0.00    0.00      78/1387        TrioFormat [19]
+                0.00    0.00      78/1083        trio_string_terminate [28]
+                0.00    0.00      78/1083        trio_string_extract [27]
+                0.00    0.00      78/1083        trio_string_destroy [26]
+-----------------------------------------------
+                0.00    0.00       1/66          unzOpen2 [61]
+                0.00    0.00      65/66          unzlocal_SearchCentralDir [62]
+[44]     0.0    0.00    0.00      66         fseek_file_func [44]
+-----------------------------------------------
+                0.00    0.00      47/47          TrioWriteDouble [49]
+[45]     0.0    0.00    0.00      47         TrioPower [45]
+-----------------------------------------------
+                0.00    0.00      10/22          unzlocal_getShort [53]
+                0.00    0.00      12/22          unzlocal_getLong [54]
+[46]     0.0    0.00    0.00      22         unzlocal_getByte [46]
+                0.00    0.00      22/86          fread_file_func [42]
+-----------------------------------------------
+                0.00    0.00      18/18          TrioScanProcess [37]
+[47]     0.0    0.00    0.00      18         TrioReadNumber [47]
+                0.00    0.00      36/1835        TrioInStreamString [17]
+                0.00    0.00      18/222         TrioSkipWhitespaces [35]
+-----------------------------------------------
+                0.00    0.00      16/16          TrioWriteDouble [49]
+[48]     0.0    0.00    0.00      16         TrioLogarithm [48]
+-----------------------------------------------
+                0.00    0.00      16/16          TrioFormatProcess [20]
+[49]     0.0    0.00    0.00      16         TrioWriteDouble [49]
+                0.00    0.00      87/42540       TrioOutStreamStringDynamic [3]
+                0.00    0.00      64/3804        TrioOutStreamStringMax [13]
+                0.00    0.00      47/47          TrioPower [45]
+                0.00    0.00      16/16          trio_fpclassify_and_signbit [51]
+                0.00    0.00      16/16          TrioLogarithm [48]
+-----------------------------------------------
+                0.00    0.00      16/16          trio_fpclassify_and_signbit [51]
+[50]     0.0    0.00    0.00      16         c99_fpclassify_and_signbit [50]
+-----------------------------------------------
+                0.00    0.00      16/16          TrioWriteDouble [49]
+[51]     0.0    0.00    0.00      16         trio_fpclassify_and_signbit [51]
+                0.00    0.00      16/16          c99_fpclassify_and_signbit [50]
+-----------------------------------------------
+                0.00    0.00       5/5           _lzo_config_check [611]
+[52]     0.0    0.00    0.00       5         u2p [52]
+-----------------------------------------------
+                0.00    0.00       5/5           unzOpen2 [61]
+[53]     0.0    0.00    0.00       5         unzlocal_getShort [53]
+                0.00    0.00      10/22          unzlocal_getByte [46]
+-----------------------------------------------
+                0.00    0.00       3/3           unzOpen2 [61]
+[54]     0.0    0.00    0.00       3         unzlocal_getLong [54]
+                0.00    0.00      12/22          unzlocal_getByte [46]
+-----------------------------------------------
+                0.00    0.00       1/1           unzOpen2 [61]
+[55]     0.0    0.00    0.00       1         fclose_file_func [55]
+-----------------------------------------------
+                0.00    0.00       1/1           cputest_get_flags [131]
+[56]     0.0    0.00    0.00       1         ff_get_cpu_flags_x86 [56]
+-----------------------------------------------
+                0.00    0.00       1/1           unzOpen2 [61]
+[57]     0.0    0.00    0.00       1         fill_fopen_filefunc [57]
+-----------------------------------------------
+                0.00    0.00       1/1           unzOpen2 [61]
+[58]     0.0    0.00    0.00       1         fopen_file_func [58]
+-----------------------------------------------
+                0.00    0.00       1/1           unzlocal_SearchCentralDir [62]
+[59]     0.0    0.00    0.00       1         ftell_file_func [59]
+-----------------------------------------------
+                0.00    0.00       1/1           MDFNFILE::Open(char const*, FileExtensionSpecStruct const*, char const*) [1878]
+[60]     0.0    0.00    0.00       1         unzOpen [60]
+                0.00    0.00       1/1           unzOpen2 [61]
+-----------------------------------------------
+                0.00    0.00       1/1           unzOpen [60]
+[61]     0.0    0.00    0.00       1         unzOpen2 [61]
+                0.00    0.00       5/5           unzlocal_getShort [53]
+                0.00    0.00       3/3           unzlocal_getLong [54]
+                0.00    0.00       1/1           fill_fopen_filefunc [57]
+                0.00    0.00       1/1           fopen_file_func [58]
+                0.00    0.00       1/1           unzlocal_SearchCentralDir [62]
+                0.00    0.00       1/66          fseek_file_func [44]
+                0.00    0.00       1/1           fclose_file_func [55]
+-----------------------------------------------
+                0.00    0.00       1/1           unzOpen2 [61]
+[62]     0.0    0.00    0.00       1         unzlocal_SearchCentralDir [62]
+                0.00    0.00      65/66          fseek_file_func [44]
+                0.00    0.00      64/86          fread_file_func [42]
+                0.00    0.00       1/1           ftell_file_func [59]
+-----------------------------------------------
+                0.00    0.00       1/1           MDFNI_Initialize(char const*, std::vector<MDFNSetting, std::allocator<MDFNSetting> > const&) [836]
+[610]    0.0    0.00    0.00       1         __lzo_init_v2 [610]
+                0.00    0.00       1/1           _lzo_config_check [611]
+-----------------------------------------------
+                0.00    0.00       1/1           __lzo_init_v2 [610]
+[611]    0.0    0.00    0.00       1         _lzo_config_check [611]
+                0.00    0.00       5/5           u2p [52]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2015 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [9] TrioCopyParameter      [49] TrioWriteDouble        [16] trio_length
+  [19] TrioFormat             [33] TrioWriteNumber        [15] trio_length_max
+  [20] TrioFormatProcess      [14] TrioWriteString        [34] trio_snprintf
+  [39] TrioGetCharacterClass   [4] TrioWriteStringCharacter [38] trio_sscanf
+  [10] TrioGetPosition       [610] __lzo_init_v2          [26] trio_string_destroy
+  [17] TrioInStreamString    [611] _lzo_config_check      [27] trio_string_extract
+   [5] TrioInitializeParameter [50] c99_fpclassify_and_signbit [1] trio_string_size
+   [7] TrioIsQualifier        [55] fclose_file_func       [28] trio_string_terminate
+  [48] TrioLogarithm          [56] ff_get_cpu_flags_x86    [8] trio_to_long
+   [3] TrioOutStreamStringDynamic [57] fill_fopen_filefunc [43] trio_vaprintf
+  [13] TrioOutStreamStringMax [58] fopen_file_func        [32] trio_vasprintf
+  [18] TrioParse              [42] fread_file_func         [2] trio_xstring_append_char
+  [11] TrioParseQualifiers    [44] fseek_file_func        [29] trio_xstring_duplicate
+  [12] TrioParseSpecifier     [59] ftell_file_func        [52] u2p
+  [45] TrioPower              [21] internal_duplicate_max [60] unzOpen
+  [30] TrioReadChar           [22] internal_string_alloc  [61] unzOpen2
+  [40] TrioReadGroup           [6] internal_string_grow   [62] unzlocal_SearchCentralDir
+  [47] TrioReadNumber         [31] trio_aprintf           [46] unzlocal_getByte
+  [41] TrioReadString         [23] trio_copy_max          [54] unzlocal_getLong
+  [36] TrioScan               [24] trio_create            [53] unzlocal_getShort
+  [37] TrioScanProcess        [25] trio_destroy
+  [35] TrioSkipWhitespaces    [51] trio_fpclassify_and_signbit

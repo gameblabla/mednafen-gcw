@@ -54,6 +54,8 @@ found freely through public domain sources.
 #include "v810_cpu.h"
 #include "v810_cpuD.h"
 
+#define FPU_DoException 
+
 V810::V810()
 {
  #ifdef WANT_DEBUGGER
@@ -101,8 +103,8 @@ INLINE void V810::RecalcIPendingCache(void)
 
  // If CPU is halted because of a fatal exception, don't let an interrupt
  // take us out of this halted status.
- if(Halted == HALT_FATAL_EXCEPTION) 
-  return;
+ /*if(Halted == HALT_FATAL_EXCEPTION) 
+  return;*/
 
  // If the NMI pending, exception pending, and/or interrupt disabled bit
  // is set, don't accept any interrupts.
@@ -126,6 +128,7 @@ INLINE void V810::RecalcIPendingCache(void)
 // and try to restore cache from an interrupt acknowledge register or dump it to a register
 // controlling interrupt masks...  I wanna be sadistic~
 
+/*
 void V810::CacheClear(v810_timestamp_t &timestamp, uint32 start, uint32 count)
 {
  //printf("Cache clear: %08x %08x\n", start, count);
@@ -210,11 +213,11 @@ void V810::CacheRestore(v810_timestamp_t &timestamp, const uint32 SA)
   Cache[i].data_valid[1] = (icht >> 23) & 1;
  }
 }
-
+*/
 
 INLINE uint32 V810::RDCACHE(v810_timestamp_t &timestamp, uint32 addr)
 {
- const int CI = (addr >> 3) & 0x7F;
+ /*const int CI = (addr >> 3) & 0x7F;
  const int SBI = (addr & 4) >> 2;
 
  if(Cache[CI].tag == (addr >> 10))
@@ -270,23 +273,23 @@ INLINE uint32 V810::RDCACHE(v810_timestamp_t &timestamp, uint32 addr)
  // }
  //}
 
- return(Cache[CI].data[SBI]);
+ return(Cache[CI].data[SBI]);*/
 }
 
 INLINE uint16 V810::RDOP(v810_timestamp_t &timestamp, uint32 addr, uint32 meow)
 {
  uint16 ret;
 
- if(S_REG[CHCW] & 0x2)
+ /*if(S_REG[CHCW] & 0x2)
  {
   uint32 d32 = RDCACHE(timestamp, addr);
   ret = d32 >> ((addr & 2) * 8);
  }
  else
- {
+ {*/
   timestamp += meow; //++;
   ret = MemRead16(timestamp, addr);
- }
+ /*}*/
  return(ret);
 }
 
@@ -359,7 +362,7 @@ void V810::Kill(void)
 
 void V810::SetInt(int level)
 {
- assert(level >= -1 && level <= 15);
+ /*assert(level >= -1 && level <= 15);*/
 
  ilevel = level;
  RecalcIPendingCache();
@@ -367,11 +370,11 @@ void V810::SetInt(int level)
 
 uint8 *V810::SetFastMap(uint32 addresses[], uint32 length, unsigned int num_addresses, const char *name)
 {
- for(unsigned int i = 0; i < num_addresses; i++)
+ /*for(unsigned int i = 0; i < num_addresses; i++)
  {
   assert((addresses[i] & (V810_FAST_MAP_PSIZE - 1)) == 0);
  }
- assert((length & (V810_FAST_MAP_PSIZE - 1)) == 0);
+ assert((length & (V810_FAST_MAP_PSIZE - 1)) == 0);*/
 
  FastMapAllocList.emplace_back(std::unique_ptr<uint8[]>(new uint8[length + V810_FAST_MAP_TRAMPOLINE_SIZE]));
  uint8* ret = FastMapAllocList.back().get();
@@ -529,13 +532,13 @@ INLINE void V810::SetSREG(v810_timestamp_t &timestamp, unsigned int which, uint3
 
 	 case ADDTRE:
   	        S_REG[ADDTRE] = value & 0xFFFFFFFE;
-        	printf("Address trap(unemulated): %08x\n", value);
+        	/*printf("Address trap(unemulated): %08x\n", value);*/
 		break;
 
 	 case CHCW:
               	S_REG[CHCW] = value & 0x2;
 
-              	switch(value & 0x31)
+              	/*switch(value & 0x31)
               	{
               	 default: printf("Undefined cache control bit combination: %08x\n", value);
                           break;
@@ -550,7 +553,7 @@ INLINE void V810::SetSREG(v810_timestamp_t &timestamp, unsigned int which, uint3
 
               	 case 0x20: CacheRestore(timestamp, value & ~0xFF);
                             break;
-               	}
+               	}*/
 		break;
 	}
 }
@@ -559,11 +562,11 @@ INLINE uint32 V810::GetSREG(unsigned int which)
 {
 	uint32 ret;
 
-	if(which != 24 && which != 25 && which >= 8)
+	/*if(which != 24 && which != 25 && which >= 8)
 	{
 	 printf("STSR from reserved system register: 0x%02x", which);
         }
-
+*/
 	ret = S_REG[which];
 
 	return(ret);
@@ -572,31 +575,21 @@ INLINE uint32 V810::GetSREG(unsigned int which)
 #define RB_SETPC(new_pc_raw) 										\
 			  {										\
 			   const uint32 new_pc = new_pc_raw;	/* So RB_SETPC(RB_GETPC()) won't mess up */	\
-			   if(RB_AccurateMode)								\
-			    PC = new_pc;								\
-			   else										\
-			   {										\
 			    PC_ptr = &FastMap[(new_pc) >> V810_FAST_MAP_SHIFT][(new_pc)];		\
 			    PC_base = PC_ptr - (new_pc);						\
-			   }										\
 			  }
 
 #define RB_PCRELCHANGE(delta) { 				\
-				if(RB_AccurateMode)		\
-				 PC += (delta);			\
-				else				\
-				{				\
 				 uint32 PC_tmp = RB_GETPC();	\
 				 PC_tmp += (delta);		\
 				 RB_SETPC(PC_tmp);		\
-				}					\
 			      }
 
-#define RB_INCPCBY2()	{ if(RB_AccurateMode) PC += 2; else PC_ptr += 2; }
-#define RB_INCPCBY4()   { if(RB_AccurateMode) PC += 4; else PC_ptr += 4; }
+#define RB_INCPCBY2()	{ PC_ptr += 2; }
+#define RB_INCPCBY4()   { PC_ptr += 4; }
 
-#define RB_DECPCBY2()   { if(RB_AccurateMode) PC -= 2; else PC_ptr -= 2; }
-#define RB_DECPCBY4()   { if(RB_AccurateMode) PC -= 4; else PC_ptr -= 4; }
+#define RB_DECPCBY2()   { PC_ptr -= 2; }
+#define RB_DECPCBY4()   { PC_ptr -= 4; }
 
 
 // Define accurate mode defines
@@ -697,8 +690,9 @@ void V810::Run_Fast_Debug(int32 MDFN_FASTCALL (*event_handler)(const v810_timest
 v810_timestamp_t V810::Run(int32 MDFN_FASTCALL (*event_handler)(const v810_timestamp_t timestamp))
 {
  Running = true;
+ Run_Fast(event_handler);
 
- #ifdef WANT_DEBUGGER
+ /*#ifdef WANT_DEBUGGER
  if(CPUHook || ADDBT)
  {
   if(EmuMode == V810_EMU_MODE_FAST)
@@ -713,7 +707,7 @@ v810_timestamp_t V810::Run(int32 MDFN_FASTCALL (*event_handler)(const v810_times
    Run_Fast(event_handler);
   else
    Run_Accurate(event_handler);
- }
+ }*/
  return(v810_timestamp);
 }
 
@@ -1112,7 +1106,7 @@ bool V810::bstr_subop(v810_timestamp_t &timestamp, int sub_op, int arg1)
   printf("BSTR Search: %02x\n", sub_op);
   return(Do_BSTR_Search(timestamp, ((sub_op & 1) ? -1 : 1), (sub_op & 0x2) >> 1));
  }
- assert(0);
+ /*assert(0);*/
  return(false);
 }
 
@@ -1137,9 +1131,10 @@ INLINE void V810::SetFPUOPNonFPUFlags(uint32 result)
                  //printf("MEOW: %08x\n", S_REG[PSW] & (PSW_S | PSW_CY));
 }
 
+
 bool V810::FPU_DoesExceptionKillResult(void)
 {
- const uint32 float_exception_flags = fpo.get_flags();
+ /*const uint32 float_exception_flags = fpo.get_flags();
 
  if(float_exception_flags & V810_FP_Ops::flag_reserved)
   return(true);
@@ -1159,9 +1154,10 @@ bool V810::FPU_DoesExceptionKillResult(void)
  if(float_exception_flags & V810_FP_Ops::flag_overflow)
   return(false);
 
- return(false);
+ return(false);*/
 }
 
+/*
 void V810::FPU_DoException(void)
 {
  const uint32 float_exception_flags = fpo.get_flags();
@@ -1216,7 +1212,7 @@ void V810::FPU_DoException(void)
   SetPC(GetPC() - 4);
   Exception(FPU_HANDLER_ADDR, ECODE_FOV);
  }
-}
+}*/
 
 bool V810::IsSubnormal(uint32 fpval)
 {
@@ -1233,12 +1229,12 @@ INLINE void V810::FPU_Math_Template(uint32 (V810_FP_Ops::*func)(uint32, uint32),
  fpo.clear_flags();
  result = (fpo.*func)(P_REG[arg1], P_REG[arg2]);
 
- if(!FPU_DoesExceptionKillResult())
+ /*if(!FPU_DoesExceptionKillResult())
  {
   SetFPUOPNonFPUFlags(result);
   SetPREG(arg1, result);
- }
- FPU_DoException();
+ }*/
+ //FPU_DoException();
 }
 
 void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2)
@@ -1302,12 +1298,12 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
                  fpo.clear_flags();
 		 result = fpo.itof(P_REG[arg2]);
 
-		 if(!FPU_DoesExceptionKillResult())
+		 /*if(!FPU_DoesExceptionKillResult())
 		 {
 		  SetPREG(arg1, result);
 		  SetFPUOPNonFPUFlags(result);
-		 }
-		 FPU_DoException();
+		 }*/
+		 //FPU_DoException();
 		}
 		break;	// End CVT.WS
 
@@ -1319,13 +1315,13 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
                  fpo.clear_flags();
 		 result = fpo.ftoi(P_REG[arg2], false);
 
-		 if(!FPU_DoesExceptionKillResult())
+		 /*if(!FPU_DoesExceptionKillResult())
 		 {
 		  SetPREG(arg1, result);
                   SetFlag(PSW_OV, 0);
                   SetSZ(result);
-		 }
-		 FPU_DoException();
+		 }*/
+		 //FPU_DoException();
 		}
 		break;	// End CVT.SW
 
@@ -1346,11 +1342,11 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
 
 		      result = fpo.cmp(P_REG[arg1], P_REG[arg2]);
 
-	              if(!FPU_DoesExceptionKillResult())
+	              /*if(!FPU_DoesExceptionKillResult())
 		      {
 		       SetFPUOPNonFPUFlags(result);
-		      }
-		      FPU_DoException();
+		      }*/
+		      //FPU_DoException();
 		     }
                      break;
 
@@ -1370,13 +1366,13 @@ void V810::fpu_subop(v810_timestamp_t &timestamp, int sub_op, int arg1, int arg2
 		 fpo.clear_flags();
                  result = fpo.ftoi(P_REG[arg2], true);
 
-                 if(!FPU_DoesExceptionKillResult())
+                 /*if(!FPU_DoesExceptionKillResult())
                  {
                   SetPREG(arg1, result);
 		  SetFlag(PSW_OV, 0);
 		  SetSZ(result);
-                 }
-		 FPU_DoException();
+                 }*/
+		 //FPU_DoException();
                 }
                 break;	// end TRNC.SW
 	}

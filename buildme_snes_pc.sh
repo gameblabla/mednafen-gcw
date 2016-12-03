@@ -1,0 +1,2 @@
+./configure --without-libsndfile --disable-pce-fast --disable-pcfx --disable-psx --disable-sms --disable-debugger --disable-threads --disable-cjk-fonts --disable-ss --disable-ssfplay --disable-pce --disable-md --disable-lynx --disable-ngp --disable-vb --disable-nes --disable-snes --disable-wswan --disable-gba --disable-gb --disable-debugger --enable-snes-faust --disable-fancy-scalers --disable-alsatest
+make -j7
